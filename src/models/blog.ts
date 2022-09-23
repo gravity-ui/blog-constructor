@@ -87,6 +87,7 @@ export interface BlogMetaProps {
         shareImage: string;
         shareGenImage: string;
         shareGenTitle: string;
+        generateImage?: string; // crutch for generate image
     };
     keywords?: string[];
     noIndex?: boolean;

@@ -46,7 +46,14 @@ export const BlogPageMeta: React.FC<BlogMetaProps> = React.memo(
         const {pathname} = useContext(RouterContext);
         const {locale} = useContext(LocaleContext);
 
-        const {shareTitle, shareDescription, shareImage, shareGenImage, shareGenTitle} = sharing;
+        const {
+            shareTitle,
+            shareDescription,
+            shareImage,
+            shareGenImage,
+            shareGenTitle,
+            generateImage,
+        } = sharing;
 
         const breadcrumbs = [
             {
@@ -101,7 +108,7 @@ export const BlogPageMeta: React.FC<BlogMetaProps> = React.memo(
             keywords,
             noIndex,
             canonicalUrl,
-            image: shareImage || undefined,
+            image: shareImage || generateImage || undefined,
             schemaJsonLd: schemaData,
             sharing: {
                 title: shareTitle,

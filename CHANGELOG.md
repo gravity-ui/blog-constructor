@@ -1,5 +1,9 @@
 # Лог изменений
 
+## 0.5.4
+
+- add new meta props: generateImage
+
 ## 0.5.3
 
 - fix yfm styles: add css variables to be able to redefine styles in projects
