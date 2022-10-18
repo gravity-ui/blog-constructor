@@ -1,5 +1,9 @@
 # Change log
 
+## 0.9.1
+
+- fixed date translation for BlogInfo
+
 ## 0.9.0
 
 - added customization for sharing options in blog posts
