@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Content, ContentBlockProps, NewMetrikaGoal} from '@gravity-ui/page-constructor';
 
 import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper';
@@ -9,6 +9,7 @@ import {BlogMetrikaGoalIds} from '../../constants';
 import {block} from '../../utils/cn';
 
 import './BlogCTA.scss';
+import {RouterContext} from '../../contexts/RouterContext';
 
 const b = block('cta');
 
@@ -24,6 +25,7 @@ export type CTABlockProps = {
 };
 
 export const BlogCTABlock: React.FC<CTABlockProps> = ({items, paddingTop, paddingBottom}) => {
+    const router = useContext(RouterContext);
     let count = items ? items.length : DEFAULT_COLUMN_COUNT;
 
     if (count < MIN_COLUMN_COUNT) {
@@ -53,7 +55,11 @@ export const BlogCTABlock: React.FC<CTABlockProps> = ({items, paddingTop, paddin
                             ['layout']: count,
                         })}
                     >
-                        <div className={b('card')}>
+                        <div
+                            // https://st.yandex-team.ru/CLOUDFRONT-13044
+                            // temporal solution {'grey-bg': router?.hostname !== 'double.cloud'}
+                            className={b('card', {'grey-bg': router?.hostname !== 'double.cloud'})}
+                        >
                             <Content {...contentData} />
                         </div>
                     </div>

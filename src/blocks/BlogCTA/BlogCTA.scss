@@ -15,6 +15,10 @@ $block: '.#{$namespace}cta';
         flex-direction: column;
         flex-grow: 1;
         padding: $indentM;
+
+        &_grey-bg {
+            background-color: var(--yc-color-promo-base-silver);
+        }
     }
 
     &__button {

@@ -37,5 +37,28 @@ Default.args = {
     columnCount: 3,
     paddingBottom: 'l',
     paddingTop: 'l',
-    items: [],
+    items: [
+        {
+            title: 'Call to Action Item #1',
+            text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+            links: [
+                {
+                    url: '#',
+                    text: 'Link #1',
+                    arrow: true,
+                },
+            ],
+        },
+        {
+            title: 'Call to Action Item #2',
+            text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+            links: [
+                {
+                    url: '#',
+                    text: 'Link #2',
+                    arrow: true,
+                },
+            ],
+        },
+    ],
 };
