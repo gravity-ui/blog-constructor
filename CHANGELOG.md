@@ -1,5 +1,9 @@
 # Change log
 
+## 0.11.2
+
+- **BlogCTA**: temporal solution to fix background
+
 ## 0.11.1
 
 - **BlogYFM**: add `yfm_no-list-reset` class
