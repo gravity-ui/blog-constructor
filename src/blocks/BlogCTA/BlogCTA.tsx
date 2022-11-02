@@ -5,11 +5,11 @@ import {BlogWrapper, PaddingSize} from '../../components/BlogWrapper/BlogWrapper
 import {getBlogElementMetrika, checkContentDefaults} from '../../utils/blog';
 
 import {BlogMetrikaGoalIds} from '../../constants';
+import {RouterContext} from '../../contexts/RouterContext';
 
 import {block} from '../../utils/cn';
 
 import './BlogCTA.scss';
-import {RouterContext} from '../../contexts/RouterContext';
 
 const b = block('cta');
 
