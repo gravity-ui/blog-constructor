@@ -10,6 +10,7 @@ $block: '.#{$namespace}feed-custom-switcher';
 
     &__custom-switcher {
         @include text-size(body-2);
+        position: relative;
 
         display: flex;
         flex-direction: row;

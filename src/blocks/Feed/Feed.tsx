@@ -176,6 +176,7 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
         () =>
             services?.map((service) => ({
                 title: service.name,
+                content: service.name,
                 value: `${service.id}`,
             })),
         [services],
@@ -185,6 +186,7 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
         () =>
             tags?.map((tag) => ({
                 title: tag.name,
+                content: tag.name,
                 value: tag.slug,
                 icon: tag.icon && <Icon data={tag.icon} />,
             })),
