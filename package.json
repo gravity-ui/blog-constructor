@@ -107,7 +107,6 @@
     "@types/react-transition-group": "^4.4.4",
     "@types/sanitize-html": "^2.6.0",
     "@types/ua-parser-js": "^0.7.36",
-    "@yandex-data-ui/common": "^11.0.0",
     "eslint": "^7.32.0",
     "eslint-plugin-local": "./eslint-plugin-local",
     "husky": "^7.0.4",
