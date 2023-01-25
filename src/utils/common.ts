@@ -119,7 +119,7 @@ export const getBreadcrumbs = ({tags}: GetBreadcrumbsProps) => {
     if (tags?.length) {
         const localizedTags = getTags(tags);
         const tag = localizedTags[0];
-        // @ts-ignore todo fix https://st.yandex-team.ru/ORION-1447
+        // @ts-ignore todo fix
         breadcrumbs.items.push({text: tag.name, url: getTagFilterUrl(tag.id)});
     }
 
