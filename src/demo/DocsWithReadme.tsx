@@ -46,7 +46,7 @@ export const DocsWithReadme = () => {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <img src="https://badger.yandex-team.ru/custom/[Исходники]/[Bitbucket][green]/badge.svg" />
+                <img src="https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/icons/github-badge.svg" />
             </a>
         );
     }
