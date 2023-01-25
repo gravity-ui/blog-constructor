@@ -1,11 +1,15 @@
 import React, {ReactNode, useState, useContext, useMemo} from 'react';
 
-import {Icon, Button} from '@gravity-ui/uikit';
-import {YCSelect} from '@yandex-data-ui/common';
+import {Icon, Button, Select} from '@gravity-ui/uikit';
 
 import {Search} from '../../../Search/Search';
 
-import {CustomSwitcher} from '../CustomSwitcher/CustomSwitcher';
+import {
+    renderTagsSwitcher,
+    renderServicesSwitcher,
+    renderFilter,
+    renderOption,
+} from './customRenders';
 
 import {LikesContext} from '../../../../contexts/LikesContext';
 
@@ -27,6 +31,7 @@ const b = block('feed-controls');
 
 export type SelectItem = {
     title: string;
+    content: string;
     value: string;
     icon?: ReactNode;
 };
@@ -76,15 +81,15 @@ export const Controls: React.FC<ControlsProps> = ({
         setIsFetching(true);
     };
 
-    const handleTagSelect = (selectedTag: string) => {
+    const handleTagSelect = (selectedTags: string[]) => {
         metrika.reachGoal(MetrikaCounter.CrossSite, BlogMetrikaGoalIds.tag, {
-            theme: selectedTag,
+            theme: selectedTags[0],
         });
 
-        const isEmptyTags = selectedTag === 'empty';
+        const isEmptyTags = selectedTags.some((tag) => tag === 'empty');
 
         handleChangeQuery({
-            tags: isEmptyTags ? '' : selectedTag,
+            tags: isEmptyTags ? '' : selectedTags[0],
             page: DEFAULT_PAGE,
         });
 
@@ -109,26 +114,9 @@ export const Controls: React.FC<ControlsProps> = ({
         setIsFetching(true);
     };
 
-    const renderServicesSwitcher = () => (
-        <CustomSwitcher
-            initial={servicesInitial}
-            defaultLabel={i18(Keyset.AllServices)}
-            list={services}
-        />
-    );
-
-    const renderTagsSwitcher = () => (
-        <CustomSwitcher initial={tagInitial} defaultLabel={i18(Keyset.AllTags)} list={tags} />
-    );
-
     const tagsItems = useMemo(
-        () => [{value: 'empty', title: i18(Keyset.AllTags)}, ...tags],
+        () => [{value: 'empty', content: i18(Keyset.AllTags)} as unknown as SelectItem, ...tags],
         [tags],
-    );
-
-    const servicesItems = useMemo(
-        () => (servicesInitial ? [...(servicesInitial as string).split(',')] : []),
-        [servicesInitial],
     );
 
     return (
@@ -144,32 +132,36 @@ export const Controls: React.FC<ControlsProps> = ({
                     />
                 </div>
                 <div className={b('filter-item')}>
-                    <YCSelect
+                    <Select
                         className={b('select')}
-                        popupClassName={b('popup')}
-                        showSearch={false}
-                        showItemIcon={true}
-                        placeholder={i18(Keyset.AllTags)}
-                        items={tagsItems}
-                        size="promo"
-                        value={tagInitial as string}
+                        size="xl"
+                        options={tagsItems}
+                        defaultValue={[tagInitial] as string[]}
                         onUpdate={handleTagSelect}
-                        renderSwitcher={renderTagsSwitcher}
+                        placeholder={i18(Keyset.AllTags)}
+                        popupClassName={b('popup')}
+                        renderControl={renderTagsSwitcher([tagInitial], tagsItems)}
+                        renderOption={renderOption}
                     />
                 </div>
 
                 {services.length > 0 ? (
                     <div className={b('filter-item')}>
-                        <YCSelect
+                        <Select
                             className={b('select')}
+                            size="xl"
+                            multiple
+                            filterable
+                            options={services}
                             popupClassName={b('popup')}
-                            items={services}
-                            type="multiple"
-                            value={servicesItems}
-                            size="promo"
-                            renderSwitcher={renderServicesSwitcher}
-                            showSelectAll={true}
                             onUpdate={handleServicesSelect}
+                            placeholder={i18(Keyset.AllTags)}
+                            renderControl={renderServicesSwitcher(
+                                (servicesInitial as string)?.split(',') || [],
+                                services,
+                            )}
+                            renderOption={renderOption}
+                            renderFilter={renderFilter}
                         />
                     </div>
                 ) : null}
