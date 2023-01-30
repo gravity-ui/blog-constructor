@@ -60,7 +60,6 @@ $block: '.#{$namespace}feed-controls';
 
                 &::-webkit-scrollbar {
                     background: transparent;
-                    border-radius: $selectorContainerBorderRadius;
                 }
 
                 &::-webkit-scrollbar-track {
@@ -68,8 +67,8 @@ $block: '.#{$namespace}feed-controls';
                 }
 
                 &::-webkit-scrollbar-thumb {
-                    border-bottom-left-radius: $selectorContainerBorderRadius;
-                    border-bottom-right-radius: $selectorContainerBorderRadius;
+                    border-bottom: $selectorItemBorderRadius solid transparent;
+                    background-clip: padding-box;
                 }
             }
 
@@ -80,6 +79,8 @@ $block: '.#{$namespace}feed-controls';
 
             .yc-select-filter {
                 margin-top: 4px;
+
+                padding: 4px;
 
                 border-bottom: 1px solid var(--yc-color-line-generic);
 
