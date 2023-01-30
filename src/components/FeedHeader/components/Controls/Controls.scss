@@ -56,6 +56,9 @@ $block: '.#{$namespace}feed-controls';
             border-radius: $selectorContainerBorderRadius;
 
             .yc-select-filter + .yc-select-list {
+                // stylelint-disable-next-line declaration-no-important
+                max-height: 400px !important;
+
                 margin-top: 0;
 
                 &::-webkit-scrollbar {
