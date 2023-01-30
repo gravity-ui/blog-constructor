@@ -55,9 +55,9 @@ $block: '.#{$namespace}feed-controls';
         @include add-specificity(&) {
             border-radius: $selectorContainerBorderRadius;
 
-            .yc-select-filter + .yc-select-list {
-                // stylelint-disable-next-line declaration-no-important
-                max-height: 400px !important;
+            .g-select-filter + .g-select-list {
+                //stylelint-disable-next-line declaration-no-important
+                max-height: 350px !important;
 
                 margin-top: 0;
 
@@ -80,7 +80,7 @@ $block: '.#{$namespace}feed-controls';
                 border-radius: $selectorItemBorderRadius;
             }
 
-            .yc-select-filter {
+            .g-select-filter {
                 margin-top: 4px;
 
                 padding: 4px;
@@ -97,6 +97,13 @@ $block: '.#{$namespace}feed-controls';
     &__popup-filter {
         .yc-text-input__control {
             @include text-size(body-2);
+
+            border: none;
+
+            &:hover,
+            &:focus {
+                border: none;
+            }
         }
     }
 

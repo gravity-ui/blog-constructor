@@ -155,11 +155,12 @@ export const Controls: React.FC<ControlsProps> = ({
                             options={services}
                             popupClassName={b('popup')}
                             onUpdate={handleServicesSelect}
-                            placeholder={i18(Keyset.AllTags)}
+                            placeholder={i18(Keyset.AllServices)}
                             renderControl={renderServicesSwitcher(
                                 (servicesInitial as string)?.split(',') || [],
                                 services,
                             )}
+                            disablePortal
                             renderOption={renderOption}
                             renderFilter={renderFilter}
                         />

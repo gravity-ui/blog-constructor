@@ -1,3 +1,5 @@
+//stylelint-disable declaration-no-important
+
 @import '../../../../../styles/mixins.scss';
 @import '../../../../../styles/variables.scss';
 
@@ -20,6 +22,12 @@ $block: '.#{$namespace}feed-custom-switcher';
         border-radius: $controlsBorderRadius;
         width: 100%;
         line-height: 42px;
+
+        & + .yc-popup-wrapper.yc-popup-wrapper_open {
+            position: absolute !important;
+            inset: auto !important;
+            transform: translate3d(0, 4px, 0) !important;
+        }
     }
 
     &__custom-switcher:hover {
