@@ -119,6 +119,11 @@ export const Controls: React.FC<ControlsProps> = ({
         [tags],
     );
 
+    const servicesItems = useMemo(
+        () => (servicesInitial ? [...(servicesInitial as string).split(',')] : []),
+        [servicesInitial],
+    );
+
     return (
         <div className={b('header')}>
             <h1 className={b('header-item', {title: true})}>{i18(Keyset.Title)}</h1>
@@ -153,13 +158,11 @@ export const Controls: React.FC<ControlsProps> = ({
                             multiple
                             filterable
                             options={services}
+                            defaultValue={servicesItems}
                             popupClassName={b('popup')}
                             onUpdate={handleServicesSelect}
                             placeholder={i18(Keyset.AllServices)}
-                            renderControl={renderServicesSwitcher(
-                                (servicesInitial as string)?.split(',') || [],
-                                services,
-                            )}
+                            renderControl={renderServicesSwitcher(servicesItems, services)}
                             disablePortal
                             renderOption={renderOption}
                             renderFilter={renderFilter}
