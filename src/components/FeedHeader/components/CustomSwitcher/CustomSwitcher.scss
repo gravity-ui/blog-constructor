@@ -23,6 +23,7 @@ $block: '.#{$namespace}feed-custom-switcher';
         width: 100%;
         line-height: 42px;
 
+        // TODO delete this section after Select can customize the popup list
         & + .yc-popup-wrapper.yc-popup-wrapper_open {
             position: absolute !important;
             inset: auto !important;

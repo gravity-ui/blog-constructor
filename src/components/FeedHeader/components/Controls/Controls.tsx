@@ -30,7 +30,6 @@ import './Controls.scss';
 const b = block('feed-controls');
 
 export type SelectItem = {
-    title: string;
     content: string;
     value: string;
     icon?: ReactNode;
@@ -101,7 +100,7 @@ export const Controls: React.FC<ControlsProps> = ({
             return selectedServices.includes(service.value);
         });
 
-        const metrikaAsString = forMetrikaServices.map((service) => service.title).join(',');
+        const metrikaAsString = forMetrikaServices.map((service) => service.content).join(',');
 
         metrika.reachGoal(MetrikaCounter.CrossSite, BlogMetrikaGoalIds.service, {
             service: metrikaAsString,

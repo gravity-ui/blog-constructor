@@ -177,7 +177,6 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
     const serviceItems = useMemo(
         () =>
             services?.map((service) => ({
-                title: service.name,
                 content: service.name,
                 value: `${service.id}`,
             })),
@@ -187,7 +186,6 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
     const tagItems = useMemo(
         () =>
             tags?.map((tag) => ({
-                title: tag.name,
                 content: tag.name,
                 value: tag.slug,
                 icon: tag.icon && <Icon data={tag.icon} />,
