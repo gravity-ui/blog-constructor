@@ -1,5 +1,3 @@
-//stylelint-disable declaration-no-important
-
 @import '../../../../../styles/mixins.scss';
 @import '../../../../../styles/variables.scss';
 
@@ -25,8 +23,11 @@ $block: '.#{$namespace}feed-custom-switcher';
 
         // TODO delete this section after Select can customize the popup list
         & + .yc-popup-wrapper.yc-popup-wrapper_open {
+            //stylelint-disable-next-line declaration-no-important
             position: absolute !important;
+            //stylelint-disable-next-line declaration-no-important
             inset: auto !important;
+            //stylelint-disable-next-line declaration-no-important
             transform: translate3d(0, 4px, 0) !important;
         }
     }

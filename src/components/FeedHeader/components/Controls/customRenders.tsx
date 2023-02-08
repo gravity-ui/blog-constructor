@@ -16,33 +16,24 @@ import './Controls.scss';
 
 const b = block('feed-controls');
 
-type RenderSwitcherType = (
-    initial: CustomSwitcherProps['initial'],
-    list: CustomSwitcherProps['list'],
-) => SelectProps['renderControl'];
+type RenderSwitcherType = ({
+    initial,
+    list,
+    defaultLabel,
+}: {
+    initial: CustomSwitcherProps['initial'];
+    list: CustomSwitcherProps['list'];
+    defaultLabel: string;
+}) => SelectProps['renderControl'];
 
-export const renderTagsSwitcher: RenderSwitcherType =
-    (initial, list) =>
+export const renderSwitcher: RenderSwitcherType =
+    ({initial, list, defaultLabel}) =>
     // eslint-disable-next-line react/display-name
     ({onClick, ref}) =>
         (
             <CustomSwitcher
                 initial={initial}
-                defaultLabel={i18(Keyset.AllTags)}
-                list={list}
-                controlRef={ref}
-                onClick={onClick}
-            />
-        );
-
-export const renderServicesSwitcher: RenderSwitcherType =
-    (initial, list) =>
-    // eslint-disable-next-line react/display-name
-    ({onClick, ref}) =>
-        (
-            <CustomSwitcher
-                initial={initial}
-                defaultLabel={i18(Keyset.AllServices)}
+                defaultLabel={defaultLabel}
                 list={list}
                 controlRef={ref}
                 onClick={onClick}

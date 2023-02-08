@@ -4,12 +4,7 @@ import {Icon, Button, Select} from '@gravity-ui/uikit';
 
 import {Search} from '../../../Search/Search';
 
-import {
-    renderTagsSwitcher,
-    renderServicesSwitcher,
-    renderFilter,
-    renderOption,
-} from './customRenders';
+import {renderSwitcher, renderFilter, renderOption} from './customRenders';
 
 import {LikesContext} from '../../../../contexts/LikesContext';
 
@@ -85,10 +80,10 @@ export const Controls: React.FC<ControlsProps> = ({
             theme: selectedTags[0],
         });
 
-        const isEmptyTags = selectedTags.some((tag) => tag === 'empty');
+        const isEmptyTag = selectedTags.some((tag) => tag === 'empty');
 
         handleChangeQuery({
-            tags: isEmptyTags ? '' : selectedTags[0],
+            tags: isEmptyTag ? '' : selectedTags[0],
             page: DEFAULT_PAGE,
         });
 
@@ -144,7 +139,11 @@ export const Controls: React.FC<ControlsProps> = ({
                         onUpdate={handleTagSelect}
                         placeholder={i18(Keyset.AllTags)}
                         popupClassName={b('popup')}
-                        renderControl={renderTagsSwitcher([tagInitial], tagsItems)}
+                        renderControl={renderSwitcher({
+                            initial: [tagInitial],
+                            list: tagsItems,
+                            defaultLabel: i18(Keyset.AllTags),
+                        })}
                         renderOption={renderOption}
                     />
                 </div>
@@ -161,7 +160,11 @@ export const Controls: React.FC<ControlsProps> = ({
                             popupClassName={b('popup')}
                             onUpdate={handleServicesSelect}
                             placeholder={i18(Keyset.AllServices)}
-                            renderControl={renderServicesSwitcher(servicesItems, services)}
+                            renderControl={renderSwitcher({
+                                initial: servicesItems,
+                                list: services,
+                                defaultLabel: i18(Keyset.AllServices),
+                            })}
                             disablePortal
                             renderOption={renderOption}
                             renderFilter={renderFilter}

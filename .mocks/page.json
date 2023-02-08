@@ -49,24 +49,6 @@
             "authorId": 292
           },
           {
-            "type": "blog-author-block",
-            "column": "right",
-            "resetPaddings": true,
-            "authorId": 290
-          },
-          {
-            "type": "blog-author-block",
-            "column": "right",
-            "resetPaddings": true,
-            "authorId": 396
-          },
-          {
-            "type": "blog-author-block",
-            "column": "right",
-            "resetPaddings": true,
-            "authorId": 392
-          },
-          {
             "type": "blog-yfm-block",
             "column": "left",
             "resetPaddings": true,
