@@ -18,7 +18,7 @@
         "verticalOffset": "m",
         "theme": "dark",
         "background": {
-          "url": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
+          "url": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png",
           "disableCompress": true,
           "color": "#CCDAFF",
           "fullWidth": false
@@ -77,9 +77,9 @@
             "resetPaddings": true,
             "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
             "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            "color": "#5282FF",
+            "color": "#555",
             "theme": "dark",
-            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png",
             "buttons": [
               {
                 "text": "Get",
@@ -123,7 +123,7 @@
             "column": "left",
             "resetPaddings": true,
             "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
-            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-black.png",
+            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png",
             "fullWidth": false
           },
           {
@@ -172,7 +172,7 @@
             "column": "left",
             "resetPaddings": true,
             "background": {
-              "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png",
+              "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png",
               "altText": "alt text from bo"
             },
             "title": "Lorem ipsum ",
