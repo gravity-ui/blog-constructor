@@ -134,8 +134,5 @@
     "*.{json,yaml,yml,md}": [
       "prettier --write"
     ]
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
   }
 }
