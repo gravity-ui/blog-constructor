@@ -29,7 +29,7 @@ export const Author: React.FC<AuthorProps> = (props) => {
         return {
             firstName: author?.firstName || '',
             secondName: author?.secondName || '',
-            description: author?.fullDescription || '',
+            description: author?.shortDescription || '',
             avatar: authorAvatar,
         };
     }, [author?.avatar, author?.firstName, author?.fullDescription, author?.secondName, image]);

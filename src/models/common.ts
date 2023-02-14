@@ -23,6 +23,7 @@ export type Author = {
     secondName: string | null;
     description: string | null;
     fullDescription: string | null;
+    shortDescription: string | null;
 } & {
     [x: string]: string | null;
 };
