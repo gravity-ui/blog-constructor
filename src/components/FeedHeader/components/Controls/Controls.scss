@@ -53,8 +53,6 @@ $block: '.#{$namespace}feed-controls';
 
     &__popup {
         @include add-specificity(&) {
-            margin-top: 0;
-
             border-radius: $selectorContainerBorderRadius;
 
             // TODO delete this section after Select can customize the popup list
