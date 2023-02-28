@@ -17,7 +17,7 @@ export type AuthorProps = ClassNameProps & {
 } & PaddingsYFMProps;
 
 export type BannerProps = ContentBlockProps & {
-    background?: string;
+    background?: string; // TODO is it necessary ?
     color?: string;
     image?: string;
     imageSize?: 's' | 'm';
