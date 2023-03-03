@@ -53,11 +53,16 @@ $block: '.#{$namespace}feed-controls';
 
     &__popup {
         @include add-specificity(&) {
+            max-height: 500px;
             border-radius: $selectorContainerBorderRadius;
 
             // TODO delete this section after Select can customize the popup list
-            .yc-select-filter + .yc-select-list {
+            .g-select-filter + .g-select-list {
                 margin-top: 0;
+            }
+
+            .g-select-list {
+                overflow: scroll;
 
                 &::-webkit-scrollbar {
                     display: none;
@@ -69,9 +74,7 @@ $block: '.#{$namespace}feed-controls';
                 border-radius: $selectorItemBorderRadius;
             }
 
-            .yc-select-filter {
-                margin-top: 4px;
-
+            .g-select-filter {
                 padding: 4px;
 
                 border-bottom: 1px solid var(--yc-color-line-generic);
