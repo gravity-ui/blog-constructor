@@ -11,6 +11,10 @@ import {HeaderProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
 import {getBreadcrumbs} from '../../utils/common';
 
+/**
+ * @deprecated Metrika will be deleted after launch of analyticsEvents
+ * https://st.yandex-team.ru/PAGECTR-7
+ */
 const metrikaGoals: BlogMetrikaGoals = {
     sharing: BlogMetrikaGoalIds.shareTop,
     save: BlogMetrikaGoalIds.saveTop,

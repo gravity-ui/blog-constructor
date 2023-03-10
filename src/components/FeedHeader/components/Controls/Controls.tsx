@@ -1,17 +1,28 @@
 import React, {ReactNode, useContext, useMemo, useState} from 'react';
+import {useAnalytics} from '@gravity-ui/page-constructor';
 
 import {Button, Icon, Select} from '@gravity-ui/uikit';
 
+/**
+ * @deprecated Metrika will be deleted after launch of analyticsEvents
+ * https://st.yandex-team.ru/PAGECTR-7
+ */
 import {BlogMetrikaGoalIds} from '../../../../constants';
 import {LikesContext} from '../../../../contexts/LikesContext';
 import metrika from '../../../../counters/metrika.js';
 import {MetrikaCounter} from '../../../../counters/utils';
 import {Keyset, i18} from '../../../../i18n';
 import {Save} from '../../../../icons/Save';
-import {HandleChangeQueryParams, Query, SetQueryType} from '../../../../models/common';
 import {block} from '../../../../utils/cn';
 import {Search} from '../../../Search/Search';
 import {renderFilter, renderOption, renderSwitcher} from './customRenders';
+
+import {
+    HandleChangeQueryParams,
+    SetQueryType,
+    Query,
+    DefaultEventNames,
+} from '../../../../models/common';
 
 import './Controls.scss';
 
@@ -44,6 +55,9 @@ export const Controls: React.FC<ControlsProps> = ({
     queryParams,
 }) => {
     const {hasLikes} = useContext(LikesContext);
+    const handleAnalyticsTag = useAnalytics(DefaultEventNames.Tag);
+    const handleAnalyticsService = useAnalytics(DefaultEventNames.Service);
+    const handleAnalyticsSaveOnly = useAnalytics(DefaultEventNames.SaveOnly);
 
     const {
         savedOnly: savedOnlyInitial,
@@ -57,7 +71,7 @@ export const Controls: React.FC<ControlsProps> = ({
 
     const handleSavedOnly = () => {
         handleChangeQuery({savedOnly: savedOnly ? '' : 'true'});
-
+        handleAnalyticsSaveOnly();
         setSavedOnly(!savedOnly);
         setIsFetching(true);
     };
@@ -70,7 +84,14 @@ export const Controls: React.FC<ControlsProps> = ({
     };
 
     const handleTagSelect = (selectedTags: string[]) => {
+        /**
+         * @deprecated Metrika will be deleted after launch of analyticsEvents
+         * https://st.yandex-team.ru/PAGECTR-7
+         */
         metrika.reachGoal(MetrikaCounter.CrossSite, BlogMetrikaGoalIds.tag, {
+            theme: selectedTags[0],
+        });
+        handleAnalyticsTag(null, {
             theme: selectedTags[0],
         });
 
@@ -91,7 +112,14 @@ export const Controls: React.FC<ControlsProps> = ({
 
         const metrikaAsString = forMetrikaServices.map((service) => service.content).join(',');
 
+        /**
+         * @deprecated Metrika will be deleted after launch of analyticsEvents
+         * https://st.yandex-team.ru/PAGECTR-7
+         */
         metrika.reachGoal(MetrikaCounter.CrossSite, BlogMetrikaGoalIds.service, {
+            service: metrikaAsString,
+        });
+        handleAnalyticsService(null, {
             service: metrikaAsString,
         });
 

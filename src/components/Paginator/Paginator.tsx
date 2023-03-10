@@ -1,6 +1,13 @@
 import React, {useEffect, useMemo, useState} from 'react';
 
+import {useAnalytics} from '@gravity-ui/page-constructor';
+
 import {BlogMetrikaGoalIds} from '../../constants';
+
+/**
+ * @deprecated Metrika will be deleted after launch of analyticsEvents
+ * https://st.yandex-team.ru/PAGECTR-7
+ */
 import metrika from '../../counters/metrika.js';
 import {MetrikaCounter} from '../../counters/utils';
 import {block} from '../../utils/cn';
@@ -8,6 +15,7 @@ import {NavigationButton} from './components/NavigationButton';
 import {PaginatorItem} from './components/PaginatorItem';
 import {ArrowType, PaginatorItemProps, PaginatorProps} from './types';
 import {getPageConfigs, getPagesCount} from './utils';
+import {DefaultEventNames} from '../../models/common';
 
 import './Paginator.scss';
 
@@ -41,6 +49,10 @@ export const Paginator = ({
         [pageCountForShowSupportButtons, pagesCount],
     );
 
+    const handleAnalyticsHome = useAnalytics(DefaultEventNames.PaginatorHome);
+    const handleAnalyticsNext = useAnalytics(DefaultEventNames.PaginatorNext);
+    const handleAnalyticsPage = useAnalytics(DefaultEventNames.PaginatorPage);
+
     if (pagesCount <= 1) {
         return null;
     }
@@ -49,9 +61,19 @@ export const Paginator = ({
         let newPage = page;
 
         if (type === 'prev' && page > 1) {
+            /**
+             * @deprecated Metrika will be deleted after launch of analyticsEvents
+             * https://st.yandex-team.ru/PAGECTR-7
+             */
             metrika.reachGoal(MetrikaCounter.CrossSite, BlogMetrikaGoalIds.home);
+            handleAnalyticsHome();
             newPage = 1;
         } else if (type === 'next' && page < pagesCount) {
+            /**
+             * @deprecated Metrika will be deleted after launch of analyticsEvents
+             * https://st.yandex-team.ru/PAGECTR-7
+             */
+            handleAnalyticsNext();
             metrika.reachGoal(MetrikaCounter.CrossSite, BlogMetrikaGoalIds.next);
             newPage = page + 1;
         }
@@ -63,7 +85,12 @@ export const Paginator = ({
 
     const handlePageClick = (index: number | ArrowType) => {
         if (index !== page && typeof index === 'number') {
+            /**
+             * @deprecated Metrika will be deleted after launch of analyticsEvents
+             * https://st.yandex-team.ru/PAGECTR-7
+             */
             metrika.reachGoal(MetrikaCounter.CrossSite, BlogMetrikaGoalIds.page, {page: index});
+            handleAnalyticsPage(null, {page: String(index)});
             handlePageChange(index);
         }
     };

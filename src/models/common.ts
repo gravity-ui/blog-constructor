@@ -181,3 +181,15 @@ export type SetQueryType = (
         [y: string]: boolean;
     },
 ) => Promise<void> | void;
+
+export enum DefaultEventNames {
+    ShareButton = 'share-button-click',
+    SaveButton = 'save-button-click',
+    ShowMore = 'show-more-button-click',
+    PaginatorHome = 'paginator-home-button-click',
+    PaginatorNext = 'paginator-next-button-click',
+    PaginatorPage = 'paginator-page-button-click',
+    Tag = 'selector-tag-click',
+    Service = 'selector-service-click',
+    SaveOnly = 'save-only-button-click',
+}

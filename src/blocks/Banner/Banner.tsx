@@ -29,6 +29,10 @@ export const Banner: React.FC<BannerProps> = ({
 
     const contentData = updateContentSizes(content);
 
+    /**
+     * @deprecated Metrika will be deleted after launch of analyticsEvents
+     * https://st.yandex-team.ru/PAGECTR-7
+     */
     const metrikaGoal: NewMetrikaGoal = {
         name: BlogMetrikaGoalIds.bannerCommon,
         isCrossSite: true,

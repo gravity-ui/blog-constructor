@@ -1,18 +1,27 @@
 import React, {useCallback, useContext, useEffect, useMemo, useReducer} from 'react';
-
+import {useAnalytics} from '@gravity-ui/page-constructor';
+/**
+ * @deprecated Metrika will be deleted after launch of analyticsEvents
+ * https://st.yandex-team.ru/PAGECTR-7
+ */
+import {BlogMetrikaGoalIds} from '../../constants';
 import {Icon} from '@gravity-ui/uikit';
 
 import {FeedHeader} from '../../components/FeedHeader/FeedHeader';
 import {Posts} from '../../components/Posts/Posts';
 import {PostsError} from '../../components/PostsError/PostsError';
-import {BlogMetrikaGoalIds} from '../../constants';
 import {FeedContext} from '../../contexts/FeedContext';
 import {LocaleContext} from '../../contexts/LocaleContext';
 import {RouterContext} from '../../contexts/RouterContext';
+/**
+ * @deprecated Metrika will be deleted after launch of analyticsEvents
+ * https://st.yandex-team.ru/PAGECTR-7
+ */
 import metrika from '../../counters/metrika.js';
 import {MetrikaCounter} from '../../counters/utils';
+
+import {DefaultEventNames, HandleChangeQueryParams} from '../../models/common';
 import {FeedProps} from '../../models/blocks';
-import {HandleChangeQueryParams} from '../../models/common';
 import {getFeedQueryParams, scrollOnPageChange} from '../../utils/common';
 import {DEFAULT_PAGE, DEFAULT_ROWS_PER_PAGE} from '../constants';
 import {ActionTypes, reducer} from './reducer';
@@ -33,6 +42,7 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
     } = useContext(FeedContext);
     const router = useContext(RouterContext);
     const {locale} = useContext(LocaleContext);
+    const handleAnalytics = useAnalytics(DefaultEventNames.ShowMore);
 
     const [
         {
@@ -127,8 +137,12 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
 
     const handleShowMore = async () => {
         dispatch({type: ActionTypes.SetIsShowMoreFetching, payload: true});
-
+        /**
+         * @deprecated Metrika will be deleted after launch of analyticsEvents
+         * https://st.yandex-team.ru/PAGECTR-7
+         */
         metrika.reachGoal(MetrikaCounter.CrossSite, BlogMetrikaGoalIds.showMore);
+        handleAnalytics();
         try {
             const fetchedData = await fetchData(currentPage + 1);
 
