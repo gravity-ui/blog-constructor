@@ -45,7 +45,7 @@ import {BlogPostPage, BlogConstructorProvider} from '@gravity-ui/blog-constructo
 
 ```
 
-Also blog-constructor have server components to help you transform you data if you need
+Also blog-constructor have server components to help you transform your data if you need
 
 ```jsx
 import {
