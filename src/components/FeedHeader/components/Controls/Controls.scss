@@ -83,6 +83,10 @@ $block: '.#{$namespace}feed-controls';
                     border: none;
                 }
             }
+
+            .g-select-list_size_xl .g-select-list__option {
+                padding: 0 $indentXS;
+            }
         }
     }
 
