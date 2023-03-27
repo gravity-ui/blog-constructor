@@ -1,4 +1,4 @@
-# @gravity-ui/blog-constructor &middot; [![npm package](https://img.shields.io/npm/v/@gravity-ui/blog-constructor)](https://www.npmjs.com/package/@gravity-ui/blog-constructor)
+# @gravity-ui/blog-constructor &middot; [![npm package](https://img.shields.io/npm/v/@gravity-ui/blog-constructor)](https://www.npmjs.com/package/@gravity-ui/blog-constructor) [![storybook](https://img.shields.io/badge/Storybook-deployed-ff4685)](https://preview.yandexcloud.dev/blog-constructor/)
 
 ## Install
 
@@ -18,7 +18,7 @@ The blog-constructor has both client components and server components for import
 import {BlogPage, BlogConstructorProvider} from '@gravity-ui/blog-constructor';
 
 // Main blog page
-<BlogConstructorProvider>
+<BlogConstructorProvider {...providerProps}>
     <BlogPage
         content={content}
         posts={posts}
