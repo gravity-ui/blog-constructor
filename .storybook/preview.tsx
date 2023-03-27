@@ -61,7 +61,7 @@ export const parameters = {
     },
     options: {
         storySort: {
-            order: ['Blocks', 'Components'],
+            order: ['Blocks', 'Containers'],
             method: 'alphabetical',
         },
     },
