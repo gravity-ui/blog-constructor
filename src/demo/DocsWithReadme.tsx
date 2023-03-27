@@ -28,7 +28,7 @@ export const DocsWithReadme = () => {
     const fileName = context?.parameters?.fileName;
     const kind = context.kind;
     let isComponent = false;
-    if (kind && /Компоненты|Блоки\//.test(kind)) {
+    if (kind && /Components|Blocks\//.test(kind)) {
         isComponent = true;
     }
 
