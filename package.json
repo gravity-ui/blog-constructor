@@ -67,7 +67,7 @@
   "peerDependencies": {
     "@doc-tools/transform": "^2.9.0",
     "@gravity-ui/uikit": "^4.1.0",
-    "@gravity-ui/page-constructor": "^1.22.0",
+    "@gravity-ui/page-constructor": "^2.2.1",
     "react": "^16.0.0 || ^17.0.0 | ^18.0.0"
   },
   "devDependencies": {
