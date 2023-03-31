@@ -48,7 +48,6 @@
   "dependencies": {
     "@gravity-ui/i18n": "^1.0.0",
     "bem-cn-lite": "^4.0.0",
-    "isomorphic-dompurify": "^0.20.0",
     "lodash": "^4.17.21",
     "react-helmet": "^6.1.0",
     "react-player": "^2.9.0",
