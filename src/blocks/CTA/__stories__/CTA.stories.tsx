@@ -1,19 +1,19 @@
 import React from 'react';
 
-import {PageConstructor} from '@gravity-ui/page-constructor';
 import {Meta, Story} from '@storybook/react/types-6-0';
 
-import {BlockType, PostData} from '../../../models/common';
-import {CTAProps} from '../../../models/blocks';
+import {PageConstructor} from '@gravity-ui/page-constructor';
 
-import customBlocks from '../../../constructor/blocksMap';
-import {BLOCKS} from '../../../demo/constants';
-import {PostPageContext} from '../../../contexts/PostPageContext';
-import post from '../../../../.mocks/post.json';
-import contentBlocks from '../../../../.mocks/contentBlocks.json';
 import {getDefaultStoryArgs} from '../../../../.mocks/utils';
-
+import customBlocks from '../../../constructor/blocksMap';
+import {PostPageContext} from '../../../contexts/PostPageContext';
+import {BLOCKS} from '../../../demo/constants';
+import {CTAProps} from '../../../models/blocks';
+import {BlockType, PostData} from '../../../models/common';
 import {CTA} from '../CTA';
+
+import contentBlocks from '../../../../.mocks/contentBlocks.json';
+import post from '../../../../.mocks/post.json';
 
 export default {
     title: `${BLOCKS}/CTA`,

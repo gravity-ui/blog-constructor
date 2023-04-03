@@ -1,24 +1,17 @@
-import React, {ReactNode, useState, useContext, useMemo} from 'react';
+import React, {ReactNode, useContext, useMemo, useState} from 'react';
 
-import {Icon, Button, Select} from '@gravity-ui/uikit';
-
-import {Search} from '../../../Search/Search';
-
-import {renderSwitcher, renderFilter, renderOption} from './customRenders';
-
-import {LikesContext} from '../../../../contexts/LikesContext';
+import {Button, Icon, Select} from '@gravity-ui/uikit';
 
 import {BlogMetrikaGoalIds} from '../../../../constants';
+import {LikesContext} from '../../../../contexts/LikesContext';
 import metrika from '../../../../counters/metrika.js';
 import {MetrikaCounter} from '../../../../counters/utils';
-
+import {Keyset, i18} from '../../../../i18n';
 import {Save} from '../../../../icons/Save';
-
-import {i18, Keyset} from '../../../../i18n';
-
+import {HandleChangeQueryParams, Query, SetQueryType} from '../../../../models/common';
 import {block} from '../../../../utils/cn';
-
-import {HandleChangeQueryParams, SetQueryType, Query} from '../../../../models/common';
+import {Search} from '../../../Search/Search';
+import {renderFilter, renderOption, renderSwitcher} from './customRenders';
 
 import './Controls.scss';
 

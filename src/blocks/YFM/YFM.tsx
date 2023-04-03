@@ -1,11 +1,12 @@
 import React from 'react';
-import {YFMWrapper} from '@gravity-ui/page-constructor';
+
 import block from 'bem-cn-lite';
 
-import {Wrapper} from '../../components/Wrapper/Wrapper';
+import {YFMWrapper} from '@gravity-ui/page-constructor';
 
-import {PaddingsDirections} from '../../models/paddings';
+import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {YFMProps} from '../../models/blocks';
+import {PaddingsDirections} from '../../models/paddings';
 
 const b = block('yfm');
 

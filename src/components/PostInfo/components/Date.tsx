@@ -1,9 +1,8 @@
 import React, {useContext} from 'react';
 
 import {LocaleContext} from '../../../contexts/LocaleContext';
-
-import {format} from '../../../utils/date';
 import {block} from '../../../utils/cn';
+import {format} from '../../../utils/date';
 
 import '../PostInfo.scss';
 

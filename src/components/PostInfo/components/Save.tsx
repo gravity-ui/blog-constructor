@@ -2,16 +2,15 @@ import React, {useContext} from 'react';
 
 import {Icon} from '@gravity-ui/uikit';
 
-import {postLikeStatus} from '../../../utils/common';
-import {block} from '../../../utils/cn';
-
-import {MetrikaCounter} from '../../../counters/utils';
-// @ts-ignore
+import {UserContext} from '../../../contexts/UserContext';
 import metrika from '../../../counters/metrika.js';
-
+import {MetrikaCounter} from '../../../counters/utils';
 import {Save as SaveIcon} from '../../../icons/Save';
 import {SaveFilled} from '../../../icons/SaveFilled';
-import {UserContext} from '../../../contexts/UserContext';
+import {block} from '../../../utils/cn';
+import {postLikeStatus} from '../../../utils/common';
+
+// @ts-ignore
 
 import '../PostInfo.scss';
 

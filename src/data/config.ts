@@ -1,5 +1,5 @@
-import {yfmTransformer} from '@gravity-ui/page-constructor/server';
 import {BlockType as PCBlockType} from '@gravity-ui/page-constructor';
+import {yfmTransformer} from '@gravity-ui/page-constructor/server';
 
 import {BlockType} from '../models/common';
 

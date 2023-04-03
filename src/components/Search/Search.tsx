@@ -1,20 +1,16 @@
-import React, {useRef, useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
+
 import {debounce as lodashDebounce} from 'lodash';
 
 import {TextInput} from '@gravity-ui/uikit';
 
-import {ClassNameProps} from '../../models/common';
-
-import {ButtonWithIcon} from '../ButtonWithIcon/ButtonWithIcon';
-
 import {useIsIPhone} from '../../hooks/useIsIPhone';
-
+import {Keyset, i18} from '../../i18n';
 import {Close} from '../../icons/Close';
 import {SearchIcon} from '../../icons/SearchIcon';
-
-import {i18, Keyset} from '../../i18n';
-
+import {ClassNameProps} from '../../models/common';
 import {block} from '../../utils/cn';
+import {ButtonWithIcon} from '../ButtonWithIcon/ButtonWithIcon';
 
 import './Search.scss';
 

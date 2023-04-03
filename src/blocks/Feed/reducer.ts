@@ -1,4 +1,4 @@
-import {Query, PostData} from '../../models/common';
+import {PostData, Query} from '../../models/common';
 
 export enum ActionTypes {
     SetErrorLoad = 'setErrorLoad',

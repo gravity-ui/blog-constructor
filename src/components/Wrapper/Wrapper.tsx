@@ -1,11 +1,9 @@
 import React from 'react';
 
-import {ClassNameProps} from '../../models/common';
-
-import {block} from '../../utils/cn';
-
-import {Paddings} from '../../models/paddings';
 import {DEFAULT_PADDINGS} from '../../constants';
+import {ClassNameProps} from '../../models/common';
+import {Paddings} from '../../models/paddings';
+import {block} from '../../utils/cn';
 
 import './Wrapper.scss';
 

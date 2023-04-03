@@ -1,16 +1,15 @@
-import {BlockType} from '../models/common';
-
-import {Header} from '../blocks/Header/Header';
-import {YFM} from '../blocks/YFM/YFM';
-import {Layout} from '../blocks/Layout/Layout';
-import {Media} from '../blocks/Media/Media';
+import {Author} from '../blocks/Author/Author';
+import {Banner} from '../blocks/Banner/Banner';
 import {CTA} from '../blocks/CTA/CTA';
 import {ColoredText} from '../blocks/ColoredText/ColoredText';
-import {Author} from '../blocks/Author/Author';
-import {Suggest} from '../blocks/Suggest/Suggest';
-import {Banner} from '../blocks/Banner/Banner';
-import {Meta} from '../blocks/Meta/Meta';
 import {Feed} from '../blocks/Feed/Feed';
+import {Header} from '../blocks/Header/Header';
+import {Layout} from '../blocks/Layout/Layout';
+import {Media} from '../blocks/Media/Media';
+import {Meta} from '../blocks/Meta/Meta';
+import {Suggest} from '../blocks/Suggest/Suggest';
+import {YFM} from '../blocks/YFM/YFM';
+import {BlockType} from '../models/common';
 
 const blocks = {
     [BlockType.YFM]: YFM,

@@ -1,14 +1,11 @@
 import React from 'react';
 
-import {PostData, ToggleLikeCallbackType} from '../../models/common';
-
 import {useLikes} from '../../hooks/useLikes';
-
+import {PostData, ToggleLikeCallbackType} from '../../models/common';
+import {block} from '../../utils/cn';
 import {Date} from './components/Date';
 import {ReadingTime} from './components/ReadingTime';
 import {Save} from './components/Save';
-
-import {block} from '../../utils/cn';
 
 import './PostInfo.scss';
 

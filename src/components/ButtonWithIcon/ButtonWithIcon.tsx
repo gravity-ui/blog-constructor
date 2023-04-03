@@ -1,9 +1,9 @@
 import React from 'react';
+
 import {Icon} from '@gravity-ui/uikit';
 import {SVGIconData} from '@gravity-ui/uikit/build/esm/components/Icon/types';
 
 import {ClassNameProps} from '../../models/common';
-
 import {block} from '../../utils/cn';
 
 import './ButtonWithIcon.scss';

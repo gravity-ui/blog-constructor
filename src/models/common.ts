@@ -1,5 +1,6 @@
-import {IDevice, IBrowser} from 'ua-parser-js';
 import {ReactNode} from 'react';
+
+import {IBrowser, IDevice} from 'ua-parser-js';
 
 import {HeaderBlockProps as PageConstructorHeaderBlockProps} from '@gravity-ui/page-constructor';
 

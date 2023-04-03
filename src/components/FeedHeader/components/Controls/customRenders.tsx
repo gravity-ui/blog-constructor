@@ -1,16 +1,14 @@
 import React from 'react';
 
-import {SelectProps, TextInput, SelectOption} from '@gravity-ui/uikit';
+import {SelectOption, SelectProps, TextInput} from '@gravity-ui/uikit';
 
-import {i18, Keyset} from '../../../../i18n';
-
+import {Keyset, i18} from '../../../../i18n';
 import {block} from '../../../../utils/cn';
-
-import {CustomSwitcher, CustomSwitcherProps} from '../CustomSwitcher/CustomSwitcher';
 import {
     CustomSelectOption,
     CustomSelectOptionProps,
 } from '../CustomSelectOption/CustomSelectOption';
+import {CustomSwitcher, CustomSwitcherProps} from '../CustomSwitcher/CustomSwitcher';
 
 import './Controls.scss';
 

@@ -1,17 +1,17 @@
 import React from 'react';
 
-import {PageConstructor} from '@gravity-ui/page-constructor';
 import {Meta, Story} from '@storybook/react/types-6-0';
 
-import {BlockType, PostData} from '../../../models/common';
-import {MetaProps} from '../../../models/blocks';
+import {PageConstructor} from '@gravity-ui/page-constructor';
 
 import customBlocks from '../../../constructor/blocksMap';
-import {BLOCKS} from '../../../demo/constants';
 import {PostPageContext} from '../../../contexts/PostPageContext';
-import post from '../../../../.mocks/post.json';
-
+import {BLOCKS} from '../../../demo/constants';
+import {MetaProps} from '../../../models/blocks';
+import {BlockType, PostData} from '../../../models/common';
 import {Meta as MetaBlock} from '../Meta';
+
+import post from '../../../../.mocks/post.json';
 
 export default {
     title: `${BLOCKS}/Meta`,

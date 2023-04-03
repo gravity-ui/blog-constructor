@@ -1,9 +1,15 @@
 import React from 'react';
+
+import {Meta, Story} from '@storybook/react/types-6-0';
 import {isEqual} from 'lodash';
 
 import {PageConstructor} from '@gravity-ui/page-constructor';
-import {Meta, Story} from '@storybook/react/types-6-0';
 
+import {getDefaultStoryArgs} from '../../../../.mocks/utils';
+import customBlocks from '../../../constructor/blocksMap';
+import {FeedContext} from '../../../contexts/FeedContext';
+import {BLOCKS} from '../../../demo/constants';
+import {FeedProps} from '../../../models/blocks';
 import {
     BlockType,
     GetPostsRequest,
@@ -12,17 +18,11 @@ import {
     Service,
     Tag,
 } from '../../../models/common';
+import {Feed} from '../Feed';
 
-import customBlocks from '../../../constructor/blocksMap';
-import {BLOCKS} from '../../../demo/constants';
 import mockedPosts from '../../../../.mocks/posts.json';
 import mockedServices from '../../../../.mocks/services.json';
 import mockedTags from '../../../../.mocks/tags.json';
-import {getDefaultStoryArgs} from '../../../../.mocks/utils';
-
-import {Feed} from '../Feed';
-import {FeedProps} from '../../../models/blocks';
-import {FeedContext} from '../../../contexts/FeedContext';
 
 export default {
     title: `${BLOCKS}/Feed`,

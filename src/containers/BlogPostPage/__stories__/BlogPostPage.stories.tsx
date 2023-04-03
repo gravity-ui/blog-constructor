@@ -2,12 +2,11 @@ import React from 'react';
 
 import {Meta, Story} from '@storybook/react/types-6-0';
 
-import {CONTAINERS} from '../../../demo/constants';
-
 import {generatePostPageData} from '../../../../.mocks/utils';
-import navigation from '../../../../.mocks/navigation.json';
-
+import {CONTAINERS} from '../../../demo/constants';
 import {BlogPostPage, BlogPostPageProps} from '../BlogPostPage';
+
+import navigation from '../../../../.mocks/navigation.json';
 
 export default {
     title: `${CONTAINERS}/BlogPostPage`,

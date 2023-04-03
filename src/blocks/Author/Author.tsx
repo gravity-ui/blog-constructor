@@ -1,14 +1,11 @@
-import React, {useMemo, useContext} from 'react';
+import React, {useContext, useMemo} from 'react';
 
-import {Author as PCAuthor, AuthorType} from '@gravity-ui/page-constructor';
-
-import {PostPageContext} from '../../contexts/PostPageContext';
+import {AuthorType, Author as PCAuthor} from '@gravity-ui/page-constructor';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
-
-import {PaddingsDirections} from '../../models/paddings';
+import {PostPageContext} from '../../contexts/PostPageContext';
 import {AuthorProps} from '../../models/blocks';
-
+import {PaddingsDirections} from '../../models/paddings';
 import {block} from '../../utils/cn';
 
 import './Author.scss';

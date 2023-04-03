@@ -2,8 +2,7 @@ import React from 'react';
 
 import {Button} from '@gravity-ui/uikit';
 
-import {i18, Keyset} from '../../i18n';
-
+import {Keyset, i18} from '../../i18n';
 import {block} from '../../utils/cn';
 
 import './PostError.scss';

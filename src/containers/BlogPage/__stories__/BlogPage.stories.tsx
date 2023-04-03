@@ -3,14 +3,13 @@ import React from 'react';
 import {Meta, Story} from '@storybook/react/types-6-0';
 
 import {CONTAINERS} from '../../../demo/constants';
+import {BlogPage, BlogPageProps} from '../BlogPage';
 
 import page from '../../../../.mocks/blogPage.json';
+import navigation from '../../../../.mocks/navigation.json';
+import posts from '../../../../.mocks/posts.json';
 import services from '../../../../.mocks/services.json';
 import tags from '../../../../.mocks/tags.json';
-import posts from '../../../../.mocks/posts.json';
-import navigation from '../../../../.mocks/navigation.json';
-
-import {BlogPage, BlogPageProps} from '../BlogPage';
 
 const mockMetaComponent = <title>Blog page</title>;
 
