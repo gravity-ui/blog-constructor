@@ -9,6 +9,7 @@ $block: '.#{$namespace}feed-controls';
     $controlsBorderRadius: 10px;
     $selectorItemBorderRadius: 8px;
     $selectorContainerBorderRadius: 12px;
+    $popupMaxHeight: 500px;
 
     &__header {
         position: relative;
@@ -53,7 +54,7 @@ $block: '.#{$namespace}feed-controls';
 
     &__popup {
         @include add-specificity(&) {
-            max-height: 500px;
+            max-height: $popupMaxHeight;
             border-radius: $selectorContainerBorderRadius;
 
             // TODO delete this section after Select can customize the popup list
@@ -66,6 +67,12 @@ $block: '.#{$namespace}feed-controls';
 
                 &::-webkit-scrollbar {
                     display: none;
+                }
+
+                .yc-list {
+                    max-height: calc(
+                        $popupMaxHeight - var(--yc-text-body-3-line-height) - $indentXXS
+                    );
                 }
             }
 
