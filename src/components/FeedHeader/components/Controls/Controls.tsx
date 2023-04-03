@@ -144,6 +144,7 @@ export const Controls: React.FC<ControlsProps> = ({
                             list: tagsItems,
                             defaultLabel: i18(Keyset.AllTags),
                         })}
+                        disablePortal
                         renderOption={renderOption}
                     />
                 </div>
@@ -155,6 +156,7 @@ export const Controls: React.FC<ControlsProps> = ({
                             size="xl"
                             multiple
                             filterable
+                            disablePortal
                             options={services}
                             defaultValue={servicesItems}
                             popupClassName={b('popup')}

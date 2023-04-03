@@ -9,6 +9,7 @@ $block: '.#{$namespace}feed-controls';
     $controlsBorderRadius: 10px;
     $selectorItemBorderRadius: 8px;
     $selectorContainerBorderRadius: 12px;
+    $popupMaxHeight: 500px;
 
     &__header {
         position: relative;
@@ -53,14 +54,25 @@ $block: '.#{$namespace}feed-controls';
 
     &__popup {
         @include add-specificity(&) {
+            max-height: $popupMaxHeight;
             border-radius: $selectorContainerBorderRadius;
 
             // TODO delete this section after Select can customize the popup list
-            .yc-select-filter + .yc-select-list {
+            .g-select-filter + .g-select-list {
                 margin-top: 0;
+            }
+
+            .g-select-list {
+                overflow: scroll;
 
                 &::-webkit-scrollbar {
                     display: none;
+                }
+
+                .yc-list {
+                    max-height: calc(
+                        $popupMaxHeight - var(--yc-text-body-3-line-height) - $indentXXS
+                    );
                 }
             }
 
@@ -69,9 +81,7 @@ $block: '.#{$namespace}feed-controls';
                 border-radius: $selectorItemBorderRadius;
             }
 
-            .yc-select-filter {
-                margin-top: 4px;
-
+            .g-select-filter {
                 padding: 4px;
 
                 border-bottom: 1px solid var(--yc-color-line-generic);
@@ -79,6 +89,10 @@ $block: '.#{$namespace}feed-controls';
                 .yc-text-input__control.yc-text-input__control_type_input {
                     border: none;
                 }
+            }
+
+            .g-select-list_size_xl .g-select-list__option {
+                padding: 0 $indentXS;
             }
         }
     }

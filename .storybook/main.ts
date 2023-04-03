@@ -6,7 +6,7 @@ const config = {
     addons: [
         '@storybook/preset-scss',
         {name: '@storybook/addon-essentials', options: {backgrounds: false}},
-        '@storybook/addon-knobs',
+        '@storybook/addon-controls',
         './addons/addon-yaml/preset',
     ],
     typescript: {
