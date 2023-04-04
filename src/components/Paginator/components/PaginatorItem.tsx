@@ -16,11 +16,11 @@ export const PaginatorItem = ({
     content,
     onClick,
     loading = false,
+    urlPath,
 }: PaginatorItemProps) => {
     const itemKey = Number(dataKey) > 0 ? Number(dataKey) : (dataKey as ArrowType);
-    const urlSuffix = globalThis?.window ? '' : '/blog';
     const navTag = itemKey > 0 ? `${mods.type || 'page'}=${itemKey}` : itemKey;
-    const navigationLink = `${urlSuffix}?${navTag}`;
+    const navigationLink = `${urlPath || ''}?${navTag}`;
 
     return (
         <a
