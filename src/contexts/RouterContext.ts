@@ -7,6 +7,7 @@ export interface RouterContextProps {
     as: string;
     hostname: string;
     query?: Query;
+    updateQueryCallback: (query: Query) => void;
 }
 
 export const RouterContext = React.createContext<RouterContextProps>({} as RouterContextProps);
