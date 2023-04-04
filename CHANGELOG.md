@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.1](https://github.com/gravity-ui/blog-constructor/compare/v2.0.0...v2.0.1) (2023-04-04)
+
+
+### Bug Fixes
+
+* throw virtualization threshold prop in Select ([#26](https://github.com/gravity-ui/blog-constructor/issues/26)) ([ccb0f19](https://github.com/gravity-ui/blog-constructor/commit/ccb0f19a904e54fd43ca66195da9e94925d0a26f))
+* throw virtualization threshold prop in Select ([#26](https://github.com/gravity-ui/blog-constructor/issues/26)) ([0aa5aed](https://github.com/gravity-ui/blog-constructor/commit/0aa5aeda9a0afd99ae8590c6b666c033a12b7fba))
+
 ## [2.0.0](https://github.com/gravity-ui/blog-constructor/compare/v1.1.2...v2.0.0) (2023-04-03)
 
 
