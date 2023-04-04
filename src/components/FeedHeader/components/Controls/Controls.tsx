@@ -41,6 +41,7 @@ export type ControlsProps = {
 
 const ICON_SIZE = 16;
 const DEFAULT_PAGE = 1;
+const VIRTUALIZATION_THRESHOLD = 1000;
 
 export const Controls: React.FC<ControlsProps> = ({
     setIsFetching,
@@ -145,6 +146,7 @@ export const Controls: React.FC<ControlsProps> = ({
                             defaultLabel: i18(Keyset.AllTags),
                         })}
                         disablePortal
+                        virtualizationThreshold={VIRTUALIZATION_THRESHOLD}
                         renderOption={renderOption}
                     />
                 </div>
@@ -167,6 +169,7 @@ export const Controls: React.FC<ControlsProps> = ({
                                 list: services,
                                 defaultLabel: i18(Keyset.AllServices),
                             })}
+                            virtualizationThreshold={VIRTUALIZATION_THRESHOLD}
                             renderOption={renderOption}
                             renderFilter={renderFilter}
                         />
