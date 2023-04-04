@@ -18,7 +18,9 @@ export const PaginatorItem = ({
     loading = false,
 }: PaginatorItemProps) => {
     const itemKey = Number(dataKey) > 0 ? Number(dataKey) : (dataKey as ArrowType);
-    const navigationLink = `?${mods.type || 'page'}=${itemKey}`;
+    const urlSuffix = globalThis?.window ? '' : '/blog';
+    const navTag = itemKey > 0 ? `${mods.type || 'page'}=${itemKey}` : itemKey;
+    const navigationLink = `${urlSuffix}?${navTag}`;
 
     return (
         <a
