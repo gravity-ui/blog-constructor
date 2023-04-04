@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useMemo, useContext} from 'react';
+import React, {useEffect, useState, useMemo} from 'react';
 
 import {BlogMetrikaGoalIds} from '../../constants';
 
@@ -12,8 +12,6 @@ import {block} from '../../utils/cn';
 
 import {NavigationButton} from './components/NavigationButton';
 import {PaginatorItem} from './components/PaginatorItem';
-import {LocaleContext} from '../../contexts/LocaleContext';
-import {getBlogPath} from '../../utils/common';
 
 import './Paginator.scss';
 
@@ -34,9 +32,6 @@ export const Paginator = ({
     const [pagesCount, setPagesCount] = useState(
         getPagesCount({itemsPerPage, totalItems, maxPages}),
     );
-
-    const {locale} = useContext(LocaleContext);
-    const blogPath = getBlogPath(locale?.pathPrefix || '');
 
     useEffect(() => {
         const count = getPagesCount({itemsPerPage, totalItems, maxPages});
@@ -101,7 +96,7 @@ export const Paginator = ({
 
     const renderPaginatorItem = (item: PaginatorItemProps) => {
         const {key, ...rest} = item;
-        return <PaginatorItem key={`page_${key}`} {...rest} urlPath={blogPath} loading={loading} />;
+        return <PaginatorItem key={`page_${key}`} {...rest} loading={loading} />;
     };
 
     return (

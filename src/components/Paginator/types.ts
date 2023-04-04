@@ -10,7 +10,6 @@ export interface PaginatorItemProps {
     content: ReactNode;
     onClick?: (key: number | ArrowType) => void;
     loading?: boolean;
-    urlPath?: string;
 }
 
 export type PaginatorProps = {

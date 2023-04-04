@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
 import {Button} from '@gravity-ui/uikit';
 
 import {ArrowType, PaginatorItemProps} from '../types';
+
+import {LocaleContext} from '../../../contexts/LocaleContext';
+import {getBlogPath} from '../../../utils/common';
 
 import {block} from '../../../utils/cn';
 
@@ -16,8 +19,10 @@ export const PaginatorItem = ({
     content,
     onClick,
     loading = false,
-    urlPath,
 }: PaginatorItemProps) => {
+    const {locale} = useContext(LocaleContext);
+    const urlPath = getBlogPath(locale?.pathPrefix || '');
+
     const itemKey = Number(dataKey) > 0 ? Number(dataKey) : (dataKey as ArrowType);
     const navTag = itemKey > 0 ? `${mods.type || 'page'}=${itemKey}` : itemKey;
     const navigationLink = `${urlPath || ''}?${navTag}`;
