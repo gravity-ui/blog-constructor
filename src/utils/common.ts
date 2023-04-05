@@ -111,6 +111,11 @@ type GetBreadcrumbsProps = {
     pathPrefix?: string;
 };
 
+export const getBlogPath = (pathPrefix: string) => {
+    const prefix = pathPrefix ? `/${pathPrefix}/` : '/';
+    return `${prefix}blog`;
+};
+
 export const getBreadcrumbs = ({tags, pathPrefix}: GetBreadcrumbsProps) => {
     const prefix = pathPrefix ? `/${pathPrefix}/` : '/';
 
