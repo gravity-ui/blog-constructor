@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.2](https://github.com/gravity-ui/blog-constructor/compare/v2.0.1...v2.0.2) (2023-04-05)
+
+
+### Bug Fixes
+
+* covering pagination buttons into 'a' tag ([#23](https://github.com/gravity-ui/blog-constructor/issues/23)) ([e603f2e](https://github.com/gravity-ui/blog-constructor/commit/e603f2e2b0f86d492132174a1c8172786e7a09a1))
+
 ## [2.0.1](https://github.com/gravity-ui/blog-constructor/compare/v2.0.0...v2.0.1) (2023-04-04)
 
 
