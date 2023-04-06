@@ -1,17 +1,13 @@
-import React, {useEffect, useState, useMemo} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 
 import {BlogMetrikaGoalIds} from '../../constants';
-
 import metrika from '../../counters/metrika.js';
 import {MetrikaCounter} from '../../counters/utils';
-
-import {getPageConfigs, getPagesCount} from './utils';
-import {ArrowType, PaginatorItemProps, PaginatorProps} from './types';
-
 import {block} from '../../utils/cn';
-
 import {NavigationButton} from './components/NavigationButton';
 import {PaginatorItem} from './components/PaginatorItem';
+import {ArrowType, PaginatorItemProps, PaginatorProps} from './types';
+import {getPageConfigs, getPagesCount} from './utils';
 
 import './Paginator.scss';
 

@@ -1,24 +1,20 @@
 import React from 'react';
 
 import {
+    NavigationData,
     PageConstructor,
-    PageContent,
     PageConstructorProvider,
     PageConstructorProviderProps,
-    NavigationData,
+    PageContent,
 } from '@gravity-ui/page-constructor';
 import {ShareOptions} from '@gravity-ui/uikit';
 
-import {PostData, ToggleLikeCallbackType, MetaProps} from '../../models/common';
-
-import componentMap from '../../constructor/blocksMap';
-
-import {PostPageContext} from '../../contexts/PostPageContext';
-import {LikesContext} from '../../contexts/LikesContext';
-
-import {useLikes} from '../../hooks/useLikes';
-
 import {MetaWrapper} from '../../components/MetaWrapper/MetaWrapper';
+import componentMap from '../../constructor/blocksMap';
+import {LikesContext} from '../../contexts/LikesContext';
+import {PostPageContext} from '../../contexts/PostPageContext';
+import {useLikes} from '../../hooks/useLikes';
+import {MetaProps, PostData, ToggleLikeCallbackType} from '../../models/common';
 
 import './BlogPostPage.scss';
 

@@ -1,9 +1,9 @@
 import yaml from 'js-yaml';
-import {transformBlocks as transformConstructorBlocks} from '@gravity-ui/page-constructor/server';
+
 import {ConstructorBlock, PageContent} from '@gravity-ui/page-constructor';
+import {transformBlocks as transformConstructorBlocks} from '@gravity-ui/page-constructor/server';
 
 import {Lang} from '../models/locale';
-
 import {getExtendTypographyConfig} from './config';
 import {filterContent} from './contentFilter';
 

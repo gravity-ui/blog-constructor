@@ -2,17 +2,13 @@ import React, {useContext} from 'react';
 
 import {SliderBlock} from '@gravity-ui/page-constructor';
 
-import {i18, Keyset} from '../../i18n';
-
-import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {PostCard} from '../../components/PostCard/PostCard';
-
-import {PaddingsDirections} from '../../models/paddings';
-import {SuggestProps} from '../../models/blocks';
-
-import {PostPageContext} from '../../contexts/PostPageContext';
-
+import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {BlogMetrikaGoalIds} from '../../constants';
+import {PostPageContext} from '../../contexts/PostPageContext';
+import {Keyset, i18} from '../../i18n';
+import {SuggestProps} from '../../models/blocks';
+import {PaddingsDirections} from '../../models/paddings';
 
 const metrikaGoals = [
     {

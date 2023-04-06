@@ -1,10 +1,9 @@
 import React from 'react';
 
+import {Keyset, i18} from '../../i18n';
 import {block} from '../../utils/cn';
 
 import './PostsEmpty.scss';
-
-import {i18, Keyset} from '../../i18n';
 
 const b = block('posts-empty');
 

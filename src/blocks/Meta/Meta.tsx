@@ -1,20 +1,16 @@
 import React, {useContext} from 'react';
+
 import {HeaderBreadcrumbs, YFMWrapper} from '@gravity-ui/page-constructor';
 
-import {PostPageContext} from '../../contexts/PostPageContext';
-import {LocaleContext} from '../../contexts/LocaleContext';
-
+import {BlogMetrikaGoals, PostInfo} from '../../components/PostInfo/PostInfo';
 import {Wrapper} from '../../components/Wrapper/Wrapper';
-import {PostInfo, BlogMetrikaGoals} from '../../components/PostInfo/PostInfo';
-
-import {PaddingsDirections} from '../../models/paddings';
-import {MetaProps} from '../../models/blocks';
-
-import {getBreadcrumbs} from '../../utils/common';
-
 import {BlogMetrikaGoalIds} from '../../constants';
-
+import {LocaleContext} from '../../contexts/LocaleContext';
+import {PostPageContext} from '../../contexts/PostPageContext';
+import {MetaProps} from '../../models/blocks';
+import {PaddingsDirections} from '../../models/paddings';
 import {block} from '../../utils/cn';
+import {getBreadcrumbs} from '../../utils/common';
 
 import './Meta.scss';
 

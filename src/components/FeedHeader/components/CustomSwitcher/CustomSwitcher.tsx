@@ -3,9 +3,7 @@ import React, {LegacyRef, useMemo} from 'react';
 import {Icon, SelectProps} from '@gravity-ui/uikit';
 
 import {DropdownArrow} from '../../../../icons/DropdownArrow';
-
 import {block} from '../../../../utils/cn';
-
 import {SelectItem} from '../Controls/Controls';
 
 import './CustomSwitcher.scss';

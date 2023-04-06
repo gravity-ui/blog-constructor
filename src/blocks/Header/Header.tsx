@@ -1,18 +1,15 @@
 import React, {useContext} from 'react';
+
 import {HeaderBlock} from '@gravity-ui/page-constructor';
 
-import {PostPageContext} from '../../contexts/PostPageContext';
-import {LocaleContext} from '../../contexts/LocaleContext';
-
-import {PostInfo, BlogMetrikaGoals} from '../../components/PostInfo/PostInfo';
+import {BlogMetrikaGoals, PostInfo} from '../../components/PostInfo/PostInfo';
 import {Wrapper} from '../../components/Wrapper/Wrapper';
-
-import {PaddingsDirections} from '../../models/paddings';
-import {HeaderProps} from '../../models/blocks';
-
-import {getBreadcrumbs} from '../../utils/common';
-
 import {BlogMetrikaGoalIds} from '../../constants';
+import {LocaleContext} from '../../contexts/LocaleContext';
+import {PostPageContext} from '../../contexts/PostPageContext';
+import {HeaderProps} from '../../models/blocks';
+import {PaddingsDirections} from '../../models/paddings';
+import {getBreadcrumbs} from '../../utils/common';
 
 const metrikaGoals: BlogMetrikaGoals = {
     sharing: BlogMetrikaGoalIds.shareTop,

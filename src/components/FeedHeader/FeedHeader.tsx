@@ -2,16 +2,14 @@ import React from 'react';
 
 import {
     BackgroundImage,
+    FullWidthBackground,
     Grid,
     getThemedValue,
-    FullWidthBackground,
 } from '@gravity-ui/page-constructor';
 
-import {HeaderBlockProps, ClassNameProps} from '../../models/common';
-
-import {Controls, ControlsProps} from './components/Controls/Controls';
-
+import {ClassNameProps, HeaderBlockProps} from '../../models/common';
 import {block} from '../../utils/cn';
+import {Controls, ControlsProps} from './components/Controls/Controls';
 
 import './FeedHeader.scss';
 

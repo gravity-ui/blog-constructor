@@ -1,10 +1,8 @@
 import React from 'react';
 
-import {ArrowType} from '../types';
-
-import {i18, Keyset} from '../../../i18n';
-
+import {Keyset, i18} from '../../../i18n';
 import {block} from '../../../utils/cn';
+import {ArrowType} from '../types';
 
 import '../Paginator.scss';
 

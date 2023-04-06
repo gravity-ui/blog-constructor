@@ -2,10 +2,8 @@ import React from 'react';
 
 import {Icon} from '@gravity-ui/uikit';
 
-import {i18, Keyset} from '../../../i18n';
-
+import {Keyset, i18} from '../../../i18n';
 import {Time} from '../../../icons/Time';
-
 import {block} from '../../../utils/cn';
 
 import '../PostInfo.scss';

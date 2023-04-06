@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {PostData, Tag, SetQueryType, GetPostsType, Service} from '../models/common';
+import {GetPostsType, PostData, Service, SetQueryType, Tag} from '../models/common';
 
 export interface FeedContextProps {
     posts?: PostData[];

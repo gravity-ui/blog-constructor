@@ -1,27 +1,25 @@
 import {format, parse} from 'url';
-import {memoize, debounce} from 'lodash';
+
+import {debounce, memoize} from 'lodash';
 
 import {
     ContentBlockProps,
     HeaderBreadCrumbsProps,
-    isNewMetrikaFormat,
     MetrikaGoal,
     NewMetrikaGoal,
+    isNewMetrikaFormat,
 } from '@gravity-ui/page-constructor';
-
-import {i18, Keyset} from '../i18n';
-
-import {RouterContextProps} from '../contexts/RouterContext';
-
-import {Tag, GetPostsRequest, Query} from '../models/common';
 
 import {
     CONTENT_DEFAULT_COL_SIZES,
     CONTENT_DEFAULT_SIZE,
     CONTENT_DEFAULT_THEME,
-    DEFAULT_ROWS_PER_PAGE,
     DEFAULT_PAGE,
+    DEFAULT_ROWS_PER_PAGE,
 } from '../blocks/constants';
+import {RouterContextProps} from '../contexts/RouterContext';
+import {Keyset, i18} from '../i18n';
+import {GetPostsRequest, Query, Tag} from '../models/common';
 
 export interface QueryParam {
     name: string;

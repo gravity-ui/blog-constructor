@@ -1,4 +1,4 @@
-import {PaddingsDirections, Paddings} from './models/paddings';
+import {Paddings, PaddingsDirections} from './models/paddings';
 
 export const BREAKPOINTS = {
     xs: 0,

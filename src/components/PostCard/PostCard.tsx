@@ -1,13 +1,11 @@
-import React, {useMemo, useContext} from 'react';
+import React, {useContext, useMemo} from 'react';
 
-import {CardBase, YFMWrapper, MetrikaGoal, HTML} from '@gravity-ui/page-constructor';
+import {CardBase, HTML, MetrikaGoal, YFMWrapper} from '@gravity-ui/page-constructor';
 
 import {LikesContext} from '../../contexts/LikesContext';
-
-import {SuggestPostInfo} from '../PostInfo/SuggestPostInfo';
 import {PostData} from '../../models/common';
-
 import {block} from '../../utils/cn';
+import {SuggestPostInfo} from '../PostInfo/SuggestPostInfo';
 
 import './PostCard.scss';
 

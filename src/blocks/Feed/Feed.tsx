@@ -1,26 +1,20 @@
-import React, {useEffect, useCallback, useReducer, useMemo, useContext} from 'react';
+import React, {useCallback, useContext, useEffect, useMemo, useReducer} from 'react';
+
 import {Icon} from '@gravity-ui/uikit';
 
-import {FeedContext} from '../../contexts/FeedContext';
-import {RouterContext} from '../../contexts/RouterContext';
-import {LocaleContext} from '../../contexts/LocaleContext';
-
-import {DEFAULT_PAGE, DEFAULT_ROWS_PER_PAGE} from '../constants';
-
-import {BlogMetrikaGoalIds} from '../../constants';
-
-import {getFeedQueryParams, scrollOnPageChange} from '../../utils/common';
-
 import {FeedHeader} from '../../components/FeedHeader/FeedHeader';
-import {PostsError} from '../../components/PostsError/PostsError';
 import {Posts} from '../../components/Posts/Posts';
-
+import {PostsError} from '../../components/PostsError/PostsError';
+import {BlogMetrikaGoalIds} from '../../constants';
+import {FeedContext} from '../../contexts/FeedContext';
+import {LocaleContext} from '../../contexts/LocaleContext';
+import {RouterContext} from '../../contexts/RouterContext';
 import metrika from '../../counters/metrika.js';
 import {MetrikaCounter} from '../../counters/utils';
-
-import {HandleChangeQueryParams} from '../../models/common';
 import {FeedProps} from '../../models/blocks';
-
+import {HandleChangeQueryParams} from '../../models/common';
+import {getFeedQueryParams, scrollOnPageChange} from '../../utils/common';
+import {DEFAULT_PAGE, DEFAULT_ROWS_PER_PAGE} from '../constants';
 import {ActionTypes, reducer} from './reducer';
 
 const CONTAINER_ID = 'blog-cards';

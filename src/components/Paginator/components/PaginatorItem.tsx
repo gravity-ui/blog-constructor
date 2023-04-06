@@ -2,12 +2,10 @@ import React, {useContext} from 'react';
 
 import {Button} from '@gravity-ui/uikit';
 
-import {ArrowType, PaginatorItemProps} from '../types';
-
 import {LocaleContext} from '../../../contexts/LocaleContext';
-import {getBlogPath} from '../../../utils/common';
-
 import {block} from '../../../utils/cn';
+import {getBlogPath} from '../../../utils/common';
+import {ArrowType, PaginatorItemProps} from '../types';
 
 import '../Paginator.scss';
 

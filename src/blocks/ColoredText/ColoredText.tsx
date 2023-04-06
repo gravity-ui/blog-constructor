@@ -3,12 +3,10 @@ import React from 'react';
 import {BackgroundImage, Content} from '@gravity-ui/page-constructor';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
-
-import {PaddingsDirections} from '../../models/paddings';
 import {ColoredTextProps} from '../../models/blocks';
-
-import {updateContentSizes} from '../../utils/common';
+import {PaddingsDirections} from '../../models/paddings';
 import {block} from '../../utils/cn';
+import {updateContentSizes} from '../../utils/common';
 
 import './ColoredText.scss';
 

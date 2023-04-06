@@ -1,15 +1,13 @@
 import React from 'react';
+
 import {Content, Image, NewMetrikaGoal} from '@gravity-ui/page-constructor';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
-
-import {getBlogElementMetrika, updateContentSizes} from '../../utils/common';
-import {block} from '../../utils/cn';
-
-import {PaddingsDirections} from '../../models/paddings';
-import {BannerProps} from '../../models/blocks';
-
 import {BlogMetrikaGoalIds} from '../../constants';
+import {BannerProps} from '../../models/blocks';
+import {PaddingsDirections} from '../../models/paddings';
+import {block} from '../../utils/cn';
+import {getBlogElementMetrika, updateContentSizes} from '../../utils/common';
 
 import './Banner.scss';
 
@@ -37,6 +35,7 @@ export const Banner: React.FC<BannerProps> = ({
     };
 
     contentData.buttons?.forEach((button) => {
+        // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign
         button.metrikaGoals = getBlogElementMetrika(metrikaGoal, button.metrikaGoals);
     });
 

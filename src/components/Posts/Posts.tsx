@@ -3,15 +3,12 @@ import React, {MouseEvent} from 'react';
 import {CardLayoutBlock} from '@gravity-ui/page-constructor';
 import {Button} from '@gravity-ui/uikit';
 
+import {Keyset, i18} from '../../i18n';
 import {PostData} from '../../models/common';
-
-import {i18, Keyset} from '../../i18n';
-
+import {block} from '../../utils/cn';
 import {Paginator} from '../Paginator/Paginator';
 import {PostCard} from '../PostCard/PostCard';
 import {PostsEmpty} from '../PostsEmpty/PostsEmpty';
-
-import {block} from '../../utils/cn';
 
 import './Posts.scss';
 

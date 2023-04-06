@@ -7,8 +7,8 @@ import {
     TextTheme,
 } from '@gravity-ui/page-constructor';
 
+import {BlockType, ClassNameProps, PostData} from './common';
 import {PaddingsYFMProps} from './paddings';
-import {ClassNameProps, PostData, BlockType} from './common';
 
 // blocks props
 export type AuthorProps = ClassNameProps & {

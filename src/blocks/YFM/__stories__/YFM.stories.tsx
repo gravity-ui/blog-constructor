@@ -1,18 +1,18 @@
 import React from 'react';
 
-import {PageConstructor} from '@gravity-ui/page-constructor';
 import {Meta, Story} from '@storybook/react/types-6-0';
 
-import {BlockType, PostData} from '../../../models/common';
-import {YFMProps} from '../../../models/blocks';
+import {PageConstructor} from '@gravity-ui/page-constructor';
 
-import customBlocks from '../../../constructor/blocksMap';
-import {BLOCKS} from '../../../demo/constants';
-import {PostPageContext} from '../../../contexts/PostPageContext';
-import post from '../../../../.mocks/post.json';
 import {getDefaultStoryArgs} from '../../../../.mocks/utils';
-
+import customBlocks from '../../../constructor/blocksMap';
+import {PostPageContext} from '../../../contexts/PostPageContext';
+import {BLOCKS} from '../../../demo/constants';
+import {YFMProps} from '../../../models/blocks';
+import {BlockType, PostData} from '../../../models/common';
 import {YFM} from '../YFM';
+
+import post from '../../../../.mocks/post.json';
 
 export default {
     title: `${BLOCKS}/YFM`,

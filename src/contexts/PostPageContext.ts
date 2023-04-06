@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {ShareOptions} from '@gravity-ui/uikit';
 
 import {PostData} from '../models/common';

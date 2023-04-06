@@ -1,15 +1,13 @@
 import React from 'react';
+
 import {Content, ContentBlockProps, NewMetrikaGoal} from '@gravity-ui/page-constructor';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
-import {getBlogElementMetrika, updateContentSizes} from '../../utils/common';
-
-import {PaddingsDirections} from '../../models/paddings';
-import {CTAProps} from '../../models/blocks';
-
 import {BlogMetrikaGoalIds} from '../../constants';
-
+import {CTAProps} from '../../models/blocks';
+import {PaddingsDirections} from '../../models/paddings';
 import {block} from '../../utils/cn';
+import {getBlogElementMetrika, updateContentSizes} from '../../utils/common';
 
 import './CTA.scss';
 
@@ -46,6 +44,7 @@ export const CTA: React.FC<CTAProps> = ({items, paddingTop, paddingBottom}) => {
                 const contentData = updateContentSizes(content);
 
                 contentData.links?.forEach((link) => {
+                    // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign
                     link.metrikaGoals = getBlogElementMetrika(metrikaGoal, link.metrikaGoals);
                 });
 

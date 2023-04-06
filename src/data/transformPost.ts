@@ -1,7 +1,7 @@
-import {typografToText, typografToHTML, yfmTransformer} from '@gravity-ui/page-constructor/server';
+import {typografToHTML, typografToText, yfmTransformer} from '@gravity-ui/page-constructor/server';
 
-import {Lang} from '../models/locale';
 import {PostData} from '../models/common';
+import {Lang} from '../models/locale';
 
 /**
  * Func for transform post data

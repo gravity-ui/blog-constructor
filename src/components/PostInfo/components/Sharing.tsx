@@ -3,20 +3,16 @@ import React, {useContext} from 'react';
 import {SharePopover} from '@gravity-ui/uikit';
 
 import {MobileContext} from '../../../contexts/MobileContext';
-import {RouterContext} from '../../../contexts/RouterContext';
 import {PostPageContext} from '../../../contexts/PostPageContext';
-
-import {i18, Keyset} from '../../../i18n';
-
-import {getAbsolutePath} from '../../../utils/common';
-import {block} from '../../../utils/cn';
-
+import {RouterContext} from '../../../contexts/RouterContext';
+import metrika from '../../../counters/metrika.js';
 import {MetrikaCounter} from '../../../counters/utils';
+import {Keyset, i18} from '../../../i18n';
+import {ShareArrowUp} from '../../../icons/ShareArrowUp';
+import {block} from '../../../utils/cn';
+import {getAbsolutePath} from '../../../utils/common';
 
 // @ts-ignore
-import metrika from '../../../counters/metrika.js';
-
-import {ShareArrowUp} from '../../../icons/ShareArrowUp';
 
 import '../PostInfo.scss';
 

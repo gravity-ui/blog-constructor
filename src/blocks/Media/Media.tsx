@@ -3,10 +3,8 @@ import React from 'react';
 import {Media as PCMedia, YFMWrapper} from '@gravity-ui/page-constructor';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
-
-import {PaddingsDirections} from '../../models/paddings';
 import {MediaProps} from '../../models/blocks';
-
+import {PaddingsDirections} from '../../models/paddings';
 import {block} from '../../utils/cn';
 
 import './Media.scss';

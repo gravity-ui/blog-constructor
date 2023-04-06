@@ -1,28 +1,25 @@
 import React from 'react';
 
 import {
+    NavigationData,
     PageConstructor,
-    PageContent,
     PageConstructorProvider,
     PageConstructorProviderProps,
-    NavigationData,
+    PageContent,
 } from '@gravity-ui/page-constructor';
 
+import {MetaWrapper} from '../../components/MetaWrapper/MetaWrapper';
+import componentMap from '../../constructor/blocksMap';
 import {FeedContext} from '../../contexts/FeedContext';
 import {LikesContext} from '../../contexts/LikesContext';
-
-import {MetaWrapper} from '../../components/MetaWrapper/MetaWrapper';
-
-import componentMap from '../../constructor/blocksMap';
-
 import {
-    Tag,
-    PostsProps,
-    ToggleLikeCallbackType,
-    MetaProps,
     GetPostsType,
-    SetQueryType,
+    MetaProps,
+    PostsProps,
     Service,
+    SetQueryType,
+    Tag,
+    ToggleLikeCallbackType,
 } from '../../models/common';
 
 import './BlogPage.scss';

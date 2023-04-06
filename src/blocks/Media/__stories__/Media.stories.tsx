@@ -2,17 +2,15 @@ import React from 'react';
 
 import {Meta, Story} from '@storybook/react/types-6-0';
 
-import {BlockType} from '../../../models/common';
-import {MediaProps} from '../../../models/blocks';
-
-import {BLOCKS} from '../../../demo/constants';
 import {
+    dataLensSrc,
     getDefaultStoryArgs,
     getVideoStoryArgs,
     youtubeSrc,
-    dataLensSrc,
 } from '../../../../.mocks/utils';
-
+import {BLOCKS} from '../../../demo/constants';
+import {MediaProps} from '../../../models/blocks';
+import {BlockType} from '../../../models/common';
 import {Media} from '../Media';
 
 export default {

@@ -1,5 +1,6 @@
 import evalExp from '@doc-tools/transform/lib/liquid/evaluation';
 import {PageContent} from '@gravity-ui/page-constructor';
+
 import {Lang} from '../models/locale';
 
 type FilteringOptions = {
@@ -36,6 +37,7 @@ export const filterItems = ({items, itemsKey, options}: FilterItemsProps) => {
             when === undefined ||
             (typeof when === 'string' && evalExp(when, options));
 
+        // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign
         delete item.when;
 
         if (whenResult) {
