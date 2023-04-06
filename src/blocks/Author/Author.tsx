@@ -29,10 +29,10 @@ export const Author: React.FC<AuthorProps> = (props) => {
         return {
             firstName: author?.firstName || '',
             secondName: author?.secondName || '',
-            description: author?.fullDescription || '',
+            description: author?.shortDescription || '',
             avatar: authorAvatar,
         };
-    }, [author?.avatar, author?.firstName, author?.fullDescription, author?.secondName, image]);
+    }, [author?.avatar, author?.firstName, author?.shortDescription, author?.secondName, image]);
 
     if (!authorItem?.firstName || !authorItem?.secondName) {
         return null;
