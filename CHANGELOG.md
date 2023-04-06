@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/gravity-ui/blog-constructor/compare/v2.0.2...v2.1.0) (2023-04-06)
+
+
+### Features
+
+* change source field with author description ([#5](https://github.com/gravity-ui/blog-constructor/issues/5)) ([fb7151c](https://github.com/gravity-ui/blog-constructor/commit/fb7151ceac39b2e4407c7110da0314b87c4db72b))
+
 ## [2.0.2](https://github.com/gravity-ui/blog-constructor/compare/v2.0.1...v2.0.2) (2023-04-05)
 
 
