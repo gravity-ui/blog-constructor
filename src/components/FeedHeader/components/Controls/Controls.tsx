@@ -1,6 +1,6 @@
 import React, {ReactNode, useContext, useMemo, useState} from 'react';
-import {useAnalytics} from '@gravity-ui/page-constructor';
 
+import {useAnalytics} from '@gravity-ui/page-constructor';
 import {Button, Icon, Select} from '@gravity-ui/uikit';
 
 /**
@@ -13,16 +13,15 @@ import metrika from '../../../../counters/metrika.js';
 import {MetrikaCounter} from '../../../../counters/utils';
 import {Keyset, i18} from '../../../../i18n';
 import {Save} from '../../../../icons/Save';
+import {
+    DefaultEventNames,
+    HandleChangeQueryParams,
+    Query,
+    SetQueryType,
+} from '../../../../models/common';
 import {block} from '../../../../utils/cn';
 import {Search} from '../../../Search/Search';
 import {renderFilter, renderOption, renderSwitcher} from './customRenders';
-
-import {
-    HandleChangeQueryParams,
-    SetQueryType,
-    Query,
-    DefaultEventNames,
-} from '../../../../models/common';
 
 import './Controls.scss';
 

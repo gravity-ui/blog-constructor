@@ -1,4 +1,5 @@
 import React, {Fragment} from 'react';
+
 import {AnalyticsContext, AnalyticsContextProps} from '@gravity-ui/page-constructor';
 
 import {DEFAULT_THEME} from '../constants';

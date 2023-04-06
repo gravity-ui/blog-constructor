@@ -3,19 +3,18 @@ import React, {useEffect, useMemo, useState} from 'react';
 import {useAnalytics} from '@gravity-ui/page-constructor';
 
 import {BlogMetrikaGoalIds} from '../../constants';
-
 /**
  * @deprecated Metrika will be deleted after launch of analyticsEvents
  * https://st.yandex-team.ru/PAGECTR-7
  */
 import metrika from '../../counters/metrika.js';
 import {MetrikaCounter} from '../../counters/utils';
+import {DefaultEventNames} from '../../models/common';
 import {block} from '../../utils/cn';
 import {NavigationButton} from './components/NavigationButton';
 import {PaginatorItem} from './components/PaginatorItem';
 import {ArrowType, PaginatorItemProps, PaginatorProps} from './types';
 import {getPageConfigs, getPagesCount} from './utils';
-import {DefaultEventNames} from '../../models/common';
 
 import './Paginator.scss';
 

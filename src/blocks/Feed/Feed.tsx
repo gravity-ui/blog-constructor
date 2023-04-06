@@ -1,15 +1,16 @@
 import React, {useCallback, useContext, useEffect, useMemo, useReducer} from 'react';
+
 import {useAnalytics} from '@gravity-ui/page-constructor';
 /**
  * @deprecated Metrika will be deleted after launch of analyticsEvents
  * https://st.yandex-team.ru/PAGECTR-7
  */
-import {BlogMetrikaGoalIds} from '../../constants';
 import {Icon} from '@gravity-ui/uikit';
 
 import {FeedHeader} from '../../components/FeedHeader/FeedHeader';
 import {Posts} from '../../components/Posts/Posts';
 import {PostsError} from '../../components/PostsError/PostsError';
+import {BlogMetrikaGoalIds} from '../../constants';
 import {FeedContext} from '../../contexts/FeedContext';
 import {LocaleContext} from '../../contexts/LocaleContext';
 import {RouterContext} from '../../contexts/RouterContext';
@@ -19,9 +20,8 @@ import {RouterContext} from '../../contexts/RouterContext';
  */
 import metrika from '../../counters/metrika.js';
 import {MetrikaCounter} from '../../counters/utils';
-
-import {DefaultEventNames, HandleChangeQueryParams} from '../../models/common';
 import {FeedProps} from '../../models/blocks';
+import {DefaultEventNames, HandleChangeQueryParams} from '../../models/common';
 import {getFeedQueryParams, scrollOnPageChange} from '../../utils/common';
 import {DEFAULT_PAGE, DEFAULT_ROWS_PER_PAGE} from '../constants';
 import {ActionTypes, reducer} from './reducer';

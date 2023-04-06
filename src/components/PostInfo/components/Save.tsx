@@ -1,16 +1,17 @@
+import React, {useContext} from 'react';
+
 import {useAnalytics} from '@gravity-ui/page-constructor';
 import {Icon} from '@gravity-ui/uikit';
-import React, {useContext} from 'react';
 
 import {UserContext} from '../../../contexts/UserContext';
 import metrika from '../../../counters/metrika.js';
 import {MetrikaCounter} from '../../../counters/utils';
 import {Save as SaveIcon} from '../../../icons/Save';
 import {SaveFilled} from '../../../icons/SaveFilled';
+import {DefaultEventNames} from '../../../models/common';
 import {block} from '../../../utils/cn';
 import {postLikeStatus} from '../../../utils/common';
 
-import {DefaultEventNames} from '../../../models/common';
 import '../PostInfo.scss';
 
 const ICON_SIZE = 16;

@@ -1,6 +1,7 @@
+import React, {useCallback, useContext} from 'react';
+
 import {useAnalytics} from '@gravity-ui/page-constructor';
 import {SharePopover} from '@gravity-ui/uikit';
-import React, {useCallback, useContext} from 'react';
 
 import {MobileContext} from '../../../contexts/MobileContext';
 import {PostPageContext} from '../../../contexts/PostPageContext';
@@ -9,10 +10,10 @@ import metrika from '../../../counters/metrika.js';
 import {MetrikaCounter} from '../../../counters/utils';
 import {Keyset, i18} from '../../../i18n';
 import {ShareArrowUp} from '../../../icons/ShareArrowUp';
-
 import {DefaultEventNames} from '../../../models/common';
 import {block} from '../../../utils/cn';
 import {getAbsolutePath} from '../../../utils/common';
+
 import '../PostInfo.scss';
 
 const b = block('post-info');
