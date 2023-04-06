@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/gravity-ui/blog-constructor/compare/v2.1.0...v2.2.0) (2023-04-06)
+
+
+### Features
+
+* update linters ([#24](https://github.com/gravity-ui/blog-constructor/issues/24)) ([bc5aa0f](https://github.com/gravity-ui/blog-constructor/commit/bc5aa0f72e64b916acaf692874482ccdae3f94e9))
+
 ## [2.1.0](https://github.com/gravity-ui/blog-constructor/compare/v2.0.2...v2.1.0) (2023-04-06)
 
 
