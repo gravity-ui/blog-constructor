@@ -5,7 +5,6 @@ import {Button, Icon, Select} from '@gravity-ui/uikit';
 
 /**
  * @deprecated Metrika will be deleted after launch of analyticsEvents
- * https://st.yandex-team.ru/PAGECTR-7
  */
 import {BlogMetrikaGoalIds} from '../../../../constants';
 import {LikesContext} from '../../../../contexts/LikesContext';
@@ -85,7 +84,6 @@ export const Controls: React.FC<ControlsProps> = ({
     const handleTagSelect = (selectedTags: string[]) => {
         /**
          * @deprecated Metrika will be deleted after launch of analyticsEvents
-         * https://st.yandex-team.ru/PAGECTR-7
          */
         metrika.reachGoal(MetrikaCounter.CrossSite, BlogMetrikaGoalIds.tag, {
             theme: selectedTags[0],
@@ -113,7 +111,6 @@ export const Controls: React.FC<ControlsProps> = ({
 
         /**
          * @deprecated Metrika will be deleted after launch of analyticsEvents
-         * https://st.yandex-team.ru/PAGECTR-7
          */
         metrika.reachGoal(MetrikaCounter.CrossSite, BlogMetrikaGoalIds.service, {
             service: metrikaAsString,

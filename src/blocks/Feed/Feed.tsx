@@ -3,7 +3,6 @@ import React, {useCallback, useContext, useEffect, useMemo, useReducer} from 're
 import {useAnalytics} from '@gravity-ui/page-constructor';
 /**
  * @deprecated Metrika will be deleted after launch of analyticsEvents
- * https://st.yandex-team.ru/PAGECTR-7
  */
 import {Icon} from '@gravity-ui/uikit';
 
@@ -16,7 +15,6 @@ import {LocaleContext} from '../../contexts/LocaleContext';
 import {RouterContext} from '../../contexts/RouterContext';
 /**
  * @deprecated Metrika will be deleted after launch of analyticsEvents
- * https://st.yandex-team.ru/PAGECTR-7
  */
 import metrika from '../../counters/metrika.js';
 import {MetrikaCounter} from '../../counters/utils';
@@ -139,7 +137,6 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
         dispatch({type: ActionTypes.SetIsShowMoreFetching, payload: true});
         /**
          * @deprecated Metrika will be deleted after launch of analyticsEvents
-         * https://st.yandex-team.ru/PAGECTR-7
          */
         metrika.reachGoal(MetrikaCounter.CrossSite, BlogMetrikaGoalIds.showMore);
         handleAnalytics();

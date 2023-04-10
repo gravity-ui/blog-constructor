@@ -18,7 +18,6 @@ type PostCardProps = {
     size?: 's' | 'm';
     /**
      * @deprecated Metrika will be deleted after launch of analyticsEvents
-     * https://st.yandex-team.ru/PAGECTR-7
      */
     metrikaGoals?: MetrikaGoal;
 };

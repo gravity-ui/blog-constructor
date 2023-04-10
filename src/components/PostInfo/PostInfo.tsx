@@ -24,7 +24,6 @@ type PostInfoProps = {
     theme?: 'light' | 'dark';
     /**
      * @deprecated Metrika will be deleted after launch of analyticsEvents
-     * https://st.yandex-team.ru/PAGECTR-7
      */
     metrikaGoals?: BlogMetrikaGoals;
     dataQa?: string;

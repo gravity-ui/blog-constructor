@@ -28,7 +28,6 @@ export const CTA: React.FC<CTAProps> = ({items, paddingTop, paddingBottom}) => {
 
     /**
      * @deprecated Metrika will be deleted after launch of analyticsEvents
-     * https://st.yandex-team.ru/PAGECTR-7
      */
     const metrikaGoal: NewMetrikaGoal = {
         name: BlogMetrikaGoalIds.cta,
