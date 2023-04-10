@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.0](https://github.com/gravity-ui/blog-constructor/compare/v2.3.0...v3.0.0) (2023-04-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* add callback prop for blog page ([#25](https://github.com/gravity-ui/blog-constructor/issues/25))
+
+### Features
+
+* add callback prop for blog page ([#25](https://github.com/gravity-ui/blog-constructor/issues/25)) ([7b1ab2c](https://github.com/gravity-ui/blog-constructor/commit/7b1ab2c12aa9ef4f8e5a11853508a9b439a196d7))
+
 ## [2.3.0](https://github.com/gravity-ui/blog-constructor/compare/v2.2.0...v2.3.0) (2023-04-10)
 
 
