@@ -85,6 +85,7 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
         );
 
         if (hasFirstPageQuery) {
+            // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign
             value[PAGE_QUERY] = null;
         }
 
