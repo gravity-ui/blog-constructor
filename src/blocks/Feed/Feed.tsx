@@ -11,7 +11,6 @@ import {Posts} from '../../components/Posts/Posts';
 import {PostsError} from '../../components/PostsError/PostsError';
 import {BlogMetrikaGoalIds} from '../../constants';
 import {FeedContext} from '../../contexts/FeedContext';
-import {LocaleContext} from '../../contexts/LocaleContext';
 import {RouterContext} from '../../contexts/RouterContext';
 /**
  * @deprecated Metrika will be deleted after launch of analyticsEvents
@@ -39,7 +38,6 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
         pageCountForShowSupportButtons,
     } = useContext(FeedContext);
     const router = useContext(RouterContext);
-    const {locale} = useContext(LocaleContext);
     const handleAnalytics = useAnalytics(DefaultEventNames.ShowMore);
 
     const [
@@ -81,6 +79,17 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
 
     const handleChangeQueryParams: HandleChangeQueryParams = (value) => {
         dispatch({type: ActionTypes.QueryParamsChange, payload: value});
+
+        const hasFirstPageQuery = Object.keys(value).some(
+            (queryKey) => queryKey === PAGE_QUERY && value[queryKey] === FIRST_PAGE,
+        );
+
+        if (hasFirstPageQuery) {
+            // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign
+            value[PAGE_QUERY] = null;
+        }
+
+        router.updateQueryCallback(value);
     };
 
     const handlePageChange = async (value: number) => {
@@ -197,28 +206,6 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
             })),
         [tags],
     );
-
-    useEffect(() => {
-        const queryString = Object.keys(queryParams)
-            .reduce((acc: string[], curr) => {
-                if (curr === PAGE_QUERY && queryParams[curr] === FIRST_PAGE) {
-                    return acc;
-                }
-
-                if (queryParams[curr]) {
-                    acc.push(`${curr}=${queryParams[curr]}`);
-                }
-
-                return acc;
-            }, [])
-            .join('&');
-
-        const pathPrefix = locale?.pathPrefix ? `/${locale?.pathPrefix}/` : '/';
-
-        const newUrl = `${pathPrefix}blog${queryString ? `?${queryString}` : ''}`;
-
-        window.history.replaceState({...window.history.state, as: newUrl, url: newUrl}, '', newUrl);
-    }, [locale?.pathPrefix, queryParams]);
 
     return (
         <div>
