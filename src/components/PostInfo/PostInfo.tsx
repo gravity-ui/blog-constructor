@@ -22,6 +22,9 @@ type PostInfoProps = {
     readingTime: PostData['readingTime'];
     date: PostData['date'];
     theme?: 'light' | 'dark';
+    /**
+     * @deprecated Metrika will be deleted after launch of analyticsEvents
+     */
     metrikaGoals?: BlogMetrikaGoals;
     dataQa?: string;
 };

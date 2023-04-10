@@ -16,6 +16,9 @@ import './Meta.scss';
 
 const b = block('meta');
 
+/**
+ * @deprecated Metrika will be deleted after launch of analyticsEvents
+ */
 const metrikaGoals: BlogMetrikaGoals = {
     sharing: BlogMetrikaGoalIds.shareBottom,
     save: BlogMetrikaGoalIds.saveBottom,

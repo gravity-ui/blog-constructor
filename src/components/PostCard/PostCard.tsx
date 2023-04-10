@@ -16,6 +16,9 @@ type PostCardProps = {
     fullWidth?: boolean;
     showTag?: boolean;
     size?: 's' | 'm';
+    /**
+     * @deprecated Metrika will be deleted after launch of analyticsEvents
+     */
     metrikaGoals?: MetrikaGoal;
 };
 

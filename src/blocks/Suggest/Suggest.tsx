@@ -10,6 +10,9 @@ import {Keyset, i18} from '../../i18n';
 import {SuggestProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
 
+/**
+ * @deprecated Metrika will be deleted after launch of analyticsEvents
+ */
 const metrikaGoals = [
     {
         name: BlogMetrikaGoalIds.suggest,

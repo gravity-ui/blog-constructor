@@ -1,5 +1,6 @@
-import React, {useContext} from 'react';
+import React, {useCallback, useContext} from 'react';
 
+import {useAnalytics} from '@gravity-ui/page-constructor';
 import {SharePopover} from '@gravity-ui/uikit';
 
 import {MobileContext} from '../../../contexts/MobileContext';
@@ -9,10 +10,9 @@ import metrika from '../../../counters/metrika.js';
 import {MetrikaCounter} from '../../../counters/utils';
 import {Keyset, i18} from '../../../i18n';
 import {ShareArrowUp} from '../../../icons/ShareArrowUp';
+import {DefaultEventNames} from '../../../models/common';
 import {block} from '../../../utils/cn';
 import {getAbsolutePath} from '../../../utils/common';
-
-// @ts-ignore
 
 import '../PostInfo.scss';
 
@@ -20,6 +20,9 @@ const b = block('post-info');
 
 type SharingProps = {
     theme?: 'light' | 'dark';
+    /**
+     * @deprecated Metrika will be deleted after launch of analyticsEvents
+     */
     metrikaGoal?: string;
 };
 
@@ -27,10 +30,17 @@ export const Sharing: React.FC<SharingProps> = ({theme, metrikaGoal}) => {
     const router = useContext(RouterContext);
     const isMobile = useContext(MobileContext);
     const {shareOptions} = useContext(PostPageContext);
+    const handleAnalyticsGlobal = useAnalytics(DefaultEventNames.ShareButton);
 
-    const handleMetrika = () => {
+    const handleMetrika = useCallback(() => {
         metrika.reachGoal(MetrikaCounter.CrossSite, metrikaGoal);
-    };
+    }, [metrikaGoal]);
+
+    const handleAnalytics = useCallback(() => {
+        handleAnalyticsGlobal();
+
+        handleMetrika();
+    }, [handleAnalyticsGlobal, handleMetrika]);
 
     return (
         <div className={b('item')}>
@@ -48,7 +58,7 @@ export const Sharing: React.FC<SharingProps> = ({theme, metrikaGoal}) => {
                     placement="bottom"
                     openByHover={false}
                     shareOptions={shareOptions}
-                    handleMetrika={handleMetrika}
+                    handleMetrika={handleAnalytics}
                 />
             </span>
         </div>

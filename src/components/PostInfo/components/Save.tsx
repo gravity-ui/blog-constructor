@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 
+import {useAnalytics} from '@gravity-ui/page-constructor';
 import {Icon} from '@gravity-ui/uikit';
 
 import {UserContext} from '../../../contexts/UserContext';
@@ -7,10 +8,9 @@ import metrika from '../../../counters/metrika.js';
 import {MetrikaCounter} from '../../../counters/utils';
 import {Save as SaveIcon} from '../../../icons/Save';
 import {SaveFilled} from '../../../icons/SaveFilled';
+import {DefaultEventNames} from '../../../models/common';
 import {block} from '../../../utils/cn';
 import {postLikeStatus} from '../../../utils/common';
-
-// @ts-ignore
 
 import '../PostInfo.scss';
 
@@ -24,6 +24,9 @@ type SaveProps = {
     hasUserLike: boolean;
     handleUserLike: () => void;
     theme?: 'light' | 'dark';
+    /**
+     * @deprecated Metrika will be deleted after launch of analyticsEvents
+     */
     metrikaGoal?: string;
     dataQa?: string;
     size?: 's' | 'm';
@@ -52,6 +55,7 @@ export const Save: React.FC<SaveProps> = ({
     dataQa,
 }) => {
     const {uid} = useContext(UserContext);
+    const handleAnalytics = useAnalytics(DefaultEventNames.SaveButton);
 
     return (
         <div
@@ -69,6 +73,7 @@ export const Save: React.FC<SaveProps> = ({
                 postLikeStatus(postId, Boolean(hasUserLike));
                 handleUserLike();
                 metrika.reachGoal(MetrikaCounter.CrossSite, metrikaGoal);
+                handleAnalytics();
             }}
             data-qa={`${dataQa ? dataQa + '-' : ''}save`}
         >
