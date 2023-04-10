@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.3.0](https://github.com/gravity-ui/blog-constructor/compare/v2.2.0...v2.3.0) (2023-04-10)
+
+
+### Features
+
+* analytics refactoring ([#13](https://github.com/gravity-ui/blog-constructor/issues/13)) ([a95c55b](https://github.com/gravity-ui/blog-constructor/commit/a95c55bd1ff98f86a110f33ac3275b590ee5db8e))
+
+
+### Bug Fixes
+
+* margin-top of header ([#31](https://github.com/gravity-ui/blog-constructor/issues/31)) ([97ed974](https://github.com/gravity-ui/blog-constructor/commit/97ed974ab0ce0546010d60587b21b8c0eee3279c))
+
 ## [2.2.0](https://github.com/gravity-ui/blog-constructor/compare/v2.1.0...v2.2.0) (2023-04-06)
 
 
