@@ -44,7 +44,7 @@
                                 "position": "before"
                             },
                             {
-                                "pattern": "{@yandex-**,@gravity-ui,@doc-tools}/**",
+                                "pattern": "{@gravity-ui,@doc-tools}/**",
                                 "group": "external",
                                 "position": "after"
                             },
