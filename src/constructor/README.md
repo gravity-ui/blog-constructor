@@ -63,7 +63,7 @@ interface UserAccount {
 }
 ```
 
-### `Device` - information about decive
+### `Device` - information about device
 
 ```jsx
 import {IBrowser, IDevice} from 'ua-parser-js';
