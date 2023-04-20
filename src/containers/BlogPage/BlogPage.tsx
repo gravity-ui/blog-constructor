@@ -31,6 +31,7 @@ export type BlogPageProps = {
     services?: Service[];
     navigation?: NavigationData;
     getPosts: GetPostsType;
+    hasLikes?: boolean;
     toggleLike?: ToggleLikeCallbackType;
     metaData?: MetaProps;
     setQuery?: SetQueryType;
@@ -45,6 +46,7 @@ export const BlogPage = ({
     services,
     getPosts,
     metaData,
+    hasLikes = false,
     toggleLike,
     navigation,
     settings,
@@ -54,7 +56,7 @@ export const BlogPage = ({
         <LikesContext.Provider
             value={{
                 toggleLike: toggleLike,
-                hasLikes: Boolean(toggleLike),
+                hasLikes,
             }}
         >
             <FeedContext.Provider
