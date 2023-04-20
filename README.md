@@ -47,6 +47,8 @@ import {BlogPostPage, BlogConstructorProvider} from '@gravity-ui/blog-constructo
 
 ```
 
+Documentation about [providerProps](./src/constructor/README.md).
+
 Also blog-constructor have server components to help you transform your data if you need
 
 ```jsx
