@@ -26,20 +26,20 @@ export const PaginatorItem = ({
     const navigationLink = `${urlPath || ''}?${navTag}`;
 
     return (
-        <a
-            href={navigationLink}
-            className={b('link', mods)}
-            onClick={(event) => event.preventDefault()}
+        <Button
+            view="flat"
+            size="xl"
+            className={b('item', mods)}
+            onClick={() => onClick?.(itemKey)}
+            loading={loading && Boolean(mods.active)}
         >
-            <Button
-                view="flat"
-                size="xl"
-                className={b('item', mods)}
-                onClick={() => onClick?.(itemKey)}
-                loading={loading && Boolean(mods.active)}
+            <a
+                href={navigationLink}
+                className={b('link')}
+                onClick={(event) => event.preventDefault()}
             >
                 {content}
-            </Button>
-        </a>
+            </a>
+        </Button>
     );
 };
