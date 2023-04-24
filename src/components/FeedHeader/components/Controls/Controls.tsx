@@ -68,7 +68,13 @@ export const Controls: React.FC<ControlsProps> = ({
     const [search, setSearch] = useState<string>(searchInitial as string);
 
     const handleSavedOnly = () => {
-        handleChangeQuery({savedOnly: savedOnly ? '' : 'true'});
+        handleChangeQuery({
+            savedOnly: savedOnly ? '' : 'true',
+            search: '',
+            tags: '',
+            page: DEFAULT_PAGE,
+            services: '',
+        });
         handleAnalyticsSaveOnly();
         setSavedOnly(!savedOnly);
         setIsFetching(true);
