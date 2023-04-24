@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.1](https://github.com/gravity-ui/blog-constructor/compare/v3.0.0...v3.0.1) (2023-04-24)
+
+
+### Bug Fixes
+
+* rewrap pagination item ([#36](https://github.com/gravity-ui/blog-constructor/issues/36)) ([a3a56b2](https://github.com/gravity-ui/blog-constructor/commit/a3a56b2d4519871427de1e42267ce18736f7f7b1))
+
 ## [3.0.0](https://github.com/gravity-ui/blog-constructor/compare/v2.3.0...v3.0.0) (2023-04-10)
 
 
