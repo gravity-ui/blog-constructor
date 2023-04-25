@@ -7,7 +7,6 @@ import {DeviceContext, DeviceContextProps} from '../contexts/DeviceContext';
 import {LocaleContext} from '../contexts/LocaleContext';
 import {MobileContext} from '../contexts/MobileContext';
 import {RouterContext, RouterContextProps} from '../contexts/RouterContext';
-import {UserContext, UserContextProps} from '../contexts/UserContext';
 import {ThemeValueContext, ThemeValueType} from '../contexts/theme/ThemeValueContext';
 import {Locale} from '../models/locale';
 
@@ -16,7 +15,6 @@ export interface BlogConstructorProviderProps {
     locale?: Locale;
     router?: RouterContextProps;
     theme?: ThemeValueType;
-    user?: UserContextProps;
     device?: DeviceContextProps;
     analytics?: AnalyticsContextProps;
     children?: React.ReactNode;
@@ -27,7 +25,6 @@ export const BlogConstructorProvider: React.FC<BlogConstructorProviderProps> = (
     locale = {} as Locale,
     router = {} as RouterContextProps,
     theme = DEFAULT_THEME,
-    user = {},
     device = {},
     analytics = {},
     children,
@@ -37,7 +34,6 @@ export const BlogConstructorProvider: React.FC<BlogConstructorProviderProps> = (
         <LocaleContext.Provider value={{locale}} key="locale-context" />,
         <RouterContext.Provider value={router} key="router-context" />,
         <MobileContext.Provider value={Boolean(isMobile)} key="is-mobile-context" />,
-        <UserContext.Provider value={user} key="user-context" />,
         <DeviceContext.Provider value={device} key="device-context" />,
         <AnalyticsContext.Provider value={analytics} key="analytics-context" />,
     ].reduceRight((prev, provider) => React.cloneElement(provider, {}, prev), children);

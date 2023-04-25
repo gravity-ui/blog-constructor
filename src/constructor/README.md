@@ -8,7 +8,6 @@ interface BlogConstructorProviderProps {
   locale?: Locale;
   router?: RouterContextProps;
   theme?: ThemeValueType;
-  user?: UserContextProps;
   device?: DeviceContextProps;
   analytics?: AnalyticsContextProps;
   children?: React.ReactNode;
@@ -53,14 +52,6 @@ interface RouterContextProps {
 
 ```jsx
 type ThemeValueType = 'light' | 'dark';
-```
-
-### `User` - info about user
-
-```jsx
-interface UserAccount {
-  uid: string;
-}
 ```
 
 ### `Device` - information about device

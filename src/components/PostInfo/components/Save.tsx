@@ -3,7 +3,7 @@ import React, {useContext} from 'react';
 import {useAnalytics} from '@gravity-ui/page-constructor';
 import {Icon} from '@gravity-ui/uikit';
 
-import {UserContext} from '../../../contexts/UserContext';
+import {LikesContext} from '../../../contexts/LikesContext';
 import metrika from '../../../counters/metrika.js';
 import {MetrikaCounter} from '../../../counters/utils';
 import {Save as SaveIcon} from '../../../icons/Save';
@@ -54,8 +54,9 @@ export const Save: React.FC<SaveProps> = ({
     theme,
     dataQa,
 }) => {
-    const {uid} = useContext(UserContext);
+    const {toggleLike} = useContext(LikesContext);
     const handleAnalytics = useAnalytics(DefaultEventNames.SaveButton);
+    const isLikeable = Boolean(toggleLike);
 
     return (
         <div
@@ -66,7 +67,7 @@ export const Save: React.FC<SaveProps> = ({
                 event.preventDefault();
                 event.nativeEvent.stopImmediatePropagation();
 
-                if (!uid) {
+                if (!isLikeable) {
                     return;
                 }
 
@@ -77,7 +78,7 @@ export const Save: React.FC<SaveProps> = ({
             }}
             data-qa={`${dataQa ? dataQa + '-' : ''}save`}
         >
-            <div className={b('content', {cursor: Boolean(uid), theme})}>
+            <div className={b('content', {cursor: isLikeable, theme})}>
                 <span className={b('icon')}>
                     <Icon
                         data={hasUserLike ? SaveFilled : SaveIcon}
@@ -85,7 +86,7 @@ export const Save: React.FC<SaveProps> = ({
                         className={b({filled: Boolean(hasUserLike)})}
                     />
                 </span>
-                <span className={b('title', {cursor: Boolean(uid)})}>{title}</span>
+                <span className={b('title', {cursor: isLikeable})}>{title}</span>
             </div>
         </div>
     );
