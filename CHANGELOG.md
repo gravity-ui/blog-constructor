@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.2](https://github.com/gravity-ui/blog-constructor/compare/v3.0.1...v3.0.2) (2023-04-25)
+
+
+### Bug Fixes
+
+* dump other queries when toggle savedOnly button ([#37](https://github.com/gravity-ui/blog-constructor/issues/37)) ([57ca01a](https://github.com/gravity-ui/blog-constructor/commit/57ca01a35736d7bd94711ed70887e7eb8cbaf0f4))
+
 ## [3.0.1](https://github.com/gravity-ui/blog-constructor/compare/v3.0.0...v3.0.1) (2023-04-24)
 
 
