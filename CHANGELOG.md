@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.0](https://github.com/gravity-ui/blog-constructor/compare/v3.0.2...v3.1.0) (2023-04-25)
+
+
+### Features
+
+* remove user context ([#35](https://github.com/gravity-ui/blog-constructor/issues/35)) ([36e7112](https://github.com/gravity-ui/blog-constructor/commit/36e71123b515886f28722b08552d538b8f038a87))
+
 ## [3.0.2](https://github.com/gravity-ui/blog-constructor/compare/v3.0.1...v3.0.2) (2023-04-25)
 
 
