@@ -1,11 +1,12 @@
 import {validators} from '@gravity-ui/page-constructor';
 
 import {BlockType} from '../../models/common';
-import {BlockBase, BlogBlockBase} from '../../schema/common';
+import {BlogBlockBase} from '../../schema/common';
 
 const {
     subBlocks: {ContentBase},
     components: {ImageProps},
+    common: {BlockBaseProps},
 } = validators;
 
 const BackgroundProps = {
@@ -29,7 +30,7 @@ export const ColoredText = {
         additionalProperties: false,
         required: ['text'],
         properties: {
-            ...BlockBase,
+            ...BlockBaseProps,
             ...BlogBlockBase,
             ...ContentBase,
             background: BackgroundProps,

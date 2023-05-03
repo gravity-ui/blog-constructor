@@ -1,5 +1,11 @@
+import {validators} from '@gravity-ui/page-constructor';
+
+const {
+    common: {BlockBaseProps, ChildrenProps},
+} = validators;
+
 import {BlockType} from '../../models/common';
-import {BlockBase, BlogBlockBase, Children} from '../../schema/common';
+import {BlogBlockBase} from '../../schema/common';
 
 export const Layout = {
     [BlockType.Layout]: {
@@ -7,9 +13,9 @@ export const Layout = {
         additionalProperties: false,
         required: ['children'],
         properties: {
-            ...BlockBase,
+            ...BlockBaseProps,
             ...BlogBlockBase,
-            children: Children,
+            children: ChildrenProps,
             mobileOrder: {
                 type: 'string',
                 enum: ['reverse', 'straight'],

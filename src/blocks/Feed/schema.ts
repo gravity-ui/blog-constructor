@@ -1,13 +1,18 @@
+import {validators} from '@gravity-ui/page-constructor';
+
+const {
+    common: {TitleProps, BlockBaseProps},
+} = validators;
+
 import {BlockType} from '../../models/common';
-import {BlockBase, Title} from '../../schema/common';
 
 export const Feed = {
     [BlockType.Feed]: {
         additionalProperties: false,
         required: [],
         properties: {
-            ...BlockBase,
-            title: Title,
+            ...BlockBaseProps,
+            title: TitleProps,
             image: {
                 type: 'string',
             },

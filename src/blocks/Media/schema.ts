@@ -1,11 +1,10 @@
 import {validators} from '@gravity-ui/page-constructor';
 
 import {BlockType} from '../../models/common';
-import {BlockBase, BlogBlockBase} from '../../schema/common';
+import {BlogBlockBase} from '../../schema/common';
 
 const {
-    common: {DataLensProps, VideoProps},
-    components: {ImageProps},
+    common: {BlockBaseProps, MediaProps},
 } = validators;
 
 export const Media = {
@@ -13,22 +12,12 @@ export const Media = {
         type: 'object',
         additionalProperties: false,
         properties: {
-            ...BlockBase,
+            ...BlockBaseProps,
             ...BlogBlockBase,
+            ...MediaProps,
             text: {
                 type: 'string',
                 contentType: 'text',
-            },
-            image: {
-                anyOf: [ImageProps, {type: 'array', items: ImageProps}],
-            },
-            video: VideoProps,
-            dataLens: DataLensProps,
-            youtube: {
-                type: 'string',
-            },
-            previewImg: {
-                type: 'string',
             },
         },
     },

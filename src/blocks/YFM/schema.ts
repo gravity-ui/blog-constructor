@@ -1,5 +1,11 @@
+import {validators} from '@gravity-ui/page-constructor';
+
+const {
+    common: {BlockBaseProps},
+} = validators;
+
 import {BlockType} from '../../models/common';
-import {BlockBase, BlogBlockBase} from '../../schema/common';
+import {BlogBlockBase} from '../../schema/common';
 
 export const YFM = {
     [BlockType.YFM]: {
@@ -7,7 +13,7 @@ export const YFM = {
         additionalProperties: false,
         required: ['text'],
         properties: {
-            ...BlockBase,
+            ...BlockBaseProps,
             ...BlogBlockBase,
             text: {
                 type: 'string',

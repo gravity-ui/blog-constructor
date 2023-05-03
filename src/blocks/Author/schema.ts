@@ -1,5 +1,11 @@
+import {validators} from '@gravity-ui/page-constructor';
+
+const {
+    common: {BlockBaseProps},
+} = validators;
+
 import {BlockType} from '../../models/common';
-import {BlockBase, BlogBlockBase} from '../../schema/common';
+import {BlogBlockBase} from '../../schema/common';
 
 export const Author = {
     [BlockType.Author]: {
@@ -7,7 +13,7 @@ export const Author = {
         additionalProperties: false,
         required: ['authorId'],
         properties: {
-            ...BlockBase,
+            ...BlockBaseProps,
             ...BlogBlockBase,
             authorId: {
                 type: 'number',

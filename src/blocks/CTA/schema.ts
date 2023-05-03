@@ -1,10 +1,11 @@
 import {validators} from '@gravity-ui/page-constructor';
 
 import {BlockType} from '../../models/common';
-import {BlockBase, BlogBlockBase} from '../../schema/common';
+import {BlogBlockBase} from '../../schema/common';
 
 const {
     subBlocks: {ContentBase},
+    common: {BlockBaseProps},
 } = validators;
 
 export const CTA = {
@@ -13,7 +14,7 @@ export const CTA = {
         additionalProperties: false,
         required: ['items'],
         properties: {
-            ...BlockBase,
+            ...BlockBaseProps,
             ...BlogBlockBase,
             items: {
                 type: 'array',

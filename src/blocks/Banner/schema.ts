@@ -1,10 +1,11 @@
 import {validators} from '@gravity-ui/page-constructor';
 
 import {BlockType} from '../../models/common';
-import {BlockBase, BlogBlockBase} from '../../schema/common';
+import {BlogBlockBase} from '../../schema/common';
 
 const {
     subBlocks: {ContentBase},
+    common: {BlockBaseProps},
 } = validators;
 
 export const Banner = {
@@ -13,7 +14,7 @@ export const Banner = {
         additionalProperties: false,
         required: ['title', 'text', 'image'],
         properties: {
-            ...BlockBase,
+            ...BlockBaseProps,
             ...BlogBlockBase,
             ...ContentBase,
             color: {
