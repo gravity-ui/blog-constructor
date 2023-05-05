@@ -1,1 +1,1 @@
-export * from '../../src/blocks/Header/schema';
+export * from '../blocks/Header/schema';
