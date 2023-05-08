@@ -98,6 +98,7 @@ export const Paginator = ({
             dataKey: ArrowType.Prev,
             mods: {type: ArrowType.Prev},
             onClick: handleArrowClick,
+            index: 0,
             content: <NavigationButton arrowType={ArrowType.Prev} />,
         });
     }
@@ -107,6 +108,7 @@ export const Paginator = ({
             key: ArrowType.Next,
             dataKey: ArrowType.Next,
             mods: {type: ArrowType.Next},
+            index: page + 1,
             onClick: handleArrowClick,
             content: <NavigationButton arrowType={ArrowType.Next} />,
         });

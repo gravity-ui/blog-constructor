@@ -20,6 +20,7 @@ export const getPageConfigs = ({page, pagesCount, handlePageClick}: GetPageConfi
         paginatorItems.push({
             key: String(i),
             dataKey: String(i),
+            index: i,
             mods: {type: 'page', active: page === i},
             onClick: handlePageClick,
             content: i,

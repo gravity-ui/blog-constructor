@@ -17,13 +17,14 @@ export const PaginatorItem = ({
     content,
     onClick,
     loading = false,
+    index,
 }: PaginatorItemProps) => {
     const {locale} = useContext(LocaleContext);
     const urlPath = getBlogPath(locale?.pathPrefix || '');
 
     const itemKey = Number(dataKey) > 0 ? Number(dataKey) : (dataKey as ArrowType);
-    const navTag = itemKey > 0 ? `${mods.type || 'page'}=${itemKey}` : itemKey;
-    const navigationLink = `${urlPath || ''}?${navTag}`;
+    const navTag = index > 1 ? `?page=${index}` : '';
+    const navigationLink = `${urlPath || ''}${navTag}`;
 
     return (
         <Button
