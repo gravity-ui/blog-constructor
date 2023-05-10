@@ -2,6 +2,8 @@
 @import './variables.scss';
 
 .yfm_blog {
+    $root: &;
+
     @include text-size(body-3);
     color: var(--yc-color-text-primary);
 
@@ -26,16 +28,18 @@
         @include text-size(header-1);
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        margin-bottom: $indentXS;
-        margin-top: $indentM;
-        padding-top: 0;
-        font-weight: var(--yc-text-header-font-weight);
+    @include add-specificity(&) {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin-bottom: $indentXS;
+            margin-top: $indentM;
+            padding-top: 0;
+            font-weight: var(--yc-text-header-font-weight);
+        }
     }
 
     blockquote,
