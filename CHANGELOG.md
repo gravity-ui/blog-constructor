@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.1.1](https://github.com/gravity-ui/blog-constructor/compare/v3.1.0...v3.1.1) (2023-05-11)
+
+
+### Bug Fixes
+
+* add specificity to headings ([#43](https://github.com/gravity-ui/blog-constructor/issues/43)) ([de53d0b](https://github.com/gravity-ui/blog-constructor/commit/de53d0bb9a697f520626e8c0b1d8c48c8e4d8a64))
+* change href 'prev' to 'blog' and 'next' to page+1 ([#42](https://github.com/gravity-ui/blog-constructor/issues/42)) ([cb8b810](https://github.com/gravity-ui/blog-constructor/commit/cb8b8102d59368cfa0d285d63604a8e9f1ab6619))
+
 ## [3.1.0](https://github.com/gravity-ui/blog-constructor/compare/v3.0.2...v3.1.0) (2023-04-25)
 
 
