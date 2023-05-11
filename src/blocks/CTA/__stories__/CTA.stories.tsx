@@ -33,10 +33,22 @@ const DefaultTemplate: Story<CTAModel> = (args) => (
     </PostPageContext.Provider>
 );
 
+const ThreeItemsTemplate: Story<CTAModel> = (args) => (
+    <PostPageContext.Provider value={{post: post as PostData}}>
+        <PageConstructor content={{blocks: [args]}} custom={customBlocks} />
+    </PostPageContext.Provider>
+);
+
 export const Default = DefaultTemplate.bind({});
+export const ThreeItems = ThreeItemsTemplate.bind({});
 
 Default.args = {
     type: BlockType.CTA,
     ...getDefaultStoryArgs(),
     items: contentBlocks,
+};
+ThreeItems.args = {
+    type: BlockType.CTA,
+    ...getDefaultStoryArgs(),
+    items: contentBlocks.slice(0, 3),
 };
