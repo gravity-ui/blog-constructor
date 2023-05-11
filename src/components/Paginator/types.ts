@@ -11,6 +11,7 @@ export interface PaginatorItemProps {
     content: ReactNode;
     onClick?: (key: number | ArrowType) => void;
     loading?: boolean;
+    index: number;
 }
 
 export type PaginatorProps = {
