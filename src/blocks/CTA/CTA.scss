@@ -57,5 +57,9 @@ $block: '.#{$namespace}cta';
             padding-bottom: $indentXS;
             width: 100%;
         }
+
+        &__layout:last-child {
+            padding-bottom: 0;
+        }
     }
 }
