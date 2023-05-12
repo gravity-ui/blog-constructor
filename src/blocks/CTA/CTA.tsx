@@ -52,13 +52,7 @@ export const CTA: React.FC<CTAProps> = ({items, paddingTop, paddingBottom}) => {
                 });
 
                 return (
-                    <div
-                        key={index}
-                        className={b('button', {
-                            ['layout']: count,
-                        })}
-                        data-qa="blog-cta-card"
-                    >
+                    <div key={index} className={b('button')} data-qa="blog-cta-card">
                         <div className={b('card')}>
                             <Content {...contentData} />
                         </div>
