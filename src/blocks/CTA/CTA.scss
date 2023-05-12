@@ -17,13 +17,13 @@ $block: '.#{$namespace}cta';
         padding: $indentM;
     }
 
-    &__button {
+    &__layout {
         display: flex;
         padding-bottom: 0px;
         margin-right: $indentXS;
     }
 
-    &__button:last-child {
+    &__layout:last-child {
         margin-right: 0;
     }
 
@@ -37,14 +37,14 @@ $block: '.#{$namespace}cta';
             flex-wrap: wrap;
         }
 
-        &__button {
+        &__layout {
             padding-bottom: $indentXS;
             width: calc((100% / 2) - (#{$indentXS} / 2));
             flex-grow: 1;
             margin-right: $indentXS;
         }
 
-        &__button:nth-child(2n) {
+        &__layout:nth-child(2n) {
             margin-right: 0;
         }
     }
@@ -53,7 +53,7 @@ $block: '.#{$namespace}cta';
             flex-direction: column;
         }
 
-        &__button {
+        &__layout {
             padding-bottom: $indentXS;
             width: 100%;
         }
