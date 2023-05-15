@@ -28,7 +28,7 @@ export const PaginatorItem = ({
     const navTag = index > 1 ? `?page=${index}` : '';
     const navigationLink = `${urlPath || ''}${navTag}`;
 
-    const buttonRender = (
+    const renderButton = (
         <Button
             view="flat"
             size="xl"
@@ -48,10 +48,10 @@ export const PaginatorItem = ({
                     className={b('link')}
                     onClick={(event) => event.preventDefault()}
                 >
-                    {buttonRender}
+                    {renderButton}
                 </a>
             ) : (
-                {buttonRender}
+                <>{renderButton}</>
             )}
         </>
     );
