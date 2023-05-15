@@ -15,15 +15,10 @@ $block: '.#{$namespace}cta';
         flex-direction: column;
         flex-grow: 1;
         padding: $indentM;
-    }
-
-    &__layout {
-        display: flex;
-        padding-bottom: 0px;
         margin-right: $indentXS;
     }
 
-    &__layout:last-child {
+    &__card:last-child {
         margin-right: 0;
     }
 
@@ -37,29 +32,30 @@ $block: '.#{$namespace}cta';
             flex-wrap: wrap;
         }
 
-        &__layout {
-            padding-bottom: $indentXS;
+        &__card {
             width: calc((100% / 2) - (#{$indentXS} / 2));
             flex-grow: 1;
             margin-right: $indentXS;
         }
 
-        &__layout:nth-child(2n) {
+        &__card:nth-child(2n) {
             margin-right: 0;
         }
     }
+
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
         &__content {
             flex-direction: column;
         }
 
-        &__layout {
-            padding-bottom: $indentXS;
+        &__card {
+            margin-bottom: $indentXS;
+            margin-right: 0;
             width: 100%;
         }
 
-        &__layout:last-child {
-            padding-bottom: 0;
+        &__card:last-child {
+            margin-bottom: 0;
         }
     }
 }
