@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://github.com/gravity-ui/blog-constructor/compare/v3.1.1...v3.2.0) (2023-05-15)
+
+
+### Features
+
+* create schemas ([#41](https://github.com/gravity-ui/blog-constructor/issues/41)) ([f4f28f3](https://github.com/gravity-ui/blog-constructor/commit/f4f28f367db6d18588602d734623863ccfea1a01))
+
 ## [3.1.1](https://github.com/gravity-ui/blog-constructor/compare/v3.1.0...v3.1.1) (2023-05-11)
 
 
