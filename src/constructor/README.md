@@ -10,6 +10,7 @@ interface BlogConstructorProviderProps {
   theme?: ThemeValueType;
   device?: DeviceContextProps;
   analytics?: AnalyticsContextProps;
+  settings?: SettingsContextProps;
   children?: React.ReactNode;
 }
 ```
@@ -76,5 +77,15 @@ interface AnalyticsContextProps {
 ```
 
 **!!! Important thing** - We throw analytics settings in blog constructor provide, if we need analytics from only-blog components. If we need analytics in page-constructor blocks we need to throw analytics settings in [page settings props](../containers/BlogPage/README.md)
+
+### `Settings` - blog settings
+
+```jsx
+interface SettingsContextProps {
+  addNavigationLinkForPages?: boolean;
+}
+```
+
+**!!! Most important thing** - `addNavigationLinkForPages` is option to cover pagination buttons with a `<a>` tag and add a `href` link for page navigation
 
 ### `Children` - children react component
