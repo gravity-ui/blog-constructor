@@ -1,7 +1,7 @@
 import React from 'react';
 
-export type SettingsContextProps = {
+export interface SettingsContextProps {
     addNavigationLinkForPages?: boolean;
-};
+}
 
 export const SettingsContext = React.createContext<SettingsContextProps>({});

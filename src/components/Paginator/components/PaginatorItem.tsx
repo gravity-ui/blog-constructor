@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {Fragment, useContext} from 'react';
 
 import {Button} from '@gravity-ui/uikit';
 
@@ -41,7 +41,7 @@ export const PaginatorItem = ({
     );
 
     return (
-        <>
+        <Fragment>
             {addNavigationLinkForPages ? (
                 <a
                     href={navigationLink}
@@ -51,8 +51,8 @@ export const PaginatorItem = ({
                     {renderButton}
                 </a>
             ) : (
-                <>{renderButton}</>
+                <Fragment>{renderButton}</Fragment>
             )}
-        </>
+        </Fragment>
     );
 };
