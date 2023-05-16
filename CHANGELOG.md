@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.0](https://github.com/gravity-ui/blog-constructor/compare/v3.2.1...v3.3.0) (2023-05-16)
+
+
+### Features
+
+* add md breackpoint to cta-block ([#45](https://github.com/gravity-ui/blog-constructor/issues/45)) ([e859b0b](https://github.com/gravity-ui/blog-constructor/commit/e859b0b02e80b20eb0b4496e2c4834fb2de74922))
+
 ## [3.2.1](https://github.com/gravity-ui/blog-constructor/compare/v3.2.0...v3.2.1) (2023-05-16)
 
 
