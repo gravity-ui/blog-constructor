@@ -7,7 +7,6 @@ export enum ActionTypes {
     SetPosts = 'setPosts',
     SetShowMore = 'setShowMore',
     SetIsFetching = 'setIsFetching',
-    SetIsShowMoreFetching = 'setIsShowMoreFetching',
     PageChange = 'pageChange',
     QueryParamsChange = 'queryParamsChange',
 }
@@ -17,7 +16,6 @@ export type State = {
     errorLoad: boolean;
     errorShowMore: boolean;
     isFetching: boolean;
-    isShowMoreFetching: boolean;
     isShowMoreVisible: boolean;
     lastLoadedCount: number;
     pinnedPostOnPage?: PostData;
@@ -33,10 +31,6 @@ type Action =
       }
     | {
           type: ActionTypes.SetIsFetching;
-          payload: boolean;
-      }
-    | {
-          type: ActionTypes.SetIsShowMoreFetching;
           payload: boolean;
       }
     | {
@@ -98,17 +92,11 @@ export const reducer = (state: State, {type, payload}: Action): State => {
                 currentPage: payload.currentPage,
                 postsOnPage: payload.posts,
                 errorShowMore: false,
-                isShowMoreFetching: true,
             };
         case ActionTypes.SetIsFetching:
             return {
                 ...state,
                 isFetching: payload,
-            };
-        case ActionTypes.SetIsShowMoreFetching:
-            return {
-                ...state,
-                isShowMoreFetching: payload,
             };
         case ActionTypes.PageChange:
             return {

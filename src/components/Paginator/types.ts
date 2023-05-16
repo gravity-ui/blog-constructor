@@ -19,7 +19,6 @@ export type PaginatorProps = {
     totalItems: number;
     itemsPerPage: number;
     maxPages: number;
-    loading: boolean;
     onPageChange: (page: number) => void;
     pageCountForShowSupportButtons?: number;
 } & ClassNameProps;

@@ -27,7 +27,6 @@ export const Paginator = ({
     maxPages,
     page,
     className,
-    loading,
     onPageChange,
     pageCountForShowSupportButtons = DEFAULT_PAGE_COUNT_FOR_SHOW_SUPPORT_BUTTONS,
 }: PaginatorProps) => {
@@ -116,7 +115,7 @@ export const Paginator = ({
 
     const renderPaginatorItem = (item: PaginatorItemProps) => {
         const {key, ...rest} = item;
-        return <PaginatorItem key={`page_${key}`} {...rest} loading={loading} />;
+        return <PaginatorItem key={`page_${key}`} {...rest} />;
     };
 
     return (

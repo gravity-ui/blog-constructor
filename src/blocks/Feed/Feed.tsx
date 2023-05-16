@@ -45,7 +45,6 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
             errorLoad,
             errorShowMore,
             isFetching,
-            isShowMoreFetching,
             isShowMoreVisible,
             lastLoadedCount,
             postCountOnPage,
@@ -59,7 +58,6 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
         errorLoad: false,
         errorShowMore: false,
         isFetching: false,
-        isShowMoreFetching: false,
         isShowMoreVisible: true,
         lastLoadedCount: posts?.length || 0,
         postCountOnPage: totalCount || 0,
@@ -143,7 +141,6 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
     );
 
     const handleShowMore = async () => {
-        dispatch({type: ActionTypes.SetIsShowMoreFetching, payload: true});
         /**
          * @deprecated Metrika will be deleted after launch of analyticsEvents
          */
@@ -170,8 +167,6 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
         } catch (err) {
             dispatch({type: ActionTypes.SetErrorShowMore, payload: true});
         }
-
-        dispatch({type: ActionTypes.SetIsShowMoreFetching, payload: false});
     };
 
     useEffect(() => {
@@ -241,7 +236,6 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
                     postsOnPage={postsOnPage}
                     pinnedPostOnPage={pinnedPostOnPage}
                     isFetching={isFetching}
-                    isShowMoreFetching={isShowMoreFetching}
                     pageCountForShowSupportButtons={pageCountForShowSupportButtons}
                 />
             )}
