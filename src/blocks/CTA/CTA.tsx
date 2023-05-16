@@ -13,19 +13,7 @@ import './CTA.scss';
 
 const b = block('cta');
 
-const MAX_COLUMN_COUNT = 4,
-    MIN_COLUMN_COUNT = 2,
-    DEFAULT_COLUMN_COUNT = 3;
-
 export const CTA: React.FC<CTAProps> = ({items, paddingTop, paddingBottom}) => {
-    let count = items ? items.length : DEFAULT_COLUMN_COUNT;
-
-    if (count < MIN_COLUMN_COUNT) {
-        count = MIN_COLUMN_COUNT;
-    } else if (count > MAX_COLUMN_COUNT) {
-        count = MAX_COLUMN_COUNT;
-    }
-
     /**
      * @deprecated Metrika will be deleted after launch of analyticsEvents
      */
@@ -43,7 +31,7 @@ export const CTA: React.FC<CTAProps> = ({items, paddingTop, paddingBottom}) => {
             className={b('content')}
             dataQa="blog-cta-content"
         >
-            {items.slice(0, count).map((content: ContentBlockProps, index: number) => {
+            {items.map((content: ContentBlockProps, index: number) => {
                 const contentData = updateContentSizes(content);
 
                 contentData.links?.forEach((link) => {
