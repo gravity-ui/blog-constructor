@@ -34,9 +34,44 @@ const DefaultTemplate: Story<CTAModel> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
+export const OneItem = DefaultTemplate.bind({});
+export const TwoItems = DefaultTemplate.bind({});
+export const FourItems = DefaultTemplate.bind({});
+export const FiveItems = DefaultTemplate.bind({});
+export const SixItems = DefaultTemplate.bind({});
 
 Default.args = {
     type: BlockType.CTA,
     ...getDefaultStoryArgs(),
-    items: contentBlocks,
+    items: contentBlocks.slice(0, 3),
+};
+
+OneItem.args = {
+    type: BlockType.CTA,
+    ...getDefaultStoryArgs(),
+    items: contentBlocks.slice(0, 1),
+};
+
+TwoItems.args = {
+    type: BlockType.CTA,
+    ...getDefaultStoryArgs(),
+    items: contentBlocks.slice(0, 2),
+};
+
+FourItems.args = {
+    type: BlockType.CTA,
+    ...getDefaultStoryArgs(),
+    items: contentBlocks.slice(0, 4),
+};
+
+FiveItems.args = {
+    type: BlockType.CTA,
+    ...getDefaultStoryArgs(),
+    items: contentBlocks.slice(0, 5),
+};
+
+SixItems.args = {
+    type: BlockType.CTA,
+    ...getDefaultStoryArgs(),
+    items: contentBlocks.slice(0, 6),
 };
