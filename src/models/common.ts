@@ -193,3 +193,8 @@ export enum DefaultEventNames {
     Service = 'selector-service-click',
     SaveOnly = 'save-only-button-click',
 }
+
+export type FetchArgs = {
+    page?: number;
+    query: Query;
+};

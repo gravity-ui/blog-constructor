@@ -12,12 +12,7 @@ import metrika from '../../../../counters/metrika.js';
 import {MetrikaCounter} from '../../../../counters/utils';
 import {Keyset, i18} from '../../../../i18n';
 import {Save} from '../../../../icons/Save';
-import {
-    DefaultEventNames,
-    HandleChangeQueryParams,
-    Query,
-    SetQueryType,
-} from '../../../../models/common';
+import {DefaultEventNames, FetchArgs, Query, SetQueryType} from '../../../../models/common';
 import {block} from '../../../../utils/cn';
 import {Search} from '../../../Search/Search';
 import {renderFilter, renderOption, renderSwitcher} from './customRenders';
@@ -33,10 +28,9 @@ export type SelectItem = {
 };
 
 export type ControlsProps = {
-    setIsFetching: (value: boolean) => void;
+    handleLoadData: (props: FetchArgs) => void;
     tags?: SelectItem[];
     services?: SelectItem[];
-    handleChangeQuery: HandleChangeQueryParams;
     queryParams: Query;
     setQuery?: SetQueryType;
 };
@@ -46,10 +40,9 @@ const DEFAULT_PAGE = 1;
 const VIRTUALIZATION_THRESHOLD = 1000;
 
 export const Controls: React.FC<ControlsProps> = ({
-    setIsFetching,
+    handleLoadData,
     tags = [],
     services = [],
-    handleChangeQuery,
     queryParams,
 }) => {
     const {hasLikes} = useContext(LikesContext);
@@ -68,23 +61,27 @@ export const Controls: React.FC<ControlsProps> = ({
     const [search, setSearch] = useState<string>(searchInitial as string);
 
     const handleSavedOnly = () => {
-        handleChangeQuery({
-            savedOnly: savedOnly ? '' : 'true',
-            search: '',
-            tags: '',
-            page: DEFAULT_PAGE,
-            services: '',
-        });
         handleAnalyticsSaveOnly();
         setSavedOnly(!savedOnly);
-        setIsFetching(true);
+        handleLoadData({
+            page: DEFAULT_PAGE,
+            query: {
+                savedOnly: savedOnly ? '' : 'true',
+                search: '',
+                tags: '',
+                page: DEFAULT_PAGE,
+                services: '',
+            },
+        });
     };
 
     const handleSearch = (searchValue: string) => {
-        handleChangeQuery({search: searchValue, page: DEFAULT_PAGE});
-
         setSearch(searchValue);
-        setIsFetching(true);
+
+        handleLoadData({
+            page: DEFAULT_PAGE,
+            query: {search: searchValue, page: DEFAULT_PAGE},
+        });
     };
 
     const handleTagSelect = (selectedTags: string[]) => {
@@ -100,12 +97,13 @@ export const Controls: React.FC<ControlsProps> = ({
 
         const isEmptyTag = selectedTags.some((tag) => tag === 'empty');
 
-        handleChangeQuery({
-            tags: isEmptyTag ? '' : selectedTags[0],
+        handleLoadData({
             page: DEFAULT_PAGE,
+            query: {
+                tags: isEmptyTag ? '' : selectedTags[0],
+                page: DEFAULT_PAGE,
+            },
         });
-
-        setIsFetching(true);
     };
 
     const handleServicesSelect = (selectedServices: string[]) => {
@@ -127,9 +125,10 @@ export const Controls: React.FC<ControlsProps> = ({
 
         const servicesAsString = selectedServices.join(',');
 
-        handleChangeQuery({services: servicesAsString, page: DEFAULT_PAGE});
-
-        setIsFetching(true);
+        handleLoadData({
+            page: DEFAULT_PAGE,
+            query: {services: servicesAsString, page: DEFAULT_PAGE},
+        });
     };
 
     const tagsItems = useMemo(

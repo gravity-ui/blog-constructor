@@ -18,7 +18,7 @@ import {RouterContext} from '../../contexts/RouterContext';
 import metrika from '../../counters/metrika.js';
 import {MetrikaCounter} from '../../counters/utils';
 import {FeedProps} from '../../models/blocks';
-import {DefaultEventNames, HandleChangeQueryParams} from '../../models/common';
+import {DefaultEventNames, FetchArgs, HandleChangeQueryParams} from '../../models/common';
 import {getFeedQueryParams, scrollOnPageChange} from '../../utils/common';
 import {DEFAULT_PAGE, DEFAULT_ROWS_PER_PAGE} from '../constants';
 import {ActionTypes, reducer} from './reducer';
@@ -75,31 +75,37 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
         dispatch({type: ActionTypes.PageChange, payload: value});
     };
 
-    const handleChangeQueryParams: HandleChangeQueryParams = (value) => {
-        dispatch({type: ActionTypes.QueryParamsChange, payload: value});
-
-        const hasFirstPageQuery = Object.keys(value).some(
-            (queryKey) => queryKey === PAGE_QUERY && value[queryKey] === FIRST_PAGE,
-        );
-
-        if (hasFirstPageQuery) {
-            // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign
-            value[PAGE_QUERY] = null;
-        }
-
-        router.updateQueryCallback(value);
+    const setIsFetching = (value: boolean) => {
+        dispatch({type: ActionTypes.SetIsFetching, payload: value});
     };
 
-    const handlePageChange = async (value: number) => {
-        pageChange(value);
-        handleChangeQueryParams({page: value});
+    const setErrorLoad = (value: boolean) => {
+        dispatch({type: ActionTypes.SetErrorLoad, payload: value});
     };
+
+    const handleChangeQueryParams: HandleChangeQueryParams = useCallback(
+        (value) => {
+            dispatch({type: ActionTypes.QueryParamsChange, payload: value});
+
+            const hasFirstPageQuery = Object.keys(value).some(
+                (queryKey) => queryKey === PAGE_QUERY && value[queryKey] === FIRST_PAGE,
+            );
+
+            if (hasFirstPageQuery) {
+                // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign
+                value[PAGE_QUERY] = null;
+            }
+
+            router.updateQueryCallback(value);
+        },
+        [router],
+    );
 
     const fetchData = useCallback(
-        async (pageNumber?: number) => {
-            if (queryParams && getPosts) {
-                const query = getFeedQueryParams(queryParams, pageNumber);
-                const data = await getPosts(query);
+        async ({page, query}: FetchArgs) => {
+            if (query && getPosts) {
+                const queryParamsForRequest = getFeedQueryParams({...queryParams, ...query}, page);
+                const data = await getPosts(queryParamsForRequest);
 
                 return data;
             } else {
@@ -109,15 +115,17 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
         [getPosts, queryParams],
     );
 
-    const setIsFetching = (value: boolean) => {
-        dispatch({type: ActionTypes.SetIsFetching, payload: value});
-    };
+    const handleLoad = useCallback(
+        async ({page, query}: FetchArgs) => {
+            const pageNumber = Number(page || queryParams.page || DEFAULT_PAGE);
 
-    const fetchAndReplaceData = useCallback(
-        async (pageNumber: number) => {
+            handleChangeQueryParams(query);
+
             try {
-                dispatch({type: ActionTypes.SetErrorLoad, payload: false});
-                const fetchedData = await fetchData(pageNumber);
+                setErrorLoad(false);
+                setIsFetching(true);
+
+                const fetchedData = await fetchData({page: pageNumber, query});
 
                 if (fetchedData) {
                     dispatch({
@@ -131,14 +139,23 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
                     });
                 }
             } catch (err) {
-                dispatch({type: ActionTypes.SetErrorLoad, payload: true});
+                setErrorLoad(true);
             }
 
             scrollOnPageChange(CONTAINER_ID);
+
             setIsFetching(false);
         },
-        [fetchData],
+        [fetchData, handleChangeQueryParams, queryParams],
     );
+
+    const handlePageChange = async (value: number) => {
+        pageChange(value);
+        handleLoad({
+            page: value,
+            query: {...queryParams, page: value},
+        });
+    };
 
     const handleShowMore = async () => {
         /**
@@ -146,11 +163,20 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
          */
         metrika.reachGoal(MetrikaCounter.CrossSite, BlogMetrikaGoalIds.showMore);
         handleAnalytics();
+
+        const nextPage = currentPage + 1;
+
         try {
-            const fetchedData = await fetchData(currentPage + 1);
+            setIsFetching(true);
+            const fetchedData = await fetchData({
+                page: nextPage,
+                query: {
+                    page: nextPage,
+                },
+            });
 
             handleChangeQueryParams({
-                page: currentPage + 1,
+                page: nextPage,
             });
 
             if (fetchedData) {
@@ -159,7 +185,7 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
                     payload: {
                         posts: (postsOnPage ?? []).concat(fetchedData.posts),
                         count: fetchedData.count,
-                        currentPage: currentPage + 1,
+                        currentPage: nextPage,
                         lastLoadedCount: fetchedData.posts.length,
                     },
                 });
@@ -167,13 +193,9 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
         } catch (err) {
             dispatch({type: ActionTypes.SetErrorShowMore, payload: true});
         }
-    };
 
-    useEffect(() => {
-        if (isFetching) {
-            fetchAndReplaceData(Number(queryParams.page || DEFAULT_PAGE));
-        }
-    }, [fetchAndReplaceData, isFetching, queryParams.page]);
+        setIsFetching(false);
+    };
 
     useEffect(() => {
         const loadedPostsCount = currentPage * perPageInQuery;
@@ -208,8 +230,7 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
                 verticalOffset="s"
                 tags={tagItems}
                 services={serviceItems}
-                setIsFetching={setIsFetching}
-                handleChangeQuery={handleChangeQueryParams}
+                handleLoadData={handleLoad}
                 queryParams={queryParams}
                 background={{
                     fullWidth: true,
@@ -219,9 +240,7 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
             />
             {errorLoad ? (
                 <PostsError
-                    onButtonClick={() =>
-                        fetchAndReplaceData(Number(queryParams.page || DEFAULT_PAGE))
-                    }
+                    onButtonClick={() => handleLoad({page: currentPage, query: queryParams})}
                 />
             ) : (
                 <Posts
