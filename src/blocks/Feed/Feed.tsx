@@ -91,12 +91,16 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
                 (queryKey) => queryKey === PAGE_QUERY && value[queryKey] === FIRST_PAGE,
             );
 
-            if (hasFirstPageQuery) {
-                // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign
-                value[PAGE_QUERY] = null;
-            }
+            const result = hasFirstPageQuery
+                ? {
+                      ...value,
+                      [PAGE_QUERY]: null,
+                  }
+                : {
+                      ...value,
+                  };
 
-            router.updateQueryCallback(value);
+            router.updateQueryCallback(result);
         },
         [router],
     );
@@ -197,6 +201,10 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
         setIsFetching(false);
     };
 
+    const handleOnErrorReload = useCallback(() => {
+        handleLoad({page: currentPage, query: queryParams});
+    }, [currentPage, handleLoad, queryParams]);
+
     useEffect(() => {
         const loadedPostsCount = currentPage * perPageInQuery;
         dispatch({
@@ -239,9 +247,7 @@ export const Feed: React.FC<FeedProps> = ({image}) => {
                 }}
             />
             {errorLoad ? (
-                <PostsError
-                    onButtonClick={() => handleLoad({page: currentPage, query: queryParams})}
-                />
+                <PostsError onButtonClick={handleOnErrorReload} />
             ) : (
                 <Posts
                     containerId={CONTAINER_ID}

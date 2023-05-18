@@ -36,9 +36,9 @@ export default {
             needHelmetWrapper: true,
             metaComponent: mockMetaComponent,
         },
-        getPosts: (props) => {
-            // eslint-disable-next-line no-console
-            console.log('get posts', props);
+        getPosts: async (props) => {
+            console.log('getPosts: ~ props:', props);
+            await new Promise((resolve) => setTimeout(() => resolve(props), 3000));
         },
         toggleLike: null,
     },
