@@ -24,6 +24,8 @@ export enum Keyset {
     AllTags = 'label_all_tags',
     ActionSavedOnly = 'action_saved_only',
     AllServices = 'label_all_services',
+    AuthPromptOnLike = 'auth_prompt_on_like',
+    SignIn = 'Sign In',
 }
 
 i18n.registerKeyset(Lang.En, KEYSET_NAME, {
@@ -43,11 +45,13 @@ i18n.registerKeyset(Lang.En, KEYSET_NAME, {
     [Keyset.AllTags]: 'All topics',
     [Keyset.ActionSavedOnly]: 'Saved',
     [Keyset.AllServices]: 'All Services',
+    [Keyset.AuthPromptOnLike]: 'Please sign in to save your bookmarks',
     [Keyset.ContextReadingTime]: [
         '{{count}} min to read',
         '{{count}} mins to read',
         '{{count}} mins to read',
     ],
+    [Keyset.SignIn]: 'Sign In',
 });
 
 i18n.registerKeyset(Lang.Ru, KEYSET_NAME, {

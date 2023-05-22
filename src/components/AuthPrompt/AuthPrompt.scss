@@ -21,7 +21,7 @@
     bottom: 0;
 
     &__content {
-        @include shadow();
+        @extend %shadow;
         display: flex;
         flex-flow: row wrap;
         gap: $indentXS;
@@ -30,6 +30,8 @@
         padding: $indentXS $indentS;
         border-radius: $borderRadius;
         font-size: 1.25em;
+        opacity: 0;
+        transform: translateY(100%);
         animation: AuthPrompt__fade-in $animationDuration forwards;
     }
 }

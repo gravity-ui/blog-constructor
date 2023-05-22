@@ -17,7 +17,7 @@ export interface AuthPromptProps {
 
 /**
  * Authentication Popup that appears when user action requires login,
- * with text message and a button that links to the `action.url`.
+ * with text message and button(s) for given `actions`.
  */
 export const AuthPrompt: React.FC<AuthPromptProps> = ({
     text,

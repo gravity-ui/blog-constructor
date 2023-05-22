@@ -3,16 +3,17 @@ import React from 'react';
 import {Meta, Story} from '@storybook/react/types-6-0';
 
 import {COMPONENTS} from '../../../demo/constants';
+import {Keyset, i18} from '../../../i18n';
 import {AuthPrompt, AuthPromptProps} from '../AuthPrompt';
 
 export default {
     title: `${COMPONENTS}/AuthPrompt`,
     component: AuthPrompt,
     args: {
-        text: 'Please login to save your bookmarks',
+        text: i18(Keyset.AuthPromptOnLike),
         actions: [
             {
-                children: 'Login',
+                children: i18(Keyset.SignIn),
                 onClick: () => alert('open'),
             },
         ],
