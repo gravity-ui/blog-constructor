@@ -1,7 +1,5 @@
 import {format, parse} from 'url';
 
-import {debounce, memoize} from 'lodash';
-
 import {
     ContentBlockProps,
     HeaderBreadCrumbsProps,
@@ -9,6 +7,7 @@ import {
     NewMetrikaGoal,
     isNewMetrikaFormat,
 } from '@gravity-ui/page-constructor';
+import {debounce, memoize} from 'lodash';
 
 import {
     CONTENT_DEFAULT_COL_SIZES,

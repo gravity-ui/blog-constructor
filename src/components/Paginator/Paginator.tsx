@@ -10,6 +10,7 @@ import metrika from '../../counters/metrika.js';
 import {MetrikaCounter} from '../../counters/utils';
 import {DefaultEventNames} from '../../models/common';
 import {block} from '../../utils/cn';
+
 import {NavigationButton} from './components/NavigationButton';
 import {PaginatorItem} from './components/PaginatorItem';
 import {ArrowType, PaginatorItemProps, PaginatorProps} from './types';

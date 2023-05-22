@@ -1,9 +1,8 @@
 import React from 'react';
 
+import {PageConstructor} from '@gravity-ui/page-constructor';
 import {Meta, Story} from '@storybook/react/types-6-0';
 import {isEqual} from 'lodash';
-
-import {PageConstructor} from '@gravity-ui/page-constructor';
 
 import {getDefaultStoryArgs} from '../../../../.mocks/utils';
 import customBlocks from '../../../constructor/blocksMap';

@@ -5,10 +5,12 @@
         "@gravity-ui/eslint-config/client"
     ],
     "root": true,
+    "env": {
+        "node": true,
+        "jest": true
+    },
     "plugins": ["no-not-accumulator-reassign"],
     "rules": {
-        "no-confusing-arrow": "off",
-        "no-shadow": "off",
         "no-param-reassign": ["warn", {"props": false}],
         "no-not-accumulator-reassign/no-not-accumulator-reassign": [
             "warn",
@@ -17,73 +19,6 @@
         ]
     },
     "overrides": [
-        {
-            "files": ["*.ts", "*.tsx"],
-            "rules": {
-                "valid-jsdoc": "off",
-                "import/order": [
-                    "error",
-                    {
-                        "alphabetize": {
-                            "order": "asc"
-                        },
-                        "newlines-between": "always",
-                        "groups": [
-                            "builtin",
-                            "external",
-                            "internal",
-                            ["sibling", "parent"],
-                            "index",
-                            "type",
-                            "unknown"
-                        ],
-                        "pathGroups": [
-                            {
-                                "pattern": "react",
-                                "group": "external",
-                                "position": "before"
-                            },
-                            {
-                                "pattern": "{@gravity-ui,@doc-tools}/**",
-                                "group": "external",
-                                "position": "after"
-                            },
-                            {
-                                "pattern": "{analytics,counters,contexts,components,hoc,hooks,utils,store,units,i18n,models,router,services}{,/**}",
-                                "group": "internal",
-                                "position": "after"
-                            },
-                            {
-                                "pattern": "*.{svg,png,jpg,jpeg,json}",
-                                "patternOptions": {
-                                    "dot": true,
-                                    "nocomment": true,
-                                    "matchBase": true
-                                },
-                                "group": "type",
-                                "position": "after"
-                            },
-                            {
-                                "pattern": "*.{css,scss}",
-                                "patternOptions": {
-                                    "dot": true,
-                                    "nocomment": true,
-                                    "matchBase": true
-                                },
-                                "group": "type",
-                                "position": "after"
-                            }
-                        ],
-                        "pathGroupsExcludedImportTypes": [
-                            "*.{css,scss}",
-                            "*.{svg,png,jpg,jpeg,json}",
-                            "react"
-                        ],
-                        "warnOnUnassignedImports": true
-                    }
-                ]
-            }
-        },
         {
             "files": ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
             "extends": ["plugin:testing-library/react"]
@@ -94,9 +29,5 @@
                 "no-console": "off"
             }
         }
-    ],
-    "env": {
-        "node": true,
-        "jest": true
-    }
+    ]
 }

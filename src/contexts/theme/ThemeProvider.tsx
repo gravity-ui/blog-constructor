@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {DEFAULT_THEME} from '../../constants';
+
 import {ThemeContext, ThemeContextProps} from './ThemeContext';
 import {ThemeValueContext, ThemeValueType} from './ThemeValueContext';
 

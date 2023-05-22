@@ -4,6 +4,8 @@ import {PostMetaProps} from '../models/common';
 
 /**
  * Function for sanitized meta-data fields
+ * @param metaData PostMetaProps
+ * @returns metaData
  */
 export const sanitizeMeta = (metaData: PostMetaProps) => {
     const {title, description, date, image, canonicalUrl, organization} = metaData;

@@ -1,8 +1,7 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
-
 import {PageConstructor} from '@gravity-ui/page-constructor';
+import {Meta, Story} from '@storybook/react/types-6-0';
 
 import customBlocks from '../../../constructor/blocksMap';
 import {PostPageContext} from '../../../contexts/PostPageContext';
