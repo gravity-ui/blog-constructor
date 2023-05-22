@@ -1,8 +1,7 @@
 import {ReactNode} from 'react';
 
-import {IBrowser, IDevice} from 'ua-parser-js';
-
 import {HeaderBlockProps as PageConstructorHeaderBlockProps} from '@gravity-ui/page-constructor';
+import {IBrowser, IDevice} from 'ua-parser-js';
 
 import {Locale} from '../models/locale';
 

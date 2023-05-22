@@ -1,4 +1,5 @@
 import {BlockType} from '../models/common';
+
 import * as blocks from './blocks';
 import * as headers from './headers';
 

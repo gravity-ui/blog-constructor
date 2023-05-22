@@ -21,6 +21,7 @@ import {FeedProps} from '../../models/blocks';
 import {DefaultEventNames, HandleChangeQueryParams} from '../../models/common';
 import {getFeedQueryParams, scrollOnPageChange} from '../../utils/common';
 import {DEFAULT_PAGE, DEFAULT_ROWS_PER_PAGE} from '../constants';
+
 import {ActionTypes, reducer} from './reducer';
 
 const CONTAINER_ID = 'blog-cards';

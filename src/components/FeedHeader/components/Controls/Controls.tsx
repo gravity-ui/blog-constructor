@@ -20,6 +20,7 @@ import {
 } from '../../../../models/common';
 import {block} from '../../../../utils/cn';
 import {Search} from '../../../Search/Search';
+
 import {renderFilter, renderOption, renderSwitcher} from './customRenders';
 
 import './Controls.scss';

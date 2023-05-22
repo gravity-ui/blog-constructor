@@ -1,8 +1,7 @@
 import React from 'react';
 
-import block from 'bem-cn-lite';
-
 import {YFMWrapper} from '@gravity-ui/page-constructor';
+import block from 'bem-cn-lite';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {YFMProps} from '../../models/blocks';

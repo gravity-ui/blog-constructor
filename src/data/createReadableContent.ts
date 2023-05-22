@@ -1,5 +1,6 @@
 import {Block} from '../models/blocks';
 import {BlockType} from '../models/common';
+
 import {getConfigForCreateReadableContent} from './config';
 
 type CreateReadableContentProps = {

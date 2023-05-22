@@ -9,6 +9,7 @@ import {
 
 import {ClassNameProps, HeaderBlockProps} from '../../models/common';
 import {block} from '../../utils/cn';
+
 import {Controls, ControlsProps} from './components/Controls/Controls';
 
 import './FeedHeader.scss';
