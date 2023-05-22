@@ -1,7 +1,7 @@
 @import '../../../styles/variables.scss';
 @import '../../../styles/mixins.scss';
 
-@keyframes AuthPrompt__fade-in {
+@keyframes AuthPrompt_fade-in {
     0% {
         opacity: 0;
         transform: translateY(100%);
@@ -12,6 +12,17 @@
     }
 }
 
+@keyframes AuthPrompt_fade-out {
+    0% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+}
+
 .AuthPrompt {
     display: flex;
     width: 100%;
@@ -19,6 +30,7 @@
     overflow: hidden; // prevent scrollbar
     position: absolute;
     bottom: 0;
+    $duration: $animationDuration * 2;
 
     &__content {
         @extend %shadow;
@@ -30,8 +42,17 @@
         padding: $indentXS $indentS;
         border-radius: $borderRadius;
         font-size: 1.25em;
-        opacity: 0;
-        transform: translateY(100%);
-        animation: AuthPrompt__fade-in $animationDuration forwards;
+
+        .AuthPrompt_fade-in > & {
+            opacity: 0;
+            transform: translateY(100%);
+            animation: AuthPrompt_fade-in $duration forwards;
+        }
+
+        .AuthPrompt_fade-out > & {
+            opacity: 1;
+            transform: translateY(0%);
+            animation: AuthPrompt_fade-out $duration forwards;
+        }
     }
 }
