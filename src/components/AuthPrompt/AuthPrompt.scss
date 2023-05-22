@@ -1,6 +1,35 @@
 @import '../../../styles/variables.scss';
 @import '../../../styles/mixins.scss';
 
+@keyframes AuthPrompt__fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
 .AuthPrompt {
-    padding: 8px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    overflow: hidden; // prevent scrollbar
+    position: absolute;
+    bottom: 0;
+
+    &__content {
+        @include shadow();
+        display: flex;
+        flex-flow: row wrap;
+        gap: $indentXS;
+        align-items: center;
+        margin: $indentSM;
+        padding: $indentXS $indentS;
+        border-radius: $borderRadius;
+        font-size: 1.25em;
+        animation: AuthPrompt__fade-in $animationDuration forwards;
+    }
 }

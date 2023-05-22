@@ -26,11 +26,13 @@ export const AuthPrompt: React.FC<AuthPromptProps> = ({
     theme = 'grey',
 }) => (
     <div className={b({theme}, className)}>
-        {text}
-        <div className={b('actions')}>
-            {actions.map(({view = 'action', className: btnClass, ...btnProps}, i) => (
-                <Button key={i} className={b('action', btnClass)} view={view} {...btnProps} />
-            ))}
+        <div className={b('content')}>
+            <span className={b('text')}>{text}</span>
+            <div className={b('actions')}>
+                {actions.map(({view = 'action', className: btnClass, ...btnProps}, i) => (
+                    <Button key={i} className={b('action', btnClass)} view={view} {...btnProps} />
+                ))}
+            </div>
         </div>
     </div>
 );
