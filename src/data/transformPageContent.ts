@@ -1,7 +1,7 @@
 import yaml from 'js-yaml';
 
 import {ConstructorBlock, PageContent} from '@gravity-ui/page-constructor';
-import {transformBlocks as transformConstructorBlocks} from '@gravity-ui/page-constructor/server';
+import {contentTransformer} from '@gravity-ui/page-constructor/server';
 
 import {Lang} from '../models/locale';
 import {getExtendTypographyConfig} from './config';
@@ -25,9 +25,17 @@ type TransformBlocksPropsType = {
 };
 
 const transformBlocks = ({blocks, lang, typographyConfig}: TransformBlocksPropsType) =>
-    transformConstructorBlocks(blocks, lang, {
-        ...typographyConfig,
-        ...getExtendTypographyConfig(),
+    contentTransformer({
+        content: {
+            blocks: blocks || [],
+        },
+        options: {
+            lang,
+            customConfig: {
+                ...typographyConfig,
+                ...getExtendTypographyConfig(),
+            },
+        },
     });
 
 /**
