@@ -2,6 +2,7 @@ import React from 'react';
 
 import {Meta, Story} from '@storybook/react/types-6-0';
 
+import {BlogConstructorProvider} from '../../../constructor/BlogConstructorProvider';
 import {CONTAINERS} from '../../../demo/constants';
 import {BlogPage, BlogPageProps} from '../BlogPage';
 
@@ -12,6 +13,15 @@ import services from '../../../../.mocks/services.json';
 import tags from '../../../../.mocks/tags.json';
 
 const mockMetaComponent = <title>Blog page</title>;
+const routerData = {
+    as: '/',
+    pathname: '/',
+    hostname: 'host',
+    query: {},
+    updateQueryCallback: (params) => {
+        console.log('params', params);
+    },
+};
 
 export default {
     title: `${CONTAINERS}/BlogPage`,
@@ -26,15 +36,20 @@ export default {
             needHelmetWrapper: true,
             metaComponent: mockMetaComponent,
         },
-        getPosts: (props) => {
-            // eslint-disable-next-line no-console
-            console.log('get posts', props);
+        getPosts: async (props) => {
+            console.log('getPosts: ~ props:', props);
+            await new Promise((resolve) => setTimeout(() => resolve(props), 3000));
         },
         toggleLike: null,
     },
 } as Meta;
 
-const DefaultTemplate: Story<BlogPageProps> = (args) => <BlogPage {...args} />;
+const DefaultTemplate: Story<BlogPageProps> = (args) => (
+    <BlogConstructorProvider router={routerData}>
+        <BlogPage {...args} />
+    </BlogConstructorProvider>
+);
+
 export const Default = DefaultTemplate.bind({});
 
 export const WithNavigation = DefaultTemplate.bind({});

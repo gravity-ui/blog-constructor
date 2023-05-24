@@ -22,7 +22,6 @@ type PostCardProps = {
     postCountOnPage: number;
     perPageInQuery: number;
     isFetching: boolean;
-    isShowMoreFetching: boolean;
     handleShowMore: (
         value?: MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
     ) => Promise<void> | void;
@@ -42,13 +41,13 @@ export const Posts: React.FC<PostCardProps> = ({
     postCountOnPage,
     perPageInQuery,
     isFetching,
-    isShowMoreFetching,
     handleShowMore,
     handlePageChange,
     pageCountForShowSupportButtons,
 }) => (
     <div className={b()}>
-        <div id={containerId} className={b('cards-container')}>
+        {isFetching && <div className={b('loaderContainer')} />}
+        <div id={containerId} className={b('cards-container', {isLoading: isFetching})}>
             {pinnedPostOnPage && currentPage === 1 && (
                 <div className={b('pinned-container')}>
                     <PostCard post={pinnedPostOnPage} size="m" fullWidth showTag />
@@ -79,7 +78,6 @@ export const Posts: React.FC<PostCardProps> = ({
                     size="xl"
                     className={b('more-button')}
                     onClick={handleShowMore}
-                    loading={isShowMoreFetching}
                 >
                     {i18(Keyset.ActionLoadMore)}
                 </Button>
@@ -97,7 +95,6 @@ export const Posts: React.FC<PostCardProps> = ({
                         page={currentPage}
                         totalItems={postCountOnPage}
                         itemsPerPage={perPageInQuery}
-                        loading={isFetching}
                         maxPages={Infinity}
                         pageCountForShowSupportButtons={pageCountForShowSupportButtons}
                     />

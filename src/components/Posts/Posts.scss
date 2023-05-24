@@ -6,10 +6,18 @@ $block: '.#{$namespace}posts';
 #{$block} {
     $root: &;
 
+    position: relative;
+
     &__cards-container,
     &__pinned-container {
         padding-top: $indentSM;
         scroll-margin: $indentL;
+    }
+
+    &__cards-container {
+        &_isLoading {
+            opacity: 0.7;
+        }
     }
 
     &__pagination {
@@ -39,5 +47,34 @@ $block: '.#{$namespace}posts';
 
     &__paginator {
         padding-top: $indentXXS;
+    }
+
+    &__loaderContainer {
+        z-index: 6;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 70%;
+        height: 100%;
+
+        background: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0.3),
+            rgba(255, 255, 255, 0.5),
+            rgba(255, 255, 255, 0.3),
+            rgba(255, 255, 255, 0)
+        );
+
+        animation: shimmer 2s infinite linear;
+    }
+}
+
+@keyframes shimmer {
+    from {
+        transform: translateX(-200%);
+    }
+    to {
+        transform: translateX(300%);
     }
 }
