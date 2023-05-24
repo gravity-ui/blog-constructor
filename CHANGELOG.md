@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.4.0](https://github.com/gravity-ui/blog-constructor/compare/v3.3.0...v3.4.0) (2023-05-24)
+
+
+### Features
+
+* bump version ([#55](https://github.com/gravity-ui/blog-constructor/issues/55)) ([7269aa5](https://github.com/gravity-ui/blog-constructor/commit/7269aa56ff42da55fe78d36cb068aed844c1cb94))
+
 ## [3.3.0](https://github.com/gravity-ui/blog-constructor/compare/v3.2.1...v3.3.0) (2023-05-16)
 
 
