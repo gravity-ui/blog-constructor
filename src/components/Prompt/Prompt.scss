@@ -1,7 +1,7 @@
 @import '../../../styles/variables.scss';
 @import '../../../styles/mixins.scss';
 
-@keyframes AuthPrompt_open {
+@keyframes Prompt_open {
     0% {
         opacity: 0;
         transform: translateY(100%);
@@ -12,7 +12,7 @@
     }
 }
 
-@keyframes AuthPrompt_close {
+@keyframes Prompt_close {
     0% {
         opacity: 1;
         transform: translateY(0%);
@@ -23,7 +23,7 @@
     }
 }
 
-.AuthPrompt {
+.Prompt {
     display: flex;
     width: 100%;
     justify-content: center;
@@ -31,7 +31,7 @@
     position: absolute;
     bottom: 0;
 
-    &:not(.AuthPrompt_mounted) {
+    &:not(.Prompt_mounted) {
         display: none;
     }
 
@@ -47,21 +47,21 @@
         border-radius: $borderRadius;
         font-size: 1.25em;
 
-        .AuthPrompt_open > & {
+        .Prompt_open > & {
             opacity: 0;
             transform: translateY(100%);
-            animation: AuthPrompt_open $duration forwards;
+            animation: Prompt_open $duration forwards;
         }
 
-        .AuthPrompt_close > & {
+        .Prompt_close > & {
             opacity: 1;
             transform: translateY(0%);
-            animation: AuthPrompt_close $duration forwards;
+            animation: Prompt_close $duration forwards;
         }
     }
 }
 
-.AuthPrompt_close {
+.Prompt_close {
     // let other content receive Pointer events
     pointer-events: none;
 }

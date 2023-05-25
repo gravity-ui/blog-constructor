@@ -4,11 +4,11 @@ import block from 'bem-cn-lite';
 
 import {Button, ButtonProps} from '@gravity-ui/uikit';
 
-import './AuthPrompt.scss';
+import './Prompt.scss';
 
-const b = block('AuthPrompt');
+const b = block('Prompt');
 
-export interface AuthPromptProps {
+export interface PromptProps {
     // Prompt message
     text: string;
     actions: ButtonProps[];
@@ -21,13 +21,12 @@ export interface AuthPromptProps {
 }
 
 /**
- * Authentication Popup that appears when user action requires login,
- * with text message and button(s) for given `actions`.
+ * Popup that appears with text message and button(s) for given `actions`.
  * Features:
  *  - Automatically disappears after `openDuration` in milliseconds
  *  - `openTimestamp` (`Date.now()`) resets the visible duration
  */
-export const AuthPrompt: React.FC<AuthPromptProps> = ({
+export const Prompt: React.FC<PromptProps> = ({
     text,
     actions,
     className,

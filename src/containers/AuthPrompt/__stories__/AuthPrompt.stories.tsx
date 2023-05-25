@@ -4,34 +4,25 @@ import {Meta, Story} from '@storybook/react/types-6-0';
 
 import {Button} from '@gravity-ui/uikit';
 
-import {COMPONENTS} from '../../../demo/constants';
-import {Keyset, i18} from '../../../i18n';
-import {AuthPrompt, AuthPromptProps} from '../AuthPrompt';
+import {PromptProps} from '../../../components/Prompt/Prompt';
+import {CONTAINERS} from '../../../demo/constants';
+import {AuthPrompt} from '../AuthPrompt';
 
 export default {
-    title: `${COMPONENTS}/AuthPrompt`,
+    title: `${CONTAINERS}/AuthPrompt`,
     component: AuthPrompt,
-    args: {
-        text: i18(Keyset.AuthPromptOnLike),
-        actions: [
-            {
-                children: i18(Keyset.SignIn),
-                onClick: () => alert('open'),
-            },
-        ],
-        theme: 'light',
-    },
 } as Meta;
 
 const styleBtn = {margin: '1em'};
 
-const DefaultTemplate: Story<AuthPromptProps> = (args) => {
+const DefaultTemplate: Story<PromptProps> = (args) => {
     const {openTimestamp = 0} = args;
     const [timestamp, setTime] = useState(openTimestamp);
     const props = {...args, openTimestamp: timestamp};
     const onClick = useCallback(() => {
         setTime(Date.now());
     }, [setTime]);
+
     return (
         <div>
             <Button view="action" style={styleBtn} onClick={onClick}>
