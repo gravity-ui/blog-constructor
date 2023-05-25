@@ -13,7 +13,7 @@ export interface PromptProps {
     text: string;
     actions: ButtonProps[];
     // Unix Timestamp in milliseconds when the Prompt opens
-    openTimestamp: number;
+    openTimestamp?: number;
     // Milliseconds to remain visible
     openDuration?: number;
     className?: string;
@@ -56,7 +56,7 @@ export const Prompt: React.FC<PromptProps> = ({
     );
 };
 
-function useOpenCloseTimer(openTimestamp = Date.now(), openDuration = 1000) {
+function useOpenCloseTimer(openTimestamp = Date.now(), openDuration = 4000) {
     const open = Date.now() - openTimestamp < openDuration;
     const [, reset] = useState(0); // time to reset open state
 

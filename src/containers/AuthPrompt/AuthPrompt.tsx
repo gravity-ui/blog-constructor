@@ -3,25 +3,25 @@ import React from 'react';
 import {Prompt, PromptProps} from '../../components/Prompt/Prompt';
 import {Keyset, i18} from '../../i18n';
 
+export interface AuthPromptProps extends Partial<PromptProps> {}
+
 /**
- * Authentication Popup that appears when user action requires login,
- * with text message and button(s) for given `actions`.
- * Features:
- *  - Automatically disappears after `openDuration` in milliseconds
- *  - `openTimestamp` (`Date.now()`) resets the visible duration
+ * Authentication Popup that appears when user action requires login
+ *
+ * @param text - Prompt message
+ * @param actions
+ * @param props
+ * @constructor
  */
-export function AuthPrompt(args: PromptProps) {
-    const props = {...args};
-
-    if (!props.text) props.text = i18(Keyset.AuthPromptOnLike);
-
-    if (!props.actions)
-        props.actions = [
-            {
-                children: i18(Keyset.SignIn),
-                onClick: () => alert('open'),
-            },
-        ];
-
-    return <Prompt {...props} />;
+export function AuthPrompt({
+    text = i18(Keyset.AuthPromptOnLike),
+    actions = [
+        {
+            children: i18(Keyset.SignIn),
+            onClick: () => alert('open'),
+        },
+    ],
+    ...props
+}: AuthPromptProps) {
+    return <Prompt {...{text, actions}} {...props} />;
 }
