@@ -31,13 +31,15 @@ export const AuthPrompt: React.FC<AuthPromptProps> = ({
     text,
     actions,
     className,
-    openTimestamp,
+    openTimestamp = 0,
     openDuration,
     theme = 'grey',
 }) => {
-    const [open] = useSelfCloseTimer(openTimestamp, openDuration);
+    const [open] = useOpenCloseTimer(openTimestamp, openDuration);
+    const mounted = openTimestamp > 0;
+
     return (
-        <div className={b({theme, 'fade-in': open, 'fade-out': !open}, className)}>
+        <div className={b({theme, open, close: !open, mounted}, className)}>
             <div className={b('content')}>
                 <span className={b('text')}>{text}</span>
                 <div className={b('actions')}>
@@ -55,25 +57,24 @@ export const AuthPrompt: React.FC<AuthPromptProps> = ({
     );
 };
 
-function useSelfCloseTimer(openTimestamp = Date.now(), openDuration = 4000) {
-    const [isOpen, setOpen] = useState(Date.now() - openTimestamp < openDuration);
+function useOpenCloseTimer(openTimestamp = Date.now(), openDuration = 1000) {
+    const open = Date.now() - openTimestamp < openDuration;
+    const [, reset] = useState(0); // time to reset open state
 
     useEffect(() => {
-        if (!isOpen) return;
-
         const closeTime = openTimestamp + openDuration;
         const delay = closeTime - Date.now();
         if (delay <= 0) return;
 
         const timer = setTimeout(() => {
-            setOpen(false);
+            reset(Date.now);
         }, delay);
 
         // eslint-disable-next-line consistent-return
         return () => {
             clearTimeout(timer);
         };
-    }, [isOpen, openTimestamp, openDuration]);
+    }, [openTimestamp, openDuration]);
 
-    return [isOpen];
+    return [open];
 }

@@ -1,7 +1,7 @@
 @import '../../../styles/variables.scss';
 @import '../../../styles/mixins.scss';
 
-@keyframes AuthPrompt_fade-in {
+@keyframes AuthPrompt_open {
     0% {
         opacity: 0;
         transform: translateY(100%);
@@ -12,7 +12,7 @@
     }
 }
 
-@keyframes AuthPrompt_fade-out {
+@keyframes AuthPrompt_close {
     0% {
         opacity: 1;
         transform: translateY(0%);
@@ -30,9 +30,13 @@
     overflow: hidden; // prevent scrollbar
     position: absolute;
     bottom: 0;
-    $duration: $animationDuration * 2;
+
+    &:not(.AuthPrompt_mounted) {
+        display: none;
+    }
 
     &__content {
+        $duration: $animationDuration * 2;
         @extend %shadow;
         display: flex;
         flex-flow: row wrap;
@@ -43,16 +47,21 @@
         border-radius: $borderRadius;
         font-size: 1.25em;
 
-        .AuthPrompt_fade-in > & {
+        .AuthPrompt_open > & {
             opacity: 0;
             transform: translateY(100%);
-            animation: AuthPrompt_fade-in $duration forwards;
+            animation: AuthPrompt_open $duration forwards;
         }
 
-        .AuthPrompt_fade-out > & {
+        .AuthPrompt_close > & {
             opacity: 1;
             transform: translateY(0%);
-            animation: AuthPrompt_fade-out $duration forwards;
+            animation: AuthPrompt_close $duration forwards;
         }
     }
+}
+
+.AuthPrompt_close {
+    // let other content receive Pointer events
+    pointer-events: none;
 }
