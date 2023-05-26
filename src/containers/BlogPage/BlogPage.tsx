@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 
 import {
     NavigationData,
@@ -31,6 +31,8 @@ export type BlogPageProps = {
     services?: Service[];
     navigation?: NavigationData;
     getPosts: GetPostsType;
+    isSignedInUser?: boolean;
+    requireSignIn?: React.MouseEventHandler;
     hasLikes?: boolean;
     toggleLike?: ToggleLikeCallbackType;
     metaData?: MetaProps;
@@ -46,39 +48,43 @@ export const BlogPage = ({
     services,
     getPosts,
     metaData,
+    isSignedInUser = false,
+    requireSignIn,
     hasLikes = false,
     toggleLike,
     navigation,
     settings,
     pageCountForShowSupportButtons,
-}: BlogPageProps) => (
-    <main>
-        <LikesContext.Provider
-            value={{
-                toggleLike: toggleLike,
-                hasLikes,
-            }}
-        >
-            <FeedContext.Provider
-                value={{
-                    posts: posts.posts,
-                    pinnedPost: posts.pinnedPost,
-                    totalCount: posts.count,
-                    tags,
-                    services: services ?? [],
-                    getPosts,
-                    pageCountForShowSupportButtons,
-                }}
-            >
-                <PageConstructorProvider {...settings}>
-                    {metaData ? <MetaWrapper {...metaData} /> : null}
-                    <PageConstructor
-                        content={content}
-                        custom={componentMap}
-                        navigation={navigation}
-                    />
-                </PageConstructorProvider>
-            </FeedContext.Provider>
-        </LikesContext.Provider>
-    </main>
-);
+}: BlogPageProps) => {
+    const likes = useMemo(
+        () => ({toggleLike, hasLikes, isSignedInUser, requireSignIn}),
+        [toggleLike, hasLikes, isSignedInUser, requireSignIn],
+    );
+
+    return (
+        <main>
+            <LikesContext.Provider value={likes}>
+                <FeedContext.Provider
+                    value={{
+                        posts: posts.posts,
+                        pinnedPost: posts.pinnedPost,
+                        totalCount: posts.count,
+                        tags,
+                        services: services ?? [],
+                        getPosts,
+                        pageCountForShowSupportButtons,
+                    }}
+                >
+                    <PageConstructorProvider {...settings}>
+                        {metaData ? <MetaWrapper {...metaData} /> : null}
+                        <PageConstructor
+                            content={content}
+                            custom={componentMap}
+                            navigation={navigation}
+                        />
+                    </PageConstructorProvider>
+                </FeedContext.Provider>
+            </LikesContext.Provider>
+        </main>
+    );
+};

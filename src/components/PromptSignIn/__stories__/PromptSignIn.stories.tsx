@@ -4,13 +4,13 @@ import {Meta, Story} from '@storybook/react/types-6-0';
 
 import {Button} from '@gravity-ui/uikit';
 
-import {PromptProps} from '../../../components/Prompt/Prompt';
-import {CONTAINERS} from '../../../demo/constants';
-import {AuthPrompt} from '../AuthPrompt';
+import {COMPONENTS} from '../../../demo/constants';
+import {PromptProps} from '../../Prompt/Prompt';
+import {PromptSignIn} from '../PromptSignIn';
 
 export default {
-    title: `${CONTAINERS}/AuthPrompt`,
-    component: AuthPrompt,
+    title: `${COMPONENTS}/PromptSignIn`,
+    component: PromptSignIn,
 } as Meta;
 
 const styleBtn = {margin: '1em'};
@@ -31,7 +31,7 @@ const DefaultTemplate: Story<PromptProps> = (args) => {
             <Button view="action" style={styleBtn} onClick={onClick}>
                 Keep Prompt Open
             </Button>
-            <AuthPrompt {...props} />
+            <PromptSignIn {...props} />
         </div>
     );
 };
