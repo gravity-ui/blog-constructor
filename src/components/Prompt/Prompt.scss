@@ -28,7 +28,7 @@
     width: 100%;
     justify-content: center;
     overflow: hidden; // prevent scrollbar
-    position: absolute;
+    position: fixed;
     bottom: 0;
 
     &:not(.Prompt_mounted) {
@@ -45,6 +45,7 @@
         margin: $indentSM;
         padding: $indentXS $indentS;
         border-radius: $borderRadius;
+        background-color: var(--yc-color-base-float);
         font-size: 1.25em;
 
         .Prompt_open > & {
