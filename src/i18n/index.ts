@@ -72,11 +72,13 @@ i18n.registerKeyset(Lang.Ru, KEYSET_NAME, {
     [Keyset.AllTags]: 'Все темы',
     [Keyset.ActionSavedOnly]: 'Сохранённые',
     [Keyset.AllServices]: 'Все сервисы',
+    [Keyset.PromptSignInOnLike]: 'Войдите, чтобы добавить доклад в своё расписание',
     [Keyset.ContextReadingTime]: [
         '{{count}} минута чтения',
         '{{count}} минуты чтения',
         '{{count}} минут чтения',
     ],
+    [Keyset.SignIn]: 'Войти',
 });
 
 export const i18 = i18n.keyset(KEYSET_NAME);
