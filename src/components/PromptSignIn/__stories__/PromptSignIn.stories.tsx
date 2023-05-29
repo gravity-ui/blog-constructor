@@ -1,8 +1,7 @@
 import React, {useCallback, useState} from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
-
 import {Button} from '@gravity-ui/uikit';
+import {Meta, Story} from '@storybook/react/types-6-0';
 
 import {COMPONENTS} from '../../../demo/constants';
 import {PromptProps} from '../../Prompt/Prompt';

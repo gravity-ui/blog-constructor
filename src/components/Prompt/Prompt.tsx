@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
-import block from 'bem-cn-lite';
-
 import {Button, ButtonProps} from '@gravity-ui/uikit';
+import block from 'bem-cn-lite';
 
 import './Prompt.scss';
 
@@ -25,6 +24,7 @@ export interface PromptProps {
  * Features:
  *  - Automatically disappears after `openDuration` in milliseconds
  *  - `openTimestamp` (`Date.now()`) resets the visible duration
+ * @returns {JSX|null}
  */
 export const Prompt: React.FC<PromptProps> = ({
     text,
@@ -60,7 +60,7 @@ export const Prompt: React.FC<PromptProps> = ({
  * Timer to automatically update `open` state after a given duration
  * @param {number} openTimestamp - UNIX timestamp in milliseconds
  * @param {number} openDuration - in milliseconds
- * @returns {[open: boolean]} - whether the state is open
+ * @returns {boolean[]} [open] - whether the state is open
  */
 export function useOpenCloseTimer(openTimestamp = Date.now(), openDuration = 4000) {
     const open = Date.now() - openTimestamp < openDuration;
