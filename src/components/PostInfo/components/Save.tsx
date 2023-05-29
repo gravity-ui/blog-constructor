@@ -72,7 +72,10 @@ export const Save: React.FC<SaveProps> = ({
                 }
 
                 // Open Popup to ask the User to sign in first
-                if (!isSignedInUser && requireSignIn) return requireSignIn(event);
+                if (!isSignedInUser && requireSignIn) {
+                    requireSignIn(event);
+                    return;
+                }
 
                 postLikeStatus(postId, Boolean(hasUserLike));
                 handleUserLike();
