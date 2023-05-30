@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {SyntheticEvent, useMemo} from 'react';
 
 import {
     NavigationData,
@@ -9,6 +9,8 @@ import {
 } from '@gravity-ui/page-constructor';
 
 import {MetaWrapper} from '../../components/MetaWrapper/MetaWrapper';
+import {PromptSignIn} from '../../components/PromptSignIn/PromptSignIn';
+import {usePromptSignInProps} from '../../components/PromptSignIn/hooks/usePromptSignInProps';
 import componentMap from '../../constructor/blocksMap';
 import {FeedContext} from '../../contexts/FeedContext';
 import {LikesContext} from '../../contexts/LikesContext';
@@ -31,14 +33,15 @@ export type BlogPageProps = {
     services?: Service[];
     navigation?: NavigationData;
     getPosts: GetPostsType;
-    isSignedInUser?: boolean;
-    requireSignIn?: React.MouseEventHandler;
     hasLikes?: boolean;
     toggleLike?: ToggleLikeCallbackType;
     metaData?: MetaProps;
     setQuery?: SetQueryType;
     settings?: PageConstructorProviderProps;
     pageCountForShowSupportButtons?: number;
+    isSignedInUser?: boolean;
+    // Required to enable Sign In on Post like
+    onClickSignIn?: React.EventHandler<SyntheticEvent>;
 };
 
 export const BlogPage = ({
@@ -48,14 +51,16 @@ export const BlogPage = ({
     services,
     getPosts,
     metaData,
-    isSignedInUser = false,
-    requireSignIn,
     hasLikes = false,
     toggleLike,
     navigation,
     settings,
     pageCountForShowSupportButtons,
+    isSignedInUser = false,
+    onClickSignIn,
 }: BlogPageProps) => {
+    const {requireSignIn, ...promptSignInProps} = usePromptSignInProps(onClickSignIn);
+
     const likes = useMemo(
         () => ({toggleLike, hasLikes, isSignedInUser, requireSignIn}),
         [toggleLike, hasLikes, isSignedInUser, requireSignIn],
@@ -85,6 +90,7 @@ export const BlogPage = ({
                     </PageConstructorProvider>
                 </FeedContext.Provider>
             </LikesContext.Provider>
+            <PromptSignIn {...promptSignInProps} />
         </main>
     );
 };

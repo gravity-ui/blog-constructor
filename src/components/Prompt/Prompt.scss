@@ -50,11 +50,11 @@ $block: '.#{$prompt}';
         padding: $indentXS $indentS;
         border-radius: $borderRadius;
         background-color: var(--yc-color-base-float);
-        font-size: 1.25em;
+        font-size: 1rem;
     }
 
     &_close {
-        //pointer-events: none;
+        pointer-events: none;
     }
 
     &_open > #{$block}__content {

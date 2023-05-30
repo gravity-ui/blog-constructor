@@ -34,7 +34,7 @@ export const Prompt: React.FC<PromptProps> = ({
     className,
     openTimestamp = 0,
     openDuration,
-    theme = 'grey',
+    theme,
 }) => {
     const {open} = useOpenCloseTimer(openTimestamp, openDuration);
     const mounted = openTimestamp > 0;

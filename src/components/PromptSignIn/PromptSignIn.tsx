@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {SyntheticEvent} from 'react';
 
 import {Keyset, i18} from '../../i18n';
 import {Prompt, PromptProps} from '../Prompt/Prompt';
 
 export interface PromptSignInProps extends Partial<PromptProps> {
-    onClickSignIn?: React.MouseEventHandler;
+    onClickSignIn?: React.EventHandler<SyntheticEvent>;
 }
 
 /**
