@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.4.1](https://github.com/gravity-ui/blog-constructor/compare/v3.4.0...v3.4.1) (2023-05-30)
+
+
+### Bug Fixes
+
+* return js, jsx files to gulpfile.js ([#58](https://github.com/gravity-ui/blog-constructor/issues/58)) ([d5e4c42](https://github.com/gravity-ui/blog-constructor/commit/d5e4c428e8eae56fd7ab381c2969c04955adc45b))
+
 ## [3.4.0](https://github.com/gravity-ui/blog-constructor/compare/v3.3.0...v3.4.0) (2023-05-24)
 
 
