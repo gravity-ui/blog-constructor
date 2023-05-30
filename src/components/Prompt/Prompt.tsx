@@ -1,11 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 
 import {Button, ButtonProps} from '@gravity-ui/uikit';
-import block from 'bem-cn-lite';
+
+import {useOpenCloseTimer} from '../../hooks/useOpenCloseTimer';
+import {block} from '../../utils/cn';
 
 import './Prompt.scss';
 
-const b = block('Prompt');
+const b = block('prompt');
 
 export interface PromptProps {
     // Prompt message
@@ -34,7 +36,7 @@ export const Prompt: React.FC<PromptProps> = ({
     openDuration,
     theme = 'grey',
 }) => {
-    const [open] = useOpenCloseTimer(openTimestamp, openDuration);
+    const {open} = useOpenCloseTimer(openTimestamp, openDuration);
     const mounted = openTimestamp > 0;
 
     return (
@@ -55,31 +57,3 @@ export const Prompt: React.FC<PromptProps> = ({
         </div>
     );
 };
-
-/**
- * Timer to automatically update `open` state after a given duration
- * @param {number} openTimestamp - UNIX timestamp in milliseconds
- * @param {number} openDuration - in milliseconds
- * @returns {boolean[]} [open] - whether the state is open
- */
-export function useOpenCloseTimer(openTimestamp = Date.now(), openDuration = 4000) {
-    const open = Date.now() - openTimestamp < openDuration;
-    const [, reset] = useState(0); // time to reset `open` state
-
-    useEffect(() => {
-        const closeTime = openTimestamp + openDuration;
-        const delay = closeTime - Date.now();
-        if (delay <= 0) return;
-
-        const timer = setTimeout(() => {
-            reset(Date.now);
-        }, delay);
-
-        // eslint-disable-next-line consistent-return
-        return () => {
-            clearTimeout(timer);
-        };
-    }, [openTimestamp, openDuration]);
-
-    return [open];
-}

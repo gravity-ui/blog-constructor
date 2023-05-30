@@ -1,7 +1,10 @@
 @import '../../../styles/variables.scss';
 @import '../../../styles/mixins.scss';
 
-@keyframes Prompt_open {
+$prompt: '#{$namespace}prompt';
+$block: '.#{$prompt}';
+
+@keyframes #{$prompt}_open {
     0% {
         opacity: 0;
         transform: translateY(100%);
@@ -12,7 +15,7 @@
     }
 }
 
-@keyframes Prompt_close {
+@keyframes #{$prompt}_close {
     0% {
         opacity: 1;
         transform: translateY(0%);
@@ -23,7 +26,9 @@
     }
 }
 
-.Prompt {
+#{$block} {
+    $duration: $animationDuration * 2;
+
     display: flex;
     width: 100%;
     justify-content: center;
@@ -31,12 +36,11 @@
     position: fixed;
     bottom: 0;
 
-    &:not(.Prompt_mounted) {
+    &:not(#{$block}_mounted) {
         display: none;
     }
 
     &__content {
-        $duration: $animationDuration * 2;
         @extend %shadow;
         display: flex;
         flex-flow: row wrap;
@@ -47,22 +51,21 @@
         border-radius: $borderRadius;
         background-color: var(--yc-color-base-float);
         font-size: 1.25em;
-
-        .Prompt_open > & {
-            opacity: 0;
-            transform: translateY(100%);
-            animation: Prompt_open $duration forwards;
-        }
-
-        .Prompt_close > & {
-            opacity: 1;
-            transform: translateY(0%);
-            animation: Prompt_close $duration forwards;
-        }
     }
-}
 
-.Prompt_close {
-    // let other content receive Pointer events
-    pointer-events: none;
+    &_close {
+        //pointer-events: none;
+    }
+
+    &_open > #{$block}__content {
+        opacity: 0;
+        transform: translateY(100%);
+        animation: #{$prompt}_open $duration forwards;
+    }
+
+    &_close > #{$block}__content {
+        opacity: 1;
+        transform: translateY(0%);
+        animation: #{$prompt}_close $duration forwards;
+    }
 }
