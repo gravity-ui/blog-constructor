@@ -30,7 +30,7 @@ const CONFIG_EXTENSION_FOR_COMPILE = {
 };
 
 const SRC_FOR_INDEX_BUILD = [
-    'src/**/*.{ts,tsx}',
+    'src/**/*.{ts,tsx,js,jsx}',
     '!src/demo/**/*',
     '!src/stories/**/*',
     '!src/**/__stories__/**/*',
