@@ -18,6 +18,7 @@ export const PromptSignIn: React.FC<PromptSignInProps> = ({
         {
             children: i18(Keyset.SignIn),
             onClick: onClickSignIn,
+            size: 'l',
         },
     ],
     ...props

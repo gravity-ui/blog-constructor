@@ -48,9 +48,9 @@ $block: '.#{$prompt}';
         align-items: center;
         margin: $indentSM;
         padding: $indentXS $indentS;
-        border-radius: $borderRadius;
+        border-radius: calc($borderRadius / 2);
         background-color: var(--yc-color-base-float);
-        font-size: 1rem;
+        font-size: var(--yc-text-body-2-font-size);
     }
 
     &_close {
