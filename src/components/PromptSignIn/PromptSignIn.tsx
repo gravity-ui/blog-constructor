@@ -11,7 +11,7 @@ export interface PromptSignInProps extends Partial<PromptProps> {
  * Authentication Popup that appears when user action requires login
  * @returns {JSX|null}
  */
-export const PromptSignIn: React.FC<PromptSignInProps> = ({
+export const PromptSignIn = ({
     text = i18(Keyset.PromptSignInOnLike),
     onClickSignIn = () => alert(i18(Keyset.SignIn)),
     actions = [
@@ -22,4 +22,4 @@ export const PromptSignIn: React.FC<PromptSignInProps> = ({
         },
     ],
     ...props
-}) => <Prompt {...{text, actions}} {...props} />;
+}: PromptSignInProps) => <Prompt {...{text, actions}} {...props} />;

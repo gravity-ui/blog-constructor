@@ -28,14 +28,14 @@ export interface PromptProps {
  *  - `openTimestamp` (`Date.now()`) resets the visible duration
  * @returns {JSX|null}
  */
-export const Prompt: React.FC<PromptProps> = ({
+export const Prompt = ({
     text,
     actions,
     className,
     openTimestamp = 0,
     openDuration,
     theme,
-}) => {
+}: PromptProps) => {
     const {open} = useOpenCloseTimer(openTimestamp, openDuration);
     const mounted = openTimestamp > 0;
 
