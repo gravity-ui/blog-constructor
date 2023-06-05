@@ -1,10 +1,6 @@
 import {ConstructorBlock, PageContent} from '@gravity-ui/page-constructor';
-<<<<<<< HEAD
-import {transformBlocks as transformConstructorBlocks} from '@gravity-ui/page-constructor/server';
-import yaml from 'js-yaml';
-=======
 import {contentTransformer} from '@gravity-ui/page-constructor/server';
->>>>>>> 64fee0c (feat: install pcv3 and update transform usage (#54))
+import yaml from 'js-yaml';
 
 import {Lang} from '../models/locale';
 
