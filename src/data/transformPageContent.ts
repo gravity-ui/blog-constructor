@@ -1,6 +1,10 @@
 import {ConstructorBlock, PageContent} from '@gravity-ui/page-constructor';
+<<<<<<< HEAD
 import {transformBlocks as transformConstructorBlocks} from '@gravity-ui/page-constructor/server';
 import yaml from 'js-yaml';
+=======
+import {contentTransformer} from '@gravity-ui/page-constructor/server';
+>>>>>>> 64fee0c (feat: install pcv3 and update transform usage (#54))
 
 import {Lang} from '../models/locale';
 
@@ -24,10 +28,18 @@ type TransformBlocksPropsType = {
     typographyConfig?: TypographyConfigType;
 };
 
-const transformBlocks = ({blocks, lang, typographyConfig}: TransformBlocksPropsType) =>
-    transformConstructorBlocks(blocks, lang, {
-        ...typographyConfig,
-        ...getExtendTypographyConfig(),
+const transformer = ({blocks, lang, typographyConfig}: TransformBlocksPropsType) =>
+    contentTransformer({
+        content: {
+            blocks: blocks || [],
+        },
+        options: {
+            lang,
+            customConfig: {
+                ...typographyConfig,
+                ...getExtendTypographyConfig(),
+            },
+        },
     });
 
 /**
@@ -49,7 +61,13 @@ export const transformPageContent = ({
         const transformedContent = filterContent(yaml.load(content) as PageContent, {lang, region});
 
         if (transformedContent.blocks) {
-            transformBlocks({blocks: transformedContent.blocks, lang, typographyConfig});
+            const {blocks: transformedBlocks} = transformer({
+                blocks: transformedContent.blocks,
+                lang,
+                typographyConfig,
+            });
+
+            transformedContent.blocks = transformedBlocks;
         }
 
         return transformedContent;
