@@ -7,20 +7,22 @@ import {
     TextTheme,
 } from '@gravity-ui/page-constructor';
 
-import {BlockType, ClassNameProps, PostData} from './common';
+import {BlockType, ClassNameProps, ColumnProps, PostData} from './common';
 import {PaddingsYFMProps} from './paddings';
 
 // blocks props
 export type AuthorProps = ClassNameProps & {
     authorId: number;
     image: string;
-} & PaddingsYFMProps;
+} & PaddingsYFMProps &
+    ColumnProps;
 
 export type BannerProps = ContentBlockProps & {
     color?: string;
     image?: string;
     imageSize?: 's' | 'm';
-} & PaddingsYFMProps;
+} & PaddingsYFMProps &
+    ColumnProps;
 
 export type ColoredTextProps = ContentBlockProps & {
     background?: {
@@ -28,12 +30,14 @@ export type ColoredTextProps = ContentBlockProps & {
         image?: string;
         altText?: string;
     };
-} & PaddingsYFMProps;
+} & PaddingsYFMProps &
+    ColumnProps;
 
 export type CTAProps = {
     items: Array<ContentBlockProps>;
     columnCount?: number;
-} & PaddingsYFMProps;
+} & PaddingsYFMProps &
+    ColumnProps;
 
 export type HeaderProps = HeaderBlockProps & PaddingsYFMProps;
 
@@ -45,6 +49,7 @@ export type LayoutProps = {
 
 export type MediaProps = ClassNameProps &
     PaddingsYFMProps &
+    ColumnProps &
     Partial<Pick<PCMediaProps, 'youtube' | 'previewImg' | 'image' | 'video' | 'dataLens'>> & {
         text?: string;
     };
@@ -52,7 +57,8 @@ export type MediaProps = ClassNameProps &
 export type MetaProps = {
     locale: string;
     theme?: TextTheme;
-} & PaddingsYFMProps;
+} & PaddingsYFMProps &
+    ColumnProps;
 
 export type SuggestProps = ClassNameProps & {
     posts: PostData[];
@@ -60,7 +66,8 @@ export type SuggestProps = ClassNameProps & {
 
 export type YFMProps = {
     text: string;
-} & PaddingsYFMProps;
+} & PaddingsYFMProps &
+    ColumnProps;
 
 export type FeedProps = {
     image: string;

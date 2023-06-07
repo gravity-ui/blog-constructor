@@ -10,8 +10,14 @@ export enum Theme {
     Dark = 'dark',
 }
 
+export type Column = 'left' | 'right';
+
 export interface ClassNameProps {
     className?: string;
+}
+
+export interface ColumnProps {
+    column?: Column;
 }
 
 export type Author = {

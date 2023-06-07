@@ -3,6 +3,7 @@ import React from 'react';
 import {BackgroundImage, Content} from '@gravity-ui/page-constructor';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
+import {useCanRenderInColumn} from '../../hooks/useCanRenderInColumn';
 import {ColoredTextProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
 import {block} from '../../utils/cn';
@@ -16,9 +17,14 @@ export const ColoredText: React.FC<ColoredTextProps> = ({
     background,
     paddingTop,
     paddingBottom,
+    column,
     ...content
 }) => {
     const contentData = updateContentSizes(content);
+
+    if (!useCanRenderInColumn(column)) {
+        return null;
+    }
 
     return (
         <Wrapper

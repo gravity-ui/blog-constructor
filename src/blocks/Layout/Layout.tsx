@@ -1,4 +1,4 @@
-import React, {ReactElement, useMemo} from 'react';
+import React, {useMemo} from 'react';
 
 import {
     Col,
@@ -8,7 +8,9 @@ import {
 } from '@gravity-ui/page-constructor';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
+import {ColumnContext} from '../../contexts/ColumnContext';
 import {LayoutProps} from '../../models/blocks';
+import {Column} from '../../models/common';
 import {PaddingsDirections} from '../../models/paddings';
 import {block} from '../../utils/cn';
 
@@ -25,11 +27,6 @@ type ColLayouts = {
 type LayoutType = {
     leftCol: ColLayouts;
     rightCol: ColLayouts;
-};
-
-type SortedLayoutItems = {
-    left: ReactElement[];
-    right: ReactElement[];
 };
 
 export const Layout: React.FC<LayoutProps> = ({
@@ -68,27 +65,14 @@ export const Layout: React.FC<LayoutProps> = ({
         return layoutConfig;
     }, [fullWidth, mobileOrder]);
 
-    const renderChildren = (blockChildren: React.ReactChild[]) =>
-        React.Children.map(blockChildren, (child, i) => (
-            <div key={i} className={b('item')}>
-                {child}
-            </div>
-        ));
-
-    const {left, right} = useMemo(
-        () =>
-            children?.reduce(
-                (sortedChildren: SortedLayoutItems, child: ReactElement) => {
-                    if (child?.props?.data?.column === 'left') {
-                        sortedChildren.left.push(child);
-                    } else {
-                        sortedChildren.right.push(child);
-                    }
-                    return sortedChildren;
-                },
-                {left: [], right: []},
-            ),
-        [children],
+    const renderChildren = (blockChildren: React.ReactChild[], column = 'right' as Column) => (
+        <ColumnContext.Provider value={column}>
+            {React.Children.map(blockChildren, (child, i) => (
+                <div key={i} className={b('item')}>
+                    {child}
+                </div>
+            ))}
+        </ColumnContext.Provider>
     );
 
     return (
@@ -100,10 +84,10 @@ export const Layout: React.FC<LayoutProps> = ({
         >
             <Row className={b('row')} noGutter>
                 <Col className={b('left-col')} {...layout.leftCol}>
-                    {left && renderChildren(left)}
+                    {renderChildren(children, 'left')}
                 </Col>
                 <Col className={b('right-col')} {...layout.rightCol}>
-                    {right && renderChildren(right)}
+                    {renderChildren(children, 'right')}
                 </Col>
             </Row>
         </Wrapper>
