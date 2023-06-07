@@ -30,6 +30,8 @@ const config = {
             use: [{loader: 'markdown-loader'}],
         });
 
+        storybookBaseConfig.module.rules[0].exclude = [/node_modules/, /\.test.(tsx?|jsx?)$/];
+
         // to turn fileName in context.parameters into path form number in production bundle
         storybookBaseConfig.optimization.moduleIds = 'named';
 

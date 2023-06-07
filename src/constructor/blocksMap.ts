@@ -5,14 +5,15 @@ import {Suggest} from '../blocks/Suggest/Suggest';
 import {withColumnSelection} from '../hocs/withColumnSelection';
 import {BlockInColumnsType, BlockStandsAloneType} from '../models/common';
 
-const blocksInColumns = Object.keys(BlockInColumnsType).reduce((blocks, blockType) => {
-    blocks[BlockInColumnsType[blockType]] = withColumnSelection(
-        require(`../blocks/${blockType}/${blockType}.tsx`).default,
-    );
+const blocksInColumns = Object.entries(BlockInColumnsType).reduce(
+    (blocks, [blockName, blockKey]) => {
+        const block = require(`../blocks/${blockName}/${blockName}.tsx`).default;
+        blocks[blockKey] = withColumnSelection<typeof block>(block);
 
-    return blocks;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-}, {} as Record<string, any>);
+        return blocks;
+    },
+    {} as Record<string, unknown>,
+);
 
 const blocks = {
     ...blocksInColumns,
