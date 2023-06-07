@@ -5,11 +5,11 @@
 
 ### ⚠ BREAKING CHANGES
 
-* version 4 ([#54](https://github.com/gravity-ui/blog-constructor/issues/54)) (#60)
+* install page-constructor@3 and refactor transform content ([#54](https://github.com/gravity-ui/blog-constructor/issues/54)) (#60)
 
 ### Features
 
-* version 4 ([#54](https://github.com/gravity-ui/blog-constructor/issues/54)) ([#60](https://github.com/gravity-ui/blog-constructor/issues/60)) ([26bf452](https://github.com/gravity-ui/blog-constructor/commit/26bf452419f9c01bd0e550fa857715665fe38cd2))
+* install page-constructor@3 and refactor transform content  ([#54](https://github.com/gravity-ui/blog-constructor/issues/54)) ([#60](https://github.com/gravity-ui/blog-constructor/issues/60)) ([26bf452](https://github.com/gravity-ui/blog-constructor/commit/26bf452419f9c01bd0e550fa857715665fe38cd2))
 
 ## [3.5.0](https://github.com/gravity-ui/blog-constructor/compare/v3.4.1...v3.5.0) (2023-06-07)
 
