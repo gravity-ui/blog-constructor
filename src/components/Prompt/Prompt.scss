@@ -1,0 +1,71 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+$prompt: '#{$namespace}prompt';
+$block: '.#{$prompt}';
+
+@keyframes #{$prompt}_open {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes #{$prompt}_close {
+    0% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+}
+
+#{$block} {
+    $duration: $animationDuration * 2;
+
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    overflow: hidden; // prevent scrollbar
+    position: fixed;
+    bottom: 0;
+
+    &:not(#{$block}_mounted) {
+        display: none;
+    }
+
+    &__content {
+        @extend %shadow;
+        display: flex;
+        flex-flow: row wrap;
+        gap: $indentXS;
+        align-items: center;
+        margin: $indentSM;
+        padding: $indentXS $indentS;
+        border-radius: calc($borderRadius / 2);
+        background-color: var(--yc-color-base-float);
+        font-size: var(--yc-text-body-2-font-size);
+    }
+
+    &_close {
+        pointer-events: none;
+    }
+
+    &_open > #{$block}__content {
+        opacity: 0;
+        transform: translateY(100%);
+        animation: #{$prompt}_open $duration forwards;
+    }
+
+    &_close > #{$block}__content {
+        opacity: 1;
+        transform: translateY(0%);
+        animation: #{$prompt}_close $duration forwards;
+    }
+}

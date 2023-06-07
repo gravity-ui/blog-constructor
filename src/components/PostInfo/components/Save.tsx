@@ -54,7 +54,7 @@ export const Save: React.FC<SaveProps> = ({
     theme,
     dataQa,
 }) => {
-    const {toggleLike} = useContext(LikesContext);
+    const {toggleLike, isSignedInUser, requireSignIn} = useContext(LikesContext);
     const handleAnalytics = useAnalytics(DefaultEventNames.SaveButton);
     const isLikeable = Boolean(toggleLike);
 
@@ -68,6 +68,12 @@ export const Save: React.FC<SaveProps> = ({
                 event.nativeEvent.stopImmediatePropagation();
 
                 if (!isLikeable) {
+                    return;
+                }
+
+                // Open Popup to ask the User to sign in first
+                if (!isSignedInUser && requireSignIn) {
+                    requireSignIn(event);
                     return;
                 }
 
