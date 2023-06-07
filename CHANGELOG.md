@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.0](https://github.com/gravity-ui/blog-constructor/compare/v3.4.1...v3.5.0) (2023-06-07)
+
+
+### Features
+
+* update page-constructor in  second major ([#63](https://github.com/gravity-ui/blog-constructor/issues/63)) ([95d2fb8](https://github.com/gravity-ui/blog-constructor/commit/95d2fb88a13e4371bc4d6e603a3835790f1ffb4f))
+
 ## [3.4.1](https://github.com/gravity-ui/blog-constructor/compare/v3.4.0...v3.4.1) (2023-05-30)
 
 
