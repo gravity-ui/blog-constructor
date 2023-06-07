@@ -8,7 +8,7 @@ import customBlocks from '../../../constructor/blocksMap';
 import {PostPageContext} from '../../../contexts/PostPageContext';
 import {BLOCKS} from '../../../demo/constants';
 import {YFMProps} from '../../../models/blocks';
-import {BlockType, PostData} from '../../../models/common';
+import {BlockInColumnsType, PostData} from '../../../models/common';
 import {YFM} from '../YFM';
 
 import post from '../../../../.mocks/post.json';
@@ -22,7 +22,7 @@ export default {
 } as Meta;
 
 type YFMModel = {
-    type: BlockType.YFM;
+    type: BlockInColumnsType.YFM;
 } & YFMProps;
 
 const DefaultTemplate: Story<YFMModel> = (args) => (
@@ -34,7 +34,7 @@ const DefaultTemplate: Story<YFMModel> = (args) => (
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
-    type: BlockType.YFM,
+    type: BlockInColumnsType.YFM,
     ...getDefaultStoryArgs(),
     text: '<p><strong>Lorem ipsum dolor sit amet</strong> <a href="https://example.com">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>',
 };

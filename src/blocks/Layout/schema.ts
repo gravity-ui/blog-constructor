@@ -4,11 +4,11 @@ const {
     common: {BlockBaseProps, ChildrenProps},
 } = validators;
 
-import {BlockType} from '../../models/common';
+import {BlockStandsAloneType} from '../../models/common';
 import {BlogBlockBase} from '../../schema/common';
 
 export const Layout = {
-    [BlockType.Layout]: {
+    [BlockStandsAloneType.Layout]: {
         type: 'object',
         additionalProperties: false,
         required: ['children'],

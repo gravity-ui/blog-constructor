@@ -7,7 +7,6 @@ import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {BlogMetrikaGoalIds} from '../../constants';
 import {LocaleContext} from '../../contexts/LocaleContext';
 import {PostPageContext} from '../../contexts/PostPageContext';
-import {useCanRenderInColumn} from '../../hooks/useCanRenderInColumn';
 import {MetaProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
 import {block} from '../../utils/cn';
@@ -33,13 +32,9 @@ const breadcrumbsGoals = [
 ];
 
 export const Meta: React.FC<MetaProps> = (props) => {
-    const {paddingTop = 'l', paddingBottom = 'l', theme = 'light', column} = props;
+    const {paddingTop = 'l', paddingBottom = 'l', theme = 'light'} = props;
     const {post} = useContext(PostPageContext);
     const {locale} = useContext(LocaleContext);
-
-    if (!useCanRenderInColumn(column)) {
-        return null;
-    }
 
     const {title, id, date, readingTime, tags} = post;
 
@@ -84,3 +79,5 @@ export const Meta: React.FC<MetaProps> = (props) => {
         </Wrapper>
     );
 };
+
+export default Meta;

@@ -8,7 +8,7 @@ import customBlocks from '../../../constructor/blocksMap';
 import {PostPageContext} from '../../../contexts/PostPageContext';
 import {BLOCKS} from '../../../demo/constants';
 import {CTAProps} from '../../../models/blocks';
-import {BlockType, PostData} from '../../../models/common';
+import {BlockInColumnsType, PostData} from '../../../models/common';
 import {CTA} from '../CTA';
 
 import contentBlocks from '../../../../.mocks/contentBlocks.json';
@@ -23,7 +23,7 @@ export default {
 } as Meta;
 
 type CTAModel = {
-    type: BlockType.CTA;
+    type: BlockInColumnsType.CTA;
 } & CTAProps;
 
 const DefaultTemplate: Story<CTAModel> = (args) => (
@@ -40,37 +40,37 @@ export const FiveItems = DefaultTemplate.bind({});
 export const SixItems = DefaultTemplate.bind({});
 
 Default.args = {
-    type: BlockType.CTA,
+    type: BlockInColumnsType.CTA,
     ...getDefaultStoryArgs(),
     items: contentBlocks.slice(0, 3),
 };
 
 OneItem.args = {
-    type: BlockType.CTA,
+    type: BlockInColumnsType.CTA,
     ...getDefaultStoryArgs(),
     items: contentBlocks.slice(0, 1),
 };
 
 TwoItems.args = {
-    type: BlockType.CTA,
+    type: BlockInColumnsType.CTA,
     ...getDefaultStoryArgs(),
     items: contentBlocks.slice(0, 2),
 };
 
 FourItems.args = {
-    type: BlockType.CTA,
+    type: BlockInColumnsType.CTA,
     ...getDefaultStoryArgs(),
     items: contentBlocks.slice(0, 4),
 };
 
 FiveItems.args = {
-    type: BlockType.CTA,
+    type: BlockInColumnsType.CTA,
     ...getDefaultStoryArgs(),
     items: contentBlocks.slice(0, 5),
 };
 
 SixItems.args = {
-    type: BlockType.CTA,
+    type: BlockInColumnsType.CTA,
     ...getDefaultStoryArgs(),
     items: contentBlocks.slice(0, 6),
 };

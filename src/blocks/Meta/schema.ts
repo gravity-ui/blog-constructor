@@ -4,11 +4,11 @@ const {
     common: {BlockBaseProps},
 } = validators;
 
-import {BlockType} from '../../models/common';
+import {BlockInColumnsType} from '../../models/common';
 import {BlogBlockBase} from '../../schema/common';
 
 export const Meta = {
-    [BlockType.Meta]: {
+    [BlockInColumnsType.Meta]: {
         type: 'object',
         additionalProperties: false,
         properties: {

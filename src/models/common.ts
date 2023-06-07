@@ -105,19 +105,24 @@ export interface PostData {
     noIndex?: boolean;
 }
 
-export enum BlockType {
-    Header = 'blog-header-block',
+export enum BlockInColumnsType {
     YFM = 'blog-yfm-block',
-    Layout = 'blog-layout-block',
     Media = 'blog-media-block',
     Banner = 'blog-banner-block',
     CTA = 'blog-cta-block',
     ColoredText = 'blog-colored-text-block',
     Author = 'blog-author-block',
-    Suggest = 'blog-suggest-block',
     Meta = 'blog-meta-block',
+}
+
+export enum BlockStandsAloneType {
+    Header = 'blog-header-block',
+    Layout = 'blog-layout-block',
+    Suggest = 'blog-suggest-block',
     Feed = 'blog-feed-block',
 }
+
+export type BlockType = BlockInColumnsType | BlockStandsAloneType;
 
 export type MetaProps = {
     metaComponent: JSX.Element;

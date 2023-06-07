@@ -8,7 +8,7 @@ import customBlocks from '../../../constructor/blocksMap';
 import {PostPageContext} from '../../../contexts/PostPageContext';
 import {BLOCKS} from '../../../demo/constants';
 import {LayoutProps} from '../../../models/blocks';
-import {BlockType, PostData} from '../../../models/common';
+import {BlockStandsAloneType, PostData} from '../../../models/common';
 import {Layout} from '../Layout';
 
 import layoutBlock from '../../../../.mocks/layoutBlock.json';
@@ -23,7 +23,7 @@ export default {
 } as Meta;
 
 type LayoutModel = {
-    type: BlockType.Layout;
+    type: BlockStandsAloneType.Layout;
 } & LayoutProps;
 
 const DefaultTemplate: Story<LayoutModel> = (args) => (
@@ -35,7 +35,7 @@ const DefaultTemplate: Story<LayoutModel> = (args) => (
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
-    type: BlockType.Layout,
+    type: BlockStandsAloneType.Layout,
     ...getDefaultStoryArgs(),
     children: layoutBlock.children,
 };

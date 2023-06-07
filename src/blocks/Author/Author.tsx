@@ -4,7 +4,6 @@ import {AuthorType, Author as PCAuthor} from '@gravity-ui/page-constructor';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {PostPageContext} from '../../contexts/PostPageContext';
-import {useCanRenderInColumn} from '../../hooks/useCanRenderInColumn';
 import {AuthorProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
 import {block} from '../../utils/cn';
@@ -14,7 +13,7 @@ import './Author.scss';
 const b = block('author');
 
 export const Author: React.FC<AuthorProps> = (props) => {
-    const {image, paddingTop, paddingBottom, authorId, column} = props;
+    const {image, paddingTop, paddingBottom, authorId} = props;
 
     const {post} = useContext(PostPageContext);
 
@@ -31,10 +30,6 @@ export const Author: React.FC<AuthorProps> = (props) => {
             avatar: authorAvatar,
         };
     }, [author?.avatar, author?.firstName, author?.shortDescription, author?.secondName, image]);
-
-    if (!useCanRenderInColumn(column)) {
-        return null;
-    }
 
     if (!authorItem?.firstName || !authorItem?.secondName) {
         return null;
@@ -58,3 +53,5 @@ export const Author: React.FC<AuthorProps> = (props) => {
         </Wrapper>
     );
 };
+
+export default Author;

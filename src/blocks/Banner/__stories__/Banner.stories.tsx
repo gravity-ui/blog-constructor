@@ -8,7 +8,7 @@ import customBlocks from '../../../constructor/blocksMap';
 import {PostPageContext} from '../../../contexts/PostPageContext';
 import {BLOCKS} from '../../../demo/constants';
 import {BannerProps} from '../../../models/blocks';
-import {BlockType, PostData} from '../../../models/common';
+import {BlockInColumnsType, PostData} from '../../../models/common';
 import {Banner} from '../Banner';
 
 import post from '../../../../.mocks/post.json';
@@ -27,7 +27,7 @@ export default {
 } as Meta;
 
 type BannerModel = {
-    type: BlockType.Banner;
+    type: BlockInColumnsType.Banner;
 } & BannerProps;
 
 const DefaultTemplate: Story<BannerModel> = (args) => (
@@ -39,7 +39,7 @@ const DefaultTemplate: Story<BannerModel> = (args) => (
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
-    type: BlockType.Banner,
+    type: BlockInColumnsType.Banner,
     color: '#7ccea0',
     ...getDefaultStoryArgs(),
     title: 'Lorem',

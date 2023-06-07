@@ -7,7 +7,7 @@ import customBlocks from '../../../constructor/blocksMap';
 import {PostPageContext} from '../../../contexts/PostPageContext';
 import {BLOCKS} from '../../../demo/constants';
 import {ColoredTextProps} from '../../../models/blocks';
-import {BlockType, PostData} from '../../../models/common';
+import {BlockInColumnsType, PostData} from '../../../models/common';
 import {ColoredText} from '../ColoredText';
 
 import post from '../../../../.mocks/post.json';
@@ -21,7 +21,7 @@ export default {
 } as Meta;
 
 type ColoredTextModel = {
-    type: BlockType.ColoredText;
+    type: BlockInColumnsType.ColoredText;
 } & ColoredTextProps;
 
 const DefaultTemplate: Story<ColoredTextModel> = (args) => (
@@ -33,7 +33,7 @@ const DefaultTemplate: Story<ColoredTextModel> = (args) => (
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
-    type: BlockType.ColoredText,
+    type: BlockInColumnsType.ColoredText,
     background: {
         color: '#000',
         image: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png',

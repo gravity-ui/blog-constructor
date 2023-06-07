@@ -4,11 +4,11 @@ const {
     common: {BlockBaseProps},
 } = validators;
 
-import {BlockType} from '../../models/common';
+import {BlockInColumnsType} from '../../models/common';
 import {BlogBlockBase} from '../../schema/common';
 
 export const YFM = {
-    [BlockType.YFM]: {
+    [BlockInColumnsType.YFM]: {
         type: 'object',
         additionalProperties: false,
         required: ['text'],

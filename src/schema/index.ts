@@ -1,4 +1,4 @@
-import {BlockType} from '../models/common';
+import {BlockInColumnsType, BlockStandsAloneType} from '../models/common';
 
 import * as blocks from './blocks';
 import * as headers from './headers';
@@ -13,18 +13,19 @@ export const validators = {
 
 export const schemasForCustom = {
     headers: {
-        [BlockType.Header]: Header,
+        [BlockStandsAloneType.Header]: Header,
     },
     blocks: {
-        [BlockType.Author]: Author,
-        [BlockType.Banner]: Banner,
-        [BlockType.ColoredText]: ColoredText,
-        [BlockType.CTA]: CTA,
-        [BlockType.Feed]: Feed,
-        [BlockType.Layout]: Layout,
-        [BlockType.Media]: Media,
-        [BlockType.Meta]: Meta,
-        [BlockType.Suggest]: Suggest,
-        [BlockType.YFM]: YFM,
+        [BlockInColumnsType.Author]: Author,
+        [BlockInColumnsType.Banner]: Banner,
+        [BlockInColumnsType.ColoredText]: ColoredText,
+        [BlockInColumnsType.CTA]: CTA,
+        [BlockInColumnsType.Media]: Media,
+        [BlockInColumnsType.Meta]: Meta,
+        [BlockInColumnsType.YFM]: YFM,
+
+        [BlockStandsAloneType.Feed]: Feed,
+        [BlockStandsAloneType.Layout]: Layout,
+        [BlockStandsAloneType.Suggest]: Suggest,
     },
 };

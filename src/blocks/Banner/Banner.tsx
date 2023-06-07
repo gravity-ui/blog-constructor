@@ -4,7 +4,6 @@ import {Content, Image, NewMetrikaGoal} from '@gravity-ui/page-constructor';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {BlogMetrikaGoalIds} from '../../constants';
-import {useCanRenderInColumn} from '../../hooks/useCanRenderInColumn';
 import {BannerProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
 import {block} from '../../utils/cn';
@@ -20,7 +19,6 @@ export const Banner: React.FC<BannerProps> = ({
     image,
     paddingTop,
     paddingBottom,
-    column,
     ...content
 }) => {
     const contentStyle: Record<string, string> = {};
@@ -44,10 +42,6 @@ export const Banner: React.FC<BannerProps> = ({
         button.metrikaGoals = getBlogElementMetrika(metrikaGoal, button.metrikaGoals);
     });
 
-    if (!useCanRenderInColumn(column)) {
-        return null;
-    }
-
     return (
         <Wrapper
             paddings={{
@@ -69,3 +63,5 @@ export const Banner: React.FC<BannerProps> = ({
         </Wrapper>
     );
 };
+
+export default Banner;

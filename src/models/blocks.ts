@@ -7,22 +7,20 @@ import {
     TextTheme,
 } from '@gravity-ui/page-constructor';
 
-import {BlockType, ClassNameProps, ColumnProps, PostData} from './common';
+import {BlockInColumnsType, BlockStandsAloneType, ClassNameProps, PostData} from './common';
 import {PaddingsYFMProps} from './paddings';
 
 // blocks props
 export type AuthorProps = ClassNameProps & {
     authorId: number;
     image: string;
-} & PaddingsYFMProps &
-    ColumnProps;
+} & PaddingsYFMProps;
 
 export type BannerProps = ContentBlockProps & {
     color?: string;
     image?: string;
     imageSize?: 's' | 'm';
-} & PaddingsYFMProps &
-    ColumnProps;
+} & PaddingsYFMProps;
 
 export type ColoredTextProps = ContentBlockProps & {
     background?: {
@@ -30,14 +28,12 @@ export type ColoredTextProps = ContentBlockProps & {
         image?: string;
         altText?: string;
     };
-} & PaddingsYFMProps &
-    ColumnProps;
+} & PaddingsYFMProps;
 
 export type CTAProps = {
     items: Array<ContentBlockProps>;
     columnCount?: number;
-} & PaddingsYFMProps &
-    ColumnProps;
+} & PaddingsYFMProps;
 
 export type HeaderProps = HeaderBlockProps & PaddingsYFMProps;
 
@@ -49,7 +45,6 @@ export type LayoutProps = {
 
 export type MediaProps = ClassNameProps &
     PaddingsYFMProps &
-    ColumnProps &
     Partial<Pick<PCMediaProps, 'youtube' | 'previewImg' | 'image' | 'video' | 'dataLens'>> & {
         text?: string;
     };
@@ -57,8 +52,7 @@ export type MediaProps = ClassNameProps &
 export type MetaProps = {
     locale: string;
     theme?: TextTheme;
-} & PaddingsYFMProps &
-    ColumnProps;
+} & PaddingsYFMProps;
 
 export type SuggestProps = ClassNameProps & {
     posts: PostData[];
@@ -66,8 +60,7 @@ export type SuggestProps = ClassNameProps & {
 
 export type YFMProps = {
     text: string;
-} & PaddingsYFMProps &
-    ColumnProps;
+} & PaddingsYFMProps;
 
 export type FeedProps = {
     image: string;
@@ -75,47 +68,47 @@ export type FeedProps = {
 
 // blocks models
 export type AuthorBlockModel = {
-    type: BlockType.Author;
+    type: BlockInColumnsType.Author;
 } & AuthorProps;
 
 export type BannerBlockModel = {
-    type: BlockType.Banner;
+    type: BlockInColumnsType.Banner;
 } & BannerProps;
 
 export type ColoredTextBlockModel = {
-    type: BlockType.ColoredText;
+    type: BlockInColumnsType.ColoredText;
 } & ColoredTextProps;
 
 export type CTABlockModel = {
-    type: BlockType.CTA;
+    type: BlockInColumnsType.CTA;
 } & CTAProps;
 
 export type HeaderBlockModel = {
-    type: BlockType.Header;
+    type: BlockStandsAloneType.Header;
 } & HeaderProps;
 
 export type LayoutBlockModel = {
-    type: BlockType.Layout;
+    type: BlockStandsAloneType.Layout;
 } & LayoutProps;
 
 export type MediaBlockModel = {
-    type: BlockType.Media;
+    type: BlockInColumnsType.Media;
 } & MediaProps;
 
 export type MetaBlockModel = {
-    type: BlockType.Meta;
+    type: BlockInColumnsType.Meta;
 } & MetaProps;
 
 export type SuggestBlockModel = {
-    type: BlockType.Suggest;
+    type: BlockStandsAloneType.Suggest;
 } & SuggestProps;
 
 export type YFMBlockModel = {
-    type: BlockType.YFM;
+    type: BlockInColumnsType.YFM;
 } & YFMProps;
 
 export type FeedBlockModel = {
-    type: BlockType.Feed;
+    type: BlockStandsAloneType.Feed;
 } & FeedProps;
 
 export type BlockModel =

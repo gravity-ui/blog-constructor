@@ -1,6 +1,6 @@
 import {validators} from '@gravity-ui/page-constructor';
 
-import {BlockType} from '../../models/common';
+import {BlockInColumnsType} from '../../models/common';
 import {BlogBlockBase} from '../../schema/common';
 
 const {
@@ -9,7 +9,7 @@ const {
 } = validators;
 
 export const CTA = {
-    [BlockType.CTA]: {
+    [BlockInColumnsType.CTA]: {
         type: 'object',
         additionalProperties: false,
         required: ['items'],

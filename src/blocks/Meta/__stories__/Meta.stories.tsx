@@ -7,7 +7,7 @@ import customBlocks from '../../../constructor/blocksMap';
 import {PostPageContext} from '../../../contexts/PostPageContext';
 import {BLOCKS} from '../../../demo/constants';
 import {MetaProps} from '../../../models/blocks';
-import {BlockType, PostData} from '../../../models/common';
+import {BlockInColumnsType, PostData} from '../../../models/common';
 import {Meta as MetaBlock} from '../Meta';
 
 import post from '../../../../.mocks/post.json';
@@ -21,7 +21,7 @@ export default {
 } as Meta;
 
 type MetaModel = {
-    type: BlockType.Meta;
+    type: BlockInColumnsType.Meta;
 } & MetaProps;
 
 const DefaultTemplate: Story<MetaModel> = (args) => (
@@ -33,7 +33,7 @@ const DefaultTemplate: Story<MetaModel> = (args) => (
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
-    type: BlockType.Meta,
+    type: BlockInColumnsType.Meta,
     paddingBottom: 'l',
     paddingTop: 'l',
 };

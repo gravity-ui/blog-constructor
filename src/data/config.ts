@@ -1,9 +1,13 @@
 import {BlockType as PCBlockType} from '@gravity-ui/page-constructor';
 import {yfmTransformer} from '@gravity-ui/page-constructor/server';
 
-import {BlockType} from '../models/common';
+import {BlockInColumnsType, BlockType} from '../models/common';
 
-const BLOCKS_FOR_TYPOGRAPHY_TRANSFORM = [BlockType.YFM, BlockType.ColoredText, BlockType.Media];
+const BLOCKS_FOR_TYPOGRAPHY_TRANSFORM = [
+    BlockInColumnsType.YFM,
+    BlockInColumnsType.ColoredText,
+    BlockInColumnsType.Media,
+];
 
 type GetConfigForCreateReadableContent = () => {
     [x in BlockType | PCBlockType]: {
