@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.1.0](https://github.com/gravity-ui/blog-constructor/compare/v4.0.0...v4.1.0) (2023-06-08)
+
+
+### Features
+
+* Prompt Sign In on Post Like ([#57](https://github.com/gravity-ui/blog-constructor/issues/57)) ([216cd9b](https://github.com/gravity-ui/blog-constructor/commit/216cd9b1accab047a46d7404f007623f56f1590e))
+
+
+### Bug Fixes
+
+* update peer ([#67](https://github.com/gravity-ui/blog-constructor/issues/67)) ([da2cbac](https://github.com/gravity-ui/blog-constructor/commit/da2cbac4d02017c4d3f9ff49108ba163b9a7867b))
+
 ## [4.0.0](https://github.com/gravity-ui/blog-constructor/compare/v3.5.0...v4.0.0) (2023-06-07)
 
 
