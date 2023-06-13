@@ -12,7 +12,7 @@ const blocksInColumns = Object.entries(BlockInColumnsType).reduce(
 
         return blocks;
     },
-    {} as Record<string, unknown>,
+    {} as Record<string, React.FC>,
 );
 
 const blocks = {
