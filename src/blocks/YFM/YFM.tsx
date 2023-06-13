@@ -10,7 +10,7 @@ import {PaddingsDirections} from '../../models/paddings';
 const b = block('yfm');
 
 export const YFM: React.FC<YFMProps> = (props) => {
-    const {text, paddingTop, paddingBottom} = props;
+    const {text, paddingTop, paddingBottom, qa} = props;
 
     return (
         <Wrapper
@@ -18,6 +18,7 @@ export const YFM: React.FC<YFMProps> = (props) => {
                 [PaddingsDirections.top]: paddingTop,
                 [PaddingsDirections.bottom]: paddingBottom,
             }}
+            dataQa={`${qa}-wrapper`}
         >
             <YFMWrapper
                 content={text}

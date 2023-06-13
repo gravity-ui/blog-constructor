@@ -6,6 +6,7 @@ import {
     MediaProps as PCMediaProps,
     TextTheme,
 } from '@gravity-ui/page-constructor';
+import {QAProps} from '@gravity-ui/uikit';
 
 import {BlockType, ClassNameProps, PostData} from './common';
 import {PaddingsYFMProps} from './paddings';
@@ -60,7 +61,8 @@ export type SuggestProps = ClassNameProps & {
 
 export type YFMProps = {
     text: string;
-} & PaddingsYFMProps;
+} & PaddingsYFMProps &
+    QAProps;
 
 export type FeedProps = {
     image: string;
