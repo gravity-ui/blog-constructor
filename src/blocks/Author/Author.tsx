@@ -13,7 +13,7 @@ import './Author.scss';
 const b = block('author');
 
 export const Author: React.FC<AuthorProps> = (props) => {
-    const {image, paddingTop, paddingBottom, authorId} = props;
+    const {image, paddingTop, paddingBottom, authorId, qa} = props;
 
     const {post} = useContext(PostPageContext);
 
@@ -42,6 +42,7 @@ export const Author: React.FC<AuthorProps> = (props) => {
                 [PaddingsDirections.bottom]: paddingBottom,
             }}
             className={b('content')}
+            qa={qa}
         >
             <div className={b('layout')} data-qa="blog-author-layout">
                 <PCAuthor

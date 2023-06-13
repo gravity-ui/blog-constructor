@@ -14,7 +14,8 @@ import {PaddingsYFMProps} from './paddings';
 export type AuthorProps = ClassNameProps & {
     authorId: number;
     image: string;
-} & PaddingsYFMProps;
+} & PaddingsYFMProps &
+    QAProps;
 
 export type BannerProps = ContentBlockProps &
     QAProps & {
@@ -62,7 +63,8 @@ export type SuggestProps = ClassNameProps & {
 
 export type YFMProps = {
     text: string;
-} & PaddingsYFMProps;
+} & PaddingsYFMProps &
+    QAProps;
 
 export type FeedProps = {
     image: string;
