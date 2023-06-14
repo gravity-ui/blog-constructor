@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.1](https://github.com/gravity-ui/blog-constructor/compare/v4.1.0...v4.1.1) (2023-06-14)
+
+
+### Bug Fixes
+
+* fix react peer ([#69](https://github.com/gravity-ui/blog-constructor/issues/69)) ([26cf1b1](https://github.com/gravity-ui/blog-constructor/commit/26cf1b1df1d49455b764841c6b3065dc7f64858d))
+
 ## [4.1.0](https://github.com/gravity-ui/blog-constructor/compare/v4.0.0...v4.1.0) (2023-06-08)
 
 
