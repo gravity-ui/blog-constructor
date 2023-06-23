@@ -44,7 +44,7 @@ export const Sharing: React.FC<SharingProps> = ({theme, metrikaGoal}) => {
 
     return (
         <div className={b('item')}>
-            <span className={b('icon')}>
+            <div className={b('icon')}>
                 <SharePopover
                     url={getAbsolutePath(router)}
                     className={b('share')}
@@ -60,7 +60,7 @@ export const Sharing: React.FC<SharingProps> = ({theme, metrikaGoal}) => {
                     shareOptions={shareOptions}
                     handleMetrika={handleAnalytics}
                 />
-            </span>
+            </div>
         </div>
     );
 };
