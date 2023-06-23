@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.2](https://github.com/gravity-ui/blog-constructor/compare/v4.1.1...v4.1.2) (2023-06-23)
+
+
+### Bug Fixes
+
+* semantic markup ([#71](https://github.com/gravity-ui/blog-constructor/issues/71)) ([fb18afd](https://github.com/gravity-ui/blog-constructor/commit/fb18afd3d38d2bdb81b71e83608f54b90874f9e1))
+
 ## [4.1.1](https://github.com/gravity-ui/blog-constructor/compare/v4.1.0...v4.1.1) (2023-06-14)
 
 
