@@ -51,37 +51,35 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
     });
 
     return (
-        <main>
-            <LikesContext.Provider
+        <LikesContext.Provider
+            value={{
+                toggleLike: likes?.toggleLike,
+                hasLikes: Boolean(likes),
+            }}
+        >
+            <PostPageContext.Provider
                 value={{
-                    toggleLike: likes?.toggleLike,
-                    hasLikes: Boolean(likes),
+                    post,
+                    suggestedPosts,
+                    likes: likes
+                        ? {
+                              handleUserLike: handleLike,
+                              hasUserLike,
+                              likesCount,
+                          }
+                        : undefined,
+                    shareOptions,
                 }}
             >
-                <PostPageContext.Provider
-                    value={{
-                        post,
-                        suggestedPosts,
-                        likes: likes
-                            ? {
-                                  handleUserLike: handleLike,
-                                  hasUserLike,
-                                  likesCount,
-                              }
-                            : undefined,
-                        shareOptions,
-                    }}
-                >
-                    <PageConstructorProvider {...settings}>
-                        {metaData ? <MetaWrapper {...metaData} /> : null}
-                        <PageConstructor
-                            content={content}
-                            custom={componentMap}
-                            navigation={navigation}
-                        />
-                    </PageConstructorProvider>
-                </PostPageContext.Provider>
-            </LikesContext.Provider>
-        </main>
+                <PageConstructorProvider {...settings}>
+                    {metaData ? <MetaWrapper {...metaData} /> : null}
+                    <PageConstructor
+                        content={content}
+                        custom={componentMap}
+                        navigation={navigation}
+                    />
+                </PageConstructorProvider>
+            </PostPageContext.Provider>
+        </LikesContext.Provider>
     );
 };

@@ -1,4 +1,4 @@
-import React, {SyntheticEvent, useMemo} from 'react';
+import React, {Fragment, SyntheticEvent, useMemo} from 'react';
 
 import {
     NavigationData,
@@ -67,7 +67,7 @@ export const BlogPage = ({
     );
 
     return (
-        <main>
+        <Fragment>
             <LikesContext.Provider value={likes}>
                 <FeedContext.Provider
                     value={{
@@ -91,6 +91,6 @@ export const BlogPage = ({
                 </FeedContext.Provider>
             </LikesContext.Provider>
             <PromptSignIn {...promptSignInProps} />
-        </main>
+        </Fragment>
     );
 };
