@@ -63,3 +63,5 @@ export const Banner: React.FC<BannerProps> = ({
         </Wrapper>
     );
 };
+
+export default Banner;

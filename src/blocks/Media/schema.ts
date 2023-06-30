@@ -1,6 +1,6 @@
 import {validators} from '@gravity-ui/page-constructor';
 
-import {BlockType} from '../../models/common';
+import {BlockInColumnsType} from '../../models/common';
 import {BlogBlockBase} from '../../schema/common';
 
 const {
@@ -8,7 +8,7 @@ const {
 } = validators;
 
 export const Media = {
-    [BlockType.Media]: {
+    [BlockInColumnsType.Media]: {
         type: 'object',
         additionalProperties: false,
         properties: {

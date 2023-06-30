@@ -79,3 +79,5 @@ export const Meta: React.FC<MetaProps> = (props) => {
         </Wrapper>
     );
 };
+
+export default Meta;

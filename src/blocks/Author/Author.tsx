@@ -53,3 +53,5 @@ export const Author: React.FC<AuthorProps> = (props) => {
         </Wrapper>
     );
 };
+
+export default Author;

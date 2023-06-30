@@ -10,7 +10,7 @@ import {FeedContext} from '../../../contexts/FeedContext';
 import {BLOCKS} from '../../../demo/constants';
 import {FeedProps} from '../../../models/blocks';
 import {
-    BlockType,
+    BlockStandsAloneType,
     GetPostsRequest,
     GetPostsType,
     PostsProps,
@@ -32,7 +32,7 @@ export default {
 } as Meta;
 
 type FeedModel = {
-    type: BlockType.Feed;
+    type: BlockStandsAloneType.Feed;
 } & FeedProps;
 
 const getPosts: GetPostsType = async (query: GetPostsRequest) => {
@@ -84,7 +84,7 @@ const DefaultTemplate: Story<FeedModel> = (args) => (
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
-    type: BlockType.Feed,
+    type: BlockStandsAloneType.Feed,
     color: '#000',
     imageSize: 'm',
     ...getDefaultStoryArgs(),

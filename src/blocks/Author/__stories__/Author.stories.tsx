@@ -8,7 +8,7 @@ import customBlocks from '../../../constructor/blocksMap';
 import {PostPageContext} from '../../../contexts/PostPageContext';
 import {BLOCKS} from '../../../demo/constants';
 import {AuthorProps} from '../../../models/blocks';
-import {BlockType, PostData} from '../../../models/common';
+import {BlockInColumnsType, PostData} from '../../../models/common';
 import {Author} from '../Author';
 
 import post from '../../../../.mocks/post.json';
@@ -22,7 +22,7 @@ export default {
 } as Meta;
 
 type AuthorModel = {
-    type: BlockType.Author;
+    type: BlockInColumnsType.Author;
 } & AuthorProps;
 
 const DefaultTemplate: Story<AuthorModel> = (args) => (
@@ -34,7 +34,7 @@ const DefaultTemplate: Story<AuthorModel> = (args) => (
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
-    type: BlockType.Author,
+    type: BlockInColumnsType.Author,
     authorId: 290,
     ...getDefaultStoryArgs(),
 };

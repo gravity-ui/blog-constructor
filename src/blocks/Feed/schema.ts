@@ -4,10 +4,10 @@ const {
     common: {TitleProps, BlockBaseProps},
 } = validators;
 
-import {BlockType} from '../../models/common';
+import {BlockStandsAloneType} from '../../models/common';
 
 export const Feed = {
-    [BlockType.Feed]: {
+    [BlockStandsAloneType.Feed]: {
         additionalProperties: false,
         required: [],
         properties: {

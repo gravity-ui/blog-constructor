@@ -7,7 +7,7 @@ import customBlocks from '../../../constructor/blocksMap';
 import {PostPageContext} from '../../../contexts/PostPageContext';
 import {BLOCKS} from '../../../demo/constants';
 import {SuggestProps} from '../../../models/blocks';
-import {BlockType} from '../../../models/common';
+import {BlockStandsAloneType} from '../../../models/common';
 import {Suggest} from '../Suggest';
 
 import post from '../../../../.mocks/post.json';
@@ -22,7 +22,7 @@ export default {
 } as Meta;
 
 type SuggestModel = {
-    type: BlockType.Suggest;
+    type: BlockStandsAloneType.Suggest;
 } & SuggestProps;
 
 const DefaultTemplate: Story<SuggestModel> = (args) => (
@@ -34,7 +34,7 @@ const DefaultTemplate: Story<SuggestModel> = (args) => (
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
-    type: BlockType.Suggest,
+    type: BlockStandsAloneType.Suggest,
     paddingBottom: 'l',
     paddingTop: 'l',
 };

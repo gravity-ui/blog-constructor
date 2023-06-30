@@ -40,3 +40,5 @@ export const Media: React.FC<MediaProps> = ({text, paddingTop, paddingBottom, ..
         )}
     </Wrapper>
 );
+
+export default Media;

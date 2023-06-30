@@ -1,31 +1,29 @@
-import {Author} from '../blocks/Author/Author';
-import {Banner} from '../blocks/Banner/Banner';
-import {CTA} from '../blocks/CTA/CTA';
-import {ColoredText} from '../blocks/ColoredText/ColoredText';
 import {Feed} from '../blocks/Feed/Feed';
 import {Header} from '../blocks/Header/Header';
 import {Layout} from '../blocks/Layout/Layout';
-import {Media} from '../blocks/Media/Media';
-import {Meta} from '../blocks/Meta/Meta';
 import {Suggest} from '../blocks/Suggest/Suggest';
-import {YFM} from '../blocks/YFM/YFM';
-import {BlockType} from '../models/common';
+import {withColumnSelection} from '../hocs/withColumnSelection';
+import {BlockInColumnsType, BlockStandsAloneType} from '../models/common';
+
+const blocksInColumns = Object.entries(BlockInColumnsType).reduce(
+    (blocks, [blockName, blockKey]) => {
+        const block = require(`../blocks/${blockName}/${blockName}.tsx`).default;
+        blocks[blockKey] = withColumnSelection<typeof block>(block);
+
+        return blocks;
+    },
+    {} as Record<string, React.FC>,
+);
 
 const blocks = {
-    [BlockType.YFM]: YFM,
-    [BlockType.Layout]: Layout,
-    [BlockType.Media]: Media,
-    [BlockType.Banner]: Banner,
-    [BlockType.CTA]: CTA,
-    [BlockType.ColoredText]: ColoredText,
-    [BlockType.Author]: Author,
-    [BlockType.Suggest]: Suggest,
-    [BlockType.Meta]: Meta,
-    [BlockType.Feed]: Feed,
+    ...blocksInColumns,
+    [BlockStandsAloneType.Layout]: Layout,
+    [BlockStandsAloneType.Suggest]: Suggest,
+    [BlockStandsAloneType.Feed]: Feed,
 };
 
 const headers = {
-    [BlockType.Header]: Header,
+    [BlockStandsAloneType.Header]: Header,
 };
 
 export default {blocks, headers};

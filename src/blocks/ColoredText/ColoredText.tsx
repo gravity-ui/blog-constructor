@@ -48,3 +48,5 @@ export const ColoredText: React.FC<ColoredTextProps> = ({
         </Wrapper>
     );
 };
+
+export default ColoredText;

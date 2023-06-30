@@ -7,7 +7,7 @@ import {
     TextTheme,
 } from '@gravity-ui/page-constructor';
 
-import {BlockType, ClassNameProps, PostData} from './common';
+import {BlockInColumnsType, BlockStandsAloneType, ClassNameProps, PostData} from './common';
 import {PaddingsYFMProps} from './paddings';
 
 // blocks props
@@ -68,47 +68,47 @@ export type FeedProps = {
 
 // blocks models
 export type AuthorBlockModel = {
-    type: BlockType.Author;
+    type: BlockInColumnsType.Author;
 } & AuthorProps;
 
 export type BannerBlockModel = {
-    type: BlockType.Banner;
+    type: BlockInColumnsType.Banner;
 } & BannerProps;
 
 export type ColoredTextBlockModel = {
-    type: BlockType.ColoredText;
+    type: BlockInColumnsType.ColoredText;
 } & ColoredTextProps;
 
 export type CTABlockModel = {
-    type: BlockType.CTA;
+    type: BlockInColumnsType.CTA;
 } & CTAProps;
 
 export type HeaderBlockModel = {
-    type: BlockType.Header;
+    type: BlockStandsAloneType.Header;
 } & HeaderProps;
 
 export type LayoutBlockModel = {
-    type: BlockType.Layout;
+    type: BlockStandsAloneType.Layout;
 } & LayoutProps;
 
 export type MediaBlockModel = {
-    type: BlockType.Media;
+    type: BlockInColumnsType.Media;
 } & MediaProps;
 
 export type MetaBlockModel = {
-    type: BlockType.Meta;
+    type: BlockInColumnsType.Meta;
 } & MetaProps;
 
 export type SuggestBlockModel = {
-    type: BlockType.Suggest;
+    type: BlockStandsAloneType.Suggest;
 } & SuggestProps;
 
 export type YFMBlockModel = {
-    type: BlockType.YFM;
+    type: BlockInColumnsType.YFM;
 } & YFMProps;
 
 export type FeedBlockModel = {
-    type: BlockType.Feed;
+    type: BlockStandsAloneType.Feed;
 } & FeedProps;
 
 export type BlockModel =

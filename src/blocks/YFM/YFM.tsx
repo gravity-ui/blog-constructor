@@ -30,3 +30,5 @@ export const YFM: React.FC<YFMProps> = (props) => {
         </Wrapper>
     );
 };
+
+export default YFM;

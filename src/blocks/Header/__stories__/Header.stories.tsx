@@ -8,7 +8,7 @@ import customBlocks from '../../../constructor/blocksMap';
 import {PostPageContext} from '../../../contexts/PostPageContext';
 import {BLOCKS} from '../../../demo/constants';
 import {HeaderProps} from '../../../models/blocks';
-import {BlockType, PostData} from '../../../models/common';
+import {BlockStandsAloneType, PostData} from '../../../models/common';
 import {Header} from '../Header';
 
 import post from '../../../../.mocks/post.json';
@@ -22,7 +22,7 @@ export default {
 } as Meta;
 
 type HeaderModel = {
-    type: BlockType.Header;
+    type: BlockStandsAloneType.Header;
 } & HeaderProps;
 
 const DefaultTemplate: Story<HeaderModel> = (args) => (
@@ -34,6 +34,6 @@ const DefaultTemplate: Story<HeaderModel> = (args) => (
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
-    type: BlockType.Header,
+    type: BlockStandsAloneType.Header,
     ...getDefaultStoryArgs(),
 };

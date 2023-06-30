@@ -10,7 +10,7 @@ import {
 } from '../../../../.mocks/utils';
 import {BLOCKS} from '../../../demo/constants';
 import {MediaProps} from '../../../models/blocks';
-import {BlockType} from '../../../models/common';
+import {BlockInColumnsType} from '../../../models/common';
 import {Media} from '../Media';
 
 export default {
@@ -22,7 +22,7 @@ export default {
 } as Meta;
 
 type MediaModel = {
-    type: BlockType.Media;
+    type: BlockInColumnsType.Media;
 } & MediaProps;
 
 const DefaultTemplate: Story<MediaModel> = (args) => (
@@ -37,6 +37,6 @@ const DefaultTemplate: Story<MediaModel> = (args) => (
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
-    type: BlockType.Media,
+    type: BlockInColumnsType.Media,
     ...getDefaultStoryArgs(),
 };

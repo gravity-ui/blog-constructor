@@ -48,3 +48,5 @@ export const CTA: React.FC<CTAProps> = ({items, paddingTop, paddingBottom}) => {
         </Wrapper>
     );
 };
+
+export default CTA;
