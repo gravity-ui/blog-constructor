@@ -1,4 +1,4 @@
-import React, {Fragment, SyntheticEvent, useMemo} from 'react';
+import React, {SyntheticEvent, useMemo} from 'react';
 
 import {
     NavigationData,
@@ -61,36 +61,34 @@ export const BlogPage = ({
 }: BlogPageProps) => {
     const {requireSignIn, ...promptSignInProps} = usePromptSignInProps(onClickSignIn);
 
-    const likes = useMemo(
+    const likesContextData = useMemo(
         () => ({toggleLike, hasLikes, isSignedInUser, requireSignIn}),
         [toggleLike, hasLikes, isSignedInUser, requireSignIn],
     );
 
     return (
-        <Fragment>
-            <LikesContext.Provider value={likes}>
-                <FeedContext.Provider
-                    value={{
-                        posts: posts.posts,
-                        pinnedPost: posts.pinnedPost,
-                        totalCount: posts.count,
-                        tags,
-                        services: services ?? [],
-                        getPosts,
-                        pageCountForShowSupportButtons,
-                    }}
-                >
-                    <PageConstructorProvider {...settings}>
-                        {metaData ? <MetaWrapper {...metaData} /> : null}
-                        <PageConstructor
-                            content={content}
-                            custom={componentMap}
-                            navigation={navigation}
-                        />
-                    </PageConstructorProvider>
-                </FeedContext.Provider>
-            </LikesContext.Provider>
+        <LikesContext.Provider value={likesContextData}>
+            <FeedContext.Provider
+                value={{
+                    posts: posts.posts,
+                    pinnedPost: posts.pinnedPost,
+                    totalCount: posts.count,
+                    tags,
+                    services: services ?? [],
+                    getPosts,
+                    pageCountForShowSupportButtons,
+                }}
+            >
+                <PageConstructorProvider {...settings}>
+                    {metaData ? <MetaWrapper {...metaData} /> : null}
+                    <PageConstructor
+                        content={content}
+                        custom={componentMap}
+                        navigation={navigation}
+                    />
+                </PageConstructorProvider>
+            </FeedContext.Provider>
             <PromptSignIn {...promptSignInProps} />
-        </Fragment>
+        </LikesContext.Provider>
     );
 };
