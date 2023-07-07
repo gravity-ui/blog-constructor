@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {SyntheticEvent, useMemo} from 'react';
 
 import {
     NavigationData,
@@ -10,6 +10,8 @@ import {
 import {ShareOptions} from '@gravity-ui/uikit';
 
 import {MetaWrapper} from '../../components/MetaWrapper/MetaWrapper';
+import {PromptSignIn} from '../../components/PromptSignIn/PromptSignIn';
+import {usePromptSignInProps} from '../../components/PromptSignIn/hooks/usePromptSignInProps';
 import componentMap from '../../constructor/blocksMap';
 import {LikesContext} from '../../contexts/LikesContext';
 import {PostPageContext} from '../../contexts/PostPageContext';
@@ -31,6 +33,9 @@ export interface BlogPostPageProps {
     settings?: PageConstructorProviderProps;
     navigation?: NavigationData;
     shareOptions?: ShareOptions[];
+    isSignedInUser?: boolean;
+    // Required to enable Sign In on Post like
+    onClickSignIn?: React.EventHandler<SyntheticEvent>;
 }
 
 export const BlogPostPage: React.FC<BlogPostPageProps> = ({
@@ -42,6 +47,8 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
     settings,
     navigation,
     shareOptions,
+    isSignedInUser = false,
+    onClickSignIn,
 }) => {
     const {hasUserLike, likesCount, handleLike} = useLikes({
         hasLike: likes?.hasUserLike,
@@ -50,13 +57,20 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
         postId: post?.blogPostId,
     });
 
+    const {requireSignIn, ...promptSignInProps} = usePromptSignInProps(onClickSignIn);
+
+    const likesContextData = useMemo(
+        () => ({
+            toggleLike: likes?.toggleLike,
+            hasLikes: Boolean(likes),
+            isSignedInUser,
+            requireSignIn,
+        }),
+        [likes, isSignedInUser, requireSignIn],
+    );
+
     return (
-        <LikesContext.Provider
-            value={{
-                toggleLike: likes?.toggleLike,
-                hasLikes: Boolean(likes),
-            }}
-        >
+        <LikesContext.Provider value={likesContextData}>
             <PostPageContext.Provider
                 value={{
                     post,
@@ -80,6 +94,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
                     />
                 </PageConstructorProvider>
             </PostPageContext.Provider>
+            <PromptSignIn {...promptSignInProps} />
         </LikesContext.Provider>
     );
 };
