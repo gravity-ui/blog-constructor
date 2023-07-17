@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.2.1](https://github.com/gravity-ui/blog-constructor/compare/v4.2.0...v4.2.1) (2023-07-07)
+
+
+### Bug Fixes
+
+* prompt-sign-in-on-like for blog post pages ([#75](https://github.com/gravity-ui/blog-constructor/issues/75)) ([1862306](https://github.com/gravity-ui/blog-constructor/commit/186230610d13e4c31bfd4bbbb52128b23e81bf39))
+
 ## [4.2.0](https://github.com/gravity-ui/blog-constructor/compare/v4.1.2...v4.2.0) (2023-06-28)
 
 
