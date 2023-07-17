@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, Story} from '@storybook/react';
 
 import {
     dataLensSrc,
@@ -8,13 +8,12 @@ import {
     getVideoStoryArgs,
     youtubeSrc,
 } from '../../../../.mocks/utils';
-import {BLOCKS} from '../../../demo/constants';
 import {MediaProps} from '../../../models/blocks';
 import {BlockType} from '../../../models/common';
 import {Media} from '../Media';
 
 export default {
-    title: `${BLOCKS}/Media`,
+    title: 'Blocks/Media',
     component: Media,
     args: {
         theme: 'light',

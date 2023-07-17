@@ -1,20 +1,19 @@
 import React, {useCallback, useState} from 'react';
 
 import {Button} from '@gravity-ui/uikit';
-import {Meta, Story} from '@storybook/react/types-6-0';
+import type {Meta, StoryFn} from '@storybook/react';
 
-import {COMPONENTS} from '../../../demo/constants';
 import {PromptProps} from '../../Prompt/Prompt';
 import {PromptSignIn} from '../PromptSignIn';
 
 export default {
-    title: `${COMPONENTS}/PromptSignIn`,
+    title: 'Components/PromptSignIn',
     component: PromptSignIn,
 } as Meta;
 
 const styleBtn = {margin: '1em'};
 
-const DefaultTemplate: Story<PromptProps> = (args) => {
+const DefaultTemplate: StoryFn<PromptProps> = (args) => {
     const {openTimestamp = 0} = args;
     const [timestamp, setTime] = useState(openTimestamp);
     const props = {...args, openTimestamp: timestamp};

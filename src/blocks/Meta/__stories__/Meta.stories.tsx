@@ -1,11 +1,10 @@
 import React from 'react';
 
 import {PageConstructor} from '@gravity-ui/page-constructor';
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, Story} from '@storybook/react';
 
 import customBlocks from '../../../constructor/blocksMap';
 import {PostPageContext} from '../../../contexts/PostPageContext';
-import {BLOCKS} from '../../../demo/constants';
 import {MetaProps} from '../../../models/blocks';
 import {BlockType, PostData} from '../../../models/common';
 import {Meta as MetaBlock} from '../Meta';
@@ -13,7 +12,7 @@ import {Meta as MetaBlock} from '../Meta';
 import post from '../../../../.mocks/post.json';
 
 export default {
-    title: `${BLOCKS}/Meta`,
+    title: 'Blocks/Meta',
     component: MetaBlock,
     args: {
         theme: 'light',

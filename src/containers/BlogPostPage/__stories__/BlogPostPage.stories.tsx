@@ -1,15 +1,14 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import type {Meta, StoryFn} from '@storybook/react';
 
 import {generatePostPageData} from '../../../../.mocks/utils';
-import {CONTAINERS} from '../../../demo/constants';
 import {BlogPostPage, BlogPostPageProps} from '../BlogPostPage';
 
 import navigation from '../../../../.mocks/navigation.json';
 
 export default {
-    title: `${CONTAINERS}/BlogPostPage`,
+    title: 'Containers/BlogPostPage',
     component: BlogPostPage,
     args: {
         theme: 'light',
@@ -17,7 +16,7 @@ export default {
     },
 } as Meta;
 
-const DefaultTemplate: Story<BlogPostPageProps> = (args) => <BlogPostPage {...args} />;
+const DefaultTemplate: StoryFn<BlogPostPageProps> = (args) => <BlogPostPage {...args} />;
 
 export const Default = DefaultTemplate.bind({});
 
