@@ -2,6 +2,7 @@ import React from 'react';
 
 import {Button, ButtonProps} from '@gravity-ui/uikit';
 
+import {useHover} from '../../hooks/useHover';
 import {useOpenCloseTimer} from '../../hooks/useOpenCloseTimer';
 import {block} from '../../utils/cn';
 
@@ -36,12 +37,14 @@ export const Prompt = ({
     openDuration,
     theme,
 }: PromptProps) => {
-    const {open} = useOpenCloseTimer(openTimestamp, openDuration);
+    const [ref, hovering] = useHover<HTMLDivElement>();
+    const {open: isOpen} = useOpenCloseTimer(openTimestamp, openDuration);
+    const open = isOpen || hovering;
     const mounted = openTimestamp > 0;
 
     return (
         <div className={b({theme, open, close: !open, mounted}, className)}>
-            <div className={b('content')}>
+            <div className={b('content')} ref={ref}>
                 <span className={b('text')}>{text}</span>
                 <div className={b('actions')}>
                     {actions.map(({view = 'action', className: btnClass, ...btnProps}, i) => (
