@@ -1,0 +1,22 @@
+@use '../../../styles/mixins';
+
+$offset-xs: 4px;
+$offset-s: 8px;
+$offset-m: 16px;
+$offset-l: 40px;
+
+$root: '.docs-decorator';
+
+#{$root}#{$root}#{$root}#{$root}#{$root} {
+    .sbdocs-wrapper {
+        padding: 0 $offset-l;
+    }
+
+    .sbdocs-content {
+        max-width: 1680px;
+    }
+
+    .innerZoomElementWrapper {
+        overflow: hidden;
+    }
+}

@@ -1,12 +1,11 @@
 import React from 'react';
 
 import {PageConstructor} from '@gravity-ui/page-constructor';
-import {Meta, Story} from '@storybook/react/types-6-0';
+import type {Meta, StoryFn} from '@storybook/react';
 
 import {getDefaultStoryArgs} from '../../../../.mocks/utils';
 import customBlocks from '../../../constructor/blocksMap';
 import {PostPageContext} from '../../../contexts/PostPageContext';
-import {BLOCKS} from '../../../demo/constants';
 import {LayoutProps} from '../../../models/blocks';
 import {BlockType, PostData} from '../../../models/common';
 import {Layout} from '../Layout';
@@ -15,7 +14,7 @@ import layoutBlock from '../../../../.mocks/layoutBlock.json';
 import post from '../../../../.mocks/post.json';
 
 export default {
-    title: `${BLOCKS}/Layout`,
+    title: 'Blocks/Layout',
     component: Layout,
     args: {
         theme: 'light',
@@ -26,7 +25,7 @@ type LayoutModel = {
     type: BlockType.Layout;
 } & LayoutProps;
 
-const DefaultTemplate: Story<LayoutModel> = (args) => (
+const DefaultTemplate: StoryFn<LayoutModel> = (args) => (
     <PostPageContext.Provider value={{post: post as PostData}}>
         <PageConstructor content={{blocks: [args]}} custom={customBlocks} />
     </PostPageContext.Provider>

@@ -1,13 +1,12 @@
 import React from 'react';
 
 import {PageConstructor} from '@gravity-ui/page-constructor';
-import {Meta, Story} from '@storybook/react/types-6-0';
+import type {Meta, StoryFn} from '@storybook/react';
 import {isEqual} from 'lodash';
 
 import {getDefaultStoryArgs} from '../../../../.mocks/utils';
 import customBlocks from '../../../constructor/blocksMap';
 import {FeedContext} from '../../../contexts/FeedContext';
-import {BLOCKS} from '../../../demo/constants';
 import {FeedProps} from '../../../models/blocks';
 import {
     BlockType,
@@ -24,7 +23,7 @@ import mockedServices from '../../../../.mocks/services.json';
 import mockedTags from '../../../../.mocks/tags.json';
 
 export default {
-    title: `${BLOCKS}/Feed`,
+    title: 'Blocks/Feed',
     component: Feed,
     args: {
         theme: 'light',
@@ -75,7 +74,7 @@ const contextData = {
     getPosts,
 };
 
-const DefaultTemplate: Story<FeedModel> = (args) => (
+const DefaultTemplate: StoryFn<FeedModel> = (args) => (
     <FeedContext.Provider value={contextData}>
         <PageConstructor content={{blocks: [args]}} custom={customBlocks} />
     </FeedContext.Provider>

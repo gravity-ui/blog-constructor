@@ -1,9 +1,8 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react/types-6-0';
+import type {Meta, StoryFn} from '@storybook/react';
 
 import {BlogConstructorProvider} from '../../../constructor/BlogConstructorProvider';
-import {CONTAINERS} from '../../../demo/constants';
 import {BlogPage, BlogPageProps} from '../BlogPage';
 
 import page from '../../../../.mocks/blogPage.json';
@@ -24,7 +23,7 @@ const routerData = {
 };
 
 export default {
-    title: `${CONTAINERS}/BlogPage`,
+    title: 'Containers/BlogPage',
     component: BlogPage,
     args: {
         theme: 'light',
@@ -44,7 +43,7 @@ export default {
     },
 } as Meta;
 
-const DefaultTemplate: Story<BlogPageProps> = (args) => (
+const DefaultTemplate: StoryFn<BlogPageProps> = (args) => (
     <BlogConstructorProvider router={routerData}>
         <BlogPage {...args} />
     </BlogConstructorProvider>

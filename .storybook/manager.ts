@@ -1,6 +1,7 @@
 import {addons} from '@storybook/addons';
-import CommonTheme from './theme';
+
+import {themes} from './theme';
 
 addons.setConfig({
-    theme: CommonTheme,
+    theme: themes.light,
 });

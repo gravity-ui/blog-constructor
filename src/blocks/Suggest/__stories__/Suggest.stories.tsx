@@ -1,11 +1,10 @@
 import React from 'react';
 
 import {PageConstructor} from '@gravity-ui/page-constructor';
-import {Meta, Story} from '@storybook/react/types-6-0';
+import {Meta, Story} from '@storybook/react';
 
 import customBlocks from '../../../constructor/blocksMap';
 import {PostPageContext} from '../../../contexts/PostPageContext';
-import {BLOCKS} from '../../../demo/constants';
 import {SuggestProps} from '../../../models/blocks';
 import {BlockType} from '../../../models/common';
 import {Suggest} from '../Suggest';
@@ -14,7 +13,7 @@ import post from '../../../../.mocks/post.json';
 import suggestedPosts from '../../../../.mocks/suggestedPosts.json';
 
 export default {
-    title: `${BLOCKS}/Suggest`,
+    title: 'Blocks/Suggest',
     component: Suggest,
     args: {
         theme: 'light',

@@ -1,40 +1,21 @@
-// import type {StorybookConfig} from '@storybook/core-common';
-const {join} = require('path');
+import type {StorybookConfig} from '@storybook/react-webpack5';
 
-const config = {
-    stories: ['../src/**/*.stories.@(ts|tsx)'],
+const config: StorybookConfig = {
+    framework: {
+        name: '@storybook/react-webpack5',
+        options: {fastRefresh: true},
+    },
+    stories: ['../src/**/*.mdx', '../src/**/*.stories.@(ts|tsx)'],
+    docs: {
+        autodocs: true,
+        defaultName: 'Docs',
+    },
     addons: [
         '@storybook/preset-scss',
         {name: '@storybook/addon-essentials', options: {backgrounds: false}},
-        '@storybook/addon-controls',
         './addons/addon-yaml/preset',
+        './addons/theme-addon/register.tsx',
     ],
-    typescript: {
-        check: true,
-        checkOptions: {},
-        reactDocgen: 'react-docgen-typescript',
-        reactDocgenTypescriptOptions: {
-            setDisplayName: false,
-            shouldExtractLiteralValuesFromEnum: true,
-            compilerOptions: {
-                allowSyntheticDefaultImports: true,
-                esModuleInterop: true,
-            },
-        },
-    },
-
-    webpackFinal: (storybookBaseConfig) => {
-        storybookBaseConfig.module.rules.push({
-            test: /\.md$/,
-            include: [join(__dirname, '..')],
-            use: [{loader: 'markdown-loader'}],
-        });
-
-        // to turn fileName in context.parameters into path form number in production bundle
-        storybookBaseConfig.optimization.moduleIds = 'named';
-
-        return storybookBaseConfig;
-    },
 };
 
-module.exports = config;
+export default config;

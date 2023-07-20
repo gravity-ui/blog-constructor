@@ -1,12 +1,11 @@
 import React from 'react';
 
 import {PageConstructor} from '@gravity-ui/page-constructor';
-import {Meta, Story} from '@storybook/react/types-6-0';
+import type {Meta, StoryFn} from '@storybook/react';
 
 import {getDefaultStoryArgs} from '../../../../.mocks/utils';
 import customBlocks from '../../../constructor/blocksMap';
 import {PostPageContext} from '../../../contexts/PostPageContext';
-import {BLOCKS} from '../../../demo/constants';
 import {YFMProps} from '../../../models/blocks';
 import {BlockType, PostData} from '../../../models/common';
 import {YFM} from '../YFM';
@@ -14,7 +13,7 @@ import {YFM} from '../YFM';
 import post from '../../../../.mocks/post.json';
 
 export default {
-    title: `${BLOCKS}/YFM`,
+    title: 'Blocks/YFM',
     component: YFM,
     args: {
         theme: 'light',
@@ -25,7 +24,7 @@ type YFMModel = {
     type: BlockType.YFM;
 } & YFMProps;
 
-const DefaultTemplate: Story<YFMModel> = (args) => (
+const DefaultTemplate: StoryFn<YFMModel> = (args) => (
     <PostPageContext.Provider value={{post: post as PostData}}>
         <PageConstructor content={{blocks: [args]}} custom={customBlocks} />
     </PostPageContext.Provider>
