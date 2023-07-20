@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.3.0](https://github.com/gravity-ui/blog-constructor/compare/v4.2.1...v4.3.0) (2023-07-20)
+
+
+### Features
+
+* update storybook up to v7 ([#77](https://github.com/gravity-ui/blog-constructor/issues/77)) ([abd28d5](https://github.com/gravity-ui/blog-constructor/commit/abd28d5406f9db2c82c89bbad935075b7d4bb60f))
+
+
+### Bug Fixes
+
+* keep prompt on hover ([#78](https://github.com/gravity-ui/blog-constructor/issues/78)) ([850516a](https://github.com/gravity-ui/blog-constructor/commit/850516ab461b243888b8cda542b4e348114d14ff))
+
 ## [4.2.1](https://github.com/gravity-ui/blog-constructor/compare/v4.2.0...v4.2.1) (2023-07-07)
 
 
