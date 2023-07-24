@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 
 import {PostPageContext} from '../../contexts/PostPageContext';
-import {PostData} from '../../models/common';
+import {PostData, QAProps} from '../../models/common';
 import {block} from '../../utils/cn';
 
 import {Date} from './components/Date';
@@ -18,7 +18,7 @@ export type BlogMetrikaGoals = {
     save?: string;
 };
 
-type PostInfoProps = {
+type PostInfoProps = QAProps & {
     postId: PostData['id'];
     readingTime: PostData['readingTime'];
     date: PostData['date'];
@@ -27,7 +27,6 @@ type PostInfoProps = {
      * @deprecated Metrika will be deleted after launch of analyticsEvents
      */
     metrikaGoals?: BlogMetrikaGoals;
-    dataQa?: string;
 };
 
 /**
@@ -38,7 +37,7 @@ type PostInfoProps = {
  * @param date - post create date
  * @param theme - theme name
  * @param metrikaGoals - metrika goals name
- * @param dataQa - test-attr
+ * @param qa - test-attr
  *
  * @returns jsx
  */
@@ -48,7 +47,7 @@ export const PostInfo: React.FC<PostInfoProps> = ({
     postId,
     theme = 'light',
     metrikaGoals,
-    dataQa,
+    qa,
 }) => {
     const {likes} = useContext(PostPageContext);
 
@@ -65,7 +64,7 @@ export const PostInfo: React.FC<PostInfoProps> = ({
                     handleUserLike={likes.handleUserLike}
                     metrikaGoal={metrikaGoals?.save}
                     theme={theme}
-                    dataQa={dataQa}
+                    qa={qa}
                 />
             )}
         </div>

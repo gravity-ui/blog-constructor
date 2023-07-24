@@ -48,7 +48,7 @@ export const Meta: React.FC<MetaProps> = (props) => {
                 [PaddingsDirections.top]: paddingTop,
                 [PaddingsDirections.bottom]: paddingBottom,
             }}
-            dataQa="blog-meta-content"
+            qa="blog-meta-content"
         >
             {breadcrumbs && (
                 <HeaderBreadcrumbs
@@ -73,7 +73,7 @@ export const Meta: React.FC<MetaProps> = (props) => {
                     date={date}
                     readingTime={readingTime}
                     metrikaGoals={metrikaGoals}
-                    dataQa="blog-meta-block"
+                    qa="blog-meta-block"
                 />
             )}
         </Wrapper>
