@@ -1,12 +1,12 @@
 import React from 'react';
 
-import {PageConstructor} from '@gravity-ui/page-constructor';
+import {Block, PageConstructor} from '@gravity-ui/page-constructor';
 import type {Meta, StoryFn} from '@storybook/react';
 import {isEqual} from 'lodash';
 
 import {getDefaultStoryArgs} from '../../../../.mocks/utils';
 import customBlocks from '../../../constructor/blocksMap';
-import {FeedContext} from '../../../contexts/FeedContext';
+import {FeedContext, FeedContextProps} from '../../../contexts/FeedContext';
 import {FeedProps} from '../../../models/blocks';
 import {
     BlockType,
@@ -75,8 +75,8 @@ const contextData = {
 };
 
 const DefaultTemplate: StoryFn<FeedModel> = (args) => (
-    <FeedContext.Provider value={contextData}>
-        <PageConstructor content={{blocks: [args]}} custom={customBlocks} />
+    <FeedContext.Provider value={contextData as unknown as FeedContextProps}>
+        <PageConstructor content={{blocks: [args] as unknown as Block[]}} custom={customBlocks} />
     </FeedContext.Provider>
 );
 
@@ -87,4 +87,4 @@ Default.args = {
     color: '#000',
     imageSize: 'm',
     ...getDefaultStoryArgs(),
-};
+} as FeedModel;

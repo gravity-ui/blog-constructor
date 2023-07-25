@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Meta, Story} from '@storybook/react';
+import {Meta, StoryFn} from '@storybook/react';
 
 import {
     dataLensSrc,
@@ -24,7 +24,7 @@ type MediaModel = {
     type: BlockType.Media;
 } & MediaProps;
 
-const DefaultTemplate: Story<MediaModel> = (args) => (
+const DefaultTemplate: StoryFn<MediaModel> = (args) => (
     <div style={{maxWidth: '500px', padding: '0 40px', margin: '0 auto'}}>
         <Media {...args} />
         <Media {...args} {...getVideoStoryArgs()} />
@@ -38,4 +38,4 @@ export const Default = DefaultTemplate.bind({});
 Default.args = {
     type: BlockType.Media,
     ...getDefaultStoryArgs(),
-};
+} as MediaModel;

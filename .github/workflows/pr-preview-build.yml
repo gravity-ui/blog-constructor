@@ -11,5 +11,3 @@ jobs:
       - uses: gravity-ui/preview-build-action@v1
         with:
           node-version: 18
-        env:
-          TS_NODE_PROJECT: .storybook/tsconfig.json

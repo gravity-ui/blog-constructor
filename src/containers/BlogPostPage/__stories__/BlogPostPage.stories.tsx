@@ -2,7 +2,7 @@ import React from 'react';
 
 import type {Meta, StoryFn} from '@storybook/react';
 
-import {generatePostPageData} from '../../../../.mocks/utils';
+import {postPageMockData} from '../../../../.mocks/utils';
 import {BlogPostPage, BlogPostPageProps} from '../BlogPostPage';
 
 import navigation from '../../../../.mocks/navigation.json';
@@ -12,7 +12,7 @@ export default {
     component: BlogPostPage,
     args: {
         theme: 'light',
-        ...generatePostPageData(),
+        ...postPageMockData,
     },
 } as Meta;
 
@@ -23,4 +23,4 @@ export const Default = DefaultTemplate.bind({});
 export const WithNavigation = DefaultTemplate.bind({});
 WithNavigation.args = {
     navigation,
-};
+} as unknown as BlogPostPageProps;

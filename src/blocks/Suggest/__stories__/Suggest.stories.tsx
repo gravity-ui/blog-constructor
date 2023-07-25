@@ -1,16 +1,14 @@
 import React from 'react';
 
-import {PageConstructor} from '@gravity-ui/page-constructor';
-import {Meta, Story} from '@storybook/react';
+import {Block, PageConstructor} from '@gravity-ui/page-constructor';
+import {Meta, StoryFn} from '@storybook/react';
 
+import {blockMockData} from '../../../../.mocks/utils';
 import customBlocks from '../../../constructor/blocksMap';
 import {PostPageContext} from '../../../contexts/PostPageContext';
 import {SuggestProps} from '../../../models/blocks';
 import {BlockType} from '../../../models/common';
 import {Suggest} from '../Suggest';
-
-import post from '../../../../.mocks/post.json';
-import suggestedPosts from '../../../../.mocks/suggestedPosts.json';
 
 export default {
     title: 'Blocks/Suggest',
@@ -24,9 +22,9 @@ type SuggestModel = {
     type: BlockType.Suggest;
 } & SuggestProps;
 
-const DefaultTemplate: Story<SuggestModel> = (args) => (
-    <PostPageContext.Provider value={{post, suggestedPosts}}>
-        <PageConstructor content={{blocks: [args]}} custom={customBlocks} />
+const DefaultTemplate: StoryFn<SuggestModel> = (args) => (
+    <PostPageContext.Provider value={blockMockData}>
+        <PageConstructor content={{blocks: [args] as unknown as Block[]}} custom={customBlocks} />
     </PostPageContext.Provider>
 );
 
