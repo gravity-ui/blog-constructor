@@ -9,7 +9,11 @@ $root: '.docs-decorator';
 
 #{$root}#{$root}#{$root}#{$root}#{$root} {
     .sbdocs-wrapper {
-        padding: 0 $offset-l;
+        padding: $offset-l;
+
+        h1 {
+            margin-bottom: 32px;
+        }
     }
 
     .sbdocs-content {
