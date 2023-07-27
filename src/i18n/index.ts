@@ -45,7 +45,7 @@ i18n.registerKeyset(Lang.En, KEYSET_NAME, {
     [Keyset.AllTags]: 'All topics',
     [Keyset.ActionSavedOnly]: 'Saved',
     [Keyset.AllServices]: 'All Services',
-    [Keyset.PromptSignInOnLike]: 'Please sign in to save your bookmarks',
+    [Keyset.PromptSignInOnLike]: 'Sign in to save this post',
     [Keyset.ContextReadingTime]: [
         '{{count}} min to read',
         '{{count}} mins to read',
@@ -72,7 +72,7 @@ i18n.registerKeyset(Lang.Ru, KEYSET_NAME, {
     [Keyset.AllTags]: 'Все темы',
     [Keyset.ActionSavedOnly]: 'Сохранённые',
     [Keyset.AllServices]: 'Все сервисы',
-    [Keyset.PromptSignInOnLike]: 'Войдите, чтобы добавить доклад в своё расписание',
+    [Keyset.PromptSignInOnLike]: 'Войдите, чтобы сохранить пост',
     [Keyset.ContextReadingTime]: [
         '{{count}} минута чтения',
         '{{count}} минуты чтения',
