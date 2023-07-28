@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.4.0](https://github.com/gravity-ui/blog-constructor/compare/v4.3.1...v4.4.0) (2023-07-28)
+
+
+### Features
+
+* update uikit 4 ([#83](https://github.com/gravity-ui/blog-constructor/issues/83)) ([11edba0](https://github.com/gravity-ui/blog-constructor/commit/11edba0c05a92e4ca7ec414a791d265a534f081a))
+
 ## [4.3.1](https://github.com/gravity-ui/blog-constructor/compare/v4.3.0...v4.3.1) (2023-07-28)
 
 
