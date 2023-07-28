@@ -81,8 +81,10 @@ $block: '.#{$namespace}feed-controls';
                 border-radius: $selectorItemBorderRadius;
             }
 
-            .g-select-filter {
+            .yc-text-input__content {
                 padding: 4px;
+
+                border: none;
 
                 border-bottom: 1px solid var(--yc-color-line-generic);
 
