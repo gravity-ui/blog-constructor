@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.3.1](https://github.com/gravity-ui/blog-constructor/compare/v4.3.0...v4.3.1) (2023-07-28)
+
+
+### Bug Fixes
+
+* prompt sign in message ([#84](https://github.com/gravity-ui/blog-constructor/issues/84)) ([54529f1](https://github.com/gravity-ui/blog-constructor/commit/54529f16b5bf5ac2dfd6e4e77542df7f2bd18374))
+
 ## [4.3.0](https://github.com/gravity-ui/blog-constructor/compare/v4.2.1...v4.3.0) (2023-07-20)
 
 
