@@ -3,6 +3,7 @@ import React from 'react';
 import type {Meta, StoryFn} from '@storybook/react';
 
 import {BlogConstructorProvider} from '../../../constructor/BlogConstructorProvider';
+import {GetPostsRequest, Query} from '../../../models/common';
 import {BlogPage, BlogPageProps} from '../BlogPage';
 
 import page from '../../../../.mocks/blogPage.json';
@@ -17,7 +18,7 @@ const routerData = {
     pathname: '/',
     hostname: 'host',
     query: {},
-    updateQueryCallback: (params) => {
+    updateQueryCallback: (params: Query) => {
         console.log('params', params);
     },
 };
@@ -35,7 +36,7 @@ export default {
             needHelmetWrapper: true,
             metaComponent: mockMetaComponent,
         },
-        getPosts: async (props) => {
+        getPosts: async (props: GetPostsRequest) => {
             console.log('getPosts: ~ props:', props);
             await new Promise((resolve) => setTimeout(() => resolve(props), 3000));
         },
@@ -54,4 +55,4 @@ export const Default = DefaultTemplate.bind({});
 export const WithNavigation = DefaultTemplate.bind({});
 WithNavigation.args = {
     navigation,
-};
+} as unknown as BlogPageProps;

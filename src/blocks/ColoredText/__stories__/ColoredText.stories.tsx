@@ -1,15 +1,14 @@
 import React from 'react';
 
-import {PageConstructor} from '@gravity-ui/page-constructor';
+import {Block, PageConstructor} from '@gravity-ui/page-constructor';
 import type {Meta, StoryFn} from '@storybook/react';
 
+import {blockMockData} from '../../../../.mocks/utils';
 import customBlocks from '../../../constructor/blocksMap';
 import {PostPageContext} from '../../../contexts/PostPageContext';
 import {ColoredTextProps} from '../../../models/blocks';
-import {BlockType, PostData} from '../../../models/common';
+import {BlockType} from '../../../models/common';
 import {ColoredText} from '../ColoredText';
-
-import post from '../../../../.mocks/post.json';
 
 export default {
     title: 'Blocks/ColoredText',
@@ -24,8 +23,8 @@ type ColoredTextModel = {
 } & ColoredTextProps;
 
 const DefaultTemplate: StoryFn<ColoredTextModel> = (args) => (
-    <PostPageContext.Provider value={{post: post as PostData}}>
-        <PageConstructor content={{blocks: [args]}} custom={customBlocks} />
+    <PostPageContext.Provider value={blockMockData}>
+        <PageConstructor content={{blocks: [args] as unknown as Block[]}} custom={customBlocks} />
     </PostPageContext.Provider>
 );
 

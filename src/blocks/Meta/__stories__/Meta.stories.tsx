@@ -1,15 +1,14 @@
 import React from 'react';
 
-import {PageConstructor} from '@gravity-ui/page-constructor';
-import {Meta, Story} from '@storybook/react';
+import {Block, PageConstructor} from '@gravity-ui/page-constructor';
+import {Meta, StoryFn} from '@storybook/react';
 
+import {blockMockData} from '../../../../.mocks/utils';
 import customBlocks from '../../../constructor/blocksMap';
 import {PostPageContext} from '../../../contexts/PostPageContext';
 import {MetaProps} from '../../../models/blocks';
-import {BlockType, PostData} from '../../../models/common';
+import {BlockType} from '../../../models/common';
 import {Meta as MetaBlock} from '../Meta';
-
-import post from '../../../../.mocks/post.json';
 
 export default {
     title: 'Blocks/Meta',
@@ -23,9 +22,9 @@ type MetaModel = {
     type: BlockType.Meta;
 } & MetaProps;
 
-const DefaultTemplate: Story<MetaModel> = (args) => (
-    <PostPageContext.Provider value={{post: post as PostData}}>
-        <PageConstructor content={{blocks: [args]}} custom={customBlocks} />
+const DefaultTemplate: StoryFn<MetaModel> = (args) => (
+    <PostPageContext.Provider value={blockMockData}>
+        <PageConstructor content={{blocks: [args] as unknown as Block[]}} custom={customBlocks} />
     </PostPageContext.Provider>
 );
 

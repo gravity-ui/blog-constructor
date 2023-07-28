@@ -1,16 +1,14 @@
 import React from 'react';
 
-import {PageConstructor} from '@gravity-ui/page-constructor';
+import {Block, PageConstructor} from '@gravity-ui/page-constructor';
 import type {Meta, StoryFn} from '@storybook/react';
 
-import {getDefaultStoryArgs} from '../../../../.mocks/utils';
+import {blockMockData, getDefaultStoryArgs} from '../../../../.mocks/utils';
 import customBlocks from '../../../constructor/blocksMap';
 import {PostPageContext} from '../../../contexts/PostPageContext';
 import {BannerProps} from '../../../models/blocks';
-import {BlockType, PostData} from '../../../models/common';
+import {BlockType} from '../../../models/common';
 import {Banner} from '../Banner';
-
-import post from '../../../../.mocks/post.json';
 
 export default {
     title: 'Blocks/Banner',
@@ -30,8 +28,8 @@ type BannerModel = {
 } & BannerProps;
 
 const DefaultTemplate: StoryFn<BannerModel> = (args) => (
-    <PostPageContext.Provider value={{post: post as PostData}}>
-        <PageConstructor content={{blocks: [args]}} custom={customBlocks} />
+    <PostPageContext.Provider value={blockMockData}>
+        <PageConstructor content={{blocks: [args] as unknown as Block[]}} custom={customBlocks} />
     </PostPageContext.Provider>
 );
 
@@ -44,4 +42,4 @@ Default.args = {
     title: 'Lorem',
     text: 'Lorem ipsum dolor sit amet',
     additionalInfo: 'consectetur adipiscing elit',
-};
+} as BannerModel;

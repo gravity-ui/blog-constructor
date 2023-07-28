@@ -1,38 +1,38 @@
 import {ShareOptions} from '@gravity-ui/uikit';
 
-import {Lang} from '../src/models/locale';
-
 import post from './post.json';
 import page from './page.json';
 import suggestedPosts from './suggestedPosts.json';
+
+import {PostData} from '../src/models/common';
 
 /**
  * function for generate post page data,
  * example how to use data utils
  */
-export const generatePostPageData = () => {
-    const lang = Lang.En;
-    const region = Lang.En;
-
-    return {
-        suggestedPosts,
-        content: page.content,
-        post,
-        shareOptions: [
-            ShareOptions.Twitter,
-            ShareOptions.Facebook,
-            ShareOptions.Telegram,
-            ShareOptions.VK,
-            ShareOptions.LinkedIn,
-        ],
-        likes: {
-            hasUserLike: post.hasUserLike,
-            likesCount: post.likes,
-            toggleLike: ({postId}) => {
-                console.log('toggle like on post --->', postId);
-            },
+export const postPageMockData = {
+    suggestedPosts,
+    content: page.content,
+    post,
+    shareOptions: [
+        ShareOptions.Twitter,
+        ShareOptions.Facebook,
+        ShareOptions.Telegram,
+        ShareOptions.VK,
+        ShareOptions.LinkedIn,
+    ],
+    likes: {
+        hasUserLike: post.hasUserLike,
+        likesCount: post.likes,
+        toggleLike: ({postId}: {postId?: number}) => {
+            console.log('toggle like on post --->', postId);
         },
-    };
+    },
+};
+
+export const blockMockData = {
+    post: post as unknown as PostData,
+    suggestedPosts: suggestedPosts as unknown as PostData[],
 };
 
 export const getDefaultStoryArgs = () => {

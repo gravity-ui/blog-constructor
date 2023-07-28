@@ -1,16 +1,14 @@
 import React from 'react';
 
-import {PageConstructor} from '@gravity-ui/page-constructor';
+import {Block, PageConstructor} from '@gravity-ui/page-constructor';
 import type {Meta, StoryFn} from '@storybook/react';
 
-import {getDefaultStoryArgs} from '../../../../.mocks/utils';
+import {blockMockData, getDefaultStoryArgs} from '../../../../.mocks/utils';
 import customBlocks from '../../../constructor/blocksMap';
 import {PostPageContext} from '../../../contexts/PostPageContext';
 import {YFMProps} from '../../../models/blocks';
-import {BlockType, PostData} from '../../../models/common';
+import {BlockType} from '../../../models/common';
 import {YFM} from '../YFM';
-
-import post from '../../../../.mocks/post.json';
 
 export default {
     title: 'Blocks/YFM',
@@ -25,8 +23,8 @@ type YFMModel = {
 } & YFMProps;
 
 const DefaultTemplate: StoryFn<YFMModel> = (args) => (
-    <PostPageContext.Provider value={{post: post as PostData}}>
-        <PageConstructor content={{blocks: [args]}} custom={customBlocks} />
+    <PostPageContext.Provider value={blockMockData}>
+        <PageConstructor content={{blocks: [args] as unknown as Block[]}} custom={customBlocks} />
     </PostPageContext.Provider>
 );
 
@@ -36,4 +34,4 @@ Default.args = {
     type: BlockType.YFM,
     ...getDefaultStoryArgs(),
     text: '<p><strong>Lorem ipsum dolor sit amet</strong> <a href="https://example.com">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>',
-};
+} as YFMModel;
