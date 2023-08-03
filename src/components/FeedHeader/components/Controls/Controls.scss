@@ -36,18 +36,18 @@ $block: '.#{$namespace}feed-controls';
     }
 
     &__search {
-        background-color: var(--yc-color-base-background);
+        background-color: var(--g-color-base-background);
         border-radius: $controlsBorderRadius;
         width: 100%;
         max-width: 100%;
 
         .yc-text-input_view_normal .yc-text-input__control {
-            border-color: var(--yc-color-base-background);
+            border-color: var(--g-color-base-background);
         }
     }
 
     &__select {
-        background-color: var(--yc-color-base-background);
+        background-color: var(--g-color-base-background);
         border-radius: $controlsBorderRadius;
         width: 100%;
     }
@@ -71,7 +71,7 @@ $block: '.#{$namespace}feed-controls';
 
                 .yc-list {
                     max-height: calc(
-                        $popupMaxHeight - var(--yc-text-body-3-line-height) - $indentXXS
+                        $popupMaxHeight - var(--g-text-body-3-line-height) - $indentXXS
                     );
                 }
             }
@@ -86,7 +86,7 @@ $block: '.#{$namespace}feed-controls';
 
                 border: none;
 
-                border-bottom: 1px solid var(--yc-color-line-generic);
+                border-bottom: 1px solid var(--g-color-line-generic);
 
                 .yc-text-input__control.yc-text-input__control_type_input {
                     border: none;
@@ -113,7 +113,7 @@ $block: '.#{$namespace}feed-controls';
     }
 
     &__select:hover {
-        background-color: var(--yc-color-base-background);
+        background-color: var(--g-color-base-background);
         width: 100%;
     }
 
@@ -125,7 +125,7 @@ $block: '.#{$namespace}feed-controls';
         }
 
         &_savedOnly:focus {
-            color: var(--yc-color-base-background);
+            color: var(--g-color-base-background);
         }
     }
 
@@ -148,10 +148,10 @@ $block: '.#{$namespace}feed-controls';
     }
 
     &__icon {
-        color: var(--yc-my-color-brand-normal);
+        color: var(--g-color-base-brand);
 
         &_savedOnly {
-            color: var(--yc-color-base-background);
+            color: var(--g-color-base-background);
         }
     }
 }

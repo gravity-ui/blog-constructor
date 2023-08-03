@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {ShareOptions} from '@gravity-ui/uikit';
+import {ShareOptions} from '@gravity-ui/components';
 
 import {PostData} from '../models/common';
 

@@ -1,7 +1,7 @@
 import React, {useCallback, useContext} from 'react';
 
+import {SharePopover} from '@gravity-ui/components';
 import {useAnalytics} from '@gravity-ui/page-constructor';
-import {SharePopover} from '@gravity-ui/uikit';
 
 import {MobileContext} from '../../../contexts/MobileContext';
 import {PostPageContext} from '../../../contexts/PostPageContext';
@@ -58,7 +58,7 @@ export const Sharing: React.FC<SharingProps> = ({theme, metrikaGoal}) => {
                     placement="bottom"
                     openByHover={false}
                     shareOptions={shareOptions}
-                    handleMetrika={handleAnalytics}
+                    onClick={handleAnalytics}
                 />
             </div>
         </div>

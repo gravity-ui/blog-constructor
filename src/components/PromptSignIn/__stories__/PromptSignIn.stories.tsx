@@ -22,7 +22,7 @@ const DefaultTemplate: StoryFn<PromptProps> = (args) => {
     }, [setTime]);
 
     return (
-        <div>
+        <div className="g-root g-root_theme_light">
             <Button view="action" style={styleBtn} onClick={onClick}>
                 Open Prompt
             </Button>

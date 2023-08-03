@@ -26,7 +26,7 @@ $block: '.#{$namespace}feed-header';
             @include add-specificity(&) {
                 #{$root}__title,
                 #{$root}__description * {
-                    color: var(--yc-color-text-light-primary);
+                    color: var(--g-color-text-light-primary);
                 }
             }
         }

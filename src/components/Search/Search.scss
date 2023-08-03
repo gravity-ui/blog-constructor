@@ -24,11 +24,11 @@ $block: '.#{$namespace}search';
         z-index: 2;
 
         right: 10px;
-        color: var(--yc-color-text-hint);
+        color: var(--g-color-text-hint);
     }
 
     &__search-button:hover {
-        color: var(--yc-color-text-secondary);
+        color: var(--g-color-text-secondary);
     }
 
     &__search-suggest-container {
