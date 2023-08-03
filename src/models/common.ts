@@ -197,3 +197,7 @@ export type FetchArgs = {
     page?: number;
     query: Query;
 };
+
+export interface QAProps {
+    qa?: string;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {DEFAULT_PADDINGS} from '../../constants';
-import {ClassNameProps} from '../../models/common';
+import {ClassNameProps, QAProps} from '../../models/common';
 import {Paddings} from '../../models/paddings';
 import {block} from '../../utils/cn';
 
@@ -9,17 +9,17 @@ import './Wrapper.scss';
 
 const b = block('wrapper');
 
-type WrapperProps = ClassNameProps & {
-    paddings?: Paddings;
-    dataQa?: string;
-    children?: React.ReactNode;
-};
+type WrapperProps = ClassNameProps &
+    QAProps & {
+        paddings?: Paddings;
+        children?: React.ReactNode;
+    };
 
 export const Wrapper: React.FunctionComponent<WrapperProps> = ({
     children,
     paddings = DEFAULT_PADDINGS,
     className,
-    dataQa,
+    qa,
 }) => (
     <section
         className={b(
@@ -31,7 +31,7 @@ export const Wrapper: React.FunctionComponent<WrapperProps> = ({
             },
             className,
         )}
-        data-qa={dataQa}
+        data-qa={qa}
     >
         {children}
     </section>

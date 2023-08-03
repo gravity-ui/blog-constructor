@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {useLikes} from '../../hooks/useLikes';
-import {PostData, ToggleLikeCallbackType} from '../../models/common';
+import {PostData, QAProps, ToggleLikeCallbackType} from '../../models/common';
 import {block} from '../../utils/cn';
 
 import {Date} from './components/Date';
@@ -13,10 +13,10 @@ import './PostInfo.scss';
 const b = block('post-info');
 
 export interface SuggestPostInfoProps
-    extends Pick<PostData, 'date' | 'readingTime' | 'hasUserLike'> {
+    extends Pick<PostData, 'date' | 'readingTime' | 'hasUserLike'>,
+        QAProps {
     postId: PostData['blogPostId'];
     size?: 's' | 'm';
-    dataQa?: string;
     likes?: {
         likesCount?: number;
         hasUserLike?: boolean;
@@ -32,7 +32,7 @@ export interface SuggestPostInfoProps
  * @param readingTime - post reading time
  * @param hasUserLike - flag that the user liked the post
  * @param likes - likes count
- * @param dataQa - test-attr
+ * @param qa - test-attr
  * @param size - text size
  * @param isModernIcon - flag what we need render 'bookmark' icon
  *
@@ -44,7 +44,7 @@ export const SuggestPostInfo: React.FC<SuggestPostInfoProps> = ({
     readingTime,
     likes,
     size = 's',
-    dataQa,
+    qa,
 }) => {
     const {hasUserLike, likesCount, handleLike} = useLikes({
         hasLike: likes?.hasUserLike,
@@ -66,7 +66,7 @@ export const SuggestPostInfo: React.FC<SuggestPostInfoProps> = ({
                     hasUserLike={hasUserLike}
                     handleUserLike={handleLike}
                     size={size}
-                    dataQa={dataQa}
+                    qa={qa}
                 />
             )}
         </div>
