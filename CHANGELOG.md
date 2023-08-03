@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.4.1](https://github.com/gravity-ui/blog-constructor/compare/v4.4.0...v4.4.1) (2023-08-03)
+
+
+### Bug Fixes
+
+* change border-radius for filter in select popup ([#89](https://github.com/gravity-ui/blog-constructor/issues/89)) ([6585550](https://github.com/gravity-ui/blog-constructor/commit/658555023e2f2446f59b15a27906d84aaa6b5c8b))
+
 ## [4.4.0](https://github.com/gravity-ui/blog-constructor/compare/v4.3.1...v4.4.0) (2023-07-28)
 
 
