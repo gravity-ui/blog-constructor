@@ -11,6 +11,7 @@ export const BREAKPOINTS = {
 export const DEFAULT_THEME = 'light';
 
 export const UIKIT_ROOT_CLASS = 'g-root';
+export const UIKIT_THEME_LIGHT_CLASS = 'g-root_theme_light';
 
 export enum BlogMetrikaGoalIds {
     shareTop = 'SITE_BLOG_SHARE-TOP_CLICK',

@@ -3,6 +3,7 @@ import React, {useCallback, useState} from 'react';
 import {Button} from '@gravity-ui/uikit';
 import type {Meta, StoryFn} from '@storybook/react';
 
+import {UIKIT_ROOT_CLASS, UIKIT_THEME_LIGHT_CLASS} from '../../../constants';
 import {PromptProps} from '../../Prompt/Prompt';
 import {PromptSignIn} from '../PromptSignIn';
 
@@ -22,7 +23,7 @@ const DefaultTemplate: StoryFn<PromptProps> = (args) => {
     }, [setTime]);
 
     return (
-        <div className="g-root g-root_theme_light">
+        <div className={`${UIKIT_ROOT_CLASS} ${UIKIT_THEME_LIGHT_CLASS}`}>
             <Button view="action" style={styleBtn} onClick={onClick}>
                 Open Prompt
             </Button>

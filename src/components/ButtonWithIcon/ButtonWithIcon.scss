@@ -64,7 +64,7 @@ $block: '.#{$namespace}button-with-icon';
         }
 
         &_accent {
-            color: var(--g-color-text-yandex-red);
+            color: var(--g-color-base-danger-heavy);
             transition: opacity 0.2s;
             opacity: 0.7;
 
