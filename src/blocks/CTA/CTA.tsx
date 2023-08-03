@@ -29,7 +29,7 @@ export const CTA: React.FC<CTAProps> = ({items, paddingTop, paddingBottom}) => {
                 [PaddingsDirections.bottom]: paddingBottom,
             }}
             className={b('content')}
-            dataQa="blog-cta-content"
+            qa="blog-cta-content"
         >
             {items.map((content: ContentBlockProps, index: number) => {
                 const contentData = updateContentSizes(content);
