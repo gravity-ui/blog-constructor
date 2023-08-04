@@ -1,4 +1,4 @@
-import {ShareOptions} from '@gravity-ui/uikit';
+import {ShareOptions} from '@gravity-ui/components';
 
 import post from './post.json';
 import page from './page.json';

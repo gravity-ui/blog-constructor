@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {DEFAULT_THEME} from '../../constants';
+import {DEFAULT_THEME, UIKIT_ROOT_CLASS} from '../../constants';
 
 import {ThemeContext, ThemeContextProps} from './ThemeContext';
 import {ThemeValueContext, ThemeValueType} from './ThemeValueContext';
@@ -65,11 +65,11 @@ export class ThemeProvider extends React.Component<
     private updateBodyClassName(theme: string) {
         const bodyEl = document.body;
 
-        if (!bodyEl.classList.contains('yc-root')) {
-            bodyEl.classList.add('yc-root');
+        if (!bodyEl.classList.contains(UIKIT_ROOT_CLASS)) {
+            bodyEl.classList.add(UIKIT_ROOT_CLASS);
         }
 
-        bodyEl.classList.toggle('yc-root_theme_light', theme === 'light');
-        bodyEl.classList.toggle('yc-root_theme_dark', theme === 'dark');
+        bodyEl.classList.toggle(`${UIKIT_ROOT_CLASS}_theme_light`, theme === 'light');
+        bodyEl.classList.toggle(`${UIKIT_ROOT_CLASS}_theme_dark`, theme === 'dark');
     }
 }

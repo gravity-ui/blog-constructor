@@ -15,14 +15,14 @@ $block: '.#{$namespace}feed-custom-switcher';
         display: flex;
         flex-direction: row;
         align-items: center;
-        background-color: var(--yc-color-base-background);
-        border: 1px solid var(--yc-color-base-background);
+        background-color: var(--g-color-base-background);
+        border: 1px solid var(--g-color-base-background);
         border-radius: $controlsBorderRadius;
         width: 100%;
         line-height: 42px;
 
         // TODO delete this section after Select can customize the popup list
-        & + .yc-popup-wrapper.yc-popup-wrapper_open {
+        & + .yc-popup.yc-popup_open {
             //stylelint-disable-next-line declaration-no-important
             position: absolute !important;
             //stylelint-disable-next-line declaration-no-important
@@ -33,7 +33,7 @@ $block: '.#{$namespace}feed-custom-switcher';
     }
 
     &__custom-switcher:hover {
-        border-color: var(--yc-color-base-generic-hover);
+        border-color: var(--g-color-base-generic-hover);
         cursor: pointer;
     }
 
@@ -51,7 +51,7 @@ $block: '.#{$namespace}feed-custom-switcher';
             align-items: center;
             height: $indentS;
             padding: 0 6px;
-            background-color: var(--yc-color-base-selection);
+            background-color: var(--g-color-base-selection);
             border-radius: 4px;
 
             transition: backgound-color 0.1s linear;

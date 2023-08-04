@@ -1,5 +1,6 @@
 import React, {SyntheticEvent, useMemo} from 'react';
 
+import {ShareOptions} from '@gravity-ui/components';
 import {
     NavigationData,
     PageConstructor,
@@ -7,7 +8,6 @@ import {
     PageConstructorProviderProps,
     PageContent,
 } from '@gravity-ui/page-constructor';
-import {ShareOptions} from '@gravity-ui/uikit';
 
 import {MetaWrapper} from '../../components/MetaWrapper/MetaWrapper';
 import {PromptSignIn} from '../../components/PromptSignIn/PromptSignIn';
