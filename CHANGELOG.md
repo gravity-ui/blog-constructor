@@ -5,11 +5,14 @@
 
 ### ⚠ BREAKING CHANGES
 
-* version 5 ([#87](https://github.com/gravity-ui/blog-constructor/issues/87))
+* update to @gravity-ui/uikit version 5  ([#87](https://github.com/gravity-ui/blog-constructor/issues/87))
+* update to @gravity-ui/page-constructor version 4  ([#87](https://github.com/gravity-ui/blog-constructor/issues/87))
+* update to @doc-tools/transform version 3  ([#87](https://github.com/gravity-ui/blog-constructor/issues/87))
+* `dataQa` testing props were renamed to `qa` ([#87](https://github.com/gravity-ui/blog-constructor/issues/87))
 
 ### Features
 
-* version 5 ([#87](https://github.com/gravity-ui/blog-constructor/issues/87)) ([c7c49d4](https://github.com/gravity-ui/blog-constructor/commit/c7c49d4774fd9fcc2c2ee52bf281e696720a3ce4))
+* install @gravity-ui/components in dependencies  ([#87](https://github.com/gravity-ui/blog-constructor/issues/87))
 
 ## [4.4.1](https://github.com/gravity-ui/blog-constructor/compare/v4.4.0...v4.4.1) (2023-08-03)
 
