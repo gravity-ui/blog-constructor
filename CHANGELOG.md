@@ -1,5 +1,16 @@
 # Changelog
 
+## [5.0.0](https://github.com/gravity-ui/blog-constructor/compare/v4.4.1...v5.0.0) (2023-08-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* version 5 ([#87](https://github.com/gravity-ui/blog-constructor/issues/87))
+
+### Features
+
+* version 5 ([#87](https://github.com/gravity-ui/blog-constructor/issues/87)) ([c7c49d4](https://github.com/gravity-ui/blog-constructor/commit/c7c49d4774fd9fcc2c2ee52bf281e696720a3ce4))
+
 ## [4.4.1](https://github.com/gravity-ui/blog-constructor/compare/v4.4.0...v4.4.1) (2023-08-03)
 
 
