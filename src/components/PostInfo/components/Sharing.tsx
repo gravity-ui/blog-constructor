@@ -1,7 +1,7 @@
 import React, {useCallback, useContext} from 'react';
 
+import {ShareLayoutDirection, SharePopover} from '@gravity-ui/components';
 import {useAnalytics} from '@gravity-ui/page-constructor';
-import {SharePopover} from '@gravity-ui/uikit';
 
 import {MobileContext} from '../../../contexts/MobileContext';
 import {PostPageContext} from '../../../contexts/PostPageContext';
@@ -52,13 +52,13 @@ export const Sharing: React.FC<SharingProps> = ({theme, metrikaGoal}) => {
                     switcherClassName={b('switcher', {theme})}
                     tooltipClassName={b('popup')}
                     useWebShareApi={isMobile}
-                    direction={'column' as SharePopover['props']['direction']}
+                    direction={ShareLayoutDirection.Column}
                     buttonTitle={i18(Keyset.ActionShare)}
                     customIcon={ShareArrowUp}
                     placement="bottom"
                     openByHover={false}
                     shareOptions={shareOptions}
-                    handleMetrika={handleAnalytics}
+                    onClick={handleAnalytics}
                 />
             </div>
         </div>

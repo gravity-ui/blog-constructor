@@ -15,7 +15,7 @@ $itemDimensions: 44px;
 
     &__link {
         text-decoration: none;
-        color: var(--yc-color-text-primary);
+        color: var(--g-color-text-primary);
     }
 
     &__item {
@@ -31,7 +31,7 @@ $itemDimensions: 44px;
 
         padding: 12px 0px;
 
-        color: var(--yc-color-text-primary);
+        color: var(--g-color-text-primary);
         @include text-size(body-2);
 
         &_type {
@@ -44,11 +44,11 @@ $itemDimensions: 44px;
                 border-radius: var(--bc-border-radius);
 
                 &:hover {
-                    background: var(--yc-color-base-simple-hover);
+                    background: var(--g-color-base-simple-hover);
                 }
 
                 &#{$item}_active {
-                    background: var(--yc-color-base-simple-hover);
+                    background: var(--g-color-base-simple-hover);
                     cursor: default;
                 }
             }

@@ -4,6 +4,7 @@ import {
     BackgroundImage,
     FullWidthBackground,
     Grid,
+    Theme,
     getThemedValue,
 } from '@gravity-ui/page-constructor';
 
@@ -28,12 +29,12 @@ export const FeedHeader: React.FC<FeedHeaderContainerProps> = ({
     handleLoadData,
     offset = 'default',
     background,
-    theme = 'default',
+    theme = 'light',
     verticalOffset = 'l',
     className,
     queryParams,
 }) => {
-    const backgroundThemed = background && getThemedValue(background, theme);
+    const backgroundThemed = background && getThemedValue(background, theme as Theme);
 
     return (
         <header className={b('header', {['has-background']: Boolean(background)}, className)}>

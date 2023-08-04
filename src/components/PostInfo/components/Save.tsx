@@ -8,7 +8,7 @@ import metrika from '../../../counters/metrika.js';
 import {MetrikaCounter} from '../../../counters/utils';
 import {Save as SaveIcon} from '../../../icons/Save';
 import {SaveFilled} from '../../../icons/SaveFilled';
-import {DefaultEventNames} from '../../../models/common';
+import {DefaultEventNames, QAProps} from '../../../models/common';
 import {block} from '../../../utils/cn';
 import {postLikeStatus} from '../../../utils/common';
 
@@ -18,7 +18,7 @@ const ICON_SIZE = 16;
 
 const b = block('post-info');
 
-type SaveProps = {
+type SaveProps = QAProps & {
     title: string | number;
     postId: number;
     hasUserLike: boolean;
@@ -28,7 +28,6 @@ type SaveProps = {
      * @deprecated Metrika will be deleted after launch of analyticsEvents
      */
     metrikaGoal?: string;
-    dataQa?: string;
     size?: 's' | 'm';
 };
 
@@ -39,7 +38,7 @@ type SaveProps = {
  * @param postId - post id
  * @param hasUserLike - flag what blog has like from current user
  * @param metrikaGoal - metrika goal name
- * @param dataQa - test-attr
+ * @param qa - test-attr
  * @param size - text size
  *
  * @returns jsx
@@ -52,7 +51,7 @@ export const Save: React.FC<SaveProps> = ({
     metrikaGoal,
     size,
     theme,
-    dataQa,
+    qa,
 }) => {
     const {toggleLike, isSignedInUser, requireSignIn} = useContext(LikesContext);
     const handleAnalytics = useAnalytics(DefaultEventNames.SaveButton);
@@ -82,7 +81,7 @@ export const Save: React.FC<SaveProps> = ({
                 metrika.reachGoal(MetrikaCounter.CrossSite, metrikaGoal);
                 handleAnalytics();
             }}
-            data-qa={`${dataQa ? dataQa + '-' : ''}save`}
+            data-qa={`${qa ? qa + '-' : ''}save`}
         >
             <div className={b('content', {cursor: isLikeable, theme})}>
                 <span className={b('icon')}>

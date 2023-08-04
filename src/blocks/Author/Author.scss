@@ -26,7 +26,7 @@ $block: '.#{$namespace}author';
     }
 
     &__description {
-        color: var(--yc-color-text-primary);
+        color: var(--g-color-text-primary);
     }
 
     &__content {
@@ -38,6 +38,6 @@ $block: '.#{$namespace}author';
     }
 
     &__container {
-        background-color: var(--yc-color-promo-base-silver);
+        background-color: var(--pc-color-base-silver);
     }
 }

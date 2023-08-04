@@ -96,7 +96,7 @@ export const PostCard: React.FC<PostCardProps> = ({
                     hasUserLike={hasUserLike}
                     likes={likesProps}
                     size={size}
-                    dataQa="blog-suggest-block"
+                    qa="blog-suggest-block"
                 />
             </CardBase.Footer>
         </CardBase>
