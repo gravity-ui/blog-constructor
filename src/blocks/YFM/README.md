@@ -1,5 +1,3 @@
-## Block "YFM"
-
 | Property      | Type                  | Required | Description         |
 | :------------ | :-------------------- | :------- | :------------------ |
 | text          | `string`              | `true`   | Text                |

@@ -1,0 +1,10 @@
+import {Meta, Markdown} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate/StoryTemplate.mdx';
+import * as PromptSignIntories from './PromptSignIn.stories.tsx';
+import README from '../README.md?raw';
+
+<Meta of={PromptSignIntories} />
+<StoryTemplate>
+    <Markdown>{README}</Markdown>
+</StoryTemplate>
