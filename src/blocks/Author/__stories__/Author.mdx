@@ -1,0 +1,10 @@
+import {Meta, Markdown} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate/StoryTemplate.mdx';
+import * as AuthorStories from './Author.stories.tsx';
+import README from '../README.md?raw';
+
+<Meta of={AuthorStories} />
+<StoryTemplate>
+    <Markdown>{README}</Markdown>
+</StoryTemplate>

@@ -1,5 +1,3 @@
-## Block "Meta"
-
 | Property      | Type                     | Required | Description         |
 | :------------ | :----------------------- | :------- | :------------------ |
 | locale        | `string`                 | `true`   | Locale value        |

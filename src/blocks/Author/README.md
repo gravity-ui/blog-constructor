@@ -1,5 +1,3 @@
-## Block "Author"
-
 | Property      | Type                  | Required | Description                |
 | :------------ | :-------------------- | :------- | :------------------------- |
 | className     | `string`              | `false`  | Component className        |

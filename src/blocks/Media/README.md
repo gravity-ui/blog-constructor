@@ -1,5 +1,3 @@
-## Block "Media"
-
 | Property      | Type                     | Required | Description            |
 | :------------ | :----------------------- | :------- | :--------------------- |
 | className     | `string`                 | `false`  | Component className    |

@@ -1,5 +1,3 @@
-## Block "Header"
-
 | Property      | Type                  | Required | Description         |
 | :------------ | :-------------------- | :------- | :------------------ |
 | paddingTop    | `xs - s - m - l - xl` | `false`  | Top padding size    |
@@ -9,4 +7,4 @@
 
 and `HeaderBlockProps`
 
-To known more information about `Header` see this [page](https://preview.yandexcloud.dev/page-constructor/?path=/docs/blocks-header--default)
+To known more information about `HeaderBlockProps` see this [page](https://preview.yandexcloud.dev/page-constructor/?path=/docs/blocks-header--default)

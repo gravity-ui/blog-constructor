@@ -1,5 +1,3 @@
-## Block "Banner"
-
 | Property       | Type                      | Required | Description                           |
 | :------------- | :------------------------ | :------- | :------------------------------------ |
 | color          | `string`                  | `false`  | Color value                           |

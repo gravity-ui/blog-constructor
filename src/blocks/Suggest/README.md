@@ -1,5 +1,3 @@
-## Block "Suggested posts"
-
 | Property      | Type                  | Required | Description         |
 | :------------ | :-------------------- | :------- | :------------------ |
 | className     | `string`              | `false`  | Component className |

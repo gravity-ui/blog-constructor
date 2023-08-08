@@ -1,5 +1,3 @@
-## Block "Layout"
-
 | Property      | Type                  | Required | Description                   |
 | :------------ | :-------------------- | :------- | :---------------------------- |
 | fullWidth     | `boolean`             | `false`  | Full width flag               |

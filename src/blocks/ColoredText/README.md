@@ -1,5 +1,3 @@
-## Block "Colored text"
-
 | Property       | Type                                | Required | Description                           |
 | :------------- | :---------------------------------- | :------- | :------------------------------------ |
 | background     | `{color?, image?, altText?} string` | `false`  | Background settings                   |
