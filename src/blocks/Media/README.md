@@ -12,4 +12,4 @@
 | video         | `MediaProps['video']`    | `false`  | Video media content    |
 | dataLens      | `MediaProps['dataLens']` | `false`  | dataLens media content |
 
-To known more information about `MediaProps` see this [page](https://preview.yandexcloud.dev/page-constructor/?path=/docs/blocks-media--default)
+To get more information about `MediaProps` see this [page](https://preview.yandexcloud.dev/page-constructor/?path=/docs/blocks-media--default)

@@ -7,4 +7,4 @@
 
 and `HeaderBlockProps`
 
-To known more information about `HeaderBlockProps` see this [page](https://preview.yandexcloud.dev/page-constructor/?path=/docs/blocks-header--default)
+To get more information about `HeaderBlockProps` see this [page](https://preview.yandexcloud.dev/page-constructor/?path=/docs/blocks-header--default)
