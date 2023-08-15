@@ -6,7 +6,6 @@ $block: '.#{$namespace}feed-controls';
 #{$block} {
     $root: &;
 
-    $controlsBorderRadius: 10px;
     $selectorItemBorderRadius: 8px;
     $selectorContainerBorderRadius: 12px;
     $popupMaxHeight: 500px;
@@ -36,8 +35,6 @@ $block: '.#{$namespace}feed-controls';
     }
 
     &__search {
-        background-color: var(--yc-color-base-background);
-        border-radius: $controlsBorderRadius;
         width: 100%;
         max-width: 100%;
 
@@ -47,8 +44,6 @@ $block: '.#{$namespace}feed-controls';
     }
 
     &__select {
-        background-color: var(--yc-color-base-background);
-        border-radius: $controlsBorderRadius;
         width: 100%;
     }
 
@@ -115,18 +110,13 @@ $block: '.#{$namespace}feed-controls';
     }
 
     &__select:hover {
-        background-color: var(--yc-color-base-background);
         width: 100%;
     }
 
-    &__saved-only-button {
-        border-radius: $controlsBorderRadius;
+    &__saved-only-button_savedOnly {
+        @include monochrome-button();
 
-        &_savedOnly {
-            @include monochrome-button();
-        }
-
-        &_savedOnly:focus {
+        &:focus {
             color: var(--yc-color-base-background);
         }
     }
