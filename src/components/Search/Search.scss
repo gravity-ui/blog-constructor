@@ -35,18 +35,32 @@ $block: '.#{$namespace}search';
         width: 100%;
     }
 
-    &__search-suggest {
-        .yc-text-input__control {
-            padding-right: $indentM;
+    #{$block} &__search-suggest-control {
+        background-color: var(--g-color-base-background);
+        padding-left: $indentXXS;
+        padding-right: $indentM;
+        border-radius: var(--bc-text-input-border-radius);
+
+        border: 1px solid transparent;
+
+        &:hover,
+        &:focus {
+            border: 1px solid var(--g-color-base-generic-hover);
         }
     }
 
     &_size_s {
+        --bc-text-input-border-radius: var(--g-border-radius-l);
+
         $searchHeight: 36px;
         $searchWidth: 352px;
 
         height: $searchHeight;
         width: $searchWidth;
         max-width: 100%;
+    }
+
+    &_size_m {
+        --bc-text-input-border-radius: var(--g-border-radius-xl);
     }
 }

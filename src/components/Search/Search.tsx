@@ -64,15 +64,19 @@ export const Search: React.FC<SearchProps> = (props) => {
         <div className={b({size}, className)}>
             <div className={b('search-suggest-container')}>
                 <TextInput
+                    className={b('search-suggest')}
                     value={value}
                     onUpdate={(query) => {
                         setValue(query);
                         handleChange(query);
                     }}
                     placeholder={placeholder}
-                    className={b('search-suggest')}
                     size={size === 'm' ? 'xl' : 'l'}
                     controlRef={inputRef}
+                    view="clear"
+                    controlProps={{
+                        className: b('search-suggest-control'),
+                    }}
                 />
             </div>
             {value ? (
