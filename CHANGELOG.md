@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.4.2](https://github.com/gravity-ui/blog-constructor/compare/v4.4.1...v4.4.2) (2023-08-16)
+
+
+### Bug Fixes
+
+* refactor search styles after uikit inner update ([#95](https://github.com/gravity-ui/blog-constructor/issues/95)) ([5f8abcf](https://github.com/gravity-ui/blog-constructor/commit/5f8abcf65159ae3cbb5394a5504eb40588b0fe2d))
+
 ## [4.4.1](https://github.com/gravity-ui/blog-constructor/compare/v4.4.0...v4.4.1) (2023-08-03)
 
 
