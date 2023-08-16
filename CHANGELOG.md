@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.4.3](https://github.com/gravity-ui/blog-constructor/compare/v4.4.2...v4.4.3) (2023-08-16)
+
+
+### Bug Fixes
+
+* **CustomSwitcher:** use css variable instead of hardcode for border-radius ([#100](https://github.com/gravity-ui/blog-constructor/issues/100)) ([9706333](https://github.com/gravity-ui/blog-constructor/commit/9706333e6681c3e918135f4be3f33e431b156b69))
+
 ## [4.4.2](https://github.com/gravity-ui/blog-constructor/compare/v4.4.1...v4.4.2) (2023-08-16)
 
 
