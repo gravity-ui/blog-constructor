@@ -6,8 +6,6 @@ $block: '.#{$namespace}feed-custom-switcher';
 #{$block} {
     $root: &;
 
-    $controlsBorderRadius: 10px;
-
     &__custom-switcher {
         @include text-size(body-2);
         position: relative;
@@ -17,7 +15,7 @@ $block: '.#{$namespace}feed-custom-switcher';
         align-items: center;
         background-color: var(--yc-color-base-background);
         border: 1px solid var(--yc-color-base-background);
-        border-radius: $controlsBorderRadius;
+        border-radius: var(--yc-my-border-radius-xl);
         width: 100%;
         line-height: 42px;
 
