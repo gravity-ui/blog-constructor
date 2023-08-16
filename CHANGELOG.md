@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.0.1](https://github.com/gravity-ui/blog-constructor/compare/v5.0.0...v5.0.1) (2023-08-16)
+
+
+### Bug Fixes
+
+* refactor search styles after uikit inner update ([#96](https://github.com/gravity-ui/blog-constructor/issues/96)) ([337b93e](https://github.com/gravity-ui/blog-constructor/commit/337b93e0d9980639fd33e9651a274bf687ecb2e8))
+
 ## [5.0.0](https://github.com/gravity-ui/blog-constructor/compare/v4.4.1...v5.0.0) (2023-08-04)
 
 
