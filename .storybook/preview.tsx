@@ -10,9 +10,9 @@ import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport';
 import {withTheme} from './decorators/withTheme';
 import {withLang} from './decorators/withLang';
 import {withMobile} from './decorators/withMobile';
+import {DocsDecorator} from './decorators/DocsDecorator/DocsDecorator';
 import {MobileProvider, Platform} from '@gravity-ui/uikit';
 import {ThemeProvider} from '../src/contexts/theme/ThemeProvider';
-import {DocsDecorator} from '../src/demo/DocsDecorator/DocsDecorator';
 
 const withContextProvider: Decorator = (Story, context) => (
     <React.StrictMode>
