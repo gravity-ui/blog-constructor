@@ -10,12 +10,14 @@ import {SuggestPostInfo} from '../PostInfo/SuggestPostInfo';
 import './PostCard.scss';
 
 type PostCardSize = 's' | 'm';
+type TitleHeadingLevel = 'h2' | 'h3';
 
 type PostCardProps = {
     post: PostData;
     fullWidth?: boolean;
     showTag?: boolean;
     size?: PostCardSize;
+    titleHeadingLevel?: TitleHeadingLevel;
     /**
      * @deprecated Metrika will be deleted after launch of analyticsEvents
      */
@@ -24,22 +26,13 @@ type PostCardProps = {
 
 const b = block('post-card');
 
-const mapSizeToHeadingLevel = (size: PostCardSize) => {
-    switch (size) {
-        case 's':
-            return 'h3';
-        case 'm':
-        default:
-            return 'h2';
-    }
-};
-
 export const PostCard: React.FC<PostCardProps> = ({
     post,
     metrikaGoals,
     fullWidth = false,
     size = 's',
     showTag = false,
+    titleHeadingLevel = 'h3',
 }) => {
     const {
         title: postTitle,
@@ -84,7 +77,7 @@ export const PostCard: React.FC<PostCardProps> = ({
                 )}
                 {title &&
                     React.createElement(
-                        mapSizeToHeadingLevel(size),
+                        titleHeadingLevel,
                         {className: b('title', {size})},
                         <span>
                             <HTML>{title}</HTML>
