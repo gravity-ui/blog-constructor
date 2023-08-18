@@ -9,17 +9,29 @@ import {SuggestPostInfo} from '../PostInfo/SuggestPostInfo';
 
 import './PostCard.scss';
 
-const b = block('post-card');
+type PostCardSize = 's' | 'm';
 
 type PostCardProps = {
     post: PostData;
     fullWidth?: boolean;
     showTag?: boolean;
-    size?: 's' | 'm';
+    size?: PostCardSize;
     /**
      * @deprecated Metrika will be deleted after launch of analyticsEvents
      */
     metrikaGoals?: MetrikaGoal;
+};
+
+const b = block('post-card');
+
+const mapSizeToHeadingLevel = (size: PostCardSize) => {
+    switch (size) {
+        case 's':
+            return 'h3';
+        case 'm':
+        default:
+            return 'h2';
+    }
 };
 
 export const PostCard: React.FC<PostCardProps> = ({
@@ -70,13 +82,14 @@ export const PostCard: React.FC<PostCardProps> = ({
                 {showTag && tags?.[0]?.name && (
                     <div className={b('tag', {size})}>{tags[0].name}</div>
                 )}
-                {title && (
-                    <h4 className={b('title', {size})}>
+                {title &&
+                    React.createElement(
+                        mapSizeToHeadingLevel(size),
+                        {className: b('title', {size})},
                         <span>
                             <HTML>{title}</HTML>
-                        </span>
-                    </h4>
-                )}
+                        </span>,
+                    )}
                 {description && (
                     <YFMWrapper
                         className={b('description')}
