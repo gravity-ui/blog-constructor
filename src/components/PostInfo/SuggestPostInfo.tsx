@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {useLikes} from '../../hooks/useLikes';
-import {PostData, QAProps, ToggleLikeCallbackType} from '../../models/common';
+import {PostCardSize, PostData, QAProps, ToggleLikeCallbackType} from '../../models/common';
 import {block} from '../../utils/cn';
 
 import {Date} from './components/Date';
@@ -16,7 +16,7 @@ export interface SuggestPostInfoProps
     extends Pick<PostData, 'date' | 'readingTime' | 'hasUserLike'>,
         QAProps {
     postId: PostData['blogPostId'];
-    size?: 's' | 'm';
+    size?: PostCardSize;
     likes?: {
         likesCount?: number;
         hasUserLike?: boolean;
@@ -43,7 +43,7 @@ export const SuggestPostInfo: React.FC<SuggestPostInfoProps> = ({
     date,
     readingTime,
     likes,
-    size = 's',
+    size = PostCardSize.SMALL,
     qa,
 }) => {
     const {hasUserLike, likesCount, handleLike} = useLikes({

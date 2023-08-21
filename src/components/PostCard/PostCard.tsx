@@ -3,21 +3,18 @@ import React, {useContext, useMemo} from 'react';
 import {CardBase, HTML, MetrikaGoal, YFMWrapper} from '@gravity-ui/page-constructor';
 
 import {LikesContext} from '../../contexts/LikesContext';
-import {PostData} from '../../models/common';
+import {PostCardSize, PostCardTitleHeadingLevel, PostData} from '../../models/common';
 import {block} from '../../utils/cn';
 import {SuggestPostInfo} from '../PostInfo/SuggestPostInfo';
 
 import './PostCard.scss';
-
-type PostCardSize = 's' | 'm';
-type TitleHeadingLevel = 'h2' | 'h3';
 
 type PostCardProps = {
     post: PostData;
     fullWidth?: boolean;
     showTag?: boolean;
     size?: PostCardSize;
-    titleHeadingLevel?: TitleHeadingLevel;
+    titleHeadingLevel?: PostCardTitleHeadingLevel;
     /**
      * @deprecated Metrika will be deleted after launch of analyticsEvents
      */
@@ -30,9 +27,9 @@ export const PostCard: React.FC<PostCardProps> = ({
     post,
     metrikaGoals,
     fullWidth = false,
-    size = 's',
+    size = PostCardSize.SMALL,
     showTag = false,
-    titleHeadingLevel = 'h3',
+    titleHeadingLevel = PostCardTitleHeadingLevel.H3,
 }) => {
     const {
         title: postTitle,

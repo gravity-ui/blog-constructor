@@ -201,3 +201,13 @@ export type FetchArgs = {
 export interface QAProps {
     qa?: string;
 }
+
+export enum PostCardSize {
+    SMALL = 's',
+    MEDIUM = 'm',
+}
+
+export enum PostCardTitleHeadingLevel {
+    H2 = 'h2',
+    H3 = 'h3',
+}
