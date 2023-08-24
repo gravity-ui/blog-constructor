@@ -14,39 +14,35 @@ $block: '.#{$namespace}search';
     align-items: center;
     justify-content: flex-end;
 
-    height: $searchHeight;
-
     transition: width 0.3s;
 
-    &__close-button,
-    &__search-button {
-        position: absolute;
-        z-index: 2;
-
-        right: 10px;
+    &__input-icon {
+        display: flex;
+        padding-right: 7px;
         color: var(--g-color-text-hint);
+        cursor: pointer;
     }
 
-    &__search-button:hover {
-        color: var(--g-color-text-secondary);
-    }
+    &__search-suggest {
+        display: flex;
+        align-items: center;
 
-    &__search-suggest-container {
-        width: 100%;
-    }
+        height: $searchHeight;
 
-    #{$block} &__search-suggest-control {
         background-color: var(--g-color-base-background);
-        padding-left: $indentXXS;
-        padding-right: $indentM;
-        border-radius: var(--bc-text-input-border-radius);
 
-        border: 1px solid transparent;
+        border-radius: var(--bc-text-input-border-radius);
+        border: 1px solid var(--g-color-base-background);
 
         &:hover,
         &:focus {
             border: 1px solid var(--g-color-base-generic-hover);
         }
+    }
+
+    #{$block} &__search-suggest-control {
+        padding-left: $indentXXS;
+        padding-right: $indentM;
     }
 
     &_size_s {
