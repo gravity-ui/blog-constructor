@@ -37,10 +37,6 @@ $block: '.#{$namespace}feed-controls';
     &__search {
         width: 100%;
         max-width: 100%;
-
-        .yc-text-input_view_normal .yc-text-input__control {
-            border-color: var(--g-color-base-background);
-        }
     }
 
     &__select {
@@ -51,11 +47,6 @@ $block: '.#{$namespace}feed-controls';
         @include add-specificity(&) {
             max-height: $popupMaxHeight;
             border-radius: $selectorContainerBorderRadius;
-
-            // TODO delete this section after Select can customize the popup list
-            .g-select-filter + .g-select-list {
-                margin-top: 0;
-            }
 
             .g-select-list {
                 overflow: scroll;
@@ -75,38 +66,18 @@ $block: '.#{$namespace}feed-controls';
                 margin: 4px;
                 border-radius: $selectorItemBorderRadius;
             }
-
-            .yc-text-input__content {
-                padding: 4px;
-
-                border: none;
-
-                border-bottom: 1px solid var(--yc-color-line-generic);
-                border-bottom-right-radius: 0;
-                border-bottom-left-radius: 0;
-
-                .yc-text-input__control.yc-text-input__control_type_input {
-                    border: none;
-                }
-            }
-
-            .g-select-list_size_xl .g-select-list__option {
-                padding: 0 $indentXS;
-            }
         }
     }
 
     &__popup-filter {
-        .yc-text-input__control {
-            @include text-size(body-2);
+        @include text-size(body-2);
+        padding: 4px 12px;
 
-            border: none;
+        border: none;
 
-            &:hover,
-            &:focus {
-                border: none;
-            }
-        }
+        border-bottom: 1px solid var(--yc-color-line-generic);
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
     }
 
     &__select:hover {

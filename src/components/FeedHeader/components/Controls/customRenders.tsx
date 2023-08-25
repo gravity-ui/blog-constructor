@@ -39,16 +39,16 @@ export const renderSwitcher: RenderSwitcherType =
         );
 
 export const renderFilter: SelectProps['renderFilter'] = ({value, ref, onChange, onKeyDown}) => (
-    <div className={b('popup-filter')}>
-        <TextInput
-            controlRef={ref}
-            controlProps={{size: 1}}
-            value={value}
-            placeholder={i18(Keyset.Search)}
-            onUpdate={onChange}
-            onKeyDown={onKeyDown}
-        />
-    </div>
+    <TextInput
+        controlRef={ref}
+        controlProps={{size: 1}}
+        value={value}
+        view="clear"
+        placeholder={i18(Keyset.Search)}
+        onUpdate={onChange}
+        onKeyDown={onKeyDown}
+        className={b('popup-filter')}
+    />
 );
 
 export const renderOption = (option: SelectOption) => (
