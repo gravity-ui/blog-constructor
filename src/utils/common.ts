@@ -7,7 +7,7 @@ import {
     NewMetrikaGoal,
     isNewMetrikaFormat,
 } from '@gravity-ui/page-constructor';
-import {debounce, memoize} from 'lodash';
+import {camelCase, debounce, memoize} from 'lodash';
 
 import {
     CONTENT_DEFAULT_COL_SIZES,
@@ -172,4 +172,19 @@ export const scrollOnPageChange = (containerId: string) => {
     if (y < 0) {
         scrollToHash(containerId);
     }
+};
+
+export const getCommonQa = (qa?: string, customKeys: Array<string> = []) => {
+    const qaObject: Record<string, string> = {};
+
+    if (qa) {
+        const commonKeys = ['container', 'content', 'wrapper', 'image', 'button'];
+        const keys = commonKeys.concat(customKeys);
+
+        keys.forEach((key) => {
+            qaObject[camelCase(key)] = `${qa}-${key}`;
+        });
+    }
+
+    return qaObject;
 };

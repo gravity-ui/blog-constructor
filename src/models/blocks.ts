@@ -7,7 +7,7 @@ import {
     TextTheme,
 } from '@gravity-ui/page-constructor';
 
-import {BlockType, ClassNameProps, PostData} from './common';
+import {BlockType, ClassNameProps, PostData, QAProps} from './common';
 import {PaddingsYFMProps} from './paddings';
 
 // blocks props
@@ -16,11 +16,12 @@ export type AuthorProps = ClassNameProps & {
     image: string;
 } & PaddingsYFMProps;
 
-export type BannerProps = ContentBlockProps & {
-    color?: string;
-    image?: string;
-    imageSize?: 's' | 'm';
-} & PaddingsYFMProps;
+export type BannerProps = ContentBlockProps &
+    QAProps & {
+        color?: string;
+        image?: string;
+        imageSize?: 's' | 'm';
+    } & PaddingsYFMProps;
 
 export type ColoredTextProps = ContentBlockProps & {
     background?: {
