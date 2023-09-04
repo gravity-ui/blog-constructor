@@ -7,7 +7,7 @@ import {PADDING_SIZES} from '../../../../test-utils/constants';
 import {testPaddingBottom, testPaddingTop} from '../../../../test-utils/shared/common';
 import {BannerProps} from '../../../models/blocks';
 import {PaddingSize} from '../../../models/paddings';
-import {getCommonQa} from '../../../utils/common';
+import {getQaAttrubutes} from '../../../utils/common';
 import {Banner} from '../Banner';
 
 const bannerData = {
@@ -20,7 +20,7 @@ const bannerData = {
 
 const imageSizes: Array<BannerProps['imageSize']> = ['m', 's'];
 
-const qas = getCommonQa(bannerData.qa, ['image-container']);
+const qaAttributes = getQaAttrubutes(bannerData.qa, ['image-container']);
 
 describe('Banner', () => {
     test('Render by default', async () => {
@@ -40,7 +40,7 @@ describe('Banner', () => {
         'Render with given "%s" image size',
         (imageSize) => {
             render(<Banner {...pick(bannerData, 'title', 'image', 'qa')} imageSize={imageSize} />);
-            const imageContainer = screen.getByTestId(qas.imageContainer);
+            const imageContainer = screen.getByTestId(qaAttributes.imageContainer);
             expect(imageContainer).toHaveClass(
                 `bc-banner__image-container_image-size_${imageSize}`,
             );
@@ -49,7 +49,7 @@ describe('Banner', () => {
 
     test('Render background color', async () => {
         render(<Banner {...pick(bannerData, 'title', 'color', 'qa')} />);
-        const bannerContent = screen.getByTestId(qas.content);
+        const bannerContent = screen.getByTestId(qaAttributes.content);
         expect(bannerContent).toHaveStyle({backgroundColor: bannerData.color});
     });
 
@@ -59,7 +59,7 @@ describe('Banner', () => {
             testPaddingTop<BannerProps>({
                 component: Banner,
                 props: {...pick(bannerData, 'title', 'qa'), paddingTop: size},
-                options: {qaId: qas.wrapper},
+                options: {qaId: qaAttributes.wrapper},
             });
         },
     );
@@ -70,7 +70,7 @@ describe('Banner', () => {
             testPaddingBottom<BannerProps>({
                 component: Banner,
                 props: {...pick(bannerData, 'title', 'qa'), paddingBottom: size},
-                options: {qaId: qas.wrapper},
+                options: {qaId: qaAttributes.wrapper},
             });
         },
     );

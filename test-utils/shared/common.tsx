@@ -5,26 +5,23 @@ import {render, screen} from '@testing-library/react';
 
 import {PaddingSize} from '../../src/models/paddings';
 
-export const testCustomClassName = <T,>({
-    component: Component,
-    props,
-}: {
+type CommonTestInputType<T> = {
     component: ElementType;
-    props: T & Required<QAProps>;
-}) => {
+    props: T & {
+        paddingTop?: PaddingSize;
+        paddingBottom?: PaddingSize;
+    } & Required<QAProps>;
+    options?: {qaId?: string};
+};
+
+export const testCustomClassName = <T,>({component: Component, props}: CommonTestInputType<T>) => {
     const className = 'custom-class-name';
     render(<Component className={className} {...props} />);
     const anchor = screen.getByTestId(props.qa);
     expect(anchor).toHaveClass(className);
 };
 
-export const testCustomStyle = <T,>({
-    component: Component,
-    props,
-}: {
-    component: ElementType;
-    props: T & Required<QAProps>;
-}) => {
+export const testCustomStyle = <T,>({component: Component, props}: CommonTestInputType<T>) => {
     const style = {color: 'red'};
 
     render(<Component {...props} style={style} />);
@@ -37,13 +34,7 @@ export const testPaddingTop = <T,>({
     component: Component,
     props,
     options,
-}: {
-    component: ElementType;
-    props: T & {
-        paddingTop: PaddingSize;
-    } & Required<QAProps>;
-    options?: {qaId?: string};
-}) => {
+}: CommonTestInputType<T>) => {
     render(<Component {...props} />);
     const component = screen.getByTestId(options?.qaId || props.qa);
 
@@ -54,13 +45,7 @@ export const testPaddingBottom = <T,>({
     component: Component,
     props,
     options,
-}: {
-    component: ElementType;
-    props: T & {
-        paddingBottom: PaddingSize;
-    } & Required<QAProps>;
-    options?: {qaId?: string};
-}) => {
+}: CommonTestInputType<T>) => {
     render(<Component {...props} />);
     const component = screen.getByTestId(options?.qaId || props.qa);
 
