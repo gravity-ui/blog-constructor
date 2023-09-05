@@ -7,7 +7,7 @@ import {
     NewMetrikaGoal,
     isNewMetrikaFormat,
 } from '@gravity-ui/page-constructor';
-import {debounce, memoize} from 'lodash';
+import {camelCase, debounce, memoize} from 'lodash';
 
 import {
     CONTENT_DEFAULT_COL_SIZES,
@@ -19,6 +19,8 @@ import {
 import {RouterContextProps} from '../contexts/RouterContext';
 import {Keyset, i18} from '../i18n';
 import {GetPostsRequest, Query, Tag} from '../models/common';
+
+const QA_ATTRIBUTES_KEYS = ['container', 'content', 'wrapper', 'image', 'button'];
 
 export interface QueryParam {
     name: string;
@@ -172,4 +174,18 @@ export const scrollOnPageChange = (containerId: string) => {
     if (y < 0) {
         scrollToHash(containerId);
     }
+};
+
+export const getQaAttrubutes = (qa?: string, customKeys: Array<string> = []) => {
+    const qaObject: Record<string, string> = {};
+
+    if (qa) {
+        const keys = QA_ATTRIBUTES_KEYS.concat(customKeys);
+
+        keys.forEach((key) => {
+            qaObject[camelCase(key)] = `${qa}-${key}`;
+        });
+    }
+
+    return qaObject;
 };

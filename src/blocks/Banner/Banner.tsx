@@ -7,11 +7,13 @@ import {BlogMetrikaGoalIds} from '../../constants';
 import {BannerProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
 import {block} from '../../utils/cn';
-import {getBlogElementMetrika, updateContentSizes} from '../../utils/common';
+import {getBlogElementMetrika, getQaAttrubutes, updateContentSizes} from '../../utils/common';
 
 import './Banner.scss';
 
 const b = block('banner');
+
+const BANNER_CUSTOM_QA_ATTRIBUTES = ['image-container'];
 
 export const Banner: React.FC<BannerProps> = ({
     color,
@@ -19,9 +21,11 @@ export const Banner: React.FC<BannerProps> = ({
     image,
     paddingTop,
     paddingBottom,
+    qa,
     ...content
 }) => {
     const contentStyle: Record<string, string> = {};
+    const qaAttributes = getQaAttrubutes(qa, BANNER_CUSTOM_QA_ATTRIBUTES);
 
     if (color) {
         contentStyle.backgroundColor = color;
@@ -48,14 +52,18 @@ export const Banner: React.FC<BannerProps> = ({
                 [PaddingsDirections.top]: paddingTop,
                 [PaddingsDirections.bottom]: paddingBottom,
             }}
+            qa={qaAttributes.wrapper}
             className={b('container')}
         >
-            <div className={b('content')} style={contentStyle} data-qa="blog-banner-content">
+            <div className={b('content')} style={contentStyle} data-qa={qaAttributes.content}>
                 <div className={b('info')}>
                     <Content {...contentData} />
                 </div>
                 {image && (
-                    <div className={b('image-container', {['image-size']: imageSize})}>
+                    <div
+                        className={b('image-container', {['image-size']: imageSize})}
+                        data-qa={qaAttributes.imageContainer}
+                    >
                         <Image className={b('image')} src={image} />
                     </div>
                 )}
