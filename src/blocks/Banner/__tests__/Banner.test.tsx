@@ -1,26 +1,57 @@
 import React from 'react';
 
+import {
+    ContentSize,
+    ContentTheme,
+} from '@gravity-ui/page-constructor/build/esm/models/constructor-items/common';
 import {render, screen} from '@testing-library/react';
 import {pick} from 'lodash';
 
 import {PADDING_SIZES} from '../../../../test-utils/constants';
 import {testPaddingBottom, testPaddingTop} from '../../../../test-utils/shared/common';
+import {
+    testContentWithAdditionalInfo,
+    testContentWithButtons,
+    testContentWithCentered,
+    testContentWithLinks,
+    testContentWithList,
+    testContentWithSize,
+    testContentWithText,
+    testContentWithTheme,
+    testContentWithTitle,
+} from '../../../../test-utils/shared/content';
 import {BannerProps} from '../../../models/blocks';
 import {PaddingSize} from '../../../models/paddings';
 import {getQaAttrubutes} from '../../../utils/common';
 import {Banner} from '../Banner';
 
-const bannerData = {
+type BannerPropsType = Omit<BannerProps, 'title' | 'qa'> & {
+    title: string;
+} & Required<Pick<BannerProps, 'qa'>>;
+
+const bannerData: BannerPropsType = {
     color: '#ff0000',
     title: 'Banner Title',
     text: 'Banner text',
     image: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png',
+    additionalInfo: 'additional info',
+    links: [{url: 'https://example.com', theme: 'normal'}],
+    buttons: [{url: 'https://example.com', text: 'button'}],
+    centered: true,
+    list: [
+        {
+            icon: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png',
+            title: 'list title',
+            text: 'list text',
+        },
+    ],
     qa: 'banner',
 };
 
 const imageSizes: Array<BannerProps['imageSize']> = ['m', 's'];
 
 const qaAttributes = getQaAttrubutes(bannerData.qa, ['image-container']);
+const contentQaAttributes = getQaAttrubutes(qaAttributes.content, ['link', 'list']);
 
 describe('Banner', () => {
     test('Render by default', async () => {
@@ -56,7 +87,7 @@ describe('Banner', () => {
     test.each(new Array<PaddingSize>(...PADDING_SIZES))(
         'render with given "%s" paddingTop size',
         (size: PaddingSize) => {
-            testPaddingTop<BannerProps>({
+            testPaddingTop<BannerPropsType>({
                 component: Banner,
                 props: {...pick(bannerData, 'title', 'qa'), paddingTop: size},
                 options: {qaId: qaAttributes.wrapper},
@@ -75,5 +106,76 @@ describe('Banner', () => {
         },
     );
 
-    // TODO: import Content block common tests, when they will be in a main branch
+    test('Render with title', async () => {
+        testContentWithTitle<BannerProps>({
+            component: Banner,
+            props: bannerData,
+        });
+    });
+
+    test('Render with text', async () => {
+        testContentWithText<BannerProps>({
+            component: Banner,
+            props: bannerData,
+        });
+    });
+
+    test('Render with additionalInfo', async () => {
+        testContentWithAdditionalInfo<BannerProps>({
+            component: Banner,
+            props: bannerData,
+        });
+    });
+
+    test.each(new Array<ContentSize>('s', 'l'))('Render with given "%s" size', (size) => {
+        testContentWithSize<BannerProps>({
+            component: Banner,
+            props: {...bannerData, size},
+            options: {qaId: contentQaAttributes.container},
+        });
+    });
+
+    test('Render with links', async () => {
+        const linkQa = getQaAttrubutes(contentQaAttributes.link, ['normal']);
+        testContentWithLinks<BannerProps>({
+            component: Banner,
+            props: bannerData,
+            options: {qaId: linkQa.normal},
+        });
+    });
+
+    test('Render with buttons', async () => {
+        testContentWithButtons<BannerProps>({
+            component: Banner,
+            props: bannerData,
+            options: {qaId: contentQaAttributes.button},
+        });
+    });
+
+    test('Render with centered', async () => {
+        testContentWithCentered<BannerProps>({
+            component: Banner,
+            props: bannerData,
+            options: {qaId: contentQaAttributes.container},
+        });
+    });
+
+    test.each(new Array<ContentTheme>('default', 'dark', 'light'))(
+        'Render with given "%s" theme',
+        (theme) => {
+            testContentWithTheme<BannerProps>({
+                component: Banner,
+                props: {...bannerData, theme},
+                options: {qaId: contentQaAttributes.container},
+            });
+        },
+    );
+
+    test('Render with list', async () => {
+        testContentWithList<BannerProps>({
+            component: Banner,
+            props: bannerData,
+            options: {qaId: contentQaAttributes.list},
+        });
+    });
 });
