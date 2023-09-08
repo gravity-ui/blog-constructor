@@ -1,13 +1,13 @@
 import React from 'react';
 
 import {YFMWrapper} from '@gravity-ui/page-constructor';
-import block from 'bem-cn-lite';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {YFMProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
+import {cn} from '../../utils/cn';
 
-const b = block('yfm');
+const b = cn('yfm');
 
 export const YFM: React.FC<YFMProps> = (props) => {
     const {text, paddingTop, paddingBottom} = props;

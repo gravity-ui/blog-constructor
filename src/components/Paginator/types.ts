@@ -1,13 +1,13 @@
-import {ReactNode} from 'react';
+import type {ReactNode} from 'react';
 
-import {Modifications} from 'bem-cn-lite';
+import type {NoStrictEntityMods} from '@bem-react/classname';
 
-import {ClassNameProps} from '../../models/common';
+import type {ClassNameProps} from '../../models/common';
 
 export interface PaginatorItemProps {
     key: string | ArrowType;
     dataKey: string | ArrowType;
-    mods: Modifications;
+    mods: NoStrictEntityMods;
     content: ReactNode;
     onClick?: (key: number | ArrowType) => void;
     loading?: boolean;
