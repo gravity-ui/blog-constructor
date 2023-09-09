@@ -129,12 +129,8 @@ export const testContentWithList = <T,>({
     props,
     options,
 }: ContentTestFunction<T>) => {
-    if (
-        !options?.qaId ||
-        !props.list?.[0]?.icon ||
-        !props.list?.[0]?.title ||
-        !props.list?.[0]?.text
-    ) {
+    const listElem = props.list?.[0];
+    if (!options?.qaId || !listElem?.icon || !listElem?.title || !listElem?.text) {
         throw new Error(ERROR_INPUT_DATA_MESSAGE);
     }
 
@@ -144,7 +140,7 @@ export const testContentWithList = <T,>({
     const image = screen.getByRole('img');
     const title = screen.getByTestId(listQa.title);
     const text = screen.getByTestId(listQa.text);
-    expect(image).toHaveAttribute('src', props.list?.[0]?.icon);
-    expect(title).toHaveTextContent(props.list?.[0]?.title);
-    expect(text).toHaveTextContent(props.list?.[0]?.text);
+    expect(image).toHaveAttribute('src', listElem.icon);
+    expect(title).toHaveTextContent(listElem.title);
+    expect(text).toHaveTextContent(listElem.text);
 };
