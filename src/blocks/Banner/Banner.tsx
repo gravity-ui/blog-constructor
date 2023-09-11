@@ -57,7 +57,7 @@ export const Banner: React.FC<BannerProps> = ({
         >
             <div className={b('content')} style={contentStyle} data-qa={qaAttributes.content}>
                 <div className={b('info')}>
-                    <Content {...contentData} />
+                    <Content {...contentData} qa={qaAttributes.content} />
                 </div>
                 {image && (
                     <div

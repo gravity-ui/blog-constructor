@@ -23,13 +23,14 @@ export type BannerProps = ContentBlockProps &
         imageSize?: 's' | 'm';
     } & PaddingsYFMProps;
 
-export type ColoredTextProps = ContentBlockProps & {
-    background?: {
-        color?: string;
-        image?: string;
-        altText?: string;
-    };
-} & PaddingsYFMProps;
+export type ColoredTextProps = ContentBlockProps &
+    QAProps & {
+        background?: {
+            color?: string;
+            image?: string;
+            altText?: string;
+        };
+    } & PaddingsYFMProps;
 
 export type CTAProps = {
     items: Array<ContentBlockProps>;
