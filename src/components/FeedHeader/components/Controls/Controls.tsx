@@ -181,6 +181,7 @@ export const Controls: React.FC<ControlsProps> = ({
                             size="xl"
                             multiple
                             filterable
+                            hasClear
                             disablePortal
                             options={services}
                             defaultValue={servicesItems}

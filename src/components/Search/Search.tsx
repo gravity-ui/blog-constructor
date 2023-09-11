@@ -1,6 +1,6 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useMemo, useRef, useState} from 'react';
 
-import {TextInput} from '@gravity-ui/uikit';
+import {Icon, TextInput} from '@gravity-ui/uikit';
 import {debounce as lodashDebounce} from 'lodash';
 
 import {useIsIPhone} from '../../hooks/useIsIPhone';
@@ -9,7 +9,6 @@ import {Close} from '../../icons/Close';
 import {SearchIcon} from '../../icons/SearchIcon';
 import {ClassNameProps} from '../../models/common';
 import {block} from '../../utils/cn';
-import {ButtonWithIcon} from '../ButtonWithIcon/ButtonWithIcon';
 
 import './Search.scss';
 
@@ -30,18 +29,24 @@ interface SearchProps extends ClassNameProps {
 
 const SEARCH_ICON_SIZE = 16;
 const CLOSE_ICON_SIZE = 12;
+const AUTOFOCUS_TIMEOUT = 0;
 
-export const Search: React.FC<SearchProps> = (props) => {
-    const {
-        className,
-        initialValue,
-        onSubmit,
-        debounce = 300,
-        placeholder = i18(Keyset.Search),
-        size = 'm',
-        autoFocus = false,
-        value: externalValue,
-    } = props;
+/**
+ * Search component, placed on blog main page,
+ * based on TextInput from uikit
+ *
+ * @returns {JSX|null}
+ */
+export const Search = ({
+    className,
+    initialValue,
+    onSubmit,
+    debounce = 300,
+    placeholder = i18(Keyset.Search),
+    size = 'm',
+    autoFocus = false,
+    value: externalValue,
+}: SearchProps) => {
     const handleChange = lodashDebounce(onSubmit, debounce);
 
     const [value, setValue] = useState<string>(initialValue);
@@ -56,50 +61,47 @@ export const Search: React.FC<SearchProps> = (props) => {
 
     useEffect(() => {
         if (autoFocus && !isIPhone) {
-            setTimeout(() => inputRef?.current?.focus({preventScroll: true}), 0);
+            setTimeout(() => inputRef?.current?.focus({preventScroll: true}), AUTOFOCUS_TIMEOUT);
         }
     }, [autoFocus, inputRef, isIPhone]);
 
+    const rightContent = useMemo(() => {
+        const iconData = value ? Close : SearchIcon;
+        const iconSize = value ? CLOSE_ICON_SIZE : SEARCH_ICON_SIZE;
+
+        const handleClick = () => {
+            if (value) {
+                handleChange.cancel();
+                setValue('');
+                onSubmit('');
+            }
+        };
+
+        return (
+            <div className={b('input-icon')} onClick={handleClick}>
+                <Icon size={iconSize} data={iconData} />
+            </div>
+        );
+    }, [handleChange, onSubmit, value]);
+
     return (
         <div className={b({size}, className)}>
-            <div className={b('search-suggest-container')}>
-                <TextInput
-                    className={b('search-suggest')}
-                    value={value}
-                    onUpdate={(query) => {
-                        setValue(query);
-                        handleChange(query);
-                    }}
-                    placeholder={placeholder}
-                    size={size === 'm' ? 'xl' : 'l'}
-                    controlRef={inputRef}
-                    view="clear"
-                    controlProps={{
-                        className: b('search-suggest-control'),
-                    }}
-                />
-            </div>
-            {value ? (
-                <ButtonWithIcon
-                    className={b('close-button')}
-                    icon={Close}
-                    iconSize={CLOSE_ICON_SIZE}
-                    size="xs"
-                    onClick={() => {
-                        handleChange.cancel();
-                        setValue('');
-                        onSubmit('');
-                    }}
-                />
-            ) : (
-                <ButtonWithIcon
-                    className={b('search-button')}
-                    icon={SearchIcon}
-                    iconSize={SEARCH_ICON_SIZE}
-                    size="xs"
-                    disabled={true}
-                />
-            )}
+            <TextInput
+                className={b('search-suggest')}
+                value={value}
+                onUpdate={(query) => {
+                    setValue(query);
+                    handleChange(query);
+                }}
+                placeholder={placeholder}
+                size={size === 'm' ? 'xl' : 'l'}
+                controlRef={inputRef}
+                view="clear"
+                controlProps={{
+                    className: b('search-suggest-control'),
+                }}
+                rightContent={rightContent}
+            />
         </div>
     );
 };
