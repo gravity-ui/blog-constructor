@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.0.3](https://github.com/gravity-ui/blog-constructor/compare/v5.0.2...v5.0.3) (2023-09-11)
+
+
+### Bug Fixes
+
+* delete uikit overrides ([#105](https://github.com/gravity-ui/blog-constructor/issues/105)) ([5743459](https://github.com/gravity-ui/blog-constructor/commit/574345940546e32bae368b2188856ac99865e456))
+
 ## [5.0.2](https://github.com/gravity-ui/blog-constructor/compare/v5.0.1...v5.0.2) (2023-08-16)
 
 
