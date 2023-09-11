@@ -1,9 +1,6 @@
-import blockOrigin from 'bem-cn-lite';
+import {withNaming} from '@bem-react/classname';
 
 export const NAMESPACE = 'bc-';
 
-export type CnBlock = ReturnType<typeof blockOrigin>;
-
-export function block(name: string): CnBlock {
-    return blockOrigin(`${NAMESPACE}${name}`);
-}
+export const cn = withNaming({e: '__', m: '_'});
+export const block = withNaming({n: NAMESPACE, e: '__', m: '_'});
