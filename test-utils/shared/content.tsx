@@ -5,7 +5,7 @@ import {render, screen} from '@testing-library/react';
 import {pick} from 'lodash';
 
 import {QAProps} from '../../src/models/common';
-import {getQaAttrubutes} from '../../src/utils/common';
+import {getQaAttributes} from '../../src/utils/common';
 import {ERROR_INPUT_DATA_MESSAGE} from '../constants';
 
 export type ContentTestFunction<T> = {
@@ -134,7 +134,7 @@ export const testContentWithList = <T,>({
         throw new Error(ERROR_INPUT_DATA_MESSAGE);
     }
 
-    const listQa = getQaAttrubutes(options.qaId, ['title', 'text']);
+    const listQa = getQaAttributes(options.qaId, ['title', 'text']);
 
     render(<Component {...pick(props, 'list', 'qa')} />);
     const image = screen.getByRole('img');

@@ -6,7 +6,7 @@ import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {ColoredTextProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
 import {block} from '../../utils/cn';
-import {updateContentSizes} from '../../utils/common';
+import {getQaAttributes, updateContentSizes} from '../../utils/common';
 
 import './ColoredText.scss';
 
@@ -16,9 +16,11 @@ export const ColoredText: React.FC<ColoredTextProps> = ({
     background,
     paddingTop,
     paddingBottom,
+    qa,
     ...content
 }) => {
     const contentData = updateContentSizes(content);
+    const qaAttributes = getQaAttributes(qa);
 
     return (
         <Wrapper
@@ -26,11 +28,12 @@ export const ColoredText: React.FC<ColoredTextProps> = ({
                 [PaddingsDirections.top]: paddingTop,
                 [PaddingsDirections.bottom]: paddingBottom,
             }}
+            qa={qaAttributes.wrapper}
         >
             <div
                 className={b('container')}
                 style={{backgroundColor: background?.color || 'none'}}
-                data-qa="blog-colored-text-content"
+                data-qa={qaAttributes.container}
             >
                 <div className={b('picture-container')}>
                     {background?.image && (
@@ -42,7 +45,7 @@ export const ColoredText: React.FC<ColoredTextProps> = ({
                     )}
                 </div>
                 <div className={b('text-content')}>
-                    <Content {...contentData} />
+                    <Content {...contentData} qa={qaAttributes.content} />
                 </div>
             </div>
         </Wrapper>

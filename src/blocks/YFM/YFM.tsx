@@ -6,13 +6,13 @@ import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {YFMProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
 import {cn} from '../../utils/cn';
-import {getQaAttrubutes} from '../../utils/common';
+import {getQaAttributes} from '../../utils/common';
 
 const b = cn('yfm');
 
 export const YFM: React.FC<YFMProps> = (props) => {
     const {text, paddingTop, paddingBottom, qa} = props;
-    const qaAttributes = getQaAttrubutes(qa);
+    const qaAttributes = getQaAttributes(qa);
 
     return (
         <Wrapper
