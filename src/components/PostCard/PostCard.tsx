@@ -3,31 +3,33 @@ import React, {useContext, useMemo} from 'react';
 import {CardBase, HTML, MetrikaGoal, YFMWrapper} from '@gravity-ui/page-constructor';
 
 import {LikesContext} from '../../contexts/LikesContext';
-import {PostData} from '../../models/common';
+import {PostCardSize, PostCardTitleHeadingLevel, PostData} from '../../models/common';
 import {block} from '../../utils/cn';
 import {SuggestPostInfo} from '../PostInfo/SuggestPostInfo';
 
 import './PostCard.scss';
 
-const b = block('post-card');
-
 type PostCardProps = {
     post: PostData;
     fullWidth?: boolean;
     showTag?: boolean;
-    size?: 's' | 'm';
+    size?: PostCardSize;
+    titleHeadingLevel?: PostCardTitleHeadingLevel;
     /**
      * @deprecated Metrika will be deleted after launch of analyticsEvents
      */
     metrikaGoals?: MetrikaGoal;
 };
 
+const b = block('post-card');
+
 export const PostCard: React.FC<PostCardProps> = ({
     post,
     metrikaGoals,
     fullWidth = false,
-    size = 's',
+    size = PostCardSize.SMALL,
     showTag = false,
+    titleHeadingLevel = PostCardTitleHeadingLevel.H3,
 }) => {
     const {
         title: postTitle,
@@ -70,13 +72,14 @@ export const PostCard: React.FC<PostCardProps> = ({
                 {showTag && tags?.[0]?.name && (
                     <div className={b('tag', {size})}>{tags[0].name}</div>
                 )}
-                {title && (
-                    <h4 className={b('title', {size})}>
+                {title &&
+                    React.createElement(
+                        titleHeadingLevel,
+                        {className: b('title', {size})},
                         <span>
                             <HTML>{title}</HTML>
-                        </span>
-                    </h4>
-                )}
+                        </span>,
+                    )}
                 {description && (
                     <YFMWrapper
                         className={b('description')}

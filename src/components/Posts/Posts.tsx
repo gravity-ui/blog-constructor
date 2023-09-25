@@ -4,7 +4,7 @@ import {CardLayoutBlock} from '@gravity-ui/page-constructor';
 import {Button} from '@gravity-ui/uikit';
 
 import {Keyset, i18} from '../../i18n';
-import {PostData} from '../../models/common';
+import {PostCardSize, PostCardTitleHeadingLevel, PostData} from '../../models/common';
 import {block} from '../../utils/cn';
 import {Paginator} from '../Paginator/Paginator';
 import {PostCard} from '../PostCard/PostCard';
@@ -50,7 +50,13 @@ export const Posts: React.FC<PostCardProps> = ({
         <div id={containerId} className={b('cards-container', {isLoading: isFetching})}>
             {pinnedPostOnPage && currentPage === 1 && (
                 <div className={b('pinned-container')}>
-                    <PostCard post={pinnedPostOnPage} size="m" fullWidth showTag />
+                    <PostCard
+                        post={pinnedPostOnPage}
+                        size={PostCardSize.MEDIUM}
+                        fullWidth
+                        showTag
+                        titleHeadingLevel={PostCardTitleHeadingLevel.H2}
+                    />
                 </div>
             )}
             {postsOnPage?.length ? (
@@ -63,7 +69,16 @@ export const Posts: React.FC<PostCardProps> = ({
                     }}
                 >
                     {postsOnPage?.map((post) => (
-                        <PostCard key={post.id} post={post} showTag />
+                        <PostCard
+                            key={post.id}
+                            post={post}
+                            showTag
+                            titleHeadingLevel={
+                                pinnedPostOnPage
+                                    ? PostCardTitleHeadingLevel.H3
+                                    : PostCardTitleHeadingLevel.H2
+                            }
+                        />
                     ))}
                 </CardLayoutBlock>
             ) : (
