@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.1.0](https://github.com/gravity-ui/blog-constructor/compare/v5.0.3...v5.1.0) (2023-09-25)
+
+
+### Features
+
+* use appropriate heading levels for blog post cards ([#103](https://github.com/gravity-ui/blog-constructor/issues/103)) ([22dee91](https://github.com/gravity-ui/blog-constructor/commit/22dee9108f139b46d37b7a8692bdd0a5c39f2a51))
+
 ## [5.0.3](https://github.com/gravity-ui/blog-constructor/compare/v5.0.2...v5.0.3) (2023-09-11)
 
 
