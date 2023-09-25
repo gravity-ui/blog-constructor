@@ -6,7 +6,7 @@ import {PADDING_SIZES} from '../../../../test-utils/constants';
 import {testPaddingBottom, testPaddingTop} from '../../../../test-utils/shared/common';
 import {YFMProps} from '../../../models/blocks';
 import {PaddingSize} from '../../../models/paddings';
-import {getQaAttrubutes} from '../../../utils/common';
+import {getQaAttributes} from '../../../utils/common';
 import {YFM} from '../YFM';
 
 const yfmProps = {
@@ -14,7 +14,7 @@ const yfmProps = {
     qa: 'yfm-block',
 };
 
-const qaAttributes = getQaAttrubutes(yfmProps.qa);
+const qaAttributes = getQaAttributes(yfmProps.qa);
 
 describe('YFM', () => {
     test('render yfm by default', async () => {

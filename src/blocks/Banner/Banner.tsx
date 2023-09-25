@@ -7,7 +7,7 @@ import {BlogMetrikaGoalIds} from '../../constants';
 import {BannerProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
 import {block} from '../../utils/cn';
-import {getBlogElementMetrika, getQaAttrubutes, updateContentSizes} from '../../utils/common';
+import {getBlogElementMetrika, getQaAttributes, updateContentSizes} from '../../utils/common';
 
 import './Banner.scss';
 
@@ -25,7 +25,7 @@ export const Banner: React.FC<BannerProps> = ({
     ...content
 }) => {
     const contentStyle: Record<string, string> = {};
-    const qaAttributes = getQaAttrubutes(qa, BANNER_CUSTOM_QA_ATTRIBUTES);
+    const qaAttributes = getQaAttributes(qa, BANNER_CUSTOM_QA_ATTRIBUTES);
 
     if (color) {
         contentStyle.backgroundColor = color;

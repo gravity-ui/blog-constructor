@@ -22,7 +22,7 @@ import {
 } from '../../../../test-utils/shared/content';
 import {BannerProps} from '../../../models/blocks';
 import {PaddingSize} from '../../../models/paddings';
-import {getQaAttrubutes} from '../../../utils/common';
+import {getQaAttributes} from '../../../utils/common';
 import {Banner} from '../Banner';
 
 type BannerPropsType = Omit<BannerProps, 'title' | 'qa'> & {
@@ -50,8 +50,8 @@ const bannerData: BannerPropsType = {
 
 const imageSizes: Array<BannerProps['imageSize']> = ['m', 's'];
 
-const qaAttributes = getQaAttrubutes(bannerData.qa, ['image-container']);
-const contentQaAttributes = getQaAttrubutes(qaAttributes.content, ['link', 'list']);
+const qaAttributes = getQaAttributes(bannerData.qa, ['image-container']);
+const contentQaAttributes = getQaAttributes(qaAttributes.content, ['link', 'list']);
 
 describe('Banner', () => {
     test('Render by default', async () => {
@@ -136,7 +136,7 @@ describe('Banner', () => {
     });
 
     test('Render with links', async () => {
-        const linkQa = getQaAttrubutes(contentQaAttributes.link, ['normal']);
+        const linkQa = getQaAttributes(contentQaAttributes.link, ['normal']);
         testContentWithLinks<BannerProps>({
             component: Banner,
             props: bannerData,

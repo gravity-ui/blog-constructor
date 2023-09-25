@@ -7,7 +7,7 @@ import {
     NewMetrikaGoal,
     isNewMetrikaFormat,
 } from '@gravity-ui/page-constructor';
-import {camelCase, debounce, memoize} from 'lodash';
+import {camelCase, debounce, flatten, memoize} from 'lodash';
 
 import {
     CONTENT_DEFAULT_COL_SIZES,
@@ -176,16 +176,18 @@ export const scrollOnPageChange = (containerId: string) => {
     }
 };
 
-export const getQaAttrubutes = (qa?: string, customKeys: Array<string> = []) => {
-    const qaObject: Record<string, string> = {};
+export const getQaAttributes = (qa?: string, ...customKeys: (string | Array<string>)[]) => {
+    const attributes: Record<string, string> = {};
 
     if (qa) {
-        const keys = QA_ATTRIBUTES_KEYS.concat(customKeys);
+        const keys = QA_ATTRIBUTES_KEYS.concat(flatten(customKeys));
 
         keys.forEach((key) => {
-            qaObject[camelCase(key)] = `${qa}-${key}`;
+            attributes[camelCase(key)] = `${qa}-${key}`;
         });
+
+        attributes.default = qa;
     }
 
-    return qaObject;
+    return attributes;
 };
