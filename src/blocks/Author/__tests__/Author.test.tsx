@@ -18,7 +18,7 @@ const authorProps = {
     qa: 'author-block',
 };
 
-const RenderComponent: React.FC<AuthorProps> = (props) => {
+const RenderComponent = (props: AuthorProps) => {
     return (
         <PostPageContext.Provider
             value={{post: post as unknown as PostData, suggestedPosts: [] as PostData[]}}

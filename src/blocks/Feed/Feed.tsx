@@ -28,7 +28,7 @@ const CONTAINER_ID = 'blog-cards';
 const PAGE_QUERY = 'page';
 const FIRST_PAGE = 1;
 
-export const Feed: React.FC<FeedProps> = ({image}) => {
+export const Feed = ({image}: FeedProps) => {
     const {
         posts,
         totalCount,

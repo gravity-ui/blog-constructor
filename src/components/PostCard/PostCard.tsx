@@ -23,14 +23,14 @@ type PostCardProps = {
 
 const b = block('post-card');
 
-export const PostCard: React.FC<PostCardProps> = ({
+export const PostCard = ({
     post,
     metrikaGoals,
     fullWidth = false,
     size = PostCardSize.SMALL,
     showTag = false,
     titleHeadingLevel = PostCardTitleHeadingLevel.H3,
-}) => {
+}: PostCardProps) => {
     const {
         title: postTitle,
         htmlTitle,

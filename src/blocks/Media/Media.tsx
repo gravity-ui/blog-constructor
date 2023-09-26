@@ -11,7 +11,7 @@ import './Media.scss';
 
 const b = block('media');
 
-export const Media: React.FC<MediaProps> = ({text, paddingTop, paddingBottom, ...mediaProps}) => (
+export const Media = ({text, paddingTop, paddingBottom, ...mediaProps}: MediaProps) => (
     <Wrapper
         paddings={{
             [PaddingsDirections.top]: paddingTop,

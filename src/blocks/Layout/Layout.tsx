@@ -1,4 +1,4 @@
-import React, {ReactElement, useMemo} from 'react';
+import React, {PropsWithChildren, ReactElement, useMemo} from 'react';
 
 import {
     Col,
@@ -32,13 +32,13 @@ type SortedLayoutItems = {
     right: ReactElement[];
 };
 
-export const Layout: React.FC<LayoutProps> = ({
+export const Layout = ({
     fullWidth,
     mobileOrder,
     children,
     paddingTop = 'xs',
     paddingBottom = 'xs',
-}) => {
+}: PropsWithChildren<LayoutProps>) => {
     const layout: LayoutType = useMemo(() => {
         const layoutConfig: LayoutType = {
             leftCol: {

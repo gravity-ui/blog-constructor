@@ -14,7 +14,7 @@ type DateProps = {
     size?: PostCardSize;
 };
 
-export const Date: React.FC<DateProps> = ({date, size = PostCardSize.SMALL}) => {
+export const Date = ({date, size = PostCardSize.SMALL}: DateProps) => {
     const {locale} = useContext(LocaleContext);
 
     return <div className={b('item', {size})}>{format(date, 'longDate', locale?.code)}</div>;

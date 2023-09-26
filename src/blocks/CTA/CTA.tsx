@@ -13,7 +13,7 @@ import './CTA.scss';
 
 const b = block('cta');
 
-export const CTA: React.FC<CTAProps> = ({items, paddingTop, paddingBottom}) => {
+export const CTA = ({items, paddingTop, paddingBottom}: CTAProps) => {
     /**
      * @deprecated Metrika will be deleted after launch of analyticsEvents
      */

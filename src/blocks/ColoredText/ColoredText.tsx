@@ -12,13 +12,13 @@ import './ColoredText.scss';
 
 const b = block('colored-text');
 
-export const ColoredText: React.FC<ColoredTextProps> = ({
+export const ColoredText = ({
     background,
     paddingTop,
     paddingBottom,
     qa,
     ...content
-}) => {
+}: ColoredTextProps) => {
     const contentData = updateContentSizes(content);
     const qaAttributes = getQaAttributes(qa);
 

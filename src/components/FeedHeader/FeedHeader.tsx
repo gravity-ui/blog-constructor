@@ -23,7 +23,7 @@ type FeedHeaderProps = HeaderProps & ControlsProps;
 
 type FeedHeaderContainerProps = FeedHeaderProps & ClassNameProps;
 
-export const FeedHeader: React.FC<FeedHeaderContainerProps> = ({
+export const FeedHeader = ({
     tags,
     services,
     handleLoadData,
@@ -33,7 +33,7 @@ export const FeedHeader: React.FC<FeedHeaderContainerProps> = ({
     verticalOffset = 'l',
     className,
     queryParams,
-}) => {
+}: FeedHeaderContainerProps) => {
     const backgroundThemed = background && getThemedValue(background, theme as Theme);
 
     return (

@@ -2,7 +2,7 @@ import React from 'react';
 
 import {a11yHiddenSvgProps} from '../utils/svg';
 
-export const DropdownArrow: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+export const DropdownArrow = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 16 16"

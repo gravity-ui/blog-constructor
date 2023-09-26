@@ -26,7 +26,7 @@ type SharingProps = {
     metrikaGoal?: string;
 };
 
-export const Sharing: React.FC<SharingProps> = ({theme, metrikaGoal}) => {
+export const Sharing = ({theme, metrikaGoal}: SharingProps) => {
     const router = useContext(RouterContext);
     const isMobile = useContext(MobileContext);
     const {shareOptions} = useContext(PostPageContext);

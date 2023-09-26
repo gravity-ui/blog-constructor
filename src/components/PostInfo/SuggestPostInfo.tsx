@@ -38,14 +38,14 @@ export interface SuggestPostInfoProps
  *
  * @returns jsx
  */
-export const SuggestPostInfo: React.FC<SuggestPostInfoProps> = ({
+export const SuggestPostInfo = ({
     postId,
     date,
     readingTime,
     likes,
     size = PostCardSize.SMALL,
     qa,
-}) => {
+}: SuggestPostInfoProps) => {
     const {hasUserLike, likesCount, handleLike} = useLikes({
         hasLike: likes?.hasUserLike,
         count: likes?.likesCount,

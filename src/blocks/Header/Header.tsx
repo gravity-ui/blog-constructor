@@ -26,7 +26,7 @@ const breadcrumbsGoals = [
     },
 ];
 
-export const Header: React.FC<HeaderProps> = (props) => {
+export const Header = (props: HeaderProps) => {
     const {theme, paddingTop, paddingBottom} = props;
     const {post} = useContext(PostPageContext);
     const {locale} = useContext(LocaleContext);

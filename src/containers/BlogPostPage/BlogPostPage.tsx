@@ -38,7 +38,7 @@ export interface BlogPostPageProps {
     onClickSignIn?: React.EventHandler<SyntheticEvent>;
 }
 
-export const BlogPostPage: React.FC<BlogPostPageProps> = ({
+export const BlogPostPage = ({
     metaData,
     suggestedPosts,
     likes,
@@ -49,7 +49,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
     shareOptions,
     isSignedInUser = false,
     onClickSignIn,
-}) => {
+}: BlogPostPageProps) => {
     const {hasUserLike, likesCount, handleLike} = useLikes({
         hasLike: likes?.hasUserLike,
         count: likes?.likesCount,
