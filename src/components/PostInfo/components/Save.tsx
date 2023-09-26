@@ -43,7 +43,7 @@ type SaveProps = QAProps & {
  *
  * @returns jsx
  */
-export const Save: React.FC<SaveProps> = ({
+export const Save = ({
     title,
     postId,
     hasUserLike,
@@ -52,7 +52,7 @@ export const Save: React.FC<SaveProps> = ({
     size,
     theme,
     qa,
-}) => {
+}: SaveProps) => {
     const {toggleLike, isSignedInUser, requireSignIn} = useContext(LikesContext);
     const handleAnalytics = useAnalytics(DefaultEventNames.SaveButton);
     const isLikeable = Boolean(toggleLike);

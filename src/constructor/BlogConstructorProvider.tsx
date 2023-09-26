@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, PropsWithChildren} from 'react';
 
 import {AnalyticsContext, AnalyticsContextProps} from '@gravity-ui/page-constructor';
 
@@ -22,7 +22,7 @@ export interface BlogConstructorProviderProps {
     children?: React.ReactNode;
 }
 
-export const BlogConstructorProvider: React.FC<BlogConstructorProviderProps> = ({
+export const BlogConstructorProvider = ({
     isMobile,
     locale = {} as Locale,
     router = {} as RouterContextProps,
@@ -31,7 +31,7 @@ export const BlogConstructorProvider: React.FC<BlogConstructorProviderProps> = (
     analytics = {},
     settings = {},
     children,
-}) => {
+}: PropsWithChildren<BlogConstructorProviderProps>) => {
     const context = [
         <ThemeValueContext.Provider value={{themeValue: theme}} key="theme-context" />,
         <LocaleContext.Provider value={{locale}} key="locale-context" />,

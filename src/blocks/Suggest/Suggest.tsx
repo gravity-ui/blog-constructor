@@ -29,7 +29,7 @@ const metrikaGoals = [
  *
  * @returns -jsx
  */
-export const Suggest: React.FC<SuggestProps> = ({paddingTop = 'l', paddingBottom = 'l'}) => {
+export const Suggest = ({paddingTop = 'l', paddingBottom = 'l'}: SuggestProps) => {
     const {suggestedPosts} = useContext(PostPageContext);
 
     if (suggestedPosts.length === 0) {

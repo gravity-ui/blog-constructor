@@ -15,7 +15,7 @@ const b = block('banner');
 
 const BANNER_CUSTOM_QA_ATTRIBUTES = ['image-container'];
 
-export const Banner: React.FC<BannerProps> = ({
+export const Banner = ({
     color,
     imageSize = 's',
     image,
@@ -23,7 +23,7 @@ export const Banner: React.FC<BannerProps> = ({
     paddingBottom,
     qa,
     ...content
-}) => {
+}: BannerProps) => {
     const contentStyle: Record<string, string> = {};
     const qaAttributes = getQaAttributes(qa, BANNER_CUSTOM_QA_ATTRIBUTES);
 

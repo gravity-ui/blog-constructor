@@ -12,7 +12,7 @@ import './Author.scss';
 
 const b = block('author');
 
-export const Author: React.FC<AuthorProps> = (props) => {
+export const Author = (props: AuthorProps) => {
     const {image, paddingTop, paddingBottom, authorId, qa} = props;
 
     const {post} = useContext(PostPageContext);

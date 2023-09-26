@@ -10,7 +10,7 @@ import {getQaAttributes} from '../../utils/common';
 
 const b = cn('yfm');
 
-export const YFM: React.FC<YFMProps> = (props) => {
+export const YFM = (props: YFMProps) => {
     const {text, paddingTop, paddingBottom, qa} = props;
     const qaAttributes = getQaAttributes(qa);
 

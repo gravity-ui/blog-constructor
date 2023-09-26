@@ -41,14 +41,14 @@ type PostInfoProps = QAProps & {
  *
  * @returns jsx
  */
-export const PostInfo: React.FC<PostInfoProps> = ({
+export const PostInfo = ({
     date,
     readingTime,
     postId,
     theme = 'light',
     metrikaGoals,
     qa,
-}) => {
+}: PostInfoProps) => {
     const {likes} = useContext(PostPageContext);
 
     return (

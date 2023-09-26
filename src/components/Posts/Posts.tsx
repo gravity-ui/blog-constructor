@@ -31,7 +31,7 @@ type PostCardProps = {
     pageCountForShowSupportButtons?: number;
 };
 
-export const Posts: React.FC<PostCardProps> = ({
+export const Posts = ({
     containerId,
     pinnedPostOnPage,
     currentPage,
@@ -44,7 +44,7 @@ export const Posts: React.FC<PostCardProps> = ({
     handleShowMore,
     handlePageChange,
     pageCountForShowSupportButtons,
-}) => (
+}: PostCardProps) => (
     <div className={b()}>
         {isFetching && <div className={b('loaderContainer')} />}
         <div id={containerId} className={b('cards-container', {isLoading: isFetching})}>

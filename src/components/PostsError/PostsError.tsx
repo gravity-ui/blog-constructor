@@ -13,7 +13,7 @@ type PostsErrorContainerProps = {
     onButtonClick?: () => void | Promise<void>;
 };
 
-export const PostsError: React.FC<PostsErrorContainerProps> = ({onButtonClick}) => {
+export const PostsError = ({onButtonClick}: PostsErrorContainerProps) => {
     const handleClick = () => (onButtonClick ? onButtonClick() : window.location.reload());
 
     return (

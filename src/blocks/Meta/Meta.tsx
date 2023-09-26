@@ -31,7 +31,7 @@ const breadcrumbsGoals = [
     },
 ];
 
-export const Meta: React.FC<MetaProps> = (props) => {
+export const Meta = (props: MetaProps) => {
     const {paddingTop = 'l', paddingBottom = 'l', theme = 'light'} = props;
     const {post} = useContext(PostPageContext);
     const {locale} = useContext(LocaleContext);

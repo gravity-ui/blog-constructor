@@ -17,7 +17,7 @@ type ReadingTimeProps = {
     size?: 's' | 'm';
 };
 
-export const ReadingTime: React.FC<ReadingTimeProps> = ({readingTime, size = 's'}) => (
+export const ReadingTime = ({readingTime, size = 's'}: ReadingTimeProps) => (
     <div className={b('item', {size})}>
         <span className={b('icon')}>
             <Icon data={Time} size={ICON_SIZE} className={b('icon-color')} />

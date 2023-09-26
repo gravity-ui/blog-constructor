@@ -40,12 +40,12 @@ const ICON_SIZE = 16;
 const DEFAULT_PAGE = 1;
 const VIRTUALIZATION_THRESHOLD = 1000;
 
-export const Controls: React.FC<ControlsProps> = ({
+export const Controls = ({
     handleLoadData,
     tags = [],
     services = [],
     queryParams,
-}) => {
+}: ControlsProps) => {
     const {hasLikes} = useContext(LikesContext);
     const handleAnalyticsTag = useAnalytics(DefaultEventNames.Tag);
     const handleAnalyticsService = useAnalytics(DefaultEventNames.Service);
