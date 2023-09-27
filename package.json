@@ -7,6 +7,19 @@
     "type": "git",
     "url": "https://github.com/gravity-ui/blog-constructor"
   },
+  "exports": {
+    ".": {
+      "types": "./build/esm/index.d.ts",
+      "require": "./build/cjs/index.js",
+      "import": "./build/esm/index.js"
+    },
+    "./server": {
+      "types": "./server/index.d.ts",
+      "require": "./server/index.js",
+      "import": "./server/index.js"
+    },
+    "./styles/*": "./styles/*"
+  },
   "files": [
     "build",
     "styles",
