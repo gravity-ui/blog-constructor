@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.2.0](https://github.com/gravity-ui/blog-constructor/compare/v5.1.0...v5.2.0) (2023-09-27)
+
+
+### Features
+
+* add exports part in package.json ([#114](https://github.com/gravity-ui/blog-constructor/issues/114)) ([6d6a0ef](https://github.com/gravity-ui/blog-constructor/commit/6d6a0ef253810cda7d1be476030ead9c3c7cc18f))
+
 ## [5.1.0](https://github.com/gravity-ui/blog-constructor/compare/v5.0.3...v5.1.0) (2023-09-25)
 
 
