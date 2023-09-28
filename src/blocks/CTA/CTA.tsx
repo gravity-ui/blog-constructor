@@ -7,13 +7,13 @@ import {BlogMetrikaGoalIds} from '../../constants';
 import {CTAProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
 import {block} from '../../utils/cn';
-import {getBlogElementMetrika, updateContentSizes} from '../../utils/common';
+import {getBlogElementMetrika, getQaAttributes, updateContentSizes} from '../../utils/common';
 
 import './CTA.scss';
 
 const b = block('cta');
 
-export const CTA = ({items, paddingTop, paddingBottom}: CTAProps) => {
+export const CTA = ({items, paddingTop, paddingBottom, qa}: CTAProps) => {
     /**
      * @deprecated Metrika will be deleted after launch of analyticsEvents
      */
@@ -21,6 +21,7 @@ export const CTA = ({items, paddingTop, paddingBottom}: CTAProps) => {
         name: BlogMetrikaGoalIds.cta,
         isCrossSite: true,
     };
+    const qaAttributes = getQaAttributes(qa, 'card');
 
     return (
         <Wrapper
@@ -29,7 +30,7 @@ export const CTA = ({items, paddingTop, paddingBottom}: CTAProps) => {
                 [PaddingsDirections.bottom]: paddingBottom,
             }}
             className={b('content')}
-            qa="blog-cta-content"
+            qa={qaAttributes.wrapper}
         >
             {items.map((content: ContentBlockProps, index: number) => {
                 const contentData = updateContentSizes(content);
@@ -40,8 +41,8 @@ export const CTA = ({items, paddingTop, paddingBottom}: CTAProps) => {
                 });
 
                 return (
-                    <div key={index} className={b('card')} data-qa="blog-cta-card">
-                        <Content {...contentData} />
+                    <div key={index} className={b('card')} data-qa={qaAttributes.card}>
+                        <Content {...contentData} qa={qaAttributes.content} />
                     </div>
                 );
             })}

@@ -33,9 +33,8 @@ export type ColoredTextProps = ContentBlockProps &
         };
     } & PaddingsYFMProps;
 
-export type CTAProps = {
+export type CTAProps = QAProps & {
     items: Array<ContentBlockProps>;
-    columnCount?: number;
 } & PaddingsYFMProps;
 
 export type HeaderProps = HeaderBlockProps & PaddingsYFMProps;
