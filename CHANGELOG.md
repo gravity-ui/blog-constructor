@@ -1,5 +1,13 @@
 # Changelog
 
+## [5.4.0](https://github.com/gravity-ui/blog-constructor/compare/v5.3.0...v5.4.0) (2023-10-05)
+
+
+### Features
+
+* release update react-spring version ([#120](https://github.com/gravity-ui/blog-constructor/issues/120)) ([6db610f](https://github.com/gravity-ui/blog-constructor/commit/6db610f6d2b6f1b8ec867678b130cfc601150da0))
+* update page-constructor to v4.20.0 ([#125](https://github.com/gravity-ui/blog-constructor/issues/125)) ([1ac0334](https://github.com/gravity-ui/blog-constructor/commit/1ac0334a8feba39c5f999d432512ff15277ebadf))
+
 ## [5.3.0](https://github.com/gravity-ui/blog-constructor/compare/v5.2.0...v5.3.0) (2023-10-02)
 
 
