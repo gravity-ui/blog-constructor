@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.4.1](https://github.com/gravity-ui/blog-constructor/compare/v5.4.0...v5.4.1) (2023-10-05)
+
+
+### Bug Fixes
+
+* install-react-spring-out-from-quarantine ([#127](https://github.com/gravity-ui/blog-constructor/issues/127)) ([09a91c3](https://github.com/gravity-ui/blog-constructor/commit/09a91c3b814882ee7675de7c531c94fa88cae4e9))
+
 ## [5.4.0](https://github.com/gravity-ui/blog-constructor/compare/v5.3.0...v5.4.0) (2023-10-05)
 
 
