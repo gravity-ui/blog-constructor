@@ -10,14 +10,12 @@ export const useExtendedComponentMap = (custom: CustomConfig | undefined) =>
             custom
                 ? {
                       ...custom,
-                      blocks:
-                          componentMap.blocks || custom.blocks
-                              ? {...componentMap.blocks, ...custom.blocks}
-                              : undefined,
-                      headers:
-                          componentMap.headers || custom.headers
-                              ? {...componentMap.headers, ...custom.headers}
-                              : undefined,
+                      blocks: custom.blocks
+                          ? {...componentMap.blocks, ...custom.blocks}
+                          : componentMap.blocks,
+                      headers: custom.headers
+                          ? {...componentMap.headers, ...custom.headers}
+                          : componentMap.headers,
                   }
                 : componentMap,
         [custom],
