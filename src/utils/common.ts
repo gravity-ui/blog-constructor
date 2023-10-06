@@ -7,7 +7,10 @@ import {
     NewMetrikaGoal,
     isNewMetrikaFormat,
 } from '@gravity-ui/page-constructor';
-import {camelCase, debounce, flatten, memoize} from 'lodash';
+import camelCase from 'lodash/camelCase';
+import debounce from 'lodash/debounce';
+import flatten from 'lodash/flatten';
+import memoize from 'lodash/memoize';
 
 import {
     CONTENT_DEFAULT_COL_SIZES,

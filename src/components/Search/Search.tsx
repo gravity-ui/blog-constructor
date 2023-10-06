@@ -1,7 +1,7 @@
 import React, {useEffect, useMemo, useRef, useState} from 'react';
 
 import {Icon, TextInput} from '@gravity-ui/uikit';
-import {debounce as lodashDebounce} from 'lodash';
+import lodashDebounce from 'lodash/debounce';
 
 import {useIsIPhone} from '../../hooks/useIsIPhone';
 import {Keyset, i18} from '../../i18n';

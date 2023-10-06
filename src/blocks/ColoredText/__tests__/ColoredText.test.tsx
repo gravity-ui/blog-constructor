@@ -5,7 +5,8 @@ import {
     ContentTheme,
 } from '@gravity-ui/page-constructor/build/esm/models/constructor-items/common';
 import {render, screen} from '@testing-library/react';
-import {omit, pick} from 'lodash';
+import omit from 'lodash/omit';
+import pick from 'lodash/pick';
 
 import {PADDING_SIZES} from '../../../../test-utils/constants';
 import {testPaddingBottom, testPaddingTop} from '../../../../test-utils/shared/common';
