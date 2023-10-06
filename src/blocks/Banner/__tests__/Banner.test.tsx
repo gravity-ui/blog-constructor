@@ -109,28 +109,28 @@ describe('Banner', () => {
     test('Render with title', async () => {
         testContentWithTitle<BannerProps>({
             component: Banner,
-            props: bannerData,
+            props: pick(bannerData, 'title'),
         });
     });
 
     test('Render with text', async () => {
         testContentWithText<BannerProps>({
             component: Banner,
-            props: bannerData,
+            props: pick(bannerData, 'text'),
         });
     });
 
     test('Render with additionalInfo', async () => {
         testContentWithAdditionalInfo<BannerProps>({
             component: Banner,
-            props: bannerData,
+            props: pick(bannerData, 'additionalInfo'),
         });
     });
 
     test.each(new Array<ContentSize>('s', 'l'))('Render with given "%s" size', (size) => {
         testContentWithSize<BannerProps>({
             component: Banner,
-            props: {...bannerData, size},
+            props: {qa: bannerData.qa, size},
             options: {qaId: contentQaAttributes.container},
         });
     });
@@ -139,7 +139,7 @@ describe('Banner', () => {
         const linkQa = getQaAttributes(contentQaAttributes.link, ['normal']);
         testContentWithLinks<BannerProps>({
             component: Banner,
-            props: bannerData,
+            props: pick(bannerData, 'links', 'qa'),
             options: {qaId: linkQa.normal},
         });
     });
@@ -165,7 +165,7 @@ describe('Banner', () => {
         (theme) => {
             testContentWithTheme<BannerProps>({
                 component: Banner,
-                props: {...bannerData, theme},
+                props: {qa: bannerData.qa, theme},
                 options: {qaId: contentQaAttributes.container},
             });
         },
@@ -174,7 +174,7 @@ describe('Banner', () => {
     test('Render with list', async () => {
         testContentWithList<BannerProps>({
             component: Banner,
-            props: bannerData,
+            props: pick(bannerData, 'list', 'qa'),
             options: {qaId: contentQaAttributes.list},
         });
     });

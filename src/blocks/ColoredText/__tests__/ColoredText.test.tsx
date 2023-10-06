@@ -102,28 +102,28 @@ describe('ColoredText', () => {
     test('Render with title', async () => {
         testContentWithTitle<ColoredTextProps>({
             component: ColoredText,
-            props: coloredTextData,
+            props: pick(coloredTextData, 'title'),
         });
     });
 
     test('Render with text', async () => {
         testContentWithText<ColoredTextProps>({
             component: ColoredText,
-            props: coloredTextData,
+            props: pick(coloredTextData, 'text'),
         });
     });
 
     test('Render with additionalInfo', async () => {
         testContentWithAdditionalInfo<ColoredTextProps>({
             component: ColoredText,
-            props: coloredTextData,
+            props: pick(coloredTextData, 'additionalInfo'),
         });
     });
 
     test.each(new Array<ContentSize>('s', 'l'))('Render with given "%s" size', (size) => {
         testContentWithSize<ColoredTextProps>({
             component: ColoredText,
-            props: {...coloredTextData, size},
+            props: {qa: coloredTextData.qa, size},
             options: {qaId: contentQaAttributes.container},
         });
     });
@@ -131,7 +131,7 @@ describe('ColoredText', () => {
     test('Render with centered', async () => {
         testContentWithCentered<ColoredTextProps>({
             component: ColoredText,
-            props: coloredTextData,
+            props: {...pick(coloredTextData, 'centered', 'qa')},
             options: {qaId: contentQaAttributes.container},
         });
     });
@@ -141,7 +141,7 @@ describe('ColoredText', () => {
         (theme) => {
             testContentWithTheme<ColoredTextProps>({
                 component: ColoredText,
-                props: {...coloredTextData, theme},
+                props: {qa: coloredTextData.qa, theme},
                 options: {qaId: contentQaAttributes.container},
             });
         },
@@ -150,7 +150,7 @@ describe('ColoredText', () => {
     test('Render with list', async () => {
         testContentWithList<ColoredTextProps>({
             component: ColoredText,
-            props: coloredTextData,
+            props: pick(coloredTextData, 'list', 'qa'),
             options: {qaId: contentQaAttributes.list},
         });
     });
