@@ -27,6 +27,8 @@ export const CustomSwitcher = ({
     list,
     onClick,
     controlRef,
+    onKeyDown,
+    open,
 }: CustomSwitcherProps) => {
     const itemsNames = useMemo(() => {
         const items = list
@@ -38,10 +40,12 @@ export const CustomSwitcher = ({
     const hasCounter = itemsNames.length > 1;
 
     return (
-        <div
+        <button
             className={b('custom-switcher')}
             onClick={onClick}
-            ref={controlRef as LegacyRef<HTMLDivElement>}
+            ref={controlRef as LegacyRef<HTMLButtonElement>}
+            onKeyDown={onKeyDown}
+            aria-expanded={open}
         >
             <div className={b('custom-switcher-element', {content: true})}>
                 {itemsNames?.join(', ')}
@@ -54,6 +58,6 @@ export const CustomSwitcher = ({
             <div className={b('custom-switcher-element', {arrow: true})}>
                 <Icon data={DropdownArrow} size={ICON_SIZE} className={b('switcher-arrow')} />
             </div>
-        </div>
+        </button>
     );
 };
