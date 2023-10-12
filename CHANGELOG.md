@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.5.0](https://github.com/gravity-ui/blog-constructor/compare/v5.4.1...v5.5.0) (2023-10-12)
+
+
+### Features
+
+* copied from pc ([#131](https://github.com/gravity-ui/blog-constructor/issues/131)) ([5b128b2](https://github.com/gravity-ui/blog-constructor/commit/5b128b278ec6bef3a44387a525d5c9993ffff966))
+
 ## [5.4.1](https://github.com/gravity-ui/blog-constructor/compare/v5.4.0...v5.4.1) (2023-10-05)
 
 
