@@ -20,6 +20,9 @@ $block: '.#{$namespace}feed-custom-switcher';
         width: 100%;
         line-height: 42px;
         text-align: initial;
+        font-family: inherit;
+        padding: 0;
+        margin: 0;
 
         // TODO delete this section after Select can customize the popup list
         & + .yc-popup.yc-popup_open {
