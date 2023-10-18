@@ -98,9 +98,16 @@
 
     a {
         color: var(--g-color-text-link);
+        border-radius: var(--g-focus-border-radius);
 
         &:hover {
             color: var(--g-color-text-link-hover);
+        }
+
+        @include focusable(0, 'box-shadow');
+
+        &:focus {
+            outline: 0;
         }
     }
 
