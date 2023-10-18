@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.6.0](https://github.com/gravity-ui/blog-constructor/compare/v5.5.0...v5.6.0) (2023-10-18)
+
+
+### Features
+
+* added focus styles for interactive elements ([#130](https://github.com/gravity-ui/blog-constructor/issues/130)) ([0ee9b5b](https://github.com/gravity-ui/blog-constructor/commit/0ee9b5b7dca5c62ba1209fc54f324d494203a5c3))
+
 ## [5.5.0](https://github.com/gravity-ui/blog-constructor/compare/v5.4.1...v5.5.0) (2023-10-12)
 
 
