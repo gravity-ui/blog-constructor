@@ -41,6 +41,7 @@ export default {
             await new Promise((resolve) => setTimeout(() => resolve(props), 3000));
         },
         toggleLike: null,
+        hasLikes: true,
     },
 } as Meta;
 
