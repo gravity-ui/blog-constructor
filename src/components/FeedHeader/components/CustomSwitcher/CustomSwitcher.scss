@@ -8,6 +8,7 @@ $block: '.#{$namespace}feed-custom-switcher';
 
     &__custom-switcher {
         @include text-size(body-2);
+        @include focusable();
         position: relative;
 
         display: flex;
@@ -18,6 +19,10 @@ $block: '.#{$namespace}feed-custom-switcher';
         border-radius: var(--g-border-radius-xl);
         width: 100%;
         line-height: 42px;
+        text-align: initial;
+        font-family: inherit;
+        padding: 0;
+        margin: 0;
 
         // TODO delete this section after Select can customize the popup list
         & + .yc-popup.yc-popup_open {
