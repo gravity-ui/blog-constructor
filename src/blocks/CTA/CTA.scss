@@ -11,6 +11,7 @@ $block: '.#{$namespace}cta';
         border-radius: var(--bc-border-radius);
         min-height: 80px;
         align-content: center;
+        /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
         justify-content: center;
         flex-direction: column;
         flex-grow: 1;
