@@ -1,5 +1,6 @@
 import {ReactNode} from 'react';
 
+import {MarkdownItPluginCb} from '@doc-tools/transform/lib/plugins/typings';
 import {HeaderBlockProps as PageConstructorHeaderBlockProps} from '@gravity-ui/page-constructor';
 import {IBrowser, IDevice} from 'ua-parser-js';
 
@@ -210,4 +211,8 @@ export enum PostCardSize {
 export enum PostCardTitleHeadingLevel {
     H2 = 'h2',
     H3 = 'h3',
+}
+
+export interface TransformPostOptions {
+    plugins?: MarkdownItPluginCb[];
 }

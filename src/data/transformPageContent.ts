@@ -1,3 +1,4 @@
+import {MarkdownItPluginCb} from '@doc-tools/transform/lib/plugins/typings';
 import {ConstructorBlock, PageContent} from '@gravity-ui/page-constructor';
 import {contentTransformer} from '@gravity-ui/page-constructor/server';
 import yaml from 'js-yaml';
@@ -16,15 +17,17 @@ type TransformPageContentPropsType = {
     lang: Lang;
     region?: string;
     typographyConfig?: TypographyConfigType;
+    plugins?: MarkdownItPluginCb[];
 };
 
 type TransformBlocksPropsType = {
     blocks: ConstructorBlock[];
     lang: Lang;
     typographyConfig?: TypographyConfigType;
+    plugins?: MarkdownItPluginCb[];
 };
 
-const transformer = ({blocks, lang, typographyConfig}: TransformBlocksPropsType) =>
+const transformer = ({blocks, lang, typographyConfig, plugins}: TransformBlocksPropsType) =>
     contentTransformer({
         content: {
             blocks: blocks || [],
@@ -35,6 +38,7 @@ const transformer = ({blocks, lang, typographyConfig}: TransformBlocksPropsType)
                 ...typographyConfig,
                 ...getExtendTypographyConfig(),
             },
+            plugins,
         },
     });
 
@@ -45,6 +49,7 @@ const transformer = ({blocks, lang, typographyConfig}: TransformBlocksPropsType)
  * @param lang - runtime app lang
  * @param region - runtime app region
  * @param typographyConfig - page-constructor extend typography config
+ * @param plugins - YFM plugins
  * @returns transformed content
  */
 export const transformPageContent = ({
@@ -52,6 +57,7 @@ export const transformPageContent = ({
     lang,
     region,
     typographyConfig = {},
+    plugins,
 }: TransformPageContentPropsType) => {
     try {
         const transformedContent = filterContent(yaml.load(content) as PageContent, {lang, region});
@@ -61,6 +67,7 @@ export const transformPageContent = ({
                 blocks: transformedContent.blocks,
                 lang,
                 typographyConfig,
+                plugins,
             });
 
             transformedContent.blocks = transformedBlocks;
