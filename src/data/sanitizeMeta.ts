@@ -13,11 +13,14 @@ export const sanitizeMeta = (metaData: PostMetaProps) => {
     // this func for resolve type conflicts in reduce method
     const stringObjectKeys = <K extends string, V>(obj: Record<K, V>) => Object.keys(obj) as K[];
 
-    const sanitizedOrganization = stringObjectKeys(organization).reduce((acc, current) => {
-        acc[current] = sanitizeHtml(organization[current]);
+    const sanitizedOrganization = stringObjectKeys(organization).reduce(
+        (acc, current) => {
+            acc[current] = sanitizeHtml(organization[current]);
 
-        return acc;
-    }, {} as PostMetaProps['organization']);
+            return acc;
+        },
+        {} as PostMetaProps['organization'],
+    );
 
     return {
         ...metaData,

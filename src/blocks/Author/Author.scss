@@ -33,6 +33,7 @@ $block: '.#{$namespace}author';
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
+        /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
         align-content: flex-start;
         position: relative;
     }

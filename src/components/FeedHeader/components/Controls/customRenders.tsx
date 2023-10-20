@@ -27,18 +27,17 @@ type RenderSwitcherType = ({
 export const renderSwitcher: RenderSwitcherType =
     ({initial, list, defaultLabel}) =>
     // eslint-disable-next-line react/display-name
-    ({onClick, ref, onKeyDown, open}) =>
-        (
-            <CustomSwitcher
-                initial={initial}
-                defaultLabel={defaultLabel}
-                list={list}
-                controlRef={ref}
-                onClick={onClick}
-                onKeyDown={onKeyDown}
-                open={open}
-            />
-        );
+    ({onClick, ref, onKeyDown, open}) => (
+        <CustomSwitcher
+            initial={initial}
+            defaultLabel={defaultLabel}
+            list={list}
+            controlRef={ref}
+            onClick={onClick}
+            onKeyDown={onKeyDown}
+            open={open}
+        />
+    );
 
 export const renderFilter: SelectProps['renderFilter'] = ({value, ref, onChange, onKeyDown}) => (
     <TextInput
