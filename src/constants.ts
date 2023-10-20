@@ -33,5 +33,5 @@ export enum BlogMetrikaGoalIds {
 
 export const DEFAULT_PADDINGS: Paddings = {
     [PaddingsDirections.bottom]: 'l',
-    [PaddingsDirections.top]: 'xs',
+    [PaddingsDirections.top]: '0',
 };
