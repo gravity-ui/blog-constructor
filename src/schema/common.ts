@@ -31,4 +31,7 @@ export const BlogBlockBase = {
         type: 'string',
         enum: ['left', 'right'],
     },
+    qa: {
+        type: 'string',
+    },
 };
