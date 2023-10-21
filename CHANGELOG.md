@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.7.1](https://github.com/gravity-ui/blog-constructor/compare/v5.7.0...v5.7.1) (2023-10-21)
+
+
+### Bug Fixes
+
+* add QA to block schemas ([#123](https://github.com/gravity-ui/blog-constructor/issues/123)) ([cf5d8ca](https://github.com/gravity-ui/blog-constructor/commit/cf5d8ca9a768229ee514cad5b7b249e94a734bb2))
+
 ## [5.7.0](https://github.com/gravity-ui/blog-constructor/compare/v5.6.0...v5.7.0) (2023-10-20)
 
 
