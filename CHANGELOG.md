@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.7.2](https://github.com/gravity-ui/blog-constructor/compare/v5.7.1...v5.7.2) (2023-10-26)
+
+
+### Bug Fixes
+
+* max-height of post description ([#140](https://github.com/gravity-ui/blog-constructor/issues/140)) ([3bf7e02](https://github.com/gravity-ui/blog-constructor/commit/3bf7e02d2ad6c6c3dc0e915f0e66ff37f77de4e6))
+
 ## [5.7.1](https://github.com/gravity-ui/blog-constructor/compare/v5.7.0...v5.7.1) (2023-10-21)
 
 
