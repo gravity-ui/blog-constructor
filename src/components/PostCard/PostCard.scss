@@ -76,7 +76,7 @@ $block: '.#{$namespace}post-card';
         color: var(--g-color-text-primary);
 
         @supports (-webkit-line-clamp: $linesToShow) {
-            max-height: auto;
+            max-height: none;
             -webkit-line-clamp: $linesToShow;
         }
 
