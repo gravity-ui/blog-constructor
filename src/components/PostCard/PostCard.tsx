@@ -65,11 +65,22 @@ export const PostCard = ({
     const titleId = useUniqId();
     const descriptionId = useUniqId();
     const dateId = useUniqId();
+    const tagId = useUniqId();
     const readingTimeId = useUniqId();
-    const describedBy = useMemo(
-        () => [descriptionId, dateId, readingTimeId].join(' '),
-        [dateId, descriptionId, readingTimeId],
-    );
+    const isTagVisible = showTag && tags?.[0]?.name;
+    const labelledBy = useMemo(() => {
+        const labels = [isTagVisible && tagId, title && titleId];
+
+        return labels.filter(Boolean).join(' ');
+    }, [isTagVisible, tagId, title, titleId]);
+    const describedBy = useMemo(() => {
+        const descriptions = [
+            description && descriptionId,
+            date && dateId,
+            readingTime && readingTimeId,
+        ];
+        return descriptions.filter(Boolean).join(' ');
+    }, [date, dateId, description, descriptionId, readingTime, readingTimeId]);
 
     return (
         <CardBase
@@ -78,15 +89,17 @@ export const PostCard = ({
             className={b('card', {fullWidth})}
             extraProps={{
                 'aria-describedby': describedBy,
-                'aria-labelledby': titleId,
+                'aria-labelledby': labelledBy,
             }}
         >
             <CardBase.Header image={image} className={b('header', {fullWidth})}>
                 <div className={b('image-container')} data-qa="blog-suggest-header" />
             </CardBase.Header>
             <CardBase.Content>
-                {showTag && tags?.[0]?.name && (
-                    <div className={b('tag', {size})}>{tags[0].name}</div>
+                {isTagVisible && (
+                    <div id={tagId} className={b('tag', {size})}>
+                        {tags[0].name}
+                    </div>
                 )}
                 {title &&
                     React.createElement(
