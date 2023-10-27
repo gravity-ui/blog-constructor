@@ -27,6 +27,8 @@ type PostInfoProps = QAProps & {
      * @deprecated Metrika will be deleted after launch of analyticsEvents
      */
     metrikaGoals?: BlogMetrikaGoals;
+    dateId?: string;
+    readingTimeId?: string;
 };
 
 /**

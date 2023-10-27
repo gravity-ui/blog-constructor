@@ -12,10 +12,15 @@ const b = block('post-info');
 type DateProps = {
     date: string | number;
     size?: PostCardSize;
+    id?: string;
 };
 
-export const Date = ({date, size = PostCardSize.SMALL}: DateProps) => {
+export const Date = ({date, size = PostCardSize.SMALL, id}: DateProps) => {
     const {locale} = useContext(LocaleContext);
 
-    return <div className={b('item', {size})}>{format(date, 'longDate', locale?.code)}</div>;
+    return (
+        <div className={b('item', {size})} id={id}>
+            {format(date, 'longDate', locale?.code)}
+        </div>
+    );
 };

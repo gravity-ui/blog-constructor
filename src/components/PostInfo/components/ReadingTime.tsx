@@ -15,10 +15,11 @@ const ICON_SIZE = 16;
 type ReadingTimeProps = {
     readingTime: number;
     size?: 's' | 'm';
+    id?: string;
 };
 
-export const ReadingTime = ({readingTime, size = 's'}: ReadingTimeProps) => (
-    <div className={b('item', {size})}>
+export const ReadingTime = ({readingTime, size = 's', id}: ReadingTimeProps) => (
+    <div className={b('item', {size})} id={id}>
         <span className={b('icon')}>
             <Icon data={Time} size={ICON_SIZE} className={b('icon-color')} />
         </span>

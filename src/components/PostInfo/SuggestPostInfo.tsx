@@ -7,7 +7,6 @@ import {block} from '../../utils/cn';
 import {Date} from './components/Date';
 import {ReadingTime} from './components/ReadingTime';
 import {Save} from './components/Save';
-
 import './PostInfo.scss';
 
 const b = block('post-info');
@@ -22,6 +21,8 @@ export interface SuggestPostInfoProps
         hasUserLike?: boolean;
         toggleLike?: ToggleLikeCallbackType;
     };
+    dateId?: string;
+    readingTimeId?: string;
 }
 
 /**
@@ -45,6 +46,8 @@ export const SuggestPostInfo = ({
     likes,
     size = PostCardSize.SMALL,
     qa,
+    dateId,
+    readingTimeId,
 }: SuggestPostInfoProps) => {
     const {hasUserLike, likesCount, handleLike} = useLikes({
         hasLike: likes?.hasUserLike,
@@ -56,8 +59,10 @@ export const SuggestPostInfo = ({
     return (
         <div className={b('container')}>
             <div className={b('suggest-container')}>
-                {date && <Date date={date} size={size} />}
-                {readingTime && <ReadingTime readingTime={readingTime} size={size} />}
+                {date && <Date date={date} size={size} id={dateId} />}
+                {readingTime && (
+                    <ReadingTime readingTime={readingTime} size={size} id={readingTimeId} />
+                )}
             </div>
             {likes && postId && (
                 <Save

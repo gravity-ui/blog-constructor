@@ -1,6 +1,6 @@
 import React, {useContext, useMemo} from 'react';
-
 import {CardBase, HTML, MetrikaGoal, YFMWrapper} from '@gravity-ui/page-constructor';
+import {useUniqId} from '@gravity-ui/uikit';
 
 import {LikesContext} from '../../contexts/LikesContext';
 import {PostCardSize, PostCardTitleHeadingLevel, PostData} from '../../models/common';
@@ -62,9 +62,25 @@ export const PostCard = ({
                 : undefined,
         [hasUserLike, likes, toggleLike, hasLikes],
     );
+    const titleId = useUniqId();
+    const descriptionId = useUniqId();
+    const dateId = useUniqId();
+    const readingTimeId = useUniqId();
+    const describedBy = useMemo(
+        () => [descriptionId, dateId, readingTimeId].join(' '),
+        [dateId, descriptionId, readingTimeId],
+    );
 
     return (
-        <CardBase url={url} metrikaGoals={metrikaGoals} className={b('card', {fullWidth})}>
+        <CardBase
+            url={url}
+            metrikaGoals={metrikaGoals}
+            className={b('card', {fullWidth})}
+            extraProps={{
+                'aria-describedby': describedBy,
+                'aria-labelledby': titleId,
+            }}
+        >
             <CardBase.Header image={image} className={b('header', {fullWidth})}>
                 <div className={b('image-container')} data-qa="blog-suggest-header" />
             </CardBase.Header>
@@ -77,7 +93,7 @@ export const PostCard = ({
                         titleHeadingLevel,
                         {className: b('title', {size})},
                         <span>
-                            <HTML>{title}</HTML>
+                            <HTML id={titleId}>{title}</HTML>
                         </span>,
                     )}
                 {description && (
@@ -88,6 +104,7 @@ export const PostCard = ({
                             blog: size === 'm',
                             blogCard: true,
                         }}
+                        id={descriptionId}
                     />
                 )}
             </CardBase.Content>
@@ -100,6 +117,8 @@ export const PostCard = ({
                     likes={likesProps}
                     size={size}
                     qa="blog-suggest-block"
+                    dateId={dateId}
+                    readingTimeId={readingTimeId}
                 />
             </CardBase.Footer>
         </CardBase>
