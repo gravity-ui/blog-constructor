@@ -68,19 +68,17 @@ export const PostCard = ({
     const tagId = useUniqId();
     const readingTimeId = useUniqId();
     const isTagVisible = showTag && tags?.[0]?.name;
-    const labelledBy = useMemo(() => {
-        const labels = [isTagVisible && tagId, title && titleId];
-
-        return labels.filter(Boolean).join(' ');
-    }, [isTagVisible, tagId, title, titleId]);
-    const describedBy = useMemo(() => {
-        const descriptions = [
-            description && descriptionId,
-            date && dateId,
-            readingTime && readingTimeId,
-        ];
-        return descriptions.filter(Boolean).join(' ');
-    }, [date, dateId, description, descriptionId, readingTime, readingTimeId]);
+    const labelledBy = useMemo(
+        () => [isTagVisible && tagId, title && titleId].filter(Boolean).join(' '),
+        [isTagVisible, tagId, title, titleId],
+    );
+    const describedBy = useMemo(
+        () =>
+            [description && descriptionId, date && dateId, readingTime && readingTimeId]
+                .filter(Boolean)
+                .join(' '),
+        [date, dateId, description, descriptionId, readingTime, readingTimeId],
+    );
 
     return (
         <CardBase
