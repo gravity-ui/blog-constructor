@@ -1,11 +1,12 @@
 import React, {useContext, useMemo} from 'react';
-
 import {CardBase, HTML, MetrikaGoal, YFMWrapper} from '@gravity-ui/page-constructor';
+import {useUniqId} from '@gravity-ui/uikit';
 
 import {LikesContext} from '../../contexts/LikesContext';
 import {PostCardSize, PostCardTitleHeadingLevel, PostData} from '../../models/common';
 import {block} from '../../utils/cn';
 import {SuggestPostInfo} from '../PostInfo/SuggestPostInfo';
+import {useAriaAttributes} from '../../hooks/useAriaAttributes';
 
 import './PostCard.scss';
 
@@ -62,22 +63,43 @@ export const PostCard = ({
                 : undefined,
         [hasUserLike, likes, toggleLike, hasLikes],
     );
+    const titleId = useUniqId();
+    const descriptionId = useUniqId();
+    const dateId = useUniqId();
+    const tagId = useUniqId();
+    const readingTimeId = useUniqId();
+    const isTagVisible = showTag && tags?.[0]?.name;
+    const ariaAttributes = useAriaAttributes({
+        labelIds: [isTagVisible && tagId, title && titleId],
+        descriptionIds: [
+            description && descriptionId,
+            date && dateId,
+            readingTime && readingTimeId,
+        ],
+    });
 
     return (
-        <CardBase url={url} metrikaGoals={metrikaGoals} className={b('card', {fullWidth})}>
+        <CardBase
+            url={url}
+            metrikaGoals={metrikaGoals}
+            className={b('card', {fullWidth})}
+            extraProps={ariaAttributes}
+        >
             <CardBase.Header image={image} className={b('header', {fullWidth})}>
                 <div className={b('image-container')} data-qa="blog-suggest-header" />
             </CardBase.Header>
             <CardBase.Content>
-                {showTag && tags?.[0]?.name && (
-                    <div className={b('tag', {size})}>{tags[0].name}</div>
+                {isTagVisible && (
+                    <div id={tagId} className={b('tag', {size})}>
+                        {tags[0].name}
+                    </div>
                 )}
                 {title &&
                     React.createElement(
                         titleHeadingLevel,
                         {className: b('title', {size})},
                         <span>
-                            <HTML>{title}</HTML>
+                            <HTML id={titleId}>{title}</HTML>
                         </span>,
                     )}
                 {description && (
@@ -88,6 +110,7 @@ export const PostCard = ({
                             blog: size === 'm',
                             blogCard: true,
                         }}
+                        id={descriptionId}
                     />
                 )}
             </CardBase.Content>
@@ -100,6 +123,8 @@ export const PostCard = ({
                     likes={likesProps}
                     size={size}
                     qa="blog-suggest-block"
+                    dateId={dateId}
+                    readingTimeId={readingTimeId}
                 />
             </CardBase.Footer>
         </CardBase>
