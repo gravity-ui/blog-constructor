@@ -36,6 +36,8 @@ export interface SuggestPostInfoProps
  * @param qa - test-attr
  * @param size - text size
  * @param isModernIcon - flag what we need render 'bookmark' icon
+ * @param dateId - id value for element with post date. Useful when providing accessible description
+ * @param readingTimeId - id value for element with reading time. Useful when providing accessible description
  *
  * @returns jsx
  */
