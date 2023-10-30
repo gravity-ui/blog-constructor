@@ -6,6 +6,7 @@ import {LikesContext} from '../../contexts/LikesContext';
 import {PostCardSize, PostCardTitleHeadingLevel, PostData} from '../../models/common';
 import {block} from '../../utils/cn';
 import {SuggestPostInfo} from '../PostInfo/SuggestPostInfo';
+import {useAriaAttributes} from '../../hooks/useAriaAttributes';
 
 import './PostCard.scss';
 
@@ -68,27 +69,21 @@ export const PostCard = ({
     const tagId = useUniqId();
     const readingTimeId = useUniqId();
     const isTagVisible = showTag && tags?.[0]?.name;
-    const labelledBy = useMemo(
-        () => [isTagVisible && tagId, title && titleId].filter(Boolean).join(' '),
-        [isTagVisible, tagId, title, titleId],
-    );
-    const describedBy = useMemo(
-        () =>
-            [description && descriptionId, date && dateId, readingTime && readingTimeId]
-                .filter(Boolean)
-                .join(' '),
-        [date, dateId, description, descriptionId, readingTime, readingTimeId],
-    );
+    const ariaAttributes = useAriaAttributes({
+        labelIds: [isTagVisible && tagId, title && titleId],
+        descriptionIds: [
+            description && descriptionId,
+            date && dateId,
+            readingTime && readingTimeId,
+        ],
+    });
 
     return (
         <CardBase
             url={url}
             metrikaGoals={metrikaGoals}
             className={b('card', {fullWidth})}
-            extraProps={{
-                'aria-describedby': describedBy,
-                'aria-labelledby': labelledBy,
-            }}
+            extraProps={ariaAttributes}
         >
             <CardBase.Header image={image} className={b('header', {fullWidth})}>
                 <div className={b('image-container')} data-qa="blog-suggest-header" />
