@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.7.3](https://github.com/gravity-ui/blog-constructor/compare/v5.7.2...v5.7.3) (2023-10-30)
+
+
+### chore
+
+* bump release ([#145](https://github.com/gravity-ui/blog-constructor/issues/145)) ([8c8a121](https://github.com/gravity-ui/blog-constructor/commit/8c8a121022ad340c276ba49874b001aa7a18b473))
+
 ## [5.7.2](https://github.com/gravity-ui/blog-constructor/compare/v5.7.1...v5.7.2) (2023-10-26)
 
 
