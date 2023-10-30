@@ -1,6 +1,6 @@
 import {typografToHTML, typografToText, yfmTransformer} from '@gravity-ui/page-constructor/server';
 
-import {PostData} from '../models/common';
+import {PostData, TransformPostOptions} from '../models/common';
 import {Lang} from '../models/locale';
 
 /**
@@ -9,9 +9,14 @@ import {Lang} from '../models/locale';
  * @param postData - post data
  * @param lang - runtime language
  *
+ * @param plugins - YFM plugins list
  * @returns -prepared post
  */
-export const transformPost = (postData: PostData, lang: Lang) => {
+export const transformPost = (
+    postData: PostData,
+    lang: Lang,
+    {plugins}: TransformPostOptions = {},
+) => {
     if (!postData) {
         // eslint-disable-next-line no-console
         console.error('Post not found');
@@ -28,6 +33,6 @@ export const transformPost = (postData: PostData, lang: Lang) => {
         textTitle: typografToText(title, lang),
         htmlTitle: typografToHTML(title, lang),
         metaTitle: metaTitle || title,
-        description: yfmTransformer(lang, description as string),
+        description: yfmTransformer(lang, description as string, {plugins}),
     };
 };
