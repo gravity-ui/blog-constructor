@@ -1,5 +1,13 @@
 # Changelog
 
+## [5.8.0](https://github.com/gravity-ui/blog-constructor/compare/v5.7.3...v5.8.0) (2023-10-30)
+
+
+### Features
+
+* adding labelledby and describedby attributes for post card ([#142](https://github.com/gravity-ui/blog-constructor/issues/142)) ([7079de4](https://github.com/gravity-ui/blog-constructor/commit/7079de4f2477af307beebf05634eb81fe07c0fcf))
+* yfm plugins parameter ([#143](https://github.com/gravity-ui/blog-constructor/issues/143)) ([cc971a9](https://github.com/gravity-ui/blog-constructor/commit/cc971a9a424f90a2b91c95ac3f44006a7fd04f10))
+
 ## [5.7.3](https://github.com/gravity-ui/blog-constructor/compare/v5.7.2...v5.7.3) (2023-10-30)
 
 
