@@ -3,10 +3,11 @@
 ## [5.7.3](https://github.com/gravity-ui/blog-constructor/compare/v5.7.2...v5.7.3) (2023-10-30)
 
 
-### chore
+### Сhore
 
 * remove useless dependency on react-spring
 * update devDependency on page-constructor
+  
 ## [5.7.2](https://github.com/gravity-ui/blog-constructor/compare/v5.7.1...v5.7.2) (2023-10-26)
 
 
