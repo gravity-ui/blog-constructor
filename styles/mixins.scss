@@ -4,12 +4,16 @@
 
 @mixin paddings() {
     &_padding-top {
+        &_0 {
+            padding-top: 0;
+        }
+
         &_xs {
-            padding-top: 0px;
+            padding-top: $indentXS;
         }
 
         &_s {
-            padding-top: $indentXS;
+            padding-top: $indentSM;
         }
 
         &_m {
@@ -26,12 +30,16 @@
     }
 
     &_padding-bottom {
+        &_0 {
+            padding-bottom: 0;
+        }
+
         &_xs {
-            padding-bottom: 0px;
+            padding-bottom: $indentXS;
         }
 
         &_s {
-            padding-bottom: $indentXS;
+            padding-bottom: $indentSM;
         }
 
         &_m {

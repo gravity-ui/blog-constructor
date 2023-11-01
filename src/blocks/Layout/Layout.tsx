@@ -36,8 +36,8 @@ export const Layout = ({
     fullWidth,
     mobileOrder,
     children,
-    paddingTop = 'xs',
-    paddingBottom = 'xs',
+    paddingTop = '0',
+    paddingBottom = '0',
 }: PropsWithChildren<LayoutProps>) => {
     const layout: LayoutType = useMemo(() => {
         const layoutConfig: LayoutType = {

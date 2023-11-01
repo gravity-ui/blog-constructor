@@ -24,7 +24,7 @@ export const Wrapper: React.FunctionComponent<WrapperProps> = ({
     <section
         className={b(
             {
-                ['padding-top']: paddings?.top || 'xs',
+                ['padding-top']: paddings?.top || '0',
                 ['padding-bottom']: paddings?.bottom || 'l',
                 ['padding-left']: paddings?.left || '',
                 ['padding-right']: paddings?.right || '',
