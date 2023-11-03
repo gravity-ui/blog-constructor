@@ -8,6 +8,7 @@ import {Date} from './components/Date';
 import {ReadingTime} from './components/ReadingTime';
 import {Save} from './components/Save';
 import {Sharing} from './components/Sharing';
+import {getQaAttributes} from '../../utils/common';
 
 import './PostInfo.scss';
 
@@ -50,11 +51,12 @@ export const PostInfo = ({
     qa,
 }: PostInfoProps) => {
     const {likes} = useContext(PostPageContext);
+    const qaAttributes = getQaAttributes(qa, 'date', 'reading-time', 'save');
 
     return (
         <div className={b('container', {theme})}>
-            {date && <Date date={date} />}
-            {readingTime && <ReadingTime readingTime={readingTime} />}
+            {date && <Date date={date} qa={qaAttributes.date} />}
+            {readingTime && <ReadingTime readingTime={readingTime} qa={qaAttributes.readingTime} />}
             <Sharing metrikaGoal={metrikaGoals?.sharing} theme={theme} />
             {likes && (
                 <Save
@@ -64,7 +66,7 @@ export const PostInfo = ({
                     handleUserLike={likes.handleUserLike}
                     metrikaGoal={metrikaGoals?.save}
                     theme={theme}
-                    qa={qa}
+                    qa={qaAttributes.save}
                 />
             )}
         </div>

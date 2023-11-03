@@ -51,7 +51,7 @@ export type MediaProps = ClassNameProps &
         text?: string;
     };
 
-export type MetaProps = {
+export type MetaProps = QAProps & {
     locale: string;
     theme?: TextTheme;
 } & PaddingsYFMProps;

@@ -81,7 +81,7 @@ export const Save = ({
                 metrika.reachGoal(MetrikaCounter.CrossSite, metrikaGoal);
                 handleAnalytics();
             }}
-            data-qa={`${qa ? qa + '-' : ''}save`}
+            data-qa={qa}
         >
             <div className={b('content', {cursor: isLikeable, theme})}>
                 <span className={b('icon')}>
