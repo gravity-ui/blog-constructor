@@ -37,21 +37,23 @@ const Goal = {
 
 const HIT_COUNTERS = ['main', 'cross-site', 'scale'];
 
-const counterIds = {};
+const counterIds: Record<string, string> = {};
 
-function getCounter(name) {
+function getCounter(name: string) {
     const counterId = counterIds[name];
 
-    return window['yaCounter' + counterId];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return (window as unknown as Record<string, any>)['yaCounter' + counterId];
 }
 
-export function initCounters(configs) {
+export function initCounters(configs: Record<string, string>[]) {
     configs.forEach((config) => {
         counterIds[config.name] = config.id;
     });
 }
 
-function hit(...args) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function hit(...args: any[]) {
     HIT_COUNTERS.forEach((counterName) => {
         const counter = getCounter(counterName);
 
@@ -63,7 +65,8 @@ function hit(...args) {
     });
 }
 
-function params(...args) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function params(...args: Record<string, any>[]) {
     const counter = getCounter('main');
 
     if (!counter) {
@@ -73,7 +76,8 @@ function params(...args) {
     counter.params(...args);
 }
 
-function reachGoal(counterName, ...args) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function reachGoal(counterName: string, ...args: any[]) {
     const counter = getCounter(counterName);
 
     if (!counter) {
@@ -83,7 +87,7 @@ function reachGoal(counterName, ...args) {
     counter.reachGoal(...args);
 }
 
-function reachGoals(goals, counterName = 'main') {
+function reachGoals(goals: string | object, counterName = 'main') {
     if (!goals) {
         return;
     }
@@ -100,7 +104,7 @@ function reachGoals(goals, counterName = 'main') {
 }
 
 // eslint-disable-next-line complexity
-function getServicePrefix(id) {
+function getServicePrefix(id: string) {
     switch (id) {
         case 'compute':
             return 'CMPT';
@@ -149,39 +153,39 @@ function getServicePrefix(id) {
     return undefined;
 }
 
-function getMarketPlacePrefix(id) {
+function getMarketPlacePrefix(id: string) {
     return `product_${id}_`;
 }
 
-function goalGoToConsole(prefix) {
+function goalGoToConsole(prefix: string) {
     return prefix && `${prefix}GOTOCONSOLE`;
 }
 
-function goalGoToForm(prefix) {
+function goalGoToForm(prefix: string) {
     return prefix && `${prefix}GOTOFORM`;
 }
 
-function goalGoToDocs(prefix) {
+function goalGoToDocs(prefix: string) {
     return prefix && `${prefix}GOTODOCS`;
 }
 
-function goalFormSubmit(prefix) {
+function goalFormSubmit(prefix: string) {
     return prefix && `${prefix}FORMSUBMIT`;
 }
 
-function goalEventFormSubmit(id) {
+function goalEventFormSubmit(id: string) {
     return `event${id || 's'}_form_submit`;
 }
 
-function goalEventVideoAction(id, action) {
+function goalEventVideoAction(id: string, action: string) {
     return `event${id}_video_${action}`;
 }
 
-function goalCaseFormSubmit(id) {
+function goalCaseFormSubmit(id: string) {
     return `case${id ? `_${id}` : 's'}_form_submit`;
 }
 
-function goalSwitchLang(place) {
+function goalSwitchLang(place: string) {
     return `SWITCH_LANG_${place}`;
 }
 

@@ -6,7 +6,7 @@ import {useAnalytics} from '@gravity-ui/page-constructor';
 import {MobileContext} from '../../../contexts/MobileContext';
 import {PostPageContext} from '../../../contexts/PostPageContext';
 import {RouterContext} from '../../../contexts/RouterContext';
-import metrika from '../../../counters/metrika.js';
+import metrika from '../../../counters/metrika';
 import {MetrikaCounter} from '../../../counters/utils';
 import {Keyset, i18} from '../../../i18n';
 import {ShareArrowUp} from '../../../icons/ShareArrowUp';

@@ -15,7 +15,7 @@ import {RouterContext} from '../../contexts/RouterContext';
 /**
  * @deprecated Metrika will be deleted after launch of analyticsEvents
  */
-import metrika from '../../counters/metrika.js';
+import metrika from '../../counters/metrika';
 import {MetrikaCounter} from '../../counters/utils';
 import {FeedProps} from '../../models/blocks';
 import {DefaultEventNames, FetchArgs, HandleChangeQueryParams} from '../../models/common';
