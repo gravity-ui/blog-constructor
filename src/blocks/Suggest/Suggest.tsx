@@ -46,6 +46,7 @@ export const Suggest = ({paddingTop = 'l', paddingBottom = 'l'}: SuggestProps) =
             <SliderBlock
                 slidesToShow={{xl: 3, lg: 2, sm: 1}}
                 title={{text: i18(Keyset.TitleSuggest)}}
+                lazyLoad={false}
             >
                 {suggestedPosts.map((post) => (
                     <PostCard key={post.id} metrikaGoals={metrikaGoals} post={post} />
