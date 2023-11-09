@@ -2,8 +2,8 @@ import React from 'react';
 
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {PADDING_SIZES} from '../../../../test-utils/constants';
-import {testPaddingBottom, testPaddingTop} from '../../../../test-utils/shared/common';
+import {PADDING_SIZES_BY_PADDING_TYPE} from '../../../../test-utils/constants';
+import {testPadding} from '../../../../test-utils/shared/common';
 import {MetaProps} from '../../../models/blocks';
 import {PaddingSize} from '../../../models/paddings';
 import {getQaAttributes} from '../../../utils/common';
@@ -106,24 +106,13 @@ describe('Meta', () => {
         expect(component).toHaveTextContent(likes.likesCount.toString());
     });
 
-    test.each(new Array<PaddingSize>(...PADDING_SIZES))(
-        'render with given "%s" paddingTop size',
-        (size: PaddingSize) => {
-            testPaddingTop<MetaProps>({
+    test.each(new Array<Record<string, PaddingSize>>(...PADDING_SIZES_BY_PADDING_TYPE))(
+        'render with given "%s" padding size',
+        ({optionKey, paddingSize}: Record<string, PaddingSize>) => {
+            testPadding<MetaProps>({
                 component: RenderComponent,
-                props: {...metaProps, paddingTop: size},
-                options: {qaId: qaAttributes.wrapper},
-            });
-        },
-    );
-
-    test.each(new Array<PaddingSize>(...PADDING_SIZES))(
-        'render with given "%s" paddingBottom size',
-        (size: PaddingSize) => {
-            testPaddingBottom<MetaProps>({
-                component: RenderComponent,
-                props: {...metaProps, paddingBottom: size},
-                options: {qaId: qaAttributes.wrapper},
+                props: {...metaProps, [optionKey]: paddingSize},
+                options: {qaId: qaAttributes.wrapper, paddingKey: optionKey},
             });
         },
     );
