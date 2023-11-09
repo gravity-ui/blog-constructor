@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.10.0](https://github.com/gravity-ui/blog-constructor/compare/v5.9.0...v5.10.0) (2023-11-09)
+
+
+### Features
+
+* del extra req ([#151](https://github.com/gravity-ui/blog-constructor/issues/151)) ([03c9d0d](https://github.com/gravity-ui/blog-constructor/commit/03c9d0d5b2b4158239a0de30c67c7375e1465322))
+
 ## [5.9.0](https://github.com/gravity-ui/blog-constructor/compare/v5.8.0...v5.9.0) (2023-11-07)
 
 
