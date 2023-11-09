@@ -4,7 +4,7 @@ import {useAnalytics} from '@gravity-ui/page-constructor';
 import {Icon} from '@gravity-ui/uikit';
 
 import {LikesContext} from '../../../contexts/LikesContext';
-import metrika from '../../../counters/metrika.js';
+import metrika from '../../../counters/metrika';
 import {MetrikaCounter} from '../../../counters/utils';
 import {Save as SaveIcon} from '../../../icons/Save';
 import {SaveFilled} from '../../../icons/SaveFilled';

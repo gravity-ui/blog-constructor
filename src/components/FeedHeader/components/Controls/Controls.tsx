@@ -8,7 +8,7 @@ import {Button, Icon, Select} from '@gravity-ui/uikit';
  */
 import {BlogMetrikaGoalIds} from '../../../../constants';
 import {LikesContext} from '../../../../contexts/LikesContext';
-import metrika from '../../../../counters/metrika.js';
+import metrika from '../../../../counters/metrika';
 import {MetrikaCounter} from '../../../../counters/utils';
 import {Keyset, i18} from '../../../../i18n';
 import {Save} from '../../../../icons/Save';

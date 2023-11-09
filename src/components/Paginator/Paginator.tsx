@@ -6,7 +6,7 @@ import {BlogMetrikaGoalIds} from '../../constants';
 /**
  * @deprecated Metrika will be deleted after launch of analyticsEvents
  */
-import metrika from '../../counters/metrika.js';
+import metrika from '../../counters/metrika';
 import {MetrikaCounter} from '../../counters/utils';
 import {DefaultEventNames} from '../../models/common';
 import {block} from '../../utils/cn';
