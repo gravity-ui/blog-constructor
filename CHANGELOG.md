@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.11.0](https://github.com/gravity-ui/blog-constructor/compare/v5.10.0...v5.11.0) (2023-11-20)
+
+
+### Features
+
+* update packages 17.11 ([#154](https://github.com/gravity-ui/blog-constructor/issues/154)) ([ad4205f](https://github.com/gravity-ui/blog-constructor/commit/ad4205f532ae80478170e629fbb25fd7690310b8))
+
 ## [5.10.0](https://github.com/gravity-ui/blog-constructor/compare/v5.9.0...v5.10.0) (2023-11-09)
 
 
