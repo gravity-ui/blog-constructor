@@ -11,7 +11,7 @@ type CommonTestInputType<T> = {
         paddingTop?: PaddingSize;
         paddingBottom?: PaddingSize;
     } & Required<QAProps>;
-    options?: {qaId?: string};
+    options?: {qaId?: string; paddingKey?: string};
 };
 
 export const testCustomClassName = <T,>({component: Component, props}: CommonTestInputType<T>) => {
@@ -50,4 +50,15 @@ export const testPaddingBottom = <T,>({
     const component = screen.getByTestId(options?.qaId || props.qa);
 
     expect(component).toHaveClass(`bc-wrapper_padding-bottom_${props.paddingBottom}`);
+};
+
+export const testPadding = <T,>({component: Component, props, options}: CommonTestInputType<T>) => {
+    render(<Component {...props} />);
+    const component = screen.getByTestId(options?.qaId || props.qa);
+
+    const classSuffix = options?.paddingKey === 'paddingTop' ? 'top' : 'bottom';
+    const classEdning =
+        options?.paddingKey === 'paddingTop' ? props.paddingTop : props.paddingBottom;
+
+    expect(component).toHaveClass(`bc-wrapper_padding-${classSuffix}_${classEdning}`);
 };

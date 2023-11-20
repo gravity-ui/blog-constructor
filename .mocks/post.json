@@ -93,6 +93,7 @@
       "updatedAt": "2022-07-29T11:12:19.605Z"
     }
   ],
+  "shareOptions": ["Telegram"],
   "textTitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
   "htmlTitle": "strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur</a> adipiscing elit"
 }

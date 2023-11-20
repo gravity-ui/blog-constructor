@@ -10,7 +10,7 @@ import {PostPageContext} from '../../contexts/PostPageContext';
 import {MetaProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
 import {block} from '../../utils/cn';
-import {getBreadcrumbs} from '../../utils/common';
+import {getBreadcrumbs, getQaAttributes} from '../../utils/common';
 
 import './Meta.scss';
 
@@ -32,9 +32,10 @@ const breadcrumbsGoals = [
 ];
 
 export const Meta = (props: MetaProps) => {
-    const {paddingTop = 'l', paddingBottom = 'l', theme = 'light'} = props;
+    const {paddingTop = 'l', paddingBottom = 'l', theme = 'light', qa} = props;
     const {post} = useContext(PostPageContext);
     const {locale} = useContext(LocaleContext);
+    const qaAttributes = getQaAttributes(qa, 'post-info');
 
     const {title, id, date, readingTime, tags} = post;
 
@@ -48,7 +49,7 @@ export const Meta = (props: MetaProps) => {
                 [PaddingsDirections.top]: paddingTop,
                 [PaddingsDirections.bottom]: paddingBottom,
             }}
-            qa="blog-meta-content"
+            qa={qaAttributes.wrapper}
         >
             {breadcrumbs && (
                 <HeaderBreadcrumbs
@@ -73,7 +74,7 @@ export const Meta = (props: MetaProps) => {
                     date={date}
                     readingTime={readingTime}
                     metrikaGoals={metrikaGoals}
-                    qa="blog-meta-block"
+                    qa={qaAttributes.postInfo}
                 />
             )}
         </Wrapper>
