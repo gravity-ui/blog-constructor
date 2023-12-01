@@ -2,6 +2,7 @@ import React, {SyntheticEvent, useMemo} from 'react';
 
 import {ShareOptions} from '@gravity-ui/components';
 import {
+    CustomConfig,
     NavigationData,
     PageConstructor,
     PageConstructorProvider,
@@ -12,9 +13,9 @@ import {
 import {MetaWrapper} from '../../components/MetaWrapper/MetaWrapper';
 import {PromptSignIn} from '../../components/PromptSignIn/PromptSignIn';
 import {usePromptSignInProps} from '../../components/PromptSignIn/hooks/usePromptSignInProps';
-import componentMap from '../../constructor/blocksMap';
 import {LikesContext} from '../../contexts/LikesContext';
 import {PostPageContext} from '../../contexts/PostPageContext';
+import {useExtendedComponentMap} from '../../hooks/useExtendedComponentMap';
 import {useLikes} from '../../hooks/useLikes';
 import {MetaProps, PostData, ToggleLikeCallbackType} from '../../models/common';
 
@@ -32,6 +33,7 @@ export interface BlogPostPageProps {
     post: PostData;
     settings?: PageConstructorProviderProps;
     navigation?: NavigationData;
+    custom?: CustomConfig;
     shareOptions?: ShareOptions[];
     isSignedInUser?: boolean;
     // Required to enable Sign In on Post like
@@ -46,6 +48,7 @@ export const BlogPostPage = ({
     post,
     settings,
     navigation,
+    custom,
     shareOptions,
     isSignedInUser = false,
     onClickSignIn,
@@ -69,6 +72,8 @@ export const BlogPostPage = ({
         [likes, isSignedInUser, requireSignIn],
     );
 
+    const actualComponentMap = useExtendedComponentMap(custom);
+
     return (
         <LikesContext.Provider value={likesContextData}>
             <PostPageContext.Provider
@@ -89,7 +94,7 @@ export const BlogPostPage = ({
                     {metaData ? <MetaWrapper {...metaData} /> : null}
                     <PageConstructor
                         content={content}
-                        custom={componentMap}
+                        custom={actualComponentMap}
                         navigation={navigation}
                     />
                 </PageConstructorProvider>

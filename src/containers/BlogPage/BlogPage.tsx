@@ -1,6 +1,7 @@
 import React, {SyntheticEvent, useMemo} from 'react';
 
 import {
+    CustomConfig,
     NavigationData,
     PageConstructor,
     PageConstructorProvider,
@@ -11,9 +12,9 @@ import {
 import {MetaWrapper} from '../../components/MetaWrapper/MetaWrapper';
 import {PromptSignIn} from '../../components/PromptSignIn/PromptSignIn';
 import {usePromptSignInProps} from '../../components/PromptSignIn/hooks/usePromptSignInProps';
-import componentMap from '../../constructor/blocksMap';
 import {FeedContext} from '../../contexts/FeedContext';
 import {LikesContext} from '../../contexts/LikesContext';
+import {useExtendedComponentMap} from '../../hooks/useExtendedComponentMap';
 import {
     GetPostsType,
     MetaProps,
@@ -38,6 +39,7 @@ export type BlogPageProps = {
     metaData?: MetaProps;
     setQuery?: SetQueryType;
     settings?: PageConstructorProviderProps;
+    custom?: CustomConfig;
     pageCountForShowSupportButtons?: number;
     isSignedInUser?: boolean;
     // Required to enable Sign In on Post like
@@ -51,6 +53,7 @@ export const BlogPage = ({
     services,
     getPosts,
     metaData,
+    custom,
     hasLikes = false,
     toggleLike,
     navigation,
@@ -65,6 +68,8 @@ export const BlogPage = ({
         () => ({toggleLike, hasLikes, isSignedInUser, requireSignIn}),
         [toggleLike, hasLikes, isSignedInUser, requireSignIn],
     );
+
+    const actualComponentMap = useExtendedComponentMap(custom);
 
     return (
         <LikesContext.Provider value={likesContextData}>
@@ -83,7 +88,7 @@ export const BlogPage = ({
                     {metaData ? <MetaWrapper {...metaData} /> : null}
                     <PageConstructor
                         content={content}
-                        custom={componentMap}
+                        custom={actualComponentMap}
                         navigation={navigation}
                     />
                 </PageConstructorProvider>
