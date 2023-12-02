@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.12.0](https://github.com/gravity-ui/blog-constructor/compare/v5.11.0...v5.12.0) (2023-12-01)
+
+
+### Features
+
+* **BlogCtr:** pass custom prop through blog post page ([#124](https://github.com/gravity-ui/blog-constructor/issues/124)) ([b985d89](https://github.com/gravity-ui/blog-constructor/commit/b985d89a04d83d71f3cfd7603e5cc92aa14b9326))
+
 ## [5.11.0](https://github.com/gravity-ui/blog-constructor/compare/v5.10.0...v5.11.0) (2023-11-20)
 
 
