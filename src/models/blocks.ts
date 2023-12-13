@@ -47,7 +47,12 @@ export type LayoutProps = {
 
 export type MediaProps = ClassNameProps &
     PaddingsYFMProps &
-    Partial<Pick<PCMediaProps, 'youtube' | 'previewImg' | 'image' | 'video' | 'dataLens'>> & {
+    Partial<
+        Pick<
+            PCMediaProps,
+            'youtube' | 'previewImg' | 'image' | 'video' | 'dataLens' | 'iframe' | 'margins'
+        >
+    > & {
         text?: string;
     };
 
