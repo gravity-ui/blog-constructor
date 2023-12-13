@@ -6,6 +6,8 @@ import {
     dataLensSrc,
     getDefaultStoryArgs,
     getVideoStoryArgs,
+    iframeForm,
+    iframeMap,
     youtubeSrc,
 } from '../../../../.mocks/utils';
 import {MediaProps} from '../../../models/blocks';
@@ -25,11 +27,13 @@ type MediaModel = {
 } & MediaProps;
 
 const DefaultTemplate: StoryFn<MediaModel> = (args) => (
-    <div style={{maxWidth: '500px', padding: '0 40px', margin: '0 auto'}}>
+    <div style={{maxWidth: '1500px', padding: '0 40px', margin: '0 auto'}}>
         <Media {...args} />
         <Media {...args} {...getVideoStoryArgs()} />
         <Media {...args} youtube={youtubeSrc} />
         <Media {...args} dataLens={dataLensSrc} />
+        <Media {...args} iframe={iframeForm} />
+        <Media {...args} iframe={iframeMap} margins={false} />
     </div>
 );
 
