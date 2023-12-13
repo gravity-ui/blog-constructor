@@ -62,7 +62,7 @@
     "@bem-react/classname": "^1.6.0",
     "@gravity-ui/components": "^2.8.0",
     "@gravity-ui/i18n": "^1.1.0",
-    "@gravity-ui/page-constructor": "file:../page-constructor/gravity-ui-page-constructor-4.42.4.tgz",
+    "@gravity-ui/page-constructor": "^4.42.5-alpha.0",
     "lodash": "^4.17.21",
     "react-helmet": "^6.1.0",
     "ua-parser-js": "^0.7.28",
