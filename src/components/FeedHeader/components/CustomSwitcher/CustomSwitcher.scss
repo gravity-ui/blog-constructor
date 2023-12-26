@@ -33,6 +33,12 @@ $block: '.#{$namespace}feed-custom-switcher';
             //stylelint-disable-next-line declaration-no-important
             transform: translate3d(0, 4px, 0) !important;
         }
+
+        .g-select-clear {
+            width: $indentXXS;
+            height: $indentXXS;
+            margin-left: 7px;
+        }
     }
 
     &__custom-switcher:hover {
@@ -74,5 +80,10 @@ $block: '.#{$namespace}feed-custom-switcher';
     &__switcher-arrow {
         width: $indentXS;
         height: $indentXS;
+    }
+
+    &__clear {
+        width: $indentXXS;
+        height: $indentXXS;
     }
 }
