@@ -266,6 +266,7 @@
           {
             "type": "blog-form-block",
             "column": "left",
+            "border": "line",
             "resetPaddings": true,
             "textContent": {
               "title": "Lorem ipsum dolor sit amet",

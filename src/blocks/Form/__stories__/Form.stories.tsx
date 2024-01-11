@@ -46,18 +46,6 @@ const ContentDirectionTemplate: StoryFn<FormBlockModel> = (args) => {
             {[
                 {
                     ...args,
-                    direction: FormBlockDirection.FormContent,
-                    textContent: {...args.textContent, title: 'FormContent'},
-                    formData: __getFormData(args.formData),
-                },
-                {
-                    ...args,
-                    direction: FormBlockDirection.ContentForm,
-                    textContent: {...args.textContent, title: 'ContentForm'},
-                    formData: __getFormData(args.formData),
-                },
-                {
-                    ...args,
                     direction: FormBlockDirection.Center,
                     textContent: {...args.textContent, title: 'Center'},
                     formData: __getFormData(args.formData),
