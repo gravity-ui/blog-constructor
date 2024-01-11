@@ -2,6 +2,8 @@ import {ShareOptions} from '@gravity-ui/components';
 
 import post from './post.json';
 import page from './page.json';
+import forms from './forms.json';
+
 import suggestedPosts from './suggestedPosts.json';
 
 import {PostData} from '../src/models/common';
@@ -61,5 +63,6 @@ export const getVideoStoryArgs = () => {
     };
 };
 
+export const getFormsData = () => forms;
 export const youtubeSrc = 'https://youtu.be/0Qd3T6skprA';
 export const dataLensSrc = 'm2bzon9y39lck';
