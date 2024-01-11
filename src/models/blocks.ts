@@ -1,10 +1,8 @@
 import {ReactElement} from 'react';
 
 import {
-    BackgroundImageProps,
     ContentBlockProps,
     FormBlockData,
-    FormBlockDirection,
     HeaderBlockProps,
     MediaProps as PCMediaProps,
     TextTheme,
@@ -74,10 +72,7 @@ export type FeedProps = {
 
 export type FormProps = {
     formData: FormBlockData;
-    title?: string;
-    textContent?: Omit<ContentBlockProps, 'centered' | 'colSizes' | 'size'>;
-    direction?: FormBlockDirection;
-    background?: BackgroundImageProps;
+    border?: 'shadow' | 'line' | 'none';
 } & PaddingsYFMProps &
     QAProps;
 

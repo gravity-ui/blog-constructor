@@ -4,17 +4,10 @@ import {v4 as uuidv4} from 'uuid';
 
 import {Meta, StoryFn} from '@storybook/react';
 
-import {
-    // dataLensSrc,
-    // getDefaultStoryArgs,
-    getFormsData,
-    // getVideoStoryArgs,
-    // youtubeSrc,
-} from '../../../../.mocks/utils';
+import {getFormsData} from '../../../../.mocks/utils';
 import {FormBlockModel} from '../../../models/blocks';
-// import {BlockType} from '../../../models/common';
 import {Form} from '../Form';
-import {FormBlockDirection, isHubspotDataForm} from '@gravity-ui/page-constructor';
+import {isHubspotDataForm} from '@gravity-ui/page-constructor';
 
 const formsData = getFormsData();
 console.log(formsData);
@@ -35,10 +28,6 @@ const __getFormData = (formData: FormBlockModel['formData']) => {
         : {yandex: formData.yandex};
 };
 
-// type FormModel = {
-//     type: BlockType.Form;
-// } & FormProps;
-
 const ContentDirectionTemplate: StoryFn<FormBlockModel> = (args) => {
     console.log({args});
     return (
@@ -46,8 +35,6 @@ const ContentDirectionTemplate: StoryFn<FormBlockModel> = (args) => {
             {[
                 {
                     ...args,
-                    direction: FormBlockDirection.Center,
-                    textContent: {...args.textContent, title: 'Center'},
                     formData: __getFormData(args.formData),
                 },
             ].map((props, index) => (
@@ -68,7 +55,7 @@ const FormDataTemplate: StoryFn<FormBlockModel> = (args) => {
             <ContentDirectionTemplate
                 {...args}
                 {...(formsData.default as FormBlockModel)}
-                {...formsData.withBackground}
+                border="line"
             />
         </React.Fragment>
     );
@@ -81,30 +68,10 @@ const DefaultTemplate: StoryFn<FormBlockModel> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
-// export const ContentDirection = ContentDirectionTemplate.bind({});
-export const WithBackgroundColor = ContentDirectionTemplate.bind({});
-export const WithBackgroundImage = ContentDirectionTemplate.bind({});
-export const DarkTheme = ContentDirectionTemplate.bind({});
 export const FormData = FormDataTemplate.bind({});
 
 Default.args = {
-    // type: BlockType.Form,
     ...formsData.default,
 } as FormBlockModel;
 
-WithBackgroundColor.args = {
-    ...formsData.default,
-    ...formsData.withBackground,
-} as FormBlockModel;
-
-WithBackgroundImage.args = {
-    ...formsData.default,
-    ...formsData.withBackgroundImage,
-} as FormBlockModel;
-
-DarkTheme.args = {
-    ...formsData.default,
-    ...formsData.darkTheme,
-} as FormBlockModel;
-
-FormData.args = {...formsData.yandexForm, ...formsData.withBackgroundImage};
+FormData.args = {...formsData.yandexForm};
