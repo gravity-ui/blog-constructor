@@ -4,7 +4,9 @@ import {BlockType} from '../../models/common';
 import {BlogBlockBase} from '../../schema/common';
 
 const {
-    common: {BlockBaseProps, MediaProps},
+    common: {BlockBaseProps},
+    components: {YandexFormProps},
+    subBlocks: {HubspotFormProps},
 } = validators;
 
 export const Media = {
@@ -14,10 +16,27 @@ export const Media = {
         properties: {
             ...BlockBaseProps,
             ...BlogBlockBase,
-            ...MediaProps,
-            text: {
+            formData: {
+                oneOf: [
+                    {
+                        type: 'object',
+                        optionName: 'yandex',
+                        properties: {
+                            yandex: YandexFormProps,
+                        },
+                    },
+                    {
+                        type: 'object',
+                        optionName: 'hubspot',
+                        properties: {
+                            hubspot: HubspotFormProps,
+                        },
+                    },
+                ],
+            },
+            border: {
                 type: 'string',
-                contentType: 'text',
+                enum: ['shadow', 'line', 'none'],
             },
         },
     },
