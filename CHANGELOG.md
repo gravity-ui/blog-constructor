@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.13.0](https://github.com/gravity-ui/blog-constructor/compare/v5.12.0...v5.13.0) (2024-01-12)
+
+
+### Features
+
+* honest form in blog ([#160](https://github.com/gravity-ui/blog-constructor/issues/160)) ([1b36a2a](https://github.com/gravity-ui/blog-constructor/commit/1b36a2a5ec4b47cfbe3d7a1bb0937f39cba2d942))
+
 ## [5.12.0](https://github.com/gravity-ui/blog-constructor/compare/v5.11.0...v5.12.0) (2023-12-01)
 
 
