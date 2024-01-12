@@ -3,6 +3,7 @@ import {Banner} from '../blocks/Banner/Banner';
 import {CTA} from '../blocks/CTA/CTA';
 import {ColoredText} from '../blocks/ColoredText/ColoredText';
 import {Feed} from '../blocks/Feed/Feed';
+import {Form} from '../blocks/Form/Form';
 import {Header} from '../blocks/Header/Header';
 import {Layout} from '../blocks/Layout/Layout';
 import {Media} from '../blocks/Media/Media';
@@ -22,6 +23,7 @@ const blocks = {
     [BlockType.Suggest]: Suggest,
     [BlockType.Meta]: Meta,
     [BlockType.Feed]: Feed,
+    [BlockType.Form]: Form,
 };
 
 const headers = {

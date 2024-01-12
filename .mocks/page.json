@@ -247,12 +247,39 @@
         "fullWidth": false,
         "children": [
           {
+            "type": "blog-form-block",
+            "column": "left",
+            "resetPaddings": true,
+            "formData": {
+              "hubspot": {
+                "region": "eu1",
+                "portalId": "25764979",
+                "formId": "a3eb06a6-e8ce-45d4-81bd-7fadb7dab313"
+              }
+            }
+          },
+          {
+            "type": "blog-form-block",
+            "column": "left",
+            "border": "line",
+            "resetPaddings": true,
+            "formData": {
+              "yandex": {
+                "theme": "default",
+                "id": "61a4e639d4d24e0dbba36f5c",
+                "metrikaGoals": ["events_form_submit"],
+                "customFormSection": "cloud"
+              }
+            }
+          },
+          {
             "type": "blog-meta-block",
             "column": "left",
             "resetPaddings": true
           }
         ]
       },
+
       {
         "type": "blog-suggest-block",
         "resetPaddings": true,

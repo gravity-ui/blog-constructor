@@ -2,6 +2,7 @@ import {ShareOptions} from '@gravity-ui/components';
 
 import post from './post.json';
 import page from './page.json';
+
 import suggestedPosts from './suggestedPosts.json';
 
 import {PostData} from '../src/models/common';

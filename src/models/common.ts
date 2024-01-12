@@ -112,6 +112,7 @@ export enum BlockType {
     Suggest = 'blog-suggest-block',
     Meta = 'blog-meta-block',
     Feed = 'blog-feed-block',
+    Form = 'blog-form-block',
 }
 
 export type MetaProps = {

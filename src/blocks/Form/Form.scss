@@ -1,0 +1,25 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$namespace}form-block';
+
+#{$block} {
+    $root: &;
+
+    &__container {
+        border-radius: $borderRadius;
+        position: relative;
+        overflow: hidden;
+        padding: 24px;
+
+        &_border {
+            &_shadow {
+                @include image-shadow();
+            }
+
+            &_line {
+                border: 1px solid var(--g-color-line-generic);
+            }
+        }
+    }
+}

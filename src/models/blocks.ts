@@ -2,6 +2,7 @@ import {ReactElement} from 'react';
 
 import {
     ContentBlockProps,
+    FormBlockData,
     HeaderBlockProps,
     MediaProps as PCMediaProps,
     TextTheme,
@@ -69,6 +70,12 @@ export type FeedProps = {
     image: string;
 };
 
+export type FormProps = {
+    formData: FormBlockData;
+    border?: 'shadow' | 'line' | 'none';
+} & PaddingsYFMProps &
+    QAProps;
+
 // blocks models
 export type AuthorBlockModel = {
     type: BlockType.Author;
@@ -113,6 +120,10 @@ export type YFMBlockModel = {
 export type FeedBlockModel = {
     type: BlockType.Feed;
 } & FeedProps;
+
+export type FormBlockModel = {
+    type: BlockType.Form;
+} & FormProps;
 
 export type BlockModel =
     | AuthorBlockModel
