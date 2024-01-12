@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useState} from 'react';
 
 import {InnerForm} from '@gravity-ui/page-constructor';
 
@@ -15,9 +15,9 @@ export const Form = ({paddingTop, paddingBottom, ...props}: FormProps) => {
     const {formData, border = 'shadow'} = props;
     const [contentLoaded, setContentLoaded] = useState(false);
 
-    const onContentLoad = useCallback(() => {
+    const onContentLoad = () => {
         setContentLoaded(true);
-    }, []);
+    };
 
     if (!formData) {
         return null;
