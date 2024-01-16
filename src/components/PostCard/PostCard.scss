@@ -25,13 +25,12 @@ $block: '.#{$namespace}post-card';
 
     &__header {
         &_fullWidth {
-            width: 66%;
-            min-height: 480px;
+            min-height: auto;
             height: 100%;
 
-            @media (max-width: map-get($gridBreakpoints, 'lg')) {
-                width: 100%;
-                min-height: auto;
+            @media (min-width: map-get($gridBreakpoints, 'lg')) {
+                width: 66%;
+                min-height: 480px;
             }
         }
     }
