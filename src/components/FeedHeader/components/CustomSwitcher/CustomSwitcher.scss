@@ -3,6 +3,8 @@
 
 $block: '.#{$namespace}feed-custom-switcher';
 
+$clearIconSize: 11px;
+
 #{$block} {
     $root: &;
 
@@ -32,6 +34,12 @@ $block: '.#{$namespace}feed-custom-switcher';
             inset: auto !important;
             //stylelint-disable-next-line declaration-no-important
             transform: translate3d(0, 4px, 0) !important;
+        }
+
+        .g-select-clear {
+            width: $clearIconSize;
+            height: $clearIconSize;
+            margin-right: 9px;
         }
     }
 
@@ -74,5 +82,10 @@ $block: '.#{$namespace}feed-custom-switcher';
     &__switcher-arrow {
         width: $indentXS;
         height: $indentXS;
+    }
+
+    &__clear {
+        width: $clearIconSize;
+        height: $clearIconSize;
     }
 }

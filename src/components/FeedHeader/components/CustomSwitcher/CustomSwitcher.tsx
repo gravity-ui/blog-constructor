@@ -3,6 +3,7 @@ import React, {LegacyRef, useMemo} from 'react';
 import {Icon, SelectProps} from '@gravity-ui/uikit';
 
 import {DropdownArrow} from '../../../../icons/DropdownArrow';
+import {Close} from '../../../../icons/Close';
 import {block} from '../../../../utils/cn';
 import {SelectItem} from '../Controls/Controls';
 
@@ -20,6 +21,7 @@ export type CustomSwitcherProps = {
 } & Omit<RenderControlParameters, 'ref'>;
 
 const ICON_SIZE = 12;
+const CLEAR_ICON_SIZE = 11;
 
 export const CustomSwitcher = ({
     initial,
@@ -29,6 +31,7 @@ export const CustomSwitcher = ({
     controlRef,
     onKeyDown,
     open,
+    renderClear,
 }: CustomSwitcherProps) => {
     const itemsNames = useMemo(() => {
         const items = list
@@ -50,6 +53,12 @@ export const CustomSwitcher = ({
             <div className={b('custom-switcher-element', {content: true})}>
                 {itemsNames?.join(', ')}
             </div>
+            {renderClear &&
+                renderClear({
+                    renderIcon: () => (
+                        <Icon data={Close} size={CLEAR_ICON_SIZE} className={b('clear')} />
+                    ),
+                })}
             {hasCounter && (
                 <div className={b('custom-switcher-element', {counter: true})}>
                     {itemsNames.length}
