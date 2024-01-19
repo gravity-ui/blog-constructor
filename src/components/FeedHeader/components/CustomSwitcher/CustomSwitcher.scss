@@ -3,6 +3,8 @@
 
 $block: '.#{$namespace}feed-custom-switcher';
 
+$clearIconSize: 11px;
+
 #{$block} {
     $root: &;
 
@@ -35,9 +37,9 @@ $block: '.#{$namespace}feed-custom-switcher';
         }
 
         .g-select-clear {
-            width: $indentXXS;
-            height: $indentXXS;
-            margin-left: 7px;
+            width: $clearIconSize;
+            height: $clearIconSize;
+            margin-right: 9px;
         }
     }
 
@@ -83,7 +85,7 @@ $block: '.#{$namespace}feed-custom-switcher';
     }
 
     &__clear {
-        width: $indentXXS;
-        height: $indentXXS;
+        width: $clearIconSize;
+        height: $clearIconSize;
     }
 }

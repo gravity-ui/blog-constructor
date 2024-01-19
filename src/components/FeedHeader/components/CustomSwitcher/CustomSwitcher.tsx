@@ -21,6 +21,7 @@ export type CustomSwitcherProps = {
 } & Omit<RenderControlParameters, 'ref'>;
 
 const ICON_SIZE = 12;
+const CLEAR_ICON_SIZE = 11;
 
 export const CustomSwitcher = ({
     initial,
@@ -52,15 +53,17 @@ export const CustomSwitcher = ({
             <div className={b('custom-switcher-element', {content: true})}>
                 {itemsNames?.join(', ')}
             </div>
+            {renderClear &&
+                renderClear({
+                    renderIcon: () => (
+                        <Icon data={Close} size={CLEAR_ICON_SIZE} className={b('clear')} />
+                    ),
+                })}
             {hasCounter && (
                 <div className={b('custom-switcher-element', {counter: true})}>
                     {itemsNames.length}
                 </div>
             )}
-            {renderClear &&
-                renderClear({
-                    renderIcon: () => <Icon data={Close} size={ICON_SIZE} className={b('clear')} />,
-                })}
             <div className={b('custom-switcher-element', {arrow: true})}>
                 <Icon data={DropdownArrow} size={ICON_SIZE} className={b('switcher-arrow')} />
             </div>
