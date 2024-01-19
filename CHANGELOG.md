@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.13.1](https://github.com/gravity-ui/blog-constructor/compare/v5.13.0...v5.13.1) (2024-01-16)
+
+
+### Bug Fixes
+
+* adjust PostCard image paddings ([#159](https://github.com/gravity-ui/blog-constructor/issues/159)) ([6c780f3](https://github.com/gravity-ui/blog-constructor/commit/6c780f3e092f5bfeaf7df7e270b9baf81eb542c9))
+
 ## [5.13.0](https://github.com/gravity-ui/blog-constructor/compare/v5.12.0...v5.13.0) (2024-01-12)
 
 
