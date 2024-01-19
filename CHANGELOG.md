@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.14.0](https://github.com/gravity-ui/blog-constructor/compare/v5.13.1...v5.14.0) (2024-01-19)
+
+
+### Features
+
+* add clear button in services select ([#158](https://github.com/gravity-ui/blog-constructor/issues/158)) ([4d78254](https://github.com/gravity-ui/blog-constructor/commit/4d78254c1d872de40d8a5adae2889e38177e5137))
+
 ## [5.13.1](https://github.com/gravity-ui/blog-constructor/compare/v5.13.0...v5.13.1) (2024-01-16)
 
 
