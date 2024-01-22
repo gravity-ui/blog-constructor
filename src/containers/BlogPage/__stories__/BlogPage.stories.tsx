@@ -46,7 +46,7 @@ export default {
 } as Meta;
 
 const WithNavigationTemplate: StoryFn<BlogPageProps> = (args) => (
-    <BlogConstructorProvider router={routerData} isMobile>
+    <BlogConstructorProvider router={routerData}>
         <BlogPage {...args} />
     </BlogConstructorProvider>
 );
