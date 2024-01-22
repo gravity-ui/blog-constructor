@@ -15,4 +15,4 @@
 | paddingRight   | `xs - s - m - l - xl`               | `false`  | Right padding size                    |
 | paddingLeft    | `xs - s - m - l - xl`               | `false`  | Left padding size                     |
 
-To get more information about `content` see this [page](https://preview.yandexcloud.dev/page-constructor/?path=/story/components-content--default)
+To get more information about `content` see this [page](https://preview.gravity-ui.com/page-constructor/?path=/story/components-content--default)
