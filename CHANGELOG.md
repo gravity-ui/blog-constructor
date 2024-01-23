@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.15.0](https://github.com/gravity-ui/blog-constructor/compare/v5.14.0...v5.15.0) (2024-01-23)
+
+
+### Features
+
+* update select popup styles for mobile ([#165](https://github.com/gravity-ui/blog-constructor/issues/165)) ([f02f916](https://github.com/gravity-ui/blog-constructor/commit/f02f9163e606d4578233149cf86d365139c6f045))
+
 ## [5.14.0](https://github.com/gravity-ui/blog-constructor/compare/v5.13.1...v5.14.0) (2024-01-19)
 
 
