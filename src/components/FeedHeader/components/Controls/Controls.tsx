@@ -8,6 +8,7 @@ import {Button, Icon, Select} from '@gravity-ui/uikit';
  */
 import {BlogMetrikaGoalIds} from '../../../../constants';
 import {LikesContext} from '../../../../contexts/LikesContext';
+import {MobileContext} from '../../../../contexts/MobileContext';
 import metrika from '../../../../counters/metrika';
 import {MetrikaCounter} from '../../../../counters/utils';
 import {Keyset, i18} from '../../../../i18n';
@@ -60,6 +61,8 @@ export const Controls = ({
 
     const [savedOnly, setSavedOnly] = useState<boolean>(savedOnlyInitial === 'true');
     const [search, setSearch] = useState<string>(searchInitial as string);
+
+    const isMobile = useContext(MobileContext);
 
     const handleSavedOnly = () => {
         handleAnalyticsSaveOnly();
@@ -162,7 +165,7 @@ export const Controls = ({
                         defaultValue={[tagInitial] as string[]}
                         onUpdate={handleTagSelect}
                         placeholder={i18(Keyset.AllTags)}
-                        popupClassName={b('popup')}
+                        popupClassName={b('popup', {isMobile})}
                         renderControl={renderSwitcher({
                             initial: [tagInitial],
                             list: tagsItems,
@@ -185,7 +188,7 @@ export const Controls = ({
                             disablePortal
                             options={services}
                             defaultValue={servicesItems}
-                            popupClassName={b('popup')}
+                            popupClassName={b('popup', {isMobile})}
                             onUpdate={handleServicesSelect}
                             placeholder={i18(Keyset.AllServices)}
                             renderControl={renderSwitcher({

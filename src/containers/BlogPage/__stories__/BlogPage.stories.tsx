@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type {Meta, StoryFn} from '@storybook/react';
+import type {Meta, StoryContext, StoryFn} from '@storybook/react';
 
 import {BlogConstructorProvider} from '../../../constructor/BlogConstructorProvider';
 import {GetPostsRequest, Query} from '../../../models/common';
@@ -45,15 +45,21 @@ export default {
     },
 } as Meta;
 
-const DefaultTemplate: StoryFn<BlogPageProps> = (args) => (
+const WithNavigationTemplate: StoryFn<BlogPageProps> = (args) => (
     <BlogConstructorProvider router={routerData}>
         <BlogPage {...args} />
     </BlogConstructorProvider>
 );
 
-export const Default = DefaultTemplate.bind({});
+export const Default = {
+    render: (args: BlogPageProps, {globals}: StoryContext) => (
+        <BlogConstructorProvider router={routerData} isMobile={globals.platform === 'mobile'}>
+            <BlogPage {...args} />
+        </BlogConstructorProvider>
+    ),
+};
 
-export const WithNavigation = DefaultTemplate.bind({});
+export const WithNavigation = WithNavigationTemplate.bind({});
 WithNavigation.args = {
     navigation,
 } as unknown as BlogPageProps;

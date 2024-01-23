@@ -67,6 +67,12 @@ $block: '.#{$namespace}feed-controls';
                 border-radius: $selectorItemBorderRadius;
             }
         }
+
+        &_isMobile {
+            @include add-specificity(&) {
+                max-height: inherit;
+            }
+        }
     }
 
     &__popup-filter {
