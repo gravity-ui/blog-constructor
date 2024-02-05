@@ -1,11 +1,11 @@
-import React, {Fragment, useContext} from 'react';
+import React, {Fragment, useContext, useMemo} from 'react';
 
 import {Button} from '@gravity-ui/uikit';
 
 import {LocaleContext} from '../../../contexts/LocaleContext';
 import {SettingsContext} from '../../../contexts/SettingsContext';
 import {block} from '../../../utils/cn';
-import {getBlogPath} from '../../../utils/common';
+import {getBlogPath as getDefaultBlogPath} from '../../../utils/common';
 import {ArrowType, PaginatorItemProps} from '../types';
 
 import '../Paginator.scss';
@@ -16,17 +16,26 @@ export const PaginatorItem = ({
     dataKey,
     mods,
     content,
+    queryParams,
     onClick,
     loading = false,
     index,
 }: PaginatorItemProps) => {
     const {locale} = useContext(LocaleContext);
-    const {addNavigationLinkForPages} = useContext(SettingsContext);
+    const {addNavigationLinkForPages, getBlogPath = getDefaultBlogPath} =
+        useContext(SettingsContext);
     const urlPath = getBlogPath(locale?.pathPrefix || '');
 
     const itemKey = Number(dataKey) > 0 ? Number(dataKey) : (dataKey as ArrowType);
-    const navTag = index > 1 ? `?page=${index}` : '';
-    const navigationLink = `${urlPath || ''}${navTag}`;
+    const navigationLink = useMemo(() => {
+        const queryString = Object.entries({
+            ...(index > 1 ? {page: index} : undefined),
+            ...queryParams,
+        })
+            .map(([param, value]) => `${param}=${value}`)
+            .join('&');
+        return queryString ? `${urlPath}?${queryString}` : urlPath;
+    }, [queryParams, index, urlPath]);
 
     const renderButton = (
         <Button

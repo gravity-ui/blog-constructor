@@ -11,6 +11,7 @@ import navigation from '../../../../.mocks/navigation.json';
 import posts from '../../../../.mocks/posts.json';
 import services from '../../../../.mocks/services.json';
 import tags from '../../../../.mocks/tags.json';
+import {Lang} from '../../../models/locale';
 
 const mockMetaComponent = <title>Blog page</title>;
 const routerData = {
@@ -46,7 +47,14 @@ export default {
 } as Meta;
 
 const WithNavigationTemplate: StoryFn<BlogPageProps> = (args) => (
-    <BlogConstructorProvider router={routerData}>
+    <BlogConstructorProvider
+        router={routerData}
+        settings={{
+            addNavigationLinkForPages: true,
+            getBlogPath: (pathPrefix) => `${pathPrefix ? `/${pathPrefix}` : ''}/blog/`,
+        }}
+        locale={{lang: Lang.En, pathPrefix: 'test'}}
+    >
         <BlogPage {...args} />
     </BlogConstructorProvider>
 );

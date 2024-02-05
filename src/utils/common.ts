@@ -21,7 +21,7 @@ import {
 } from '../blocks/constants';
 import {RouterContextProps} from '../contexts/RouterContext';
 import {Keyset, i18} from '../i18n';
-import {GetPostsRequest, Query, Tag} from '../models/common';
+import {GetPostsRequest, PostData, Query, Tag} from '../models/common';
 
 const QA_ATTRIBUTES_KEYS = ['container', 'content', 'wrapper', 'image', 'button'];
 
@@ -78,7 +78,7 @@ export const scrollToHash = (hash: string, browser?: string) => {
 
 type CloudListTagStub = {};
 
-export const getTags = memoize((tags: Tag[], prefix?: string) => {
+export const getTags = memoize((tags: Tag[], blogPath: string) => {
     return tags.map(({slug, ...tag}) => {
         const queryParams = new URLSearchParams();
         queryParams.set('tags', slug);
@@ -86,7 +86,7 @@ export const getTags = memoize((tags: Tag[], prefix?: string) => {
         return {
             ...tag,
             id: slug,
-            url: `${prefix}blog?${queryParams}`,
+            url: `${blogPath}?${queryParams}`,
         } as CloudListTagStub;
     });
 });
@@ -97,10 +97,6 @@ export const postLikeStatus = debounce((postId: number, hasUserLike: boolean) =>
     (hasUserLike ? stub : stub)(postId);
 }, 300);
 
-export const getTagFilterUrl = (tagId: string | number, prefix: string) => {
-    return `${prefix}blog?tags=` + tagId;
-};
-
 export const updateContentSizes = ({size, colSizes, theme, ...contentData}: ContentBlockProps) => ({
     ...contentData,
     size: size || CONTENT_DEFAULT_SIZE,
@@ -110,27 +106,29 @@ export const updateContentSizes = ({size, colSizes, theme, ...contentData}: Cont
 
 type GetBreadcrumbsProps = {
     tags?: Tag[];
-    pathPrefix?: string;
+    blogPath: string;
 };
 
 export const getBlogPath = (pathPrefix: string) => {
-    const prefix = pathPrefix ? `/${pathPrefix}/` : '/';
-    return `${prefix}blog`;
+    const prefix = pathPrefix ? `/${pathPrefix}` : '';
+    return `${prefix}/blog`;
 };
 
-export const getBreadcrumbs = ({tags, pathPrefix}: GetBreadcrumbsProps) => {
-    const prefix = pathPrefix ? `/${pathPrefix}/` : '/';
+export const getBlogPostPath = (_pathPrefix: string, postData: PostData) => {
+    return postData.url;
+};
 
+export const getBreadcrumbs = ({tags, blogPath}: GetBreadcrumbsProps) => {
     const breadcrumbs: HeaderBreadCrumbsProps = {
-        items: [{text: i18(Keyset.TitleBreadcrumbs), url: `${prefix}blog`}],
+        items: [{text: i18(Keyset.TitleBreadcrumbs), url: blogPath}],
         theme: 'light',
     };
 
     if (tags?.length) {
-        const localizedTags = getTags(tags, prefix);
+        const localizedTags = getTags(tags, blogPath);
         const tag = localizedTags[0];
         // @ts-ignore todo fix
-        breadcrumbs.items.push({text: tag.name, url: getTagFilterUrl(tag.id, prefix)});
+        breadcrumbs.items.push({text: tag.name, url: tag.url});
     }
 
     return breadcrumbs;

@@ -16,6 +16,8 @@ import {PaginatorItem} from './components/PaginatorItem';
 import {ArrowType, PaginatorItemProps, PaginatorProps} from './types';
 import {getPageConfigs, getPagesCount} from './utils';
 
+import _ from 'lodash';
+
 import './Paginator.scss';
 
 const b = block('paginator');
@@ -29,11 +31,16 @@ export const Paginator = ({
     page,
     className,
     onPageChange,
+    queryParams,
     pageCountForShowSupportButtons = DEFAULT_PAGE_COUNT_FOR_SHOW_SUPPORT_BUTTONS,
 }: PaginatorProps) => {
     const [pagesCount, setPagesCount] = useState(
         getPagesCount({itemsPerPage, totalItems, maxPages}),
     );
+
+    const nonPagedQuery = useMemo(() => {
+        return _.omit(queryParams, ['page']);
+    }, [queryParams]);
 
     useEffect(() => {
         const count = getPagesCount({itemsPerPage, totalItems, maxPages});
@@ -90,12 +97,18 @@ export const Paginator = ({
         }
     };
 
-    const paginatorItems = getPageConfigs({page, pagesCount, handlePageClick});
+    const paginatorItems = getPageConfigs({
+        page,
+        pagesCount,
+        queryParams: nonPagedQuery,
+        handlePageClick,
+    });
 
     if (page > 1 && isShowSupportButtons) {
         paginatorItems.unshift({
             key: ArrowType.Prev,
             dataKey: ArrowType.Prev,
+            queryParams: nonPagedQuery,
             mods: {type: ArrowType.Prev},
             onClick: handleArrowClick,
             index: 0,
@@ -106,6 +119,7 @@ export const Paginator = ({
     if (page < pagesCount && isShowSupportButtons) {
         paginatorItems.push({
             key: ArrowType.Next,
+            queryParams: nonPagedQuery,
             dataKey: ArrowType.Next,
             mods: {type: ArrowType.Next},
             index: page + 1,

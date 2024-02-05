@@ -7,8 +7,11 @@ import {PostCardSize, PostCardTitleHeadingLevel, PostData} from '../../models/co
 import {block} from '../../utils/cn';
 import {SuggestPostInfo} from '../PostInfo/SuggestPostInfo';
 import {useAriaAttributes} from '../../hooks/useAriaAttributes';
+import {SettingsContext} from '../../contexts/SettingsContext';
 
 import './PostCard.scss';
+import {LocaleContext} from '../../contexts/LocaleContext';
+import {getBlogPostPath as getDefaultBlogPostPath} from '../../utils/common';
 
 type PostCardProps = {
     post: PostData;
@@ -32,6 +35,9 @@ export const PostCard = ({
     showTag = false,
     titleHeadingLevel = PostCardTitleHeadingLevel.H3,
 }: PostCardProps) => {
+    const {locale} = useContext(LocaleContext);
+    const {getBlogPostPath = getDefaultBlogPostPath} = useContext(SettingsContext);
+
     const {
         title: postTitle,
         htmlTitle,
@@ -45,8 +51,8 @@ export const PostCard = ({
         image,
         description,
         tags,
-        url,
     } = post;
+    const url = getBlogPostPath(locale.pathPrefix || '', post);
 
     const title = postTitle || textTitle || htmlTitle;
 

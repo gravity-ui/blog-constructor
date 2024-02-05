@@ -9,7 +9,8 @@ import {LocaleContext} from '../../contexts/LocaleContext';
 import {PostPageContext} from '../../contexts/PostPageContext';
 import {HeaderProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
-import {getBreadcrumbs} from '../../utils/common';
+import {getBreadcrumbs, getBlogPath as getDefaultBlogPath} from '../../utils/common';
+import {SettingsContext} from '../../contexts/SettingsContext';
 
 /**
  * @deprecated Metrika will be deleted after launch of analyticsEvents
@@ -30,10 +31,12 @@ export const Header = (props: HeaderProps) => {
     const {theme, paddingTop, paddingBottom} = props;
     const {post} = useContext(PostPageContext);
     const {locale} = useContext(LocaleContext);
+    const {getBlogPath = getDefaultBlogPath} = useContext(SettingsContext);
+    const blogPath = getBlogPath(locale.pathPrefix || '');
 
     const {description, title, id, date, readingTime, tags} = post;
 
-    const breadcrumbs = getBreadcrumbs({tags, pathPrefix: locale?.pathPrefix || ''});
+    const breadcrumbs = getBreadcrumbs({tags, blogPath});
 
     if (theme === 'dark' && breadcrumbs) {
         breadcrumbs.theme = 'dark';
