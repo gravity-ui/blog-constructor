@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, {useContext} from 'react';
 
 import {useAnalytics} from '@gravity-ui/page-constructor';
@@ -59,6 +60,8 @@ export const Save = ({
 
     return (
         <div
+            role="button"
+            tabIndex={0}
             className={b('item', {size})}
             onClick={(event) => {
                 // both preventDefault and stopImmediatePropagation required to work properly
