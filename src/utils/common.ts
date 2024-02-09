@@ -21,7 +21,7 @@ import {
 } from '../blocks/constants';
 import {RouterContextProps} from '../contexts/RouterContext';
 import {Keyset, i18} from '../i18n';
-import {GetPostsRequest, PostData, Query, Tag} from '../models/common';
+import {GetPostsRequest, Query, Tag} from '../models/common';
 
 const QA_ATTRIBUTES_KEYS = ['container', 'content', 'wrapper', 'image', 'button'];
 
@@ -112,10 +112,6 @@ type GetBreadcrumbsProps = {
 export const getBlogPath = (pathPrefix: string) => {
     const prefix = pathPrefix ? `/${pathPrefix}` : '';
     return `${prefix}/blog`;
-};
-
-export const getBlogPostPath = (_pathPrefix: string, postData: PostData) => {
-    return postData.url;
 };
 
 export const getBreadcrumbs = ({tags, blogPath}: GetBreadcrumbsProps) => {
