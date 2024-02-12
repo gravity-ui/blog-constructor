@@ -262,6 +262,7 @@ export const Feed = ({image}: FeedProps) => {
                     postsOnPage={postsOnPage}
                     pinnedPostOnPage={pinnedPostOnPage}
                     isFetching={isFetching}
+                    queryParams={queryParams}
                     pageCountForShowSupportButtons={pageCountForShowSupportButtons}
                 />
             )}

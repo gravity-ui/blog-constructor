@@ -2,7 +2,12 @@ import {GetPageConfigParams, PaginatorItemProps, PaginatorProps} from './types';
 
 const MAX_VISIBLE_PAGES = 5;
 
-export const getPageConfigs = ({page, pagesCount, handlePageClick}: GetPageConfigParams) => {
+export const getPageConfigs = ({
+    page,
+    queryParams,
+    pagesCount,
+    handlePageClick,
+}: GetPageConfigParams) => {
     const paginatorItems: Array<PaginatorItemProps> = [];
     // it is calculating the middle of visible pages below
     const pageOffset = (MAX_VISIBLE_PAGES - 1) / 2;
@@ -22,6 +27,7 @@ export const getPageConfigs = ({page, pagesCount, handlePageClick}: GetPageConfi
             dataKey: String(i),
             index: i,
             mods: {type: 'page', active: page === i},
+            queryParams,
             onClick: handlePageClick,
             content: i,
         });

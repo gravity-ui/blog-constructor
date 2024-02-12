@@ -4,7 +4,7 @@ import {CardLayoutBlock} from '@gravity-ui/page-constructor';
 import {Button} from '@gravity-ui/uikit';
 
 import {Keyset, i18} from '../../i18n';
-import {PostCardSize, PostCardTitleHeadingLevel, PostData} from '../../models/common';
+import {PostCardSize, PostCardTitleHeadingLevel, PostData, Query} from '../../models/common';
 import {block} from '../../utils/cn';
 import {Paginator} from '../Paginator/Paginator';
 import {PostCard} from '../PostCard/PostCard';
@@ -29,6 +29,7 @@ type PostCardProps = {
     postsOnPage?: PostData[];
     pinnedPostOnPage?: PostData;
     pageCountForShowSupportButtons?: number;
+    queryParams: Query;
 };
 
 export const Posts = ({
@@ -44,6 +45,7 @@ export const Posts = ({
     handleShowMore,
     handlePageChange,
     pageCountForShowSupportButtons,
+    queryParams,
 }: PostCardProps) => (
     <div className={b()}>
         {isFetching && <div className={b('loaderContainer')} />}
@@ -112,6 +114,7 @@ export const Posts = ({
                         itemsPerPage={perPageInQuery}
                         maxPages={Infinity}
                         pageCountForShowSupportButtons={pageCountForShowSupportButtons}
+                        queryParams={queryParams}
                     />
                 </div>
             )}

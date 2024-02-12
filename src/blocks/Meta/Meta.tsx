@@ -6,11 +6,16 @@ import {BlogMetrikaGoals, PostInfo} from '../../components/PostInfo/PostInfo';
 import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {BlogMetrikaGoalIds} from '../../constants';
 import {LocaleContext} from '../../contexts/LocaleContext';
+import {SettingsContext} from '../../contexts/SettingsContext';
 import {PostPageContext} from '../../contexts/PostPageContext';
 import {MetaProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
 import {block} from '../../utils/cn';
-import {getBreadcrumbs, getQaAttributes} from '../../utils/common';
+import {
+    getBreadcrumbs,
+    getBlogPath as getDefaultBlogPath,
+    getQaAttributes,
+} from '../../utils/common';
 
 import './Meta.scss';
 
@@ -36,10 +41,12 @@ export const Meta = (props: MetaProps) => {
     const {post} = useContext(PostPageContext);
     const {locale} = useContext(LocaleContext);
     const qaAttributes = getQaAttributes(qa, 'post-info');
+    const {getBlogPath = getDefaultBlogPath} = useContext(SettingsContext);
+    const blogPath = getBlogPath(locale.pathPrefix || '');
 
     const {title, id, date, readingTime, tags} = post;
 
-    const breadcrumbs = getBreadcrumbs({tags, pathPrefix: locale?.pathPrefix || ''});
+    const breadcrumbs = getBreadcrumbs({tags, blogPath});
 
     breadcrumbs.metrikaGoals = breadcrumbsGoals;
 
