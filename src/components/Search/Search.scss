@@ -19,6 +19,9 @@ $block: '.#{$namespace}search';
     &__input-icon {
         display: flex;
         padding-right: 7px;
+        border: none;
+        font: inherit;
+        background: none;
         color: var(--g-color-text-hint);
         cursor: pointer;
     }

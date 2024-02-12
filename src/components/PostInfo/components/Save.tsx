@@ -59,10 +59,8 @@ export const Save = ({
     const isLikeable = Boolean(toggleLike);
 
     return (
-        <div
-            role="button"
-            tabIndex={0}
-            className={b('item', {size})}
+        <button
+            className={b('item', {size, save: true})}
             onClick={(event) => {
                 // both preventDefault and stopImmediatePropagation required to work properly
                 // https://stackoverflow.com/questions/24415631/reactjs-syntheticevent-stoppropagation-only-works-with-react-events
@@ -96,6 +94,6 @@ export const Save = ({
                 </span>
                 <span className={b('title', {cursor: isLikeable})}>{title}</span>
             </div>
-        </div>
+        </button>
     );
 };

@@ -79,9 +79,9 @@ export const Search = ({
 
         return (
             // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-            <div role="button" tabIndex={0} className={b('input-icon')} onClick={handleClick}>
+            <button className={b('input-icon')} onClick={handleClick}>
                 <Icon size={iconSize} data={iconData} />
-            </div>
+            </button>
         );
     }, [handleChange, onSubmit, value]);
 
