@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.16.0](https://github.com/gravity-ui/blog-constructor/compare/v5.15.0...v5.16.0) (2024-02-12)
+
+
+### Features
+
+* **Feed:** add possibility to set custom blog feed & post paths ([#169](https://github.com/gravity-ui/blog-constructor/issues/169)) ([90f2444](https://github.com/gravity-ui/blog-constructor/commit/90f2444ef7571ad305159781948925955b21392b))
+
 ## [5.15.0](https://github.com/gravity-ui/blog-constructor/compare/v5.14.0...v5.15.0) (2024-01-23)
 
 
