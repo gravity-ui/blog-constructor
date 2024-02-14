@@ -78,6 +78,12 @@ $clearIconSize: 11px;
             min-width: 30px;
             height: 100%;
         }
+
+        &_overlay {
+            position: absolute;
+            inset: 0;
+            border-radius: var(--g-border-radius-xl);
+        }
     }
 
     &__switcher-arrow {

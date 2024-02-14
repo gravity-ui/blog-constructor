@@ -45,11 +45,11 @@ export const CustomSwitcher = ({
     return (
         <button
             className={b('custom-switcher')}
-            onClick={onClick}
             ref={controlRef as LegacyRef<HTMLButtonElement>}
             onKeyDown={onKeyDown}
             aria-expanded={open}
         >
+            <div onClick={onClick} className={b('custom-switcher-element', {overlay: true})} />
             <div className={b('custom-switcher-element', {content: true})}>
                 {itemsNames?.join(', ')}
             </div>
