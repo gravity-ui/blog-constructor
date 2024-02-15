@@ -1,4 +1,4 @@
-import React, {LegacyRef, MouseEvent, useMemo} from 'react';
+import React, {LegacyRef, useMemo} from 'react';
 
 import {Icon, SelectProps} from '@gravity-ui/uikit';
 
@@ -42,11 +42,6 @@ export const CustomSwitcher = ({
     }, [defaultLabel, initial, list]);
     const hasCounter = itemsNames.length > 1;
 
-    const handleClick = (e: MouseEvent<HTMLDivElement>) => {
-        e.currentTarget.focus();
-        onClick?.();
-    };
-
     return (
         <button
             className={b('custom-switcher')}
@@ -54,7 +49,7 @@ export const CustomSwitcher = ({
             onKeyDown={onKeyDown}
             aria-expanded={open}
         >
-            <div onClick={handleClick} className={b('custom-switcher-element', {overlay: true})} />
+            <div onClick={onClick} className={b('custom-switcher-element', {overlay: true})} />
             <div className={b('custom-switcher-element', {content: true})}>
                 {itemsNames?.join(', ')}
             </div>
