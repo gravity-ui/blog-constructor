@@ -49,6 +49,8 @@ $clearIconSize: 11px;
     }
 
     &__custom-switcher-element {
+        color: var(--g-color-text-primary);
+
         &_content {
             display: inline-block;
             flex-grow: 1;
@@ -56,7 +58,6 @@ $clearIconSize: 11px;
             text-overflow: ellipsis;
             white-space: nowrap;
             padding: 0 $indentXXS;
-            color: var(--g-color-text-primary);
         }
 
         &_counter {
@@ -94,5 +95,6 @@ $clearIconSize: 11px;
     &__clear {
         width: $clearIconSize;
         height: $clearIconSize;
+        color: var(--g-color-text-primary);
     }
 }

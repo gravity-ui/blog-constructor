@@ -49,7 +49,6 @@ export const renderFilter: SelectProps['renderFilter'] = ({value, onChange, onKe
         onUpdate={onChange}
         onKeyDown={onKeyDown}
         className={b('popup-filter')}
-        autoFocus
     />
 );
 
