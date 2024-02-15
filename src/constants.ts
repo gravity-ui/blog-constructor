@@ -20,6 +20,7 @@ export enum BlogMetrikaGoalIds {
     breadcrumbsBottom = 'SITE_BLOG_BREADCRUMBS-BOTTOM_CLICK',
     saveTop = 'SITE_BLOG_SAVE-TOP_CLICK',
     saveBottom = 'SITE_BLOG_SAVE-BOTTOM_CLICK',
+    saveSuggest = 'SITE_BLOG_SAVE-SUGGEST_CLICK',
     suggest = 'SITE_BLOG_INTERESTING-CARD_CLICK',
     bannerCommon = 'SITE_BLOG_TEXT-BANNER_CLICK',
     cta = 'SITE_BLOG_CTA_CLICK',

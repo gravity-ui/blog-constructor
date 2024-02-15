@@ -1,11 +1,9 @@
 import React, {useContext} from 'react';
 
-import {useAnalytics} from '@gravity-ui/page-constructor';
+import {AnalyticsEventsProp, useAnalytics} from '@gravity-ui/page-constructor';
 import {Icon} from '@gravity-ui/uikit';
 
 import {LikesContext} from '../../../contexts/LikesContext';
-import metrika from '../../../counters/metrika';
-import {MetrikaCounter} from '../../../counters/utils';
 import {Save as SaveIcon} from '../../../icons/Save';
 import {SaveFilled} from '../../../icons/SaveFilled';
 import {DefaultEventNames, QAProps} from '../../../models/common';
@@ -24,11 +22,8 @@ type SaveProps = QAProps & {
     hasUserLike: boolean;
     handleUserLike: () => void;
     theme?: 'light' | 'dark';
-    /**
-     * @deprecated Metrika will be deleted after launch of analyticsEvents
-     */
-    metrikaGoal?: string;
     size?: 's' | 'm';
+    analyticsEvents?: AnalyticsEventsProp;
 };
 
 /**
@@ -37,9 +32,9 @@ type SaveProps = QAProps & {
  * @param title - post title
  * @param postId - post id
  * @param hasUserLike - flag what blog has like from current user
- * @param metrikaGoal - metrika goal name
  * @param qa - test-attr
  * @param size - text size
+ * @param analyticsEvents - a single or collection of objects detailing analytics events
  *
  * @returns jsx
  */
@@ -48,10 +43,10 @@ export const Save = ({
     postId,
     hasUserLike,
     handleUserLike,
-    metrikaGoal,
     size,
     theme,
     qa,
+    analyticsEvents,
 }: SaveProps) => {
     const {toggleLike, isSignedInUser, requireSignIn} = useContext(LikesContext);
     const handleAnalytics = useAnalytics(DefaultEventNames.SaveButton);
@@ -78,8 +73,7 @@ export const Save = ({
 
                 postLikeStatus(postId, Boolean(hasUserLike));
                 handleUserLike();
-                metrika.reachGoal(MetrikaCounter.CrossSite, metrikaGoal);
-                handleAnalytics();
+                handleAnalytics(analyticsEvents);
             }}
             data-qa={qa}
         >

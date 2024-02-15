@@ -1,19 +1,30 @@
 import React from 'react';
 
-import {Content, Image, NewMetrikaGoal} from '@gravity-ui/page-constructor';
+import {Content, Image} from '@gravity-ui/page-constructor';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
-import {BlogMetrikaGoalIds} from '../../constants';
 import {BannerProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
 import {block} from '../../utils/cn';
-import {getBlogElementMetrika, getQaAttributes, updateContentSizes} from '../../utils/common';
+import {
+    getMergedAnalyticsEvents,
+    getQaAttributes,
+    prepareAnalyticsEvent,
+    updateContentSizes,
+} from '../../utils/common';
+import {BlogMetrikaGoalIds} from '../../constants';
+import {MetrikaCounter} from '../../counters/utils';
 
 import './Banner.scss';
 
 const b = block('banner');
 
 const BANNER_CUSTOM_QA_ATTRIBUTES = ['image-container'];
+
+const buttonGoals = prepareAnalyticsEvent({
+    name: BlogMetrikaGoalIds.bannerCommon,
+    counter: MetrikaCounter.CrossSite,
+});
 
 export const Banner = ({
     color,
@@ -33,17 +44,9 @@ export const Banner = ({
 
     const contentData = updateContentSizes(content);
 
-    /**
-     * @deprecated Metrika will be deleted after launch of analyticsEvents
-     */
-    const metrikaGoal: NewMetrikaGoal = {
-        name: BlogMetrikaGoalIds.bannerCommon,
-        isCrossSite: true,
-    };
-
     contentData.buttons?.forEach((button) => {
         // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign
-        button.metrikaGoals = getBlogElementMetrika(metrikaGoal, button.metrikaGoals);
+        button.analyticsEvents = getMergedAnalyticsEvents(buttonGoals, button.analyticsEvents);
     });
 
     return (

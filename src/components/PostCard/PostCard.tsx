@@ -1,5 +1,5 @@
 import React, {useContext, useMemo} from 'react';
-import {CardBase, HTML, MetrikaGoal, YFMWrapper} from '@gravity-ui/page-constructor';
+import {AnalyticsEventsProp, CardBase, HTML, YFMWrapper} from '@gravity-ui/page-constructor';
 import {useUniqId} from '@gravity-ui/uikit';
 
 import {LikesContext} from '../../contexts/LikesContext';
@@ -16,21 +16,18 @@ type PostCardProps = {
     showTag?: boolean;
     size?: PostCardSize;
     titleHeadingLevel?: PostCardTitleHeadingLevel;
-    /**
-     * @deprecated Metrika will be deleted after launch of analyticsEvents
-     */
-    metrikaGoals?: MetrikaGoal;
+    analyticsEvents?: AnalyticsEventsProp;
 };
 
 const b = block('post-card');
 
 export const PostCard = ({
     post,
-    metrikaGoals,
     fullWidth = false,
     size = PostCardSize.SMALL,
     showTag = false,
     titleHeadingLevel = PostCardTitleHeadingLevel.H3,
+    analyticsEvents,
 }: PostCardProps) => {
     const {
         title: postTitle,
@@ -81,7 +78,8 @@ export const PostCard = ({
     return (
         <CardBase
             url={url}
-            metrikaGoals={metrikaGoals}
+            // metrikaGoals={metrikaGoals}
+            analyticsEvents={analyticsEvents}
             className={b('card', {fullWidth})}
             extraProps={ariaAttributes}
         >

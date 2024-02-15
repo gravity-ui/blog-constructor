@@ -1,9 +1,6 @@
 import React, {useCallback, useContext, useEffect, useMemo, useReducer} from 'react';
 
 import {useAnalytics} from '@gravity-ui/page-constructor';
-/**
- * @deprecated Metrika will be deleted after launch of analyticsEvents
- */
 import {Icon} from '@gravity-ui/uikit';
 
 import {FeedHeader} from '../../components/FeedHeader/FeedHeader';
@@ -12,14 +9,10 @@ import {PostsError} from '../../components/PostsError/PostsError';
 import {BlogMetrikaGoalIds} from '../../constants';
 import {FeedContext} from '../../contexts/FeedContext';
 import {RouterContext} from '../../contexts/RouterContext';
-/**
- * @deprecated Metrika will be deleted after launch of analyticsEvents
- */
-import metrika from '../../counters/metrika';
 import {MetrikaCounter} from '../../counters/utils';
 import {FeedProps} from '../../models/blocks';
 import {DefaultEventNames, FetchArgs, HandleChangeQueryParams} from '../../models/common';
-import {getFeedQueryParams, scrollOnPageChange} from '../../utils/common';
+import {getFeedQueryParams, prepareAnalyticsEvent, scrollOnPageChange} from '../../utils/common';
 import {DEFAULT_PAGE, DEFAULT_ROWS_PER_PAGE} from '../constants';
 
 import {ActionTypes, reducer} from './reducer';
@@ -40,6 +33,10 @@ export const Feed = ({image}: FeedProps) => {
     } = useContext(FeedContext);
     const router = useContext(RouterContext);
     const handleAnalytics = useAnalytics(DefaultEventNames.ShowMore);
+    const additionalAnalyticsEvent = prepareAnalyticsEvent({
+        name: BlogMetrikaGoalIds.showMore,
+        counter: MetrikaCounter.CrossSite,
+    });
 
     const [
         {
@@ -163,11 +160,7 @@ export const Feed = ({image}: FeedProps) => {
     };
 
     const handleShowMore = async () => {
-        /**
-         * @deprecated Metrika will be deleted after launch of analyticsEvents
-         */
-        metrika.reachGoal(MetrikaCounter.CrossSite, BlogMetrikaGoalIds.showMore);
-        handleAnalytics();
+        handleAnalytics(additionalAnalyticsEvent);
 
         const nextPage = currentPage + 1;
 

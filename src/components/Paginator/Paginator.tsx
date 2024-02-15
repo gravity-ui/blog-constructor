@@ -3,10 +3,6 @@ import React, {useEffect, useMemo, useState} from 'react';
 import {useAnalytics} from '@gravity-ui/page-constructor';
 
 import {BlogMetrikaGoalIds} from '../../constants';
-/**
- * @deprecated Metrika will be deleted after launch of analyticsEvents
- */
-import metrika from '../../counters/metrika';
 import {MetrikaCounter} from '../../counters/utils';
 import {DefaultEventNames} from '../../models/common';
 import {block} from '../../utils/cn';
@@ -15,6 +11,7 @@ import {NavigationButton} from './components/NavigationButton';
 import {PaginatorItem} from './components/PaginatorItem';
 import {ArrowType, PaginatorItemProps, PaginatorProps} from './types';
 import {getPageConfigs, getPagesCount} from './utils';
+import {prepareAnalyticsEvent} from '../../utils/common';
 
 import _ from 'lodash';
 
@@ -66,18 +63,18 @@ export const Paginator = ({
         let newPage = page;
 
         if (type === 'prev' && page > 1) {
-            /**
-             * @deprecated Metrika will be deleted after launch of analyticsEvents
-             */
-            metrika.reachGoal(MetrikaCounter.CrossSite, BlogMetrikaGoalIds.home);
-            handleAnalyticsHome();
+            const event = prepareAnalyticsEvent({
+                name: BlogMetrikaGoalIds.home,
+                counter: MetrikaCounter.CrossSite,
+            });
+            handleAnalyticsHome(event);
             newPage = 1;
         } else if (type === 'next' && page < pagesCount) {
-            /**
-             * @deprecated Metrika will be deleted after launch of analyticsEvents
-             */
-            handleAnalyticsNext();
-            metrika.reachGoal(MetrikaCounter.CrossSite, BlogMetrikaGoalIds.next);
+            const event = prepareAnalyticsEvent({
+                name: BlogMetrikaGoalIds.next,
+                counter: MetrikaCounter.CrossSite,
+            });
+            handleAnalyticsNext(event);
             newPage = page + 1;
         }
 
@@ -88,11 +85,11 @@ export const Paginator = ({
 
     const handlePageClick = (index: number | ArrowType) => {
         if (index !== page && typeof index === 'number') {
-            /**
-             * @deprecated Metrika will be deleted after launch of analyticsEvents
-             */
-            metrika.reachGoal(MetrikaCounter.CrossSite, BlogMetrikaGoalIds.page, {page: index});
-            handleAnalyticsPage(null, {page: String(index)});
+            const event = prepareAnalyticsEvent({
+                name: BlogMetrikaGoalIds.page,
+                counter: MetrikaCounter.CrossSite,
+            });
+            handleAnalyticsPage(event, {page: String(index)});
             handlePageChange(index);
         }
     };

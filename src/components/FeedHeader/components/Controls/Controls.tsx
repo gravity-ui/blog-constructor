@@ -3,19 +3,16 @@ import React, {ReactNode, useContext, useMemo, useState} from 'react';
 import {useAnalytics} from '@gravity-ui/page-constructor';
 import {Button, Icon, Select} from '@gravity-ui/uikit';
 
-/**
- * @deprecated Metrika will be deleted after launch of analyticsEvents
- */
 import {BlogMetrikaGoalIds} from '../../../../constants';
 import {LikesContext} from '../../../../contexts/LikesContext';
 import {MobileContext} from '../../../../contexts/MobileContext';
-import metrika from '../../../../counters/metrika';
 import {MetrikaCounter} from '../../../../counters/utils';
 import {Keyset, i18n} from '../../../../i18n';
 import {Save} from '../../../../icons/Save';
 import {DefaultEventNames, FetchArgs, Query, SetQueryType} from '../../../../models/common';
 import {block} from '../../../../utils/cn';
 import {Search} from '../../../Search/Search';
+import {prepareAnalyticsEvent} from '../../../../utils/common';
 
 import {renderFilter, renderOption, renderSwitcher} from './customRenders';
 
@@ -89,13 +86,11 @@ export const Controls = ({
     };
 
     const handleTagSelect = (selectedTags: string[]) => {
-        /**
-         * @deprecated Metrika will be deleted after launch of analyticsEvents
-         */
-        metrika.reachGoal(MetrikaCounter.CrossSite, BlogMetrikaGoalIds.tag, {
-            theme: selectedTags[0],
+        const event = prepareAnalyticsEvent({
+            name: BlogMetrikaGoalIds.tag,
+            counter: MetrikaCounter.CrossSite,
         });
-        handleAnalyticsTag(null, {
+        handleAnalyticsTag(event, {
             theme: selectedTags[0],
         });
 
@@ -115,16 +110,16 @@ export const Controls = ({
             return selectedServices.includes(service.value);
         });
 
-        const metrikaAsString = forMetrikaServices.map((service) => service.content).join(',');
+        const servicesAsStringForAnalytics = forMetrikaServices
+            .map((service) => service.content)
+            .join(',');
 
-        /**
-         * @deprecated Metrika will be deleted after launch of analyticsEvents
-         */
-        metrika.reachGoal(MetrikaCounter.CrossSite, BlogMetrikaGoalIds.service, {
-            service: metrikaAsString,
+        const event = prepareAnalyticsEvent({
+            name: BlogMetrikaGoalIds.service,
+            counter: MetrikaCounter.CrossSite,
         });
-        handleAnalyticsService(null, {
-            service: metrikaAsString,
+        handleAnalyticsService(event, {
+            service: servicesAsStringForAnalytics,
         });
 
         const servicesAsString = selectedServices.join(',');

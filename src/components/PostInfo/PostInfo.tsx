@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 
+import {AnalyticsEventsProp} from '@gravity-ui/page-constructor';
 import {PostPageContext} from '../../contexts/PostPageContext';
 import {PostData, QAProps} from '../../models/common';
 import {block} from '../../utils/cn';
@@ -24,10 +25,7 @@ type PostInfoProps = QAProps & {
     readingTime: PostData['readingTime'];
     date: PostData['date'];
     theme?: 'light' | 'dark';
-    /**
-     * @deprecated Metrika will be deleted after launch of analyticsEvents
-     */
-    metrikaGoals?: BlogMetrikaGoals;
+    analyticsEventsContainer?: Record<string, AnalyticsEventsProp>;
 };
 
 /**
@@ -37,8 +35,8 @@ type PostInfoProps = QAProps & {
  * @param readingTime - post reading time
  * @param date - post create date
  * @param theme - theme name
- * @param metrikaGoals - metrika goals name
  * @param qa - test-attr
+ * @param analyticsEventsContainer - a map of records with a single or collection of objects detailing analytics events
  *
  * @returns jsx
  */
@@ -47,8 +45,8 @@ export const PostInfo = ({
     readingTime,
     postId,
     theme = 'light',
-    metrikaGoals,
     qa,
+    analyticsEventsContainer,
 }: PostInfoProps) => {
     const {likes} = useContext(PostPageContext);
     const qaAttributes = getQaAttributes(qa, 'date', 'reading-time', 'save');
@@ -57,14 +55,14 @@ export const PostInfo = ({
         <div className={b('container', {theme})}>
             {date && <Date date={date} qa={qaAttributes.date} />}
             {readingTime && <ReadingTime readingTime={readingTime} qa={qaAttributes.readingTime} />}
-            <Sharing metrikaGoal={metrikaGoals?.sharing} theme={theme} />
+            <Sharing theme={theme} analyticsEvents={analyticsEventsContainer?.sharing} />
             {likes && (
                 <Save
                     postId={postId}
                     title={likes.likesCount}
                     hasUserLike={likes.hasUserLike}
                     handleUserLike={likes.handleUserLike}
-                    metrikaGoal={metrikaGoals?.save}
+                    analyticsEvents={analyticsEventsContainer?.save}
                     theme={theme}
                     qa={qaAttributes.save}
                 />
