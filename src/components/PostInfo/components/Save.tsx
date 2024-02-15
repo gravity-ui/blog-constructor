@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, {useContext} from 'react';
 
 import {useAnalytics} from '@gravity-ui/page-constructor';

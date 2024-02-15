@@ -78,7 +78,6 @@ export const Search = ({
         };
 
         return (
-            // eslint-disable-next-line jsx-a11y/click-events-have-key-events
             <button className={b('input-icon')} onClick={handleClick}>
                 <Icon size={iconSize} data={iconData} />
             </button>
