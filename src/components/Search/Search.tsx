@@ -78,9 +78,9 @@ export const Search = ({
         };
 
         return (
-            <div className={b('input-icon')} onClick={handleClick}>
+            <button className={b('input-icon')} onClick={handleClick}>
                 <Icon size={iconSize} data={iconData} />
-            </div>
+            </button>
         );
     }, [handleChange, onSubmit, value]);
 
