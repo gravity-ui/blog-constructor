@@ -43,13 +43,13 @@ export const CustomSwitcher = ({
     const hasCounter = itemsNames.length > 1;
 
     return (
-        <div
-            className={b('custom-switcher')}
-            ref={controlRef as LegacyRef<HTMLDivElement>}
-            onKeyDown={onKeyDown}
-            aria-expanded={open}
-        >
-            <button onClick={onClick} className={b('custom-switcher-element', {overlay: true})} />
+        <div className={b('custom-switcher')} ref={controlRef as LegacyRef<HTMLDivElement>}>
+            <button
+                onClick={onClick}
+                className={b('custom-switcher-element', {overlay: true})}
+                onKeyDown={onKeyDown}
+                aria-expanded={open}
+            />
             <div className={b('custom-switcher-element', {content: true})}>
                 {itemsNames?.join(', ')}
             </div>
