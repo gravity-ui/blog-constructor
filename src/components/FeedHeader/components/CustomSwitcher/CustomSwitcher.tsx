@@ -43,13 +43,13 @@ export const CustomSwitcher = ({
     const hasCounter = itemsNames.length > 1;
 
     return (
-        <button
+        <div
             className={b('custom-switcher')}
-            ref={controlRef as LegacyRef<HTMLButtonElement>}
+            ref={controlRef as LegacyRef<HTMLDivElement>}
             onKeyDown={onKeyDown}
             aria-expanded={open}
         >
-            <div onClick={onClick} className={b('custom-switcher-element', {overlay: true})} />
+            <button onClick={onClick} className={b('custom-switcher-element', {overlay: true})} />
             <div className={b('custom-switcher-element', {content: true})}>
                 {itemsNames?.join(', ')}
             </div>
@@ -67,6 +67,6 @@ export const CustomSwitcher = ({
             <div className={b('custom-switcher-element', {arrow: true})}>
                 <Icon data={DropdownArrow} size={ICON_SIZE} className={b('switcher-arrow')} />
             </div>
-        </button>
+        </div>
     );
 };

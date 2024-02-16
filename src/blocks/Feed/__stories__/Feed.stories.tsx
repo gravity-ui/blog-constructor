@@ -21,6 +21,8 @@ import {Feed} from '../Feed';
 import mockedPosts from '../../../../.mocks/posts.json';
 import mockedServices from '../../../../.mocks/services.json';
 import mockedTags from '../../../../.mocks/tags.json';
+import {RouterContext} from '../../../contexts/RouterContext';
+import {routerData} from '../../../demo/mocks';
 
 export default {
     title: 'Blocks/Feed',
@@ -76,7 +78,12 @@ const contextData = {
 
 const DefaultTemplate: StoryFn<FeedModel> = (args) => (
     <FeedContext.Provider value={contextData as unknown as FeedContextProps}>
-        <PageConstructor content={{blocks: [args] as unknown as Block[]}} custom={customBlocks} />
+        <RouterContext.Provider value={routerData}>
+            <PageConstructor
+                content={{blocks: [args] as unknown as Block[]}}
+                custom={customBlocks}
+            />
+        </RouterContext.Provider>
     </FeedContext.Provider>
 );
 

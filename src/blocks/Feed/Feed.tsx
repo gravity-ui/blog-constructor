@@ -101,7 +101,7 @@ export const Feed = ({image}: FeedProps) => {
                       ...value,
                   };
 
-            router?.updateQueryCallback?.(result);
+            router.updateQueryCallback(result);
         },
         [router],
     );

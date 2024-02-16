@@ -84,6 +84,9 @@ $clearIconSize: 11px;
             position: absolute;
             inset: 0;
             border-radius: var(--g-border-radius-xl);
+            background: transparent;
+            border: none;
+            cursor: pointer;
         }
     }
 
