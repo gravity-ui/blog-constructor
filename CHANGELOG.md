@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.16.1](https://github.com/gravity-ui/blog-constructor/compare/v5.16.0...v5.16.1) (2024-02-16)
+
+
+### Bug Fixes
+
+* feed select ([#176](https://github.com/gravity-ui/blog-constructor/issues/176)) ([b0db083](https://github.com/gravity-ui/blog-constructor/commit/b0db083305164bb69957866ebde32492367e1dc6))
+
 ## [5.16.0](https://github.com/gravity-ui/blog-constructor/compare/v5.15.0...v5.16.0) (2024-02-12)
 
 
