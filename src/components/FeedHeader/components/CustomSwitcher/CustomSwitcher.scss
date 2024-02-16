@@ -49,6 +49,8 @@ $clearIconSize: 11px;
     }
 
     &__custom-switcher-element {
+        color: var(--g-color-text-primary);
+
         &_content {
             display: inline-block;
             flex-grow: 1;
@@ -77,6 +79,15 @@ $clearIconSize: 11px;
             min-width: 30px;
             height: 100%;
         }
+
+        &_overlay {
+            position: absolute;
+            inset: 0;
+            border-radius: var(--g-border-radius-xl);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
     }
 
     &__switcher-arrow {
@@ -87,5 +98,6 @@ $clearIconSize: 11px;
     &__clear {
         width: $clearIconSize;
         height: $clearIconSize;
+        color: var(--g-color-text-primary);
     }
 }

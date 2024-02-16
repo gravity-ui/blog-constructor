@@ -3,7 +3,7 @@ import React from 'react';
 import type {Meta, StoryContext, StoryFn} from '@storybook/react';
 
 import {BlogConstructorProvider} from '../../../constructor/BlogConstructorProvider';
-import {GetPostsRequest, Query} from '../../../models/common';
+import {GetPostsRequest} from '../../../models/common';
 import {BlogPage, BlogPageProps} from '../BlogPage';
 
 import page from '../../../../.mocks/blogPage.json';
@@ -12,17 +12,9 @@ import posts from '../../../../.mocks/posts.json';
 import services from '../../../../.mocks/services.json';
 import tags from '../../../../.mocks/tags.json';
 import {Lang} from '../../../models/locale';
+import {routerData} from '../../../demo/mocks';
 
 const mockMetaComponent = <title>Blog page</title>;
-const routerData = {
-    as: '/',
-    pathname: '/',
-    hostname: 'host',
-    query: {},
-    updateQueryCallback: (params: Query) => {
-        console.log('params', params);
-    },
-};
 
 export default {
     title: 'Containers/BlogPage',
