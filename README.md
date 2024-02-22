@@ -62,10 +62,10 @@ import {
 
 ## i18n
 
-To make sure the i18n library used in your project runs properly, perform its initialization and set the project's current locale value in `lang`. For example:
+The `blog-constructor` is a `uikit-based` library, and we use an instance of `i18n` from uikit. To set up internationalization, you just need to use the `configure` from. For example:
 
 ```typescript
-import {configure, Lang} from '@gravity-ui/blog-constructor';
+import {configure, Lang} from '@gravity-ui/uikit';
 
 configure({lang: Lang.En});
 ```

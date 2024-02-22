@@ -6,7 +6,7 @@ import {PostCard} from '../../components/PostCard/PostCard';
 import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {BlogMetrikaGoalIds} from '../../constants';
 import {PostPageContext} from '../../contexts/PostPageContext';
-import {Keyset, i18} from '../../i18n';
+import {Keyset, i18n} from '../../i18n';
 import {SuggestProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
 
@@ -45,7 +45,7 @@ export const Suggest = ({paddingTop = 'l', paddingBottom = 'l'}: SuggestProps) =
         >
             <SliderBlock
                 slidesToShow={{xl: 3, lg: 2, sm: 1}}
-                title={{text: i18(Keyset.TitleSuggest)}}
+                title={{text: i18n(Keyset.TitleSuggest)}}
                 lazyLoad={false}
             >
                 {suggestedPosts.map((post) => (

@@ -3,7 +3,7 @@ import React, {MouseEvent} from 'react';
 import {CardLayoutBlock} from '@gravity-ui/page-constructor';
 import {Button} from '@gravity-ui/uikit';
 
-import {Keyset, i18} from '../../i18n';
+import {Keyset, i18n} from '../../i18n';
 import {PostCardSize, PostCardTitleHeadingLevel, PostData, Query} from '../../models/common';
 import {block} from '../../utils/cn';
 import {Paginator} from '../Paginator/Paginator';
@@ -96,13 +96,13 @@ export const Posts = ({
                     className={b('more-button')}
                     onClick={handleShowMore}
                 >
-                    {i18(Keyset.ActionLoadMore)}
+                    {i18n(Keyset.ActionLoadMore)}
                 </Button>
             )}
             {errorShowMore && (
                 <div className={b('error-show-more')}>
-                    <div>{i18(Keyset.ErrorTitle)}</div>
-                    <div>{i18(Keyset.PostLoadError)}</div>
+                    <div>{i18n(Keyset.ErrorTitle)}</div>
+                    <div>{i18n(Keyset.PostLoadError)}</div>
                 </div>
             )}
             {Boolean(currentPage && postCountOnPage) && (

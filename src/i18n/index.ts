@@ -1,10 +1,6 @@
-import {I18N} from '@gravity-ui/i18n';
+import {addComponentKeysets} from '@gravity-ui/uikit/i18n';
 
-import {Lang} from '../models/locale';
-
-const KEYSET_NAME = 'blog';
-
-export const i18n = new I18N();
+const NAMESPACE = 'blog';
 
 export enum Keyset {
     Title = 'title',
@@ -28,7 +24,7 @@ export enum Keyset {
     SignIn = 'Sign In',
 }
 
-i18n.registerKeyset(Lang.En, KEYSET_NAME, {
+const en = {
     [Keyset.Title]: 'Blog',
     [Keyset.TitleBreadcrumbs]: 'Blog',
     [Keyset.TitleSuggest]: 'See also',
@@ -52,9 +48,9 @@ i18n.registerKeyset(Lang.En, KEYSET_NAME, {
         '{{count}} mins to read',
     ],
     [Keyset.SignIn]: 'Sign In',
-});
+};
 
-i18n.registerKeyset(Lang.Ru, KEYSET_NAME, {
+const ru = {
     [Keyset.Title]: 'Блог',
     [Keyset.TitleBreadcrumbs]: 'Блог',
     [Keyset.TitleSuggest]: 'Читать также',
@@ -79,6 +75,6 @@ i18n.registerKeyset(Lang.Ru, KEYSET_NAME, {
         '{{count}} минут чтения',
     ],
     [Keyset.SignIn]: 'Войти',
-});
+};
 
-export const i18 = i18n.keyset(KEYSET_NAME);
+export const i18n = addComponentKeysets({en, ru}, `${NAMESPACE}VideoBlock`);

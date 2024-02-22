@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Button} from '@gravity-ui/uikit';
 
-import {Keyset, i18} from '../../i18n';
+import {Keyset, i18n} from '../../i18n';
 import {block} from '../../utils/cn';
 
 import './PostError.scss';
@@ -18,11 +18,11 @@ export const PostsError = ({onButtonClick}: PostsErrorContainerProps) => {
 
     return (
         <div className={b('container')}>
-            <div className={b('title')}>{i18(Keyset.ErrorTitle)}</div>
-            <div className={b('subtitle')}>{i18(Keyset.PostLoadError)}</div>
+            <div className={b('title')}>{i18n(Keyset.ErrorTitle)}</div>
+            <div className={b('subtitle')}>{i18n(Keyset.PostLoadError)}</div>
             <div className={b('button')}>
                 <Button size="xl" view="outlined" onClick={handleClick}>
-                    {i18(Keyset.ActionTryAgain)}
+                    {i18n(Keyset.ActionTryAgain)}
                 </Button>
             </div>
         </div>

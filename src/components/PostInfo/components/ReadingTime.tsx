@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Icon} from '@gravity-ui/uikit';
 
-import {Keyset, i18} from '../../../i18n';
+import {Keyset, i18n} from '../../../i18n';
 import {Time} from '../../../icons/Time';
 import {block} from '../../../utils/cn';
 
@@ -24,6 +24,6 @@ export const ReadingTime = ({readingTime, size = 's', id, qa}: ReadingTimeProps)
         <span className={b('icon')}>
             <Icon data={Time} size={ICON_SIZE} className={b('icon-color')} />
         </span>
-        {i18(Keyset.ContextReadingTime, {count: readingTime})}
+        {i18n(Keyset.ContextReadingTime, {count: readingTime})}
     </div>
 );
