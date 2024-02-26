@@ -8,7 +8,7 @@ import {PostPageContext} from '../../../contexts/PostPageContext';
 import {RouterContext} from '../../../contexts/RouterContext';
 import metrika from '../../../counters/metrika';
 import {MetrikaCounter} from '../../../counters/utils';
-import {Keyset, i18} from '../../../i18n';
+import {Keyset, i18n} from '../../../i18n';
 import {ShareArrowUp} from '../../../icons/ShareArrowUp';
 import {DefaultEventNames} from '../../../models/common';
 import {block} from '../../../utils/cn';
@@ -53,7 +53,7 @@ export const Sharing = ({theme, metrikaGoal}: SharingProps) => {
                     tooltipClassName={b('popup')}
                     useWebShareApi={isMobile}
                     direction={ShareLayoutDirection.Column}
-                    buttonTitle={i18(Keyset.ActionShare)}
+                    buttonTitle={i18n(Keyset.ActionShare)}
                     customIcon={ShareArrowUp}
                     placement="bottom"
                     openByHover={false}

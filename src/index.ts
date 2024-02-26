@@ -1,5 +1,3 @@
-export {configure} from './configure';
-
 export {BlogConstructorProvider} from './constructor/BlogConstructorProvider';
 
 export {BlogPostPage} from './containers/BlogPostPage/BlogPostPage';

@@ -14,7 +14,7 @@ import {PostData} from '../../../models/common';
 import {LocaleContext} from '../../../contexts/LocaleContext';
 import {Lang} from '../../../models/locale';
 import {format} from '../../../utils/date';
-import {Keyset, i18} from '../../../i18n';
+import {Keyset, i18n} from '../../../i18n';
 
 const locale = {
     code: 'en-En',
@@ -81,7 +81,7 @@ describe('Meta', () => {
         const blogBreadcrumb = screen.getByTestId(qaAttr.readingTime);
 
         expect(blogBreadcrumb).toHaveTextContent(
-            i18(Keyset.ContextReadingTime, {count: post.readingTime}),
+            i18n(Keyset.ContextReadingTime, {count: post.readingTime}),
         );
     });
 

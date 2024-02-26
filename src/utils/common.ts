@@ -20,7 +20,7 @@ import {
     DEFAULT_ROWS_PER_PAGE,
 } from '../blocks/constants';
 import {RouterContextProps} from '../contexts/RouterContext';
-import {Keyset, i18} from '../i18n';
+import {Keyset, i18n} from '../i18n';
 import {GetPostsRequest, Query, Tag} from '../models/common';
 
 const QA_ATTRIBUTES_KEYS = ['container', 'content', 'wrapper', 'image', 'button'];
@@ -116,7 +116,7 @@ export const getBlogPath = (pathPrefix: string) => {
 
 export const getBreadcrumbs = ({tags, blogPath}: GetBreadcrumbsProps) => {
     const breadcrumbs: HeaderBreadCrumbsProps = {
-        items: [{text: i18(Keyset.TitleBreadcrumbs), url: blogPath}],
+        items: [{text: i18n(Keyset.TitleBreadcrumbs), url: blogPath}],
         theme: 'light',
     };
 
