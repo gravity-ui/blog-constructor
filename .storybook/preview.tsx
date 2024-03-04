@@ -11,8 +11,7 @@ import {withTheme} from './decorators/withTheme';
 import {withLang} from './decorators/withLang';
 import {withMobile} from './decorators/withMobile';
 import {DocsDecorator} from './decorators/DocsDecorator/DocsDecorator';
-import {MobileProvider, Platform} from '@gravity-ui/uikit';
-import {ThemeProvider} from '../src/contexts/theme/ThemeProvider';
+import {MobileProvider, ThemeProvider} from '@gravity-ui/uikit';
 
 const withContextProvider: Decorator = (Story, context) => (
     <React.StrictMode>

@@ -77,4 +77,4 @@ const ru = {
     [Keyset.SignIn]: 'Войти',
 };
 
-export const i18n = addComponentKeysets({en, ru}, `${NAMESPACE}VideoBlock`);
+export const i18n = addComponentKeysets({en, ru}, NAMESPACE);

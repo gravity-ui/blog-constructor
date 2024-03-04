@@ -5,8 +5,8 @@ import type {DocsContainerProps} from '@storybook/addon-docs';
 
 import {themes} from '../../../.storybook/theme';
 import {MobileContext} from '../../../src/contexts/MobileContext';
-import {ThemeProvider} from '../../../src/contexts/theme';
 import {cn} from '../../../src/utils/cn';
+import {ThemeProvider} from '@gravity-ui/uikit';
 
 import './DocsDecorator.scss';
 

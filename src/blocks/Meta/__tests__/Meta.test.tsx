@@ -12,9 +12,9 @@ import {LikesRoutineType, PostPageContext} from '../../../contexts/PostPageConte
 import post from '../../../../.mocks/post.json';
 import {PostData} from '../../../models/common';
 import {LocaleContext} from '../../../contexts/LocaleContext';
-import {Lang} from '../../../models/locale';
 import {format} from '../../../utils/date';
 import {Keyset, i18n} from '../../../i18n';
+import {Lang} from '@gravity-ui/uikit';
 
 const locale = {
     code: 'en-En',
