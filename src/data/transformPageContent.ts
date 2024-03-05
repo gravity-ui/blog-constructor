@@ -1,9 +1,10 @@
-import {MarkdownItPluginCb} from '@doc-tools/transform/lib/plugins/typings';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import {MarkdownItPluginCb} from '@diplodoc/transform/lib/plugins/typings';
 import {ConstructorBlock, PageContent} from '@gravity-ui/page-constructor';
 import {contentTransformer} from '@gravity-ui/page-constructor/server';
 import yaml from 'js-yaml';
 
-import {Lang} from '../models/locale';
+import {Lang} from '@gravity-ui/uikit';
 
 import {getExtendTypographyConfig} from './config';
 import {filterContent} from './contentFilter';

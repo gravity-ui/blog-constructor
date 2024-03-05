@@ -60,14 +60,14 @@ import {
 } from '@gravity-ui/blog-constructor/server';
 ```
 
-## i18n
-
-The `blog-constructor` is a `uikit-based` library, and we use an instance of `i18n` from uikit. To set up internationalization, you just need to use the `configure` from. For example:
+The `blog-constructor` is a `uikit-based` library, and we use an instance of `i18n` from uikit. To set up internationalization, you just need to use the `configure` from uikit:
 
 ```typescript
-import {configure, Lang} from '@gravity-ui/uikit';
+import {configure} from '@gravity-ui/uikit';
 
-configure({lang: Lang.En});
+configure({
+  lang: 'ru',
+});
 ```
 
 ## Development

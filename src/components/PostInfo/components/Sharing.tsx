@@ -1,13 +1,11 @@
 import React, {useCallback, useContext} from 'react';
 
 import {ShareLayoutDirection, SharePopover} from '@gravity-ui/components';
-import {useAnalytics} from '@gravity-ui/page-constructor';
+import {AnalyticsEventsProp, useAnalytics} from '@gravity-ui/page-constructor';
 
 import {MobileContext} from '../../../contexts/MobileContext';
 import {PostPageContext} from '../../../contexts/PostPageContext';
 import {RouterContext} from '../../../contexts/RouterContext';
-import metrika from '../../../counters/metrika';
-import {MetrikaCounter} from '../../../counters/utils';
 import {Keyset, i18n} from '../../../i18n';
 import {ShareArrowUp} from '../../../icons/ShareArrowUp';
 import {DefaultEventNames} from '../../../models/common';
@@ -20,27 +18,18 @@ const b = block('post-info');
 
 type SharingProps = {
     theme?: 'light' | 'dark';
-    /**
-     * @deprecated Metrika will be deleted after launch of analyticsEvents
-     */
-    metrikaGoal?: string;
+    analyticsEvents?: AnalyticsEventsProp;
 };
 
-export const Sharing = ({theme, metrikaGoal}: SharingProps) => {
+export const Sharing = ({theme, analyticsEvents}: SharingProps) => {
     const router = useContext(RouterContext);
     const isMobile = useContext(MobileContext);
     const {shareOptions} = useContext(PostPageContext);
     const handleAnalyticsGlobal = useAnalytics(DefaultEventNames.ShareButton);
 
-    const handleMetrika = useCallback(() => {
-        metrika.reachGoal(MetrikaCounter.CrossSite, metrikaGoal);
-    }, [metrikaGoal]);
-
     const handleAnalytics = useCallback(() => {
-        handleAnalyticsGlobal();
-
-        handleMetrika();
-    }, [handleAnalyticsGlobal, handleMetrika]);
+        handleAnalyticsGlobal(analyticsEvents);
+    }, [analyticsEvents, handleAnalyticsGlobal]);
 
     return (
         <div className={b('item')}>

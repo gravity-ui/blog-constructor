@@ -12,9 +12,9 @@ import {LikesRoutineType, PostPageContext} from '../../../contexts/PostPageConte
 import post from '../../../../.mocks/post.json';
 import {PostData} from '../../../models/common';
 import {LocaleContext} from '../../../contexts/LocaleContext';
-import {Lang} from '../../../models/locale';
 import {format} from '../../../utils/date';
 import {Keyset, i18n} from '../../../i18n';
+import {Lang, ThemeContext} from '@gravity-ui/uikit';
 
 const locale = {
     code: 'en-En',
@@ -37,13 +37,19 @@ const likes: LikesRoutineType = {
 
 const RenderComponent = (props: MetaProps) => {
     return (
-        <LocaleContext.Provider value={{locale}}>
-            <PostPageContext.Provider
-                value={{post: post as unknown as PostData, suggestedPosts: [] as PostData[], likes}}
-            >
-                <Meta {...props} />
-            </PostPageContext.Provider>
-        </LocaleContext.Provider>
+        <ThemeContext.Provider value={{theme: 'light', themeValue: 'light', direction: 'ltr'}}>
+            <LocaleContext.Provider value={{locale}}>
+                <PostPageContext.Provider
+                    value={{
+                        post: post as unknown as PostData,
+                        suggestedPosts: [] as PostData[],
+                        likes,
+                    }}
+                >
+                    <Meta {...props} />
+                </PostPageContext.Provider>
+            </LocaleContext.Provider>
+        </ThemeContext.Provider>
     );
 };
 

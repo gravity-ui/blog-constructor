@@ -4,21 +4,18 @@ import {SliderBlock} from '@gravity-ui/page-constructor';
 
 import {PostCard} from '../../components/PostCard/PostCard';
 import {Wrapper} from '../../components/Wrapper/Wrapper';
-import {BlogMetrikaGoalIds} from '../../constants';
 import {PostPageContext} from '../../contexts/PostPageContext';
 import {Keyset, i18n} from '../../i18n';
 import {SuggestProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
+import {prepareAnalyticsEvent} from '../../utils/common';
+import {DefaultGoalIds} from '../../constants';
+import {AnalyticsCounter} from '../../counters/utils';
 
-/**
- * @deprecated Metrika will be deleted after launch of analyticsEvents
- */
-const metrikaGoals = [
-    {
-        name: BlogMetrikaGoalIds.suggest,
-        isCrossSite: true,
-    },
-];
+const suggestGoals = prepareAnalyticsEvent({
+    name: DefaultGoalIds.suggest,
+    counter: AnalyticsCounter.CrossSite,
+});
 
 /**
  * Suggested posts block
@@ -49,7 +46,7 @@ export const Suggest = ({paddingTop = 'l', paddingBottom = 'l'}: SuggestProps) =
                 lazyLoad={false}
             >
                 {suggestedPosts.map((post) => (
-                    <PostCard key={post.id} metrikaGoals={metrikaGoals} post={post} />
+                    <PostCard key={post.id} analyticsEvents={suggestGoals} post={post} />
                 ))}
             </SliderBlock>
         </Wrapper>

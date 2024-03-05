@@ -1,6 +1,7 @@
 import {ReactNode} from 'react';
 
-import {MarkdownItPluginCb} from '@doc-tools/transform/lib/plugins/typings';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import {MarkdownItPluginCb} from '@diplodoc/transform/lib/plugins/typings';
 import {HeaderBlockProps as PageConstructorHeaderBlockProps} from '@gravity-ui/page-constructor';
 import {IBrowser, IDevice} from 'ua-parser-js';
 
