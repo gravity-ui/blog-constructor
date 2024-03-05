@@ -27,7 +27,7 @@ $clearIconSize: 11px;
         margin: 0;
 
         // TODO delete this section after Select can customize the popup list
-        & + .yc-popup.yc-popup_open {
+        & + .g-popup.g-popup_open {
             //stylelint-disable-next-line declaration-no-important
             position: absolute !important;
             //stylelint-disable-next-line declaration-no-important
