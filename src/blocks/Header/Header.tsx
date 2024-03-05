@@ -61,7 +61,6 @@ export const Header = (props: HeaderProps) => {
                     postId={id}
                     date={date}
                     readingTime={readingTime}
-                    // metrikaGoals={metrikaGoals}
                     analyticsEventsContainer={analyticsEventsContainer}
                     theme={theme}
                     qa="blog-header-meta-container"

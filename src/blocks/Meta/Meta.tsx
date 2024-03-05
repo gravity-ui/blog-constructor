@@ -78,7 +78,6 @@ export const Meta = (props: MetaProps) => {
                     date={date}
                     readingTime={readingTime}
                     analyticsEventsContainer={analyticsEventsContainer}
-                    // metrikaGoals={metrikaGoals}
                     qa={qaAttributes.postInfo}
                 />
             )}

@@ -78,7 +78,6 @@ export const PostCard = ({
     return (
         <CardBase
             url={url}
-            // metrikaGoals={metrikaGoals}
             analyticsEvents={analyticsEvents}
             className={b('card', {fullWidth})}
             extraProps={ariaAttributes}
