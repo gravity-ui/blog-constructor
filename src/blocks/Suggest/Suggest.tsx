@@ -9,12 +9,12 @@ import {Keyset, i18n} from '../../i18n';
 import {SuggestProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
 import {prepareAnalyticsEvent} from '../../utils/common';
-import {BlogMetrikaGoalIds} from '../../constants';
-import {MetrikaCounter} from '../../counters/utils';
+import {DefaultGoalIds} from '../../constants';
+import {AnalyticsCounter} from '../../counters/utils';
 
 const suggestGoals = prepareAnalyticsEvent({
-    name: BlogMetrikaGoalIds.suggest,
-    counter: MetrikaCounter.CrossSite,
+    name: DefaultGoalIds.suggest,
+    counter: AnalyticsCounter.CrossSite,
 });
 
 /**

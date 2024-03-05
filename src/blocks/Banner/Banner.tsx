@@ -12,8 +12,8 @@ import {
     prepareAnalyticsEvent,
     updateContentSizes,
 } from '../../utils/common';
-import {BlogMetrikaGoalIds} from '../../constants';
-import {MetrikaCounter} from '../../counters/utils';
+import {DefaultGoalIds} from '../../constants';
+import {AnalyticsCounter} from '../../counters/utils';
 
 import './Banner.scss';
 
@@ -22,8 +22,8 @@ const b = block('banner');
 const BANNER_CUSTOM_QA_ATTRIBUTES = ['image-container'];
 
 const buttonGoals = prepareAnalyticsEvent({
-    name: BlogMetrikaGoalIds.bannerCommon,
-    counter: MetrikaCounter.CrossSite,
+    name: DefaultGoalIds.bannerCommon,
+    counter: AnalyticsCounter.CrossSite,
 });
 
 export const Banner = ({

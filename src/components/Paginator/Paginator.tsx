@@ -2,8 +2,8 @@ import React, {useEffect, useMemo, useState} from 'react';
 
 import {useAnalytics} from '@gravity-ui/page-constructor';
 
-import {BlogMetrikaGoalIds} from '../../constants';
-import {MetrikaCounter} from '../../counters/utils';
+import {DefaultGoalIds} from '../../constants';
+import {AnalyticsCounter} from '../../counters/utils';
 import {DefaultEventNames} from '../../models/common';
 import {block} from '../../utils/cn';
 
@@ -64,15 +64,15 @@ export const Paginator = ({
 
         if (type === 'prev' && page > 1) {
             const event = prepareAnalyticsEvent({
-                name: BlogMetrikaGoalIds.home,
-                counter: MetrikaCounter.CrossSite,
+                name: DefaultGoalIds.home,
+                counter: AnalyticsCounter.CrossSite,
             });
             handleAnalyticsHome(event);
             newPage = 1;
         } else if (type === 'next' && page < pagesCount) {
             const event = prepareAnalyticsEvent({
-                name: BlogMetrikaGoalIds.next,
-                counter: MetrikaCounter.CrossSite,
+                name: DefaultGoalIds.next,
+                counter: AnalyticsCounter.CrossSite,
             });
             handleAnalyticsNext(event);
             newPage = page + 1;
@@ -86,8 +86,8 @@ export const Paginator = ({
     const handlePageClick = (index: number | ArrowType) => {
         if (index !== page && typeof index === 'number') {
             const event = prepareAnalyticsEvent({
-                name: BlogMetrikaGoalIds.page,
-                counter: MetrikaCounter.CrossSite,
+                name: DefaultGoalIds.page,
+                counter: AnalyticsCounter.CrossSite,
             });
             handleAnalyticsPage(event, {page: String(index)});
             handlePageChange(index);

@@ -4,7 +4,7 @@ import {AnalyticsEventsProp, HeaderBreadcrumbs, YFMWrapper} from '@gravity-ui/pa
 
 import {PostInfo} from '../../components/PostInfo/PostInfo';
 import {Wrapper} from '../../components/Wrapper/Wrapper';
-import {BlogMetrikaGoalIds} from '../../constants';
+import {DefaultGoalIds} from '../../constants';
 import {LocaleContext} from '../../contexts/LocaleContext';
 import {SettingsContext} from '../../contexts/SettingsContext';
 import {PostPageContext} from '../../contexts/PostPageContext';
@@ -18,20 +18,20 @@ import {
     getQaAttributes,
     prepareAnalyticsEvent,
 } from '../../utils/common';
-import {MetrikaCounter} from '../../counters/utils';
+import {AnalyticsCounter} from '../../counters/utils';
 
 import './Meta.scss';
 
 const b = block('meta');
 
 const analyticsEventsContainer: Record<string, AnalyticsEventsProp> = {
-    sharing: prepareAnalyticsEvent({name: BlogMetrikaGoalIds.shareBottom}),
-    save: prepareAnalyticsEvent({name: BlogMetrikaGoalIds.saveBottom}),
+    sharing: prepareAnalyticsEvent({name: DefaultGoalIds.shareBottom}),
+    save: prepareAnalyticsEvent({name: DefaultGoalIds.saveBottom}),
 };
 
 const breadcrumbsGoals = prepareAnalyticsEvent({
-    name: BlogMetrikaGoalIds.breadcrumbsBottom,
-    counter: MetrikaCounter.CrossSite,
+    name: DefaultGoalIds.breadcrumbsBottom,
+    counter: AnalyticsCounter.CrossSite,
 });
 
 export const Meta = (props: MetaProps) => {

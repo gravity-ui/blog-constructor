@@ -4,7 +4,7 @@ import {AnalyticsEventsProp, HeaderBlock} from '@gravity-ui/page-constructor';
 
 import {PostInfo} from '../../components/PostInfo/PostInfo';
 import {Wrapper} from '../../components/Wrapper/Wrapper';
-import {BlogMetrikaGoalIds} from '../../constants';
+import {DefaultGoalIds} from '../../constants';
 import {LocaleContext} from '../../contexts/LocaleContext';
 import {PostPageContext} from '../../contexts/PostPageContext';
 import {HeaderProps} from '../../models/blocks';
@@ -15,16 +15,16 @@ import {
     prepareAnalyticsEvent,
 } from '../../utils/common';
 import {SettingsContext} from '../../contexts/SettingsContext';
-import {MetrikaCounter} from '../../counters/utils';
+import {AnalyticsCounter} from '../../counters/utils';
 
 const analyticsEventsContainer: Record<string, AnalyticsEventsProp> = {
-    sharing: prepareAnalyticsEvent({name: BlogMetrikaGoalIds.shareTop}),
-    save: prepareAnalyticsEvent({name: BlogMetrikaGoalIds.saveTop}),
+    sharing: prepareAnalyticsEvent({name: DefaultGoalIds.shareTop}),
+    save: prepareAnalyticsEvent({name: DefaultGoalIds.saveTop}),
 };
 
 const breadcrumbsGoals = prepareAnalyticsEvent({
-    name: BlogMetrikaGoalIds.breadcrumbsTop,
-    counter: MetrikaCounter.CrossSite,
+    name: DefaultGoalIds.breadcrumbsTop,
+    counter: AnalyticsCounter.CrossSite,
 });
 
 export const Header = (props: HeaderProps) => {

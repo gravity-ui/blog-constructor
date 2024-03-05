@@ -21,7 +21,7 @@ import {
 import {RouterContextProps} from '../contexts/RouterContext';
 import {Keyset, i18n} from '../i18n';
 import {GetPostsRequest, Query, Tag} from '../models/common';
-import {MetrikaCounter} from '../counters/utils';
+import {AnalyticsCounter} from '../counters/utils';
 
 const QA_ATTRIBUTES_KEYS = ['container', 'content', 'wrapper', 'image', 'button'];
 
@@ -191,13 +191,13 @@ export const getQaAttributes = (qa?: string, ...customKeys: (string | Array<stri
 
 type PrepareAnalyticsEventArgs = {
     name: string;
-    counter?: MetrikaCounter;
+    counter?: AnalyticsCounter;
     options?: Record<string, string | number>;
 };
 
 export const prepareAnalyticsEvent = ({
     name,
-    counter = MetrikaCounter.Main,
+    counter = AnalyticsCounter.Main,
     options = {},
 }: PrepareAnalyticsEventArgs): AnalyticsEvent => ({
     ...options,

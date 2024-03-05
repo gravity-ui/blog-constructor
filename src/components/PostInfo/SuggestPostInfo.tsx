@@ -8,13 +8,13 @@ import {Date} from './components/Date';
 import {ReadingTime} from './components/ReadingTime';
 import {Save} from './components/Save';
 import {prepareAnalyticsEvent} from '../../utils/common';
-import {BlogMetrikaGoalIds} from '../../constants';
+import {DefaultGoalIds} from '../../constants';
 
 import './PostInfo.scss';
 
 const b = block('post-info');
 
-const saveEvents = prepareAnalyticsEvent({name: BlogMetrikaGoalIds.saveSuggest});
+const saveEvents = prepareAnalyticsEvent({name: DefaultGoalIds.saveSuggest});
 
 export interface SuggestPostInfoProps
     extends Pick<PostData, 'date' | 'readingTime' | 'hasUserLike'>,

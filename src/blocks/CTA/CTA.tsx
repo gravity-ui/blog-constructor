@@ -12,16 +12,16 @@ import {
     prepareAnalyticsEvent,
     updateContentSizes,
 } from '../../utils/common';
-import {BlogMetrikaGoalIds} from '../../constants';
-import {MetrikaCounter} from '../../counters/utils';
+import {DefaultGoalIds} from '../../constants';
+import {AnalyticsCounter} from '../../counters/utils';
 
 import './CTA.scss';
 
 const b = block('cta');
 
 const linkGoals = prepareAnalyticsEvent({
-    name: BlogMetrikaGoalIds.cta,
-    counter: MetrikaCounter.CrossSite,
+    name: DefaultGoalIds.cta,
+    counter: AnalyticsCounter.CrossSite,
 });
 
 export const CTA = ({items, paddingTop, paddingBottom, qa}: CTAProps) => {

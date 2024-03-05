@@ -15,11 +15,6 @@ import './PostInfo.scss';
 
 const b = block('post-info');
 
-export type BlogMetrikaGoals = {
-    sharing?: string;
-    save?: string;
-};
-
 type PostInfoProps = QAProps & {
     postId: PostData['id'];
     readingTime: PostData['readingTime'];

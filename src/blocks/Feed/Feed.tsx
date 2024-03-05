@@ -6,10 +6,10 @@ import {Icon} from '@gravity-ui/uikit';
 import {FeedHeader} from '../../components/FeedHeader/FeedHeader';
 import {Posts} from '../../components/Posts/Posts';
 import {PostsError} from '../../components/PostsError/PostsError';
-import {BlogMetrikaGoalIds} from '../../constants';
+import {DefaultGoalIds} from '../../constants';
 import {FeedContext} from '../../contexts/FeedContext';
 import {RouterContext} from '../../contexts/RouterContext';
-import {MetrikaCounter} from '../../counters/utils';
+import {AnalyticsCounter} from '../../counters/utils';
 import {FeedProps} from '../../models/blocks';
 import {DefaultEventNames, FetchArgs, HandleChangeQueryParams} from '../../models/common';
 import {getFeedQueryParams, prepareAnalyticsEvent, scrollOnPageChange} from '../../utils/common';
@@ -34,8 +34,8 @@ export const Feed = ({image}: FeedProps) => {
     const router = useContext(RouterContext);
     const handleAnalytics = useAnalytics(DefaultEventNames.ShowMore);
     const additionalAnalyticsEvent = prepareAnalyticsEvent({
-        name: BlogMetrikaGoalIds.showMore,
-        counter: MetrikaCounter.CrossSite,
+        name: DefaultGoalIds.showMore,
+        counter: AnalyticsCounter.CrossSite,
     });
 
     const [

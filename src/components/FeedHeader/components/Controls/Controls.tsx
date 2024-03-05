@@ -3,10 +3,10 @@ import React, {ReactNode, useContext, useMemo, useState} from 'react';
 import {useAnalytics} from '@gravity-ui/page-constructor';
 import {Button, Icon, Select} from '@gravity-ui/uikit';
 
-import {BlogMetrikaGoalIds} from '../../../../constants';
+import {DefaultGoalIds} from '../../../../constants';
 import {LikesContext} from '../../../../contexts/LikesContext';
 import {MobileContext} from '../../../../contexts/MobileContext';
-import {MetrikaCounter} from '../../../../counters/utils';
+import {AnalyticsCounter} from '../../../../counters/utils';
 import {Keyset, i18n} from '../../../../i18n';
 import {Save} from '../../../../icons/Save';
 import {DefaultEventNames, FetchArgs, Query, SetQueryType} from '../../../../models/common';
@@ -87,8 +87,8 @@ export const Controls = ({
 
     const handleTagSelect = (selectedTags: string[]) => {
         const event = prepareAnalyticsEvent({
-            name: BlogMetrikaGoalIds.tag,
-            counter: MetrikaCounter.CrossSite,
+            name: DefaultGoalIds.tag,
+            counter: AnalyticsCounter.CrossSite,
         });
         handleAnalyticsTag(event, {
             theme: selectedTags[0],
@@ -106,17 +106,17 @@ export const Controls = ({
     };
 
     const handleServicesSelect = (selectedServices: string[]) => {
-        const forMetrikaServices = services.filter((service) => {
+        const forAnalyticsServices = services.filter((service) => {
             return selectedServices.includes(service.value);
         });
 
-        const servicesAsStringForAnalytics = forMetrikaServices
+        const servicesAsStringForAnalytics = forAnalyticsServices
             .map((service) => service.content)
             .join(',');
 
         const event = prepareAnalyticsEvent({
-            name: BlogMetrikaGoalIds.service,
-            counter: MetrikaCounter.CrossSite,
+            name: DefaultGoalIds.service,
+            counter: AnalyticsCounter.CrossSite,
         });
         handleAnalyticsService(event, {
             service: servicesAsStringForAnalytics,
