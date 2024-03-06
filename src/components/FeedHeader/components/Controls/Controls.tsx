@@ -3,19 +3,16 @@ import React, {ReactNode, useContext, useMemo, useState} from 'react';
 import {useAnalytics} from '@gravity-ui/page-constructor';
 import {Button, Icon, Select} from '@gravity-ui/uikit';
 
-/**
- * @deprecated Metrika will be deleted after launch of analyticsEvents
- */
-import {BlogMetrikaGoalIds} from '../../../../constants';
+import {DefaultGoalIds} from '../../../../constants';
 import {LikesContext} from '../../../../contexts/LikesContext';
 import {MobileContext} from '../../../../contexts/MobileContext';
-import metrika from '../../../../counters/metrika';
-import {MetrikaCounter} from '../../../../counters/utils';
-import {Keyset, i18} from '../../../../i18n';
+import {AnalyticsCounter} from '../../../../counters/utils';
+import {Keyset, i18n} from '../../../../i18n';
 import {Save} from '../../../../icons/Save';
 import {DefaultEventNames, FetchArgs, Query, SetQueryType} from '../../../../models/common';
 import {block} from '../../../../utils/cn';
 import {Search} from '../../../Search/Search';
+import {prepareAnalyticsEvent} from '../../../../utils/common';
 
 import {renderFilter, renderOption, renderSwitcher} from './customRenders';
 
@@ -89,13 +86,11 @@ export const Controls = ({
     };
 
     const handleTagSelect = (selectedTags: string[]) => {
-        /**
-         * @deprecated Metrika will be deleted after launch of analyticsEvents
-         */
-        metrika.reachGoal(MetrikaCounter.CrossSite, BlogMetrikaGoalIds.tag, {
-            theme: selectedTags[0],
+        const event = prepareAnalyticsEvent({
+            name: DefaultGoalIds.tag,
+            counter: AnalyticsCounter.CrossSite,
         });
-        handleAnalyticsTag(null, {
+        handleAnalyticsTag(event, {
             theme: selectedTags[0],
         });
 
@@ -111,20 +106,20 @@ export const Controls = ({
     };
 
     const handleServicesSelect = (selectedServices: string[]) => {
-        const forMetrikaServices = services.filter((service) => {
+        const forAnalyticsServices = services.filter((service) => {
             return selectedServices.includes(service.value);
         });
 
-        const metrikaAsString = forMetrikaServices.map((service) => service.content).join(',');
+        const servicesAsStringForAnalytics = forAnalyticsServices
+            .map((service) => service.content)
+            .join(',');
 
-        /**
-         * @deprecated Metrika will be deleted after launch of analyticsEvents
-         */
-        metrika.reachGoal(MetrikaCounter.CrossSite, BlogMetrikaGoalIds.service, {
-            service: metrikaAsString,
+        const event = prepareAnalyticsEvent({
+            name: DefaultGoalIds.service,
+            counter: AnalyticsCounter.CrossSite,
         });
-        handleAnalyticsService(null, {
-            service: metrikaAsString,
+        handleAnalyticsService(event, {
+            service: servicesAsStringForAnalytics,
         });
 
         const servicesAsString = selectedServices.join(',');
@@ -136,7 +131,7 @@ export const Controls = ({
     };
 
     const tagsItems = useMemo(
-        () => [{value: 'empty', content: i18(Keyset.AllTags)} as unknown as SelectItem, ...tags],
+        () => [{value: 'empty', content: i18n(Keyset.AllTags)} as unknown as SelectItem, ...tags],
         [tags],
     );
 
@@ -147,12 +142,12 @@ export const Controls = ({
 
     return (
         <div className={b('header')}>
-            <h1 className={b('header-item', {title: true})}>{i18(Keyset.Title)}</h1>
+            <h1 className={b('header-item', {title: true})}>{i18n(Keyset.Title)}</h1>
             <div className={b('header-item', {filters: true})}>
                 <div className={b('filter-item')}>
                     <Search
                         className={b('search')}
-                        placeholder={i18(Keyset.Search)}
+                        placeholder={i18n(Keyset.Search)}
                         initialValue={search && typeof search === 'string' ? search : ''}
                         onSubmit={handleSearch}
                     />
@@ -164,12 +159,12 @@ export const Controls = ({
                         options={tagsItems}
                         defaultValue={[tagInitial] as string[]}
                         onUpdate={handleTagSelect}
-                        placeholder={i18(Keyset.AllTags)}
+                        placeholder={i18n(Keyset.AllTags)}
                         popupClassName={b('popup', {isMobile})}
                         renderControl={renderSwitcher({
                             initial: [tagInitial],
                             list: tagsItems,
-                            defaultLabel: i18(Keyset.AllTags),
+                            defaultLabel: i18n(Keyset.AllTags),
                         })}
                         disablePortal
                         virtualizationThreshold={VIRTUALIZATION_THRESHOLD}
@@ -190,11 +185,11 @@ export const Controls = ({
                             defaultValue={servicesItems}
                             popupClassName={b('popup', {isMobile})}
                             onUpdate={handleServicesSelect}
-                            placeholder={i18(Keyset.AllServices)}
+                            placeholder={i18n(Keyset.AllServices)}
                             renderControl={renderSwitcher({
                                 initial: servicesItems,
                                 list: services,
-                                defaultLabel: i18(Keyset.AllServices),
+                                defaultLabel: i18n(Keyset.AllServices),
                             })}
                             virtualizationThreshold={VIRTUALIZATION_THRESHOLD}
                             renderOption={renderOption}
@@ -211,7 +206,7 @@ export const Controls = ({
                             onClick={handleSavedOnly}
                         >
                             <Icon data={Save} size={ICON_SIZE} className={b('icon', {savedOnly})} />
-                            {i18(Keyset.ActionSavedOnly)}
+                            {i18n(Keyset.ActionSavedOnly)}
                         </Button>
                     </div>
                 ) : null}

@@ -1,7 +1,8 @@
-import evalExp from '@doc-tools/transform/lib/liquid/evaluation';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import evalExp from '@diplodoc/transform/lib/liquid/evaluation';
 import {PageContent} from '@gravity-ui/page-constructor';
 
-import {Lang} from '../models/locale';
+import {Lang} from '@gravity-ui/uikit';
 
 type FilteringOptions = {
     lang: Lang;

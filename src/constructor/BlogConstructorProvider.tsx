@@ -1,6 +1,11 @@
 import React, {Fragment, PropsWithChildren} from 'react';
 
-import {AnalyticsContext, AnalyticsContextProps} from '@gravity-ui/page-constructor';
+import {
+    AnalyticsContext,
+    AnalyticsContextProps,
+    Theme,
+    ThemeContext,
+} from '@gravity-ui/page-constructor';
 
 import {DEFAULT_THEME} from '../constants';
 import {DeviceContext, DeviceContextProps} from '../contexts/DeviceContext';
@@ -34,6 +39,7 @@ export const BlogConstructorProvider = ({
 }: PropsWithChildren<BlogConstructorProviderProps>) => {
     const context = [
         <ThemeValueContext.Provider value={{themeValue: theme}} key="theme-context" />,
+        <ThemeContext.Provider value={{theme: theme as Theme}} key="pc-theme" />,
         <LocaleContext.Provider value={{locale}} key="locale-context" />,
         <RouterContext.Provider value={router} key="router-context" />,
         <MobileContext.Provider value={Boolean(isMobile)} key="is-mobile-context" />,

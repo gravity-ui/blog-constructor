@@ -1,31 +1,31 @@
 import React, {useContext} from 'react';
 
-import {HeaderBlock} from '@gravity-ui/page-constructor';
+import {AnalyticsEventsProp, HeaderBlock} from '@gravity-ui/page-constructor';
 
-import {BlogMetrikaGoals, PostInfo} from '../../components/PostInfo/PostInfo';
+import {PostInfo} from '../../components/PostInfo/PostInfo';
 import {Wrapper} from '../../components/Wrapper/Wrapper';
-import {BlogMetrikaGoalIds} from '../../constants';
+import {DefaultGoalIds} from '../../constants';
 import {LocaleContext} from '../../contexts/LocaleContext';
 import {PostPageContext} from '../../contexts/PostPageContext';
 import {HeaderProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
-import {getBreadcrumbs, getBlogPath as getDefaultBlogPath} from '../../utils/common';
+import {
+    getBreadcrumbs,
+    getBlogPath as getDefaultBlogPath,
+    prepareAnalyticsEvent,
+} from '../../utils/common';
 import {SettingsContext} from '../../contexts/SettingsContext';
+import {AnalyticsCounter} from '../../counters/utils';
 
-/**
- * @deprecated Metrika will be deleted after launch of analyticsEvents
- */
-const metrikaGoals: BlogMetrikaGoals = {
-    sharing: BlogMetrikaGoalIds.shareTop,
-    save: BlogMetrikaGoalIds.saveTop,
+const analyticsEventsContainer: Record<string, AnalyticsEventsProp> = {
+    sharing: prepareAnalyticsEvent({name: DefaultGoalIds.shareTop}),
+    save: prepareAnalyticsEvent({name: DefaultGoalIds.saveTop}),
 };
 
-const breadcrumbsGoals = [
-    {
-        name: BlogMetrikaGoalIds.breadcrumbsTop,
-        isCrossSite: true,
-    },
-];
+const breadcrumbsGoals = prepareAnalyticsEvent({
+    name: DefaultGoalIds.breadcrumbsTop,
+    counter: AnalyticsCounter.CrossSite,
+});
 
 export const Header = (props: HeaderProps) => {
     const {theme, paddingTop, paddingBottom} = props;
@@ -42,7 +42,7 @@ export const Header = (props: HeaderProps) => {
         breadcrumbs.theme = 'dark';
     }
 
-    breadcrumbs.metrikaGoals = breadcrumbsGoals;
+    breadcrumbs.analyticsEvents = breadcrumbsGoals;
 
     return (
         <Wrapper
@@ -61,7 +61,7 @@ export const Header = (props: HeaderProps) => {
                     postId={id}
                     date={date}
                     readingTime={readingTime}
-                    metrikaGoals={metrikaGoals}
+                    analyticsEventsContainer={analyticsEventsContainer}
                     theme={theme}
                     qa="blog-header-meta-container"
                 />

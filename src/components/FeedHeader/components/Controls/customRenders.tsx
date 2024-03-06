@@ -2,7 +2,7 @@ import React from 'react';
 
 import {SelectOption, SelectProps, TextInput} from '@gravity-ui/uikit';
 
-import {Keyset, i18} from '../../../../i18n';
+import {Keyset, i18n} from '../../../../i18n';
 import {block} from '../../../../utils/cn';
 import {
     CustomSelectOption,
@@ -45,7 +45,7 @@ export const renderFilter: SelectProps['renderFilter'] = ({value, onChange, onKe
         controlProps={{size: 1}}
         value={value}
         view="clear"
-        placeholder={i18(Keyset.Search)}
+        placeholder={i18n(Keyset.Search)}
         onUpdate={onChange}
         onKeyDown={onKeyDown}
         className={b('popup-filter')}

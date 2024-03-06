@@ -1,6 +1,6 @@
 import React, {SyntheticEvent} from 'react';
 
-import {Keyset, i18} from '../../i18n';
+import {Keyset, i18n} from '../../i18n';
 import {Prompt, PromptProps} from '../Prompt/Prompt';
 
 export interface PromptSignInProps extends Partial<PromptProps> {
@@ -12,11 +12,11 @@ export interface PromptSignInProps extends Partial<PromptProps> {
  * @returns {JSX|null}
  */
 export const PromptSignIn = ({
-    text = i18(Keyset.PromptSignInOnLike),
-    onClickSignIn = () => alert(i18(Keyset.SignIn)),
+    text = i18n(Keyset.PromptSignInOnLike),
+    onClickSignIn = () => alert(i18n(Keyset.SignIn)),
     actions = [
         {
-            children: i18(Keyset.SignIn),
+            children: i18n(Keyset.SignIn),
             onClick: onClickSignIn,
             size: 'l',
         },

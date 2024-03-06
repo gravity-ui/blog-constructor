@@ -1,9 +1,7 @@
 import React from 'react';
 import {StoryFn, StoryContext} from '@storybook/react';
 
-import {Lang} from '../../src/models/locale';
-
-import {configure} from '../../src/configure';
+import {Lang, configure} from '@gravity-ui/uikit';
 
 configure({lang: Lang.En});
 

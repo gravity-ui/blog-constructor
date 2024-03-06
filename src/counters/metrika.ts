@@ -1,6 +1,3 @@
-/**
- * @deprecated Metrika will be deleted after launch of analyticsEvents
- */
 const Goal = {
     SUPPORT_OPEN_FORM: 'SUPPORTOPENFORM',
     SUPPORT_STEP_1_SUBMIT: 'SUPPORTSTEP1SUBMIT',

@@ -38,7 +38,6 @@ const ContentDirectionTemplate: StoryFn<FormBlockModel> = (args) => {
                     <Form {...props} />
                 </div>
             ))}
-            ;
         </div>
     );
 };

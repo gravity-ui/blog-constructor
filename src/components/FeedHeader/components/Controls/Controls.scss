@@ -55,14 +55,14 @@ $block: '.#{$namespace}feed-controls';
                     display: none;
                 }
 
-                .yc-list {
+                .g-list {
                     max-height: calc(
                         $popupMaxHeight - var(--g-text-body-3-line-height) - $indentXXS
                     );
                 }
             }
 
-            .yc-list__item {
+            .g-list__item {
                 margin: 4px;
                 border-radius: $selectorItemBorderRadius;
             }
@@ -71,6 +71,24 @@ $block: '.#{$namespace}feed-controls';
         &_isMobile {
             @include add-specificity(&) {
                 max-height: inherit;
+            }
+
+            #{$root}__popup-filter {
+                position: relative;
+                border: none;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 50%;
+                    bottom: 0px;
+                    border-bottom: 2px solid var(--g-color-line-generic);
+                    border-bottom-right-radius: 0;
+                    border-bottom-left-radius: 0;
+                    width: 100vw;
+                    height: 2px;
+                    transform: translateX(-50%);
+                }
             }
         }
     }
@@ -81,7 +99,7 @@ $block: '.#{$namespace}feed-controls';
 
         border: none;
 
-        border-bottom: 1px solid var(--yc-color-line-generic);
+        border-bottom: 1px solid var(--g-color-line-generic);
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
     }

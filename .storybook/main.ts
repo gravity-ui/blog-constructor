@@ -12,9 +12,10 @@ const config: StorybookConfig = {
     },
     addons: [
         '@storybook/preset-scss',
-        {name: '@storybook/addon-essentials', options: {backgrounds: false}},
+        {name: '@storybook/addon-essentials', options: {backgrounds: false, actions: false}},
         './addons/addon-yaml/preset',
         './addons/theme-addon/register.tsx',
+        '@storybook/addon-mdx-gfm',
     ],
 };
 

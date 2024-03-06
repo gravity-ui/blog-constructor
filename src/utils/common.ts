@@ -1,11 +1,10 @@
 import {format, parse} from 'url';
 
 import {
+    AnalyticsEvent,
+    AnalyticsEventsProp,
     ContentBlockProps,
     HeaderBreadCrumbsProps,
-    MetrikaGoal,
-    NewMetrikaGoal,
-    isNewMetrikaFormat,
 } from '@gravity-ui/page-constructor';
 import camelCase from 'lodash/camelCase';
 import debounce from 'lodash/debounce';
@@ -20,8 +19,9 @@ import {
     DEFAULT_ROWS_PER_PAGE,
 } from '../blocks/constants';
 import {RouterContextProps} from '../contexts/RouterContext';
-import {Keyset, i18} from '../i18n';
+import {Keyset, i18n} from '../i18n';
 import {GetPostsRequest, Query, Tag} from '../models/common';
+import {AnalyticsCounter} from '../counters/utils';
 
 const QA_ATTRIBUTES_KEYS = ['container', 'content', 'wrapper', 'image', 'button'];
 
@@ -116,7 +116,7 @@ export const getBlogPath = (pathPrefix: string) => {
 
 export const getBreadcrumbs = ({tags, blogPath}: GetBreadcrumbsProps) => {
     const breadcrumbs: HeaderBreadCrumbsProps = {
-        items: [{text: i18(Keyset.TitleBreadcrumbs), url: blogPath}],
+        items: [{text: i18n(Keyset.TitleBreadcrumbs), url: blogPath}],
         theme: 'light',
     };
 
@@ -130,26 +130,26 @@ export const getBreadcrumbs = ({tags, blogPath}: GetBreadcrumbsProps) => {
     return breadcrumbs;
 };
 
-export const isMetrikaExist = (goal: NewMetrikaGoal, existGoals: NewMetrikaGoal[]) => {
-    return Boolean(existGoals.find((existGoal) => goal.name === existGoal.name));
+const getArrayOfEvents = (events?: AnalyticsEventsProp) => {
+    if (!events) {
+        return [];
+    }
+
+    if (Array.isArray(events)) {
+        return events;
+    }
+
+    return [events];
 };
 
-export const getBlogElementMetrika = (
-    blogCustomGoal: NewMetrikaGoal,
-    existingGoals?: MetrikaGoal,
+export const getMergedAnalyticsEvents = (
+    analyticEvents: AnalyticsEventsProp,
+    existringEvents?: AnalyticsEventsProp,
 ) => {
-    if (existingGoals) {
-        if (isNewMetrikaFormat(existingGoals) && !isMetrikaExist(blogCustomGoal, existingGoals)) {
-            const goals = [...existingGoals];
-            goals.push(blogCustomGoal);
+    const eventsAsArray = getArrayOfEvents(analyticEvents);
+    const existingAsArray = getArrayOfEvents(existringEvents);
 
-            return goals;
-        }
-
-        return existingGoals;
-    } else {
-        return [blogCustomGoal];
-    }
+    return eventsAsArray.concat(existingAsArray);
 };
 
 export const getFeedQueryParams = (queryString: Query, pageNumber?: number): GetPostsRequest => {
@@ -188,3 +188,21 @@ export const getQaAttributes = (qa?: string, ...customKeys: (string | Array<stri
 
     return attributes;
 };
+
+type PrepareAnalyticsEventArgs = {
+    name: string;
+    counter?: AnalyticsCounter;
+    options?: Record<string, string | number>;
+};
+
+export const prepareAnalyticsEvent = ({
+    name,
+    counter = AnalyticsCounter.Main,
+    options = {},
+}: PrepareAnalyticsEventArgs): AnalyticsEvent => ({
+    ...options,
+    name,
+    counters: {
+        include: [counter],
+    },
+});

@@ -4,7 +4,7 @@ import {Icon, TextInput} from '@gravity-ui/uikit';
 import lodashDebounce from 'lodash/debounce';
 
 import {useIsIPhone} from '../../hooks/useIsIPhone';
-import {Keyset, i18} from '../../i18n';
+import {Keyset, i18n} from '../../i18n';
 import {Close} from '../../icons/Close';
 import {SearchIcon} from '../../icons/SearchIcon';
 import {ClassNameProps} from '../../models/common';
@@ -42,7 +42,7 @@ export const Search = ({
     initialValue,
     onSubmit,
     debounce = 300,
-    placeholder = i18(Keyset.Search),
+    placeholder = i18n(Keyset.Search),
     size = 'm',
     autoFocus = false,
     value: externalValue,

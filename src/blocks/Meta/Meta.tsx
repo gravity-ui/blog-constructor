@@ -1,10 +1,10 @@
 import React, {useContext} from 'react';
 
-import {HeaderBreadcrumbs, YFMWrapper} from '@gravity-ui/page-constructor';
+import {AnalyticsEventsProp, HeaderBreadcrumbs, YFMWrapper} from '@gravity-ui/page-constructor';
 
-import {BlogMetrikaGoals, PostInfo} from '../../components/PostInfo/PostInfo';
+import {PostInfo} from '../../components/PostInfo/PostInfo';
 import {Wrapper} from '../../components/Wrapper/Wrapper';
-import {BlogMetrikaGoalIds} from '../../constants';
+import {DefaultGoalIds} from '../../constants';
 import {LocaleContext} from '../../contexts/LocaleContext';
 import {SettingsContext} from '../../contexts/SettingsContext';
 import {PostPageContext} from '../../contexts/PostPageContext';
@@ -14,27 +14,25 @@ import {block} from '../../utils/cn';
 import {
     getBreadcrumbs,
     getBlogPath as getDefaultBlogPath,
+    getMergedAnalyticsEvents,
     getQaAttributes,
+    prepareAnalyticsEvent,
 } from '../../utils/common';
+import {AnalyticsCounter} from '../../counters/utils';
 
 import './Meta.scss';
 
 const b = block('meta');
 
-/**
- * @deprecated Metrika will be deleted after launch of analyticsEvents
- */
-const metrikaGoals: BlogMetrikaGoals = {
-    sharing: BlogMetrikaGoalIds.shareBottom,
-    save: BlogMetrikaGoalIds.saveBottom,
+const analyticsEventsContainer: Record<string, AnalyticsEventsProp> = {
+    sharing: prepareAnalyticsEvent({name: DefaultGoalIds.shareBottom}),
+    save: prepareAnalyticsEvent({name: DefaultGoalIds.saveBottom}),
 };
 
-const breadcrumbsGoals = [
-    {
-        name: BlogMetrikaGoalIds.breadcrumbsBottom,
-        isCrossSite: true,
-    },
-];
+const breadcrumbsGoals = prepareAnalyticsEvent({
+    name: DefaultGoalIds.breadcrumbsBottom,
+    counter: AnalyticsCounter.CrossSite,
+});
 
 export const Meta = (props: MetaProps) => {
     const {paddingTop = 'l', paddingBottom = 'l', theme = 'light', qa} = props;
@@ -48,7 +46,7 @@ export const Meta = (props: MetaProps) => {
 
     const breadcrumbs = getBreadcrumbs({tags, blogPath});
 
-    breadcrumbs.metrikaGoals = breadcrumbsGoals;
+    breadcrumbs.analyticsEvents = getMergedAnalyticsEvents(breadcrumbsGoals);
 
     return (
         <Wrapper
@@ -63,7 +61,6 @@ export const Meta = (props: MetaProps) => {
                     items={breadcrumbs.items}
                     className={b('breadcrumbs')}
                     theme={theme}
-                    metrikaGoals={breadcrumbs.metrikaGoals}
                 />
             )}
             {title && (
@@ -80,7 +77,7 @@ export const Meta = (props: MetaProps) => {
                     postId={id}
                     date={date}
                     readingTime={readingTime}
-                    metrikaGoals={metrikaGoals}
+                    analyticsEventsContainer={analyticsEventsContainer}
                     qa={qaAttributes.postInfo}
                 />
             )}

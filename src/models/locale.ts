@@ -1,7 +1,4 @@
-export enum Lang {
-    Ru = 'ru',
-    En = 'en',
-}
+import {Lang} from '@gravity-ui/uikit';
 
 export enum Currency {
     RUB = 'RUB',
