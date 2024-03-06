@@ -1,6 +1,6 @@
+import '../styles/styles.scss';
 import '../styles/storybook/index.scss';
 import '@gravity-ui/uikit/styles/styles.scss';
-import '../styles/styles.scss';
 import '../styles/root.scss';
 
 import React from 'react';

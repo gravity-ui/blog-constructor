@@ -32,6 +32,7 @@ export const Media = ({text, paddingTop, paddingBottom, ...mediaProps}: MediaPro
                 <YFMWrapper
                     content={text}
                     modifiers={{
+                        blog: true,
                         blogMedia: true,
                         resetPaddings: true,
                     }}
