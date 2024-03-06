@@ -5,11 +5,13 @@
 
 ### ⚠ BREAKING CHANGES
 
-* next version ([#181](https://github.com/gravity-ui/blog-constructor/issues/181))
+* now we are using the `i18n` instance from uikit instead of the internal one, you only need one installation and configuration from uikit in your application ([#179](https://github.com/gravity-ui/page-constructor/pull/179))
+* updated `uikit` up to v6 ([#177](https://github.com/gravity-ui/page-constructor/pull/177))
+* updated `page-constructor` up to v5 ([#177](https://github.com/gravity-ui/page-constructor/pull/177))
+* use `diplodoc-platform/transform` instead `doc-tools/transform` ([#177](https://github.com/gravity-ui/page-constructor/pull/177))
+* All the props from metrikaGoals and pixelEvents have been deleted. Instead of all that, now AnalyticsEvents ([#177](https://github.com/gravity-ui/page-constructor/pull/177))
+* refactor `transformPost` interface, now he used argument-object ([#180](https://github.com/gravity-ui/page-constructor/pull/180))
 
-### Features
-
-* next version ([#181](https://github.com/gravity-ui/blog-constructor/issues/181)) ([2a1e33a](https://github.com/gravity-ui/blog-constructor/commit/2a1e33a9202bc8c2f459cf9491d3150aacb56443))
 
 ## [5.16.1](https://github.com/gravity-ui/blog-constructor/compare/v5.16.0...v5.16.1) (2024-02-16)
 
