@@ -10,7 +10,7 @@
 * updated `page-constructor` up to v5 ([#177](https://github.com/gravity-ui/page-constructor/pull/177))
 * use `diplodoc-platform/transform` instead `doc-tools/transform` ([#177](https://github.com/gravity-ui/page-constructor/pull/177))
 * All the props from metrikaGoals and pixelEvents have been deleted. Instead of all that, now AnalyticsEvents ([#177](https://github.com/gravity-ui/page-constructor/pull/177))
-* refactor `transformPost` interface, now he used argument-object ([#180](https://github.com/gravity-ui/page-constructor/pull/180))
+* refactor `transformPost` interface, now he use argument-object ([#180](https://github.com/gravity-ui/page-constructor/pull/180))
 
 
 ## [5.16.1](https://github.com/gravity-ui/blog-constructor/compare/v5.16.0...v5.16.1) (2024-02-16)
