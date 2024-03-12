@@ -9,7 +9,7 @@ import {MobileContext} from '../../../../contexts/MobileContext';
 import {AnalyticsCounter} from '../../../../counters/utils';
 import {Keyset, i18n} from '../../../../i18n';
 import {Save} from '../../../../icons/Save';
-import {DefaultEventNames, FetchArgs, Query, SetQueryType} from '../../../../models/common';
+import {DefaultEventNames, FetchArgs, Query} from '../../../../models/common';
 import {block} from '../../../../utils/cn';
 import {Search} from '../../../Search/Search';
 import {prepareAnalyticsEvent} from '../../../../utils/common';
@@ -31,7 +31,6 @@ export type ControlsProps = {
     tags?: SelectItem[];
     services?: SelectItem[];
     queryParams: Query;
-    setQuery?: SetQueryType;
 };
 
 const ICON_SIZE = 16;

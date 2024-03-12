@@ -177,13 +177,6 @@ export type GetPostsType = (query: GetPostsRequest) => Promise<PostsProps>;
 
 export type HandleChangeQueryParams = (params: Query) => void;
 
-export type SetQueryType = (
-    params: Query,
-    options?: {
-        [y: string]: boolean;
-    },
-) => Promise<void> | void;
-
 export enum DefaultEventNames {
     ShareButton = 'share-button-click',
     SaveButton = 'save-button-click',

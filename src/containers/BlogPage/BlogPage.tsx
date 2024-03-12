@@ -20,7 +20,6 @@ import {
     MetaProps,
     PostsProps,
     Service,
-    SetQueryType,
     Tag,
     ToggleLikeCallbackType,
 } from '../../models/common';
@@ -37,7 +36,6 @@ export type BlogPageProps = {
     hasLikes?: boolean;
     toggleLike?: ToggleLikeCallbackType;
     metaData?: MetaProps;
-    setQuery?: SetQueryType;
     settings?: PageConstructorProviderProps;
     custom?: CustomConfig;
     pageCountForShowSupportButtons?: number;

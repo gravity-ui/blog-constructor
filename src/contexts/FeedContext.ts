@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {GetPostsType, PostData, Service, SetQueryType, Tag} from '../models/common';
+import {GetPostsType, PostData, Service, Tag} from '../models/common';
 
 export interface FeedContextProps {
     posts?: PostData[];
@@ -9,7 +9,6 @@ export interface FeedContextProps {
     tags?: Tag[];
     services?: Service[];
     getPosts?: GetPostsType;
-    setQuery?: SetQueryType;
     pageCountForShowSupportButtons?: number;
 }
 

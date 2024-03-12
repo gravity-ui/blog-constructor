@@ -47,6 +47,8 @@ interface RouterContextProps {
 }
 ```
 
+`as` is need to create sharing urls for your blog pages
+
 **!!! Most important thing** - your `updateQueryCallback` callback should update the routing in replace mode and with the shallow option
 
 ### `Theme` - theme settings
