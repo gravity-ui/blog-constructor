@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.1.0](https://github.com/gravity-ui/blog-constructor/compare/v6.0.0...v6.1.0) (2024-03-13)
+
+
+### Features
+
+* del unused prop setQuery ([#187](https://github.com/gravity-ui/blog-constructor/issues/187)) ([488a712](https://github.com/gravity-ui/blog-constructor/commit/488a712092942d3b858767906d8628469438ff9b))
+
 ## [6.0.0](https://github.com/gravity-ui/blog-constructor/compare/v5.16.1...v6.0.0) (2024-03-06)
 
 
