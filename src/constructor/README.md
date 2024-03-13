@@ -47,7 +47,7 @@ interface RouterContextProps {
 }
 ```
 
-`as` is need to create sharing urls for your blog pages
+`as` - this value will be used as url to post for "Share > Copy link" button
 
 **!!! Most important thing** - your `updateQueryCallback` callback should update the routing in replace mode and with the shallow option
 
