@@ -47,6 +47,8 @@ interface RouterContextProps {
 }
 ```
 
+`as` - this value will be used as url to post for "Share > Copy link" button
+
 **!!! Most important thing** - your `updateQueryCallback` callback should update the routing in replace mode and with the shallow option
 
 ### `Theme` - theme settings
