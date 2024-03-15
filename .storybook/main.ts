@@ -16,6 +16,7 @@ const config: StorybookConfig = {
         './addons/addon-yaml/preset',
         './addons/theme-addon/register.tsx',
         '@storybook/addon-mdx-gfm',
+        '@storybook/addon-webpack5-compiler-babel',
     ],
 };
 
