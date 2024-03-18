@@ -1,5 +1,13 @@
 # Changelog
 
+## [5.16.2](https://github.com/gravity-ui/blog-constructor/compare/v5.16.1...v5.16.2) (2024-03-18)
+
+
+### Bug Fixes
+
+* add release rules ([#193](https://github.com/gravity-ui/blog-constructor/issues/193)) ([7edaf15](https://github.com/gravity-ui/blog-constructor/commit/7edaf15e0ba1386f11a946ba4e6b9931275c24c4))
+* header background max-width ([#192](https://github.com/gravity-ui/blog-constructor/issues/192)) ([63baf09](https://github.com/gravity-ui/blog-constructor/commit/63baf09758f6ac19343912033b76e35c4897b0fb))
+
 ## [5.16.1](https://github.com/gravity-ui/blog-constructor/compare/v5.16.0...v5.16.1) (2024-02-16)
 
 
