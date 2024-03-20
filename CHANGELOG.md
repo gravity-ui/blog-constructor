@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.1.1](https://github.com/gravity-ui/blog-constructor/compare/v6.1.0...v6.1.1) (2024-03-20)
+
+
+### Bug Fixes
+
+* header background max-width ([#189](https://github.com/gravity-ui/blog-constructor/issues/189)) ([df038b4](https://github.com/gravity-ui/blog-constructor/commit/df038b411a4cdab32b2d5cfab1f806bcc71a65be))
+
 ## [6.1.0](https://github.com/gravity-ui/blog-constructor/compare/v6.0.0...v6.1.0) (2024-03-13)
 
 
