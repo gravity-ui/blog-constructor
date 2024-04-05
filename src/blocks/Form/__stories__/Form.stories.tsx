@@ -7,7 +7,7 @@ import {Meta, StoryFn} from '@storybook/react';
 import formsData from '../../../../.mocks/forms.json';
 import {FormBlockModel} from '../../../models/blocks';
 import {Form} from '../Form';
-import {isHubspotDataForm} from '@gravity-ui/page-constructor';
+import {FormBlockProps, isHubspotDataForm} from '@gravity-ui/page-constructor';
 
 export default {
     title: 'Blocks/Form',
@@ -32,7 +32,7 @@ const ContentDirectionTemplate: StoryFn<FormBlockModel> = (args) => {
                 {
                     ...args,
                     formData: __getFormData(args.formData),
-                },
+                } as FormBlockProps,
             ].map((props, index) => (
                 <div key={index} style={{margin: '64px auto'}}>
                     <Form {...props} />
