@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.2.1](https://github.com/gravity-ui/blog-constructor/compare/v6.2.0...v6.2.1) (2024-05-15)
+
+
+### Bug Fixes
+
+* remove not necessary scroll in feed selector ([#199](https://github.com/gravity-ui/blog-constructor/issues/199)) ([e3c98e6](https://github.com/gravity-ui/blog-constructor/commit/e3c98e67a33446bd6bd569cab5255eb86f116c04))
+
 ## [6.2.0](https://github.com/gravity-ui/blog-constructor/compare/v6.1.1...v6.2.0) (2024-04-05)
 
 
