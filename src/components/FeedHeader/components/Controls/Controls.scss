@@ -49,8 +49,6 @@ $block: '.#{$namespace}feed-controls';
             border-radius: $selectorContainerBorderRadius;
 
             .g-select-list {
-                overflow: scroll;
-
                 &::-webkit-scrollbar {
                     display: none;
                 }
