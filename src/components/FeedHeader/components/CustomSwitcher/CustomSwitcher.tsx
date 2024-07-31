@@ -1,6 +1,6 @@
 import React, {LegacyRef, useMemo} from 'react';
 
-import {Icon, SelectProps} from '@gravity-ui/uikit';
+import {Icon, SelectProps, useUniqId} from '@gravity-ui/uikit';
 
 import {DropdownArrow} from '../../../../icons/DropdownArrow';
 import {Close} from '../../../../icons/Close';
@@ -42,6 +42,8 @@ export const CustomSwitcher = ({
     }, [defaultLabel, initial, list]);
     const hasCounter = itemsNames.length > 1;
 
+    const contentElementId = useUniqId();
+
     return (
         <div className={b('custom-switcher')} ref={controlRef as LegacyRef<HTMLDivElement>}>
             <button
@@ -49,8 +51,13 @@ export const CustomSwitcher = ({
                 className={b('custom-switcher-element', {overlay: true})}
                 onKeyDown={onKeyDown}
                 aria-expanded={open}
+                aria-labelledby={contentElementId}
             />
-            <div className={b('custom-switcher-element', {content: true})}>
+            <div
+                id={contentElementId}
+                className={b('custom-switcher-element', {content: true})}
+                aria-hidden
+            >
                 {itemsNames?.join(', ')}
             </div>
             {renderClear &&
