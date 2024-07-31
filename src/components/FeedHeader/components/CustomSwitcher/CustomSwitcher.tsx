@@ -32,6 +32,8 @@ export const CustomSwitcher = ({
     onKeyDown,
     open,
     renderClear,
+    popupId,
+    activeIndex,
 }: CustomSwitcherProps) => {
     const itemsNames = useMemo(() => {
         const items = list
@@ -46,12 +48,16 @@ export const CustomSwitcher = ({
 
     return (
         <div className={b('custom-switcher')} ref={controlRef as LegacyRef<HTMLDivElement>}>
+            {/* eslint-disable-next-line jsx-a11y/role-supports-aria-props */}
             <button
                 onClick={onClick}
                 className={b('custom-switcher-element', {overlay: true})}
                 onKeyDown={onKeyDown}
                 aria-expanded={open}
                 aria-labelledby={contentElementId}
+                aria-activedescendant={
+                    activeIndex === undefined ? undefined : `${popupId}-item-${activeIndex}`
+                }
             />
             <div
                 id={contentElementId}

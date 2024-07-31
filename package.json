@@ -72,7 +72,7 @@
   "peerDependencies": {
     "@diplodoc/transform": "^4.10.7",
     "@gravity-ui/page-constructor": "^5.0.0",
-    "@gravity-ui/uikit": "^6.1.1",
+    "@gravity-ui/uikit": "^6.22.0",
     "react": "^16.0.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
@@ -86,7 +86,7 @@
     "@gravity-ui/prettier-config": "^1.1.0",
     "@gravity-ui/stylelint-config": "^4.0.1",
     "@gravity-ui/tsconfig": "^1.0.0",
-    "@gravity-ui/uikit": "^6.9.0",
+    "@gravity-ui/uikit": "^6.22.0",
     "@jest/environment": "^29.7.0",
     "@storybook/addon-essentials": "^8.0.5",
     "@storybook/addon-mdx-gfm": "^8.0.5",

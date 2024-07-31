@@ -27,7 +27,7 @@ type RenderSwitcherType = ({
 export const renderSwitcher: RenderSwitcherType =
     ({initial, list, defaultLabel}) =>
     // eslint-disable-next-line react/display-name
-    ({onClick, ref, onKeyDown, open, renderClear}) => (
+    ({onClick, ref, onKeyDown, open, renderClear, popupId, activeIndex}) => (
         <CustomSwitcher
             initial={initial}
             defaultLabel={defaultLabel}
@@ -37,6 +37,8 @@ export const renderSwitcher: RenderSwitcherType =
             onKeyDown={onKeyDown}
             renderClear={renderClear}
             open={open}
+            popupId={popupId}
+            activeIndex={activeIndex}
         />
     );
 
