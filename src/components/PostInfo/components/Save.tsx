@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 
 import {AnalyticsEventsProp, useAnalytics} from '@gravity-ui/page-constructor';
-import {Icon} from '@gravity-ui/uikit';
+import {Icon, useUniqId} from '@gravity-ui/uikit';
 
 import {LikesContext} from '../../../contexts/LikesContext';
 import {Save as SaveIcon} from '../../../icons/Save';
@@ -11,6 +11,7 @@ import {block} from '../../../utils/cn';
 import {postLikeStatus} from '../../../utils/common';
 
 import '../PostInfo.scss';
+import {Keyset, i18n} from '../../../i18n';
 
 const ICON_SIZE = 16;
 
@@ -52,6 +53,8 @@ export const Save = ({
     const handleAnalytics = useAnalytics(DefaultEventNames.SaveButton);
     const isLikeable = Boolean(toggleLike);
 
+    const titleElementId = useUniqId();
+
     return (
         <button
             className={b('item', {size, save: true})}
@@ -76,6 +79,9 @@ export const Save = ({
                 handleAnalytics(analyticsEvents);
             }}
             data-qa={qa}
+            aria-pressed={hasUserLike}
+            aria-label={i18n(Keyset.Save)}
+            aria-describedby={titleElementId}
         >
             <div className={b('content', {cursor: isLikeable, theme})}>
                 <span className={b('icon')}>
@@ -85,7 +91,9 @@ export const Save = ({
                         className={b({filled: Boolean(hasUserLike)})}
                     />
                 </span>
-                <span className={b('title', {cursor: isLikeable})}>{title}</span>
+                <span id={titleElementId} className={b('title', {cursor: isLikeable})}>
+                    {title}
+                </span>
             </div>
         </button>
     );
