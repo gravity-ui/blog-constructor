@@ -54,6 +54,7 @@ export const Save = ({
     const isLikeable = Boolean(toggleLike);
 
     const titleElementId = useUniqId();
+    const isNumericTitle = typeof title === 'number';
 
     return (
         <button
@@ -80,8 +81,8 @@ export const Save = ({
             }}
             data-qa={qa}
             aria-pressed={hasUserLike}
-            aria-label={i18n(Keyset.Save)}
-            aria-describedby={titleElementId}
+            aria-label={isNumericTitle ? i18n(Keyset.Save) : undefined}
+            aria-describedby={isNumericTitle ? titleElementId : undefined}
         >
             <div className={b('content', {cursor: isLikeable, theme})}>
                 <span className={b('icon')}>
