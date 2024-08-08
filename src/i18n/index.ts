@@ -22,6 +22,7 @@ export enum Keyset {
     AllServices = 'label_all_services',
     PromptSignInOnLike = 'prompt_sign_in_on_like',
     SignIn = 'Sign In',
+    Save = 'save',
 }
 
 const en = {
@@ -48,6 +49,7 @@ const en = {
         '{{count}} mins to read',
     ],
     [Keyset.SignIn]: 'Sign In',
+    [Keyset.Save]: 'Save',
 };
 
 const ru = {
@@ -75,6 +77,7 @@ const ru = {
         '{{count}} минут чтения',
     ],
     [Keyset.SignIn]: 'Войти',
+    [Keyset.Save]: 'Сохранить',
 };
 
 export const i18n = addComponentKeysets({en, ru}, NAMESPACE);
