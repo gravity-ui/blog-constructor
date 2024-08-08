@@ -1,6 +1,6 @@
 import React, {LegacyRef, useMemo} from 'react';
 
-import {Icon, SelectProps} from '@gravity-ui/uikit';
+import {Icon, SelectProps, useUniqId} from '@gravity-ui/uikit';
 
 import {DropdownArrow} from '../../../../icons/DropdownArrow';
 import {Close} from '../../../../icons/Close';
@@ -32,6 +32,8 @@ export const CustomSwitcher = ({
     onKeyDown,
     open,
     renderClear,
+    popupId,
+    activeIndex,
 }: CustomSwitcherProps) => {
     const itemsNames = useMemo(() => {
         const items = list
@@ -42,15 +44,26 @@ export const CustomSwitcher = ({
     }, [defaultLabel, initial, list]);
     const hasCounter = itemsNames.length > 1;
 
+    const contentElementId = useUniqId();
+
     return (
         <div className={b('custom-switcher')} ref={controlRef as LegacyRef<HTMLDivElement>}>
+            {/* eslint-disable-next-line jsx-a11y/role-supports-aria-props */}
             <button
                 onClick={onClick}
                 className={b('custom-switcher-element', {overlay: true})}
                 onKeyDown={onKeyDown}
                 aria-expanded={open}
+                aria-labelledby={contentElementId}
+                aria-activedescendant={
+                    activeIndex === undefined ? undefined : `${popupId}-item-${activeIndex}`
+                }
             />
-            <div className={b('custom-switcher-element', {content: true})}>
+            <div
+                id={contentElementId}
+                className={b('custom-switcher-element', {content: true})}
+                aria-hidden
+            >
                 {itemsNames?.join(', ')}
             </div>
             {renderClear &&
