@@ -5,7 +5,7 @@
 
 ### Features
 
-* page-constructor-update ([#204](https://github.com/gravity-ui/blog-constructor/issues/204)) ([a175f03](https://github.com/gravity-ui/blog-constructor/commit/a175f03e0d04b82f7faa0654b0efb9d58bbf3372))
+* page constructor update ([#204](https://github.com/gravity-ui/blog-constructor/issues/204)) ([a175f03](https://github.com/gravity-ui/blog-constructor/commit/a175f03e0d04b82f7faa0654b0efb9d58bbf3372))
 
 
 ### Bug Fixes
