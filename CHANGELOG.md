@@ -1,5 +1,18 @@
 # Changelog
 
+## [6.3.0](https://github.com/gravity-ui/blog-constructor/compare/v6.2.1...v6.3.0) (2024-08-13)
+
+
+### Features
+
+* page-constructor-update ([#204](https://github.com/gravity-ui/blog-constructor/issues/204)) ([a175f03](https://github.com/gravity-ui/blog-constructor/commit/a175f03e0d04b82f7faa0654b0efb9d58bbf3372))
+
+
+### Bug Fixes
+
+* save button a11y ([#202](https://github.com/gravity-ui/blog-constructor/issues/202)) ([ed08069](https://github.com/gravity-ui/blog-constructor/commit/ed0806936ea0e149314f6b18433d385f8a331f9a))
+* select filter a11y ([#201](https://github.com/gravity-ui/blog-constructor/issues/201)) ([22aa781](https://github.com/gravity-ui/blog-constructor/commit/22aa78170f2e7e32795f5fa046639e6af5e4a8cd))
+
 ## [6.2.1](https://github.com/gravity-ui/blog-constructor/compare/v6.2.0...v6.2.1) (2024-05-15)
 
 
