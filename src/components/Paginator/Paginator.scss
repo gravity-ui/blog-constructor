@@ -13,11 +13,6 @@ $itemDimensions: 44px;
     display: flex;
     align-items: center;
 
-    &__link {
-        text-decoration: none;
-        color: var(--g-color-text-primary);
-    }
-
     &__item {
         $item: &;
 

@@ -1,4 +1,4 @@
-import React, {Fragment, useContext, useMemo} from 'react';
+import React, {useCallback, useContext, useMemo} from 'react';
 
 import {Button} from '@gravity-ui/uikit';
 
@@ -37,31 +37,29 @@ export const PaginatorItem = ({
         return queryString ? `${urlPath}?${queryString}` : urlPath;
     }, [queryParams, index, urlPath]);
 
-    const renderButton = (
+    const handleClick = useCallback<
+        (event: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => void
+    >(
+        (event) => {
+            if (addNavigationLinkForPages && (event.metaKey || event.ctrlKey)) {
+                return;
+            }
+
+            onClick?.(itemKey);
+        },
+        [addNavigationLinkForPages, itemKey, onClick],
+    );
+
+    return (
         <Button
             view="flat"
             size="xl"
             className={b('item', mods)}
-            onClick={() => onClick?.(itemKey)}
+            onClick={handleClick}
+            href={addNavigationLinkForPages ? navigationLink : undefined}
             loading={loading && Boolean(mods.active)}
         >
             {content}
         </Button>
-    );
-
-    return (
-        <Fragment>
-            {addNavigationLinkForPages ? (
-                <a
-                    href={navigationLink}
-                    className={b('link')}
-                    onClick={(event) => event.preventDefault()}
-                >
-                    {renderButton}
-                </a>
-            ) : (
-                <Fragment>{renderButton}</Fragment>
-            )}
-        </Fragment>
     );
 };
