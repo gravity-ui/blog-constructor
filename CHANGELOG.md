@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.3.1](https://github.com/gravity-ui/blog-constructor/compare/v6.3.0...v6.3.1) (2024-08-29)
+
+
+### Bug Fixes
+
+* change PaginatorItem link mode layout to valid html; handle meta key click correctly ([#206](https://github.com/gravity-ui/blog-constructor/issues/206)) ([22b2b80](https://github.com/gravity-ui/blog-constructor/commit/22b2b802890412cd26ef18cbc7ea425f93ec132c))
+
 ## [6.3.0](https://github.com/gravity-ui/blog-constructor/compare/v6.2.1...v6.3.0) (2024-08-13)
 
 
