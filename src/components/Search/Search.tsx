@@ -78,7 +78,11 @@ export const Search = ({
         };
 
         return (
-            <button className={b('input-icon')} onClick={handleClick}>
+            <button
+                className={b('input-icon')}
+                onClick={handleClick}
+                aria-label={i18n(Keyset.SearchAction)}
+            >
                 <Icon size={iconSize} data={iconData} />
             </button>
         );

@@ -23,6 +23,7 @@ export enum Keyset {
     PromptSignInOnLike = 'prompt_sign_in_on_like',
     SignIn = 'Sign In',
     Save = 'save',
+    SearchAction = 'search_action',
 }
 
 const en = {
@@ -50,6 +51,7 @@ const en = {
     ],
     [Keyset.SignIn]: 'Sign In',
     [Keyset.Save]: 'Save',
+    [Keyset.SearchAction]: 'Find',
 };
 
 const ru = {
@@ -78,6 +80,7 @@ const ru = {
     ],
     [Keyset.SignIn]: 'Войти',
     [Keyset.Save]: 'Сохранить',
+    [Keyset.SearchAction]: 'Найти',
 };
 
 export const i18n = addComponentKeysets({en, ru}, NAMESPACE);
