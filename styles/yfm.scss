@@ -52,6 +52,11 @@
         margin: 0 0 $indentXS;
     }
 
+    *:has(+ dfn) {
+        //stylelint-disable-next-line declaration-no-important
+        margin-bottom: 0 !important;
+    }
+
     img {
         margin-bottom: $indentM;
         margin-top: $indentXS;
