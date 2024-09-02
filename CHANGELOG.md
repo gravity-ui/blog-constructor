@@ -1,5 +1,17 @@
 # Changelog
 
+## [6.4.0](https://github.com/gravity-ui/blog-constructor/compare/v6.3.1...v6.4.0) (2024-08-30)
+
+
+### Features
+
+* dfn sibling margin-bottom fixies ([#210](https://github.com/gravity-ui/blog-constructor/issues/210)) ([0b1d704](https://github.com/gravity-ui/blog-constructor/commit/0b1d704b94b84bcdcb755cb9eb3bd7b35d2d3d22))
+
+
+### Bug Fixes
+
+* blog header search a11y ([#209](https://github.com/gravity-ui/blog-constructor/issues/209)) ([cf327ae](https://github.com/gravity-ui/blog-constructor/commit/cf327ae34947bab952330ce5477aba3d984c8339))
+
 ## [6.3.1](https://github.com/gravity-ui/blog-constructor/compare/v6.3.0...v6.3.1) (2024-08-29)
 
 
