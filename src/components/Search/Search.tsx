@@ -74,6 +74,7 @@ export const Search = ({
                 handleChange.cancel();
                 setValue('');
                 onSubmit('');
+                inputRef.current?.focus();
             }
         };
 
@@ -81,7 +82,8 @@ export const Search = ({
             <button
                 className={b('input-icon')}
                 onClick={handleClick}
-                aria-label={i18n(Keyset.SearchAction)}
+                aria-label={value ? i18n(Keyset.ClearAction) : undefined}
+                aria-hidden={!value}
             >
                 <Icon size={iconSize} data={iconData} />
             </button>
