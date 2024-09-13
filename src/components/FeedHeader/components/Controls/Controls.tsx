@@ -203,6 +203,7 @@ export const Controls = ({
                             className={b('saved-only-button', {savedOnly})}
                             size="xl"
                             onClick={handleSavedOnly}
+                            selected={savedOnly}
                         >
                             <Icon data={Save} size={ICON_SIZE} className={b('icon', {savedOnly})} />
                             {i18n(Keyset.ActionSavedOnly)}
