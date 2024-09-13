@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.4.1](https://github.com/gravity-ui/blog-constructor/compare/v6.4.0...v6.4.1) (2024-09-13)
+
+
+### Bug Fixes
+
+* header search label change ([#212](https://github.com/gravity-ui/blog-constructor/issues/212)) ([cc16b57](https://github.com/gravity-ui/blog-constructor/commit/cc16b5745061d28d9b88041a45a207da9dd1c65d))
+
 ## [6.4.0](https://github.com/gravity-ui/blog-constructor/compare/v6.3.1...v6.4.0) (2024-08-30)
 
 
