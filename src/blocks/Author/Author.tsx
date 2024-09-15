@@ -17,7 +17,7 @@ export const Author = (props: AuthorProps) => {
 
     const {post} = useContext(PostPageContext);
 
-    const author = post?.authors?.find(({id}: {id: number}) => id === authorId);
+    const author = post?.authors?.find(({id}: {id: number | string}) => id === authorId);
 
     const authorItem = useMemo(() => {
         const imageUrl = author?.avatar ?? image;

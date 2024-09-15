@@ -19,7 +19,7 @@ const b = block('post-info');
 
 type SaveProps = QAProps & {
     title: string | number;
-    postId: number;
+    postId: number | string;
     hasUserLike: boolean;
     handleUserLike: () => void;
     theme?: 'light' | 'dark';

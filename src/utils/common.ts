@@ -91,9 +91,9 @@ export const getTags = memoize((tags: Tag[], blogPath: string) => {
     });
 });
 
-const stub = (postId: number) => postId;
+const stub = (postId: number | string) => postId;
 
-export const postLikeStatus = debounce((postId: number, hasUserLike: boolean) => {
+export const postLikeStatus = debounce((postId: number | string, hasUserLike: boolean) => {
     (hasUserLike ? stub : stub)(postId);
 }, 300);
 

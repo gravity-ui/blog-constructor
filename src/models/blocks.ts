@@ -13,7 +13,7 @@ import {PaddingsYFMProps} from './paddings';
 
 // blocks props
 export type AuthorProps = ClassNameProps & {
-    authorId: number;
+    authorId: number | string;
     image: string;
 } & PaddingsYFMProps &
     QAProps;
