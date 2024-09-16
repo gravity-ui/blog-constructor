@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.4.2](https://github.com/gravity-ui/blog-constructor/compare/v6.4.1...v6.4.2) (2024-09-16)
+
+
+### Bug Fixes
+
+* feature to use uuids as entity ids ([#213](https://github.com/gravity-ui/blog-constructor/issues/213)) ([f5a64f8](https://github.com/gravity-ui/blog-constructor/commit/f5a64f8ddfe5a2b07c37adb73e5da1fa6551fef6))
+
 ## [6.4.1](https://github.com/gravity-ui/blog-constructor/compare/v6.4.0...v6.4.1) (2024-09-13)
 
 
