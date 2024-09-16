@@ -17,7 +17,7 @@ export interface ClassNameProps {
 }
 
 export type Author = {
-    id: number;
+    id: number | string;
     avatar: string | null;
     createdAt: string;
     updatedAt: string;
@@ -31,7 +31,7 @@ export type Author = {
 };
 
 export type Service = {
-    id: number;
+    id: number | string;
     slug: string;
     name: string;
 } & {
@@ -67,14 +67,14 @@ export type Tag = {
     icon?: string;
     isDeleted?: boolean;
     locale?: string;
-    blogTagId?: number;
+    blogTagId?: number | string;
     count?: number;
 };
 
 export interface PostData {
     author?: string;
     authors?: Author[];
-    blogPostId?: number;
+    blogPostId?: number | string;
     content?: string;
     date: string;
     description?: string;
@@ -153,7 +153,7 @@ export type ToggleLikeCallbackType = ({
     postId,
     hasLike,
 }: {
-    postId?: number;
+    postId?: number | string;
     hasLike?: boolean;
 }) => void;
 

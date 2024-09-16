@@ -5,7 +5,7 @@ import {ToggleLikeCallbackType} from '../models/common';
 type UseLikesProps = {
     hasLike?: boolean;
     count?: number;
-    postId?: number;
+    postId?: number | string;
     toggleLikeCallback?: ToggleLikeCallbackType;
 };
 
