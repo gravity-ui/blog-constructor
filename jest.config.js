@@ -22,4 +22,11 @@ module.exports = {
         '\\.(css|less|scss|sass)$': 'jest-transform-css',
     },
     testMatch: ['**/*.test.[jt]s?(x)'],
+    testPathIgnorePatterns: [
+        '<rootDir>/node_modules',
+        '<rootDir>/build',
+        '<rootDir>/server',
+        '<rootDir>/.storybook',
+        '.visual.',
+    ],
 };
