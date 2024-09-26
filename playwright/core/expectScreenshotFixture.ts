@@ -1,6 +1,5 @@
 import {expect} from '@playwright/experimental-ct-react';
-import type {JSHandle, Locator, PageScreenshotOptions} from '@playwright/test';
-import {isFunction} from 'lodash';
+import type {Locator, PageScreenshotOptions} from '@playwright/test';
 
 import {DEFAULT_MOUNT_TEST_DELAY} from './constants';
 import type {PlaywrightFixture} from './types';
@@ -8,7 +7,6 @@ import type {PlaywrightFixture} from './types';
 interface CaptureScreenshotParams extends PageScreenshotOptions {
     screenshotName?: string;
     component?: Locator;
-    waitingFunction?: JSHandle<boolean>;
     skipTheme?: 'light' | 'dark';
 }
 
@@ -24,11 +22,10 @@ export const expectScreenshotFixture: PlaywrightFixture<ExpectScreenshotFixture>
     const expectScreenshot: ExpectScreenshotFixture = async ({
         component,
         screenshotName,
-        waitingFunction,
         skipTheme,
         ...pageScreenshotOptions
     } = {}) => {
-        const captureScreenshot = async (waitingFunctionLocal?: JSHandle<boolean>) => {
+        const captureScreenshot = async () => {
             const locators = await page.locator('//img').all();
             const promises = locators.map((locator) =>
                 locator.evaluate(
@@ -39,10 +36,6 @@ export const expectScreenshotFixture: PlaywrightFixture<ExpectScreenshotFixture>
             );
             await Promise.all(promises);
 
-            if (waitingFunctionLocal && isFunction(waitingFunctionLocal)) {
-                await waitingFunctionLocal();
-            }
-
             return (component || page.locator('.playwright-wrapper-test')).screenshot({
                 animations: 'disabled',
                 ...pageScreenshotOptions,
@@ -52,7 +45,7 @@ export const expectScreenshotFixture: PlaywrightFixture<ExpectScreenshotFixture>
         const nameScreenshot = testInfo.titlePath.slice(1).join(' ');
 
         if (skipTheme !== 'light') {
-            expect(await captureScreenshot(waitingFunction)).toMatchSnapshot({
+            expect(await captureScreenshot()).toMatchSnapshot({
                 name: `${screenshotName || nameScreenshot} light.png`,
             });
         }
@@ -62,7 +55,7 @@ export const expectScreenshotFixture: PlaywrightFixture<ExpectScreenshotFixture>
 
             await page.waitForTimeout(DEFAULT_MOUNT_TEST_DELAY);
 
-            expect(await captureScreenshot(waitingFunction)).toMatchSnapshot({
+            expect(await captureScreenshot()).toMatchSnapshot({
                 name: `${screenshotName || nameScreenshot} dark.png`,
             });
         }
