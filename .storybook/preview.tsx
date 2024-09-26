@@ -13,6 +13,9 @@ import {withMobile} from './decorators/withMobile';
 import {DocsDecorator} from './decorators/DocsDecorator/DocsDecorator';
 import {MobileProvider, ThemeProvider} from '@gravity-ui/uikit';
 
+import {routerData} from '../src/demo/mocks';
+import {BlogConstructorProvider} from '../src/constructor/BlogConstructorProvider';
+
 const withContextProvider: Decorator = (Story, context) => (
     <React.StrictMode>
         <ThemeProvider theme={context.globals.theme}>
@@ -23,8 +26,19 @@ const withContextProvider: Decorator = (Story, context) => (
     </React.StrictMode>
 );
 
+const withBlogConstructorProvider: Decorator = (Story, context) => {
+    return (
+        <BlogConstructorProvider
+            router={routerData}
+            isMobile={context.globals.platform === 'mobile'}
+        >
+            <Story {...context} />
+        </BlogConstructorProvider>
+    );
+};
+
 const preview: Preview = {
-    decorators: [withTheme, withLang, withMobile, withContextProvider],
+    decorators: [withTheme, withLang, withMobile, withContextProvider, withBlogConstructorProvider],
     parameters: {
         docs: {
             theme: themes.light,

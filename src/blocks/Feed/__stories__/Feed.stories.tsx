@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
-import {Block, PageConstructor} from '@gravity-ui/page-constructor';
+import {Block, PageConstructor, PageConstructorProvider} from '@gravity-ui/page-constructor';
 import type {Meta, StoryFn} from '@storybook/react';
 import isEqual from 'lodash/isEqual';
 
@@ -23,6 +23,7 @@ import mockedServices from '../../../../.mocks/services.json';
 import mockedTags from '../../../../.mocks/tags.json';
 import {RouterContext} from '../../../contexts/RouterContext';
 import {routerData} from '../../../demo/mocks';
+import {SettingsContext} from '../../../contexts/SettingsContext';
 
 export default {
     title: 'Blocks/Feed',
@@ -76,16 +77,22 @@ const contextData = {
     getPosts,
 };
 
-const DefaultTemplate: StoryFn<FeedModel> = (args) => (
-    <FeedContext.Provider value={contextData as unknown as FeedContextProps}>
-        <RouterContext.Provider value={routerData}>
-            <PageConstructor
-                content={{blocks: [args] as unknown as Block[]}}
-                custom={customBlocks}
-            />
-        </RouterContext.Provider>
-    </FeedContext.Provider>
-);
+const DefaultTemplate: StoryFn<FeedModel> = (args) => {
+    const {isAnimationEnabled} = useContext(SettingsContext);
+
+    return (
+        <FeedContext.Provider value={contextData as unknown as FeedContextProps}>
+            <RouterContext.Provider value={routerData}>
+                <PageConstructorProvider projectSettings={{isAnimationEnabled}}>
+                    <PageConstructor
+                        content={{blocks: [args] as unknown as Block[]}}
+                        custom={customBlocks}
+                    />
+                </PageConstructorProvider>
+            </RouterContext.Provider>
+        </FeedContext.Provider>
+    );
+};
 
 export const Default = DefaultTemplate.bind({});
 

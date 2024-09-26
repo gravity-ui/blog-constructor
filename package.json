@@ -56,7 +56,13 @@
     "svgo:all": "svgo --config svgo.config.js -r -f assets",
     "test": "jest --maxWorkers=50%",
     "test:coverage": "jest --coverage",
-    "test:watch": "jest --watchAll --maxWorkers=25%"
+    "test:watch": "jest --watchAll --maxWorkers=25%",
+    "playwright": "playwright test --config=playwright/playwright.config.ts",
+    "playwright:update": "npm run playwright -- -u",
+    "playwright:docker": "./scripts/playwright-docker.sh 'npm run playwright'",
+    "playwright:docker:update": "./scripts/playwright-docker.sh 'npm run playwright:update'",
+    "playwright:docker:clear-cache": "./scripts/playwright-docker.sh clear-cache",
+    "playwright:install": "playwright install --with-deps"
   },
   "dependencies": {
     "@bem-react/classname": "^1.6.0",
@@ -82,12 +88,14 @@
     "@commitlint/config-conventional": "^17.4.3",
     "@diplodoc/transform": "^4.10.8",
     "@gravity-ui/eslint-config": "^3.1.1",
-    "@gravity-ui/page-constructor": "^5.18.0",
+    "@gravity-ui/page-constructor": "^5.27.0",
     "@gravity-ui/prettier-config": "^1.1.0",
     "@gravity-ui/stylelint-config": "^4.0.1",
     "@gravity-ui/tsconfig": "^1.0.0",
     "@gravity-ui/uikit": "^6.22.0",
     "@jest/environment": "^29.7.0",
+    "@playwright/experimental-ct-react": "^1.45.3",
+    "@playwright/test": "^1.45.3",
     "@storybook/addon-essentials": "^8.0.5",
     "@storybook/addon-mdx-gfm": "^8.0.5",
     "@storybook/addon-webpack5-compiler-babel": "^3.0.3",
@@ -106,6 +114,7 @@
     "@types/react-helmet": "^6.1.5",
     "@types/ua-parser-js": "^0.7.36",
     "@types/uuid": "^9.0.7",
+    "@vitejs/plugin-react": "^4.3.1",
     "eslint": "^8.34.0",
     "eslint-plugin-no-not-accumulator-reassign": "^0.1.0",
     "eslint-plugin-testing-library": "^5.9.1",
@@ -132,7 +141,9 @@
     "storybook": "^8.0.5",
     "stylelint": "^15.11.0",
     "ts-jest": "^29.0.5",
-    "typescript": "^4.9.3"
+    "typescript": "^4.9.3",
+    "vite-plugin-commonjs": "^0.10.3",
+    "vite-plugin-svgr": "^4.2.0"
   },
   "lint-staged": {
     "*.{css,scss}": [
