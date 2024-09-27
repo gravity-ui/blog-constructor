@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
-import type {Meta, StoryContext, StoryFn} from '@storybook/react';
+import type {Meta, StoryFn} from '@storybook/react';
 
 import {BlogConstructorProvider} from '../../../constructor/BlogConstructorProvider';
 import {GetPostsRequest} from '../../../models/common';
@@ -13,6 +13,7 @@ import services from '../../../../.mocks/services.json';
 import tags from '../../../../.mocks/tags.json';
 import {Lang} from '@gravity-ui/uikit';
 import {routerData} from '../../../demo/mocks';
+import {SettingsContext} from '../../../contexts/SettingsContext';
 
 const mockMetaComponent = <title>Blog page</title>;
 
@@ -38,25 +39,26 @@ export default {
     },
 } as Meta;
 
-const WithNavigationTemplate: StoryFn<BlogPageProps> = (args) => (
-    <BlogConstructorProvider
-        router={routerData}
-        settings={{
-            addNavigationLinkForPages: true,
-            getBlogPath: (pathPrefix) => `${pathPrefix ? `/${pathPrefix}` : ''}/blog/`,
-        }}
-        locale={{lang: Lang.En, pathPrefix: 'test'}}
-    >
-        <BlogPage {...args} />
-    </BlogConstructorProvider>
-);
+const WithNavigationTemplate: StoryFn<BlogPageProps> = (args) => {
+    const {isAnimationEnabled} = useContext(SettingsContext);
 
-export const Default = {
-    render: (args: BlogPageProps, {globals}: StoryContext) => (
-        <BlogConstructorProvider router={routerData} isMobile={globals.platform === 'mobile'}>
+    return (
+        <BlogConstructorProvider
+            router={routerData}
+            settings={{
+                addNavigationLinkForPages: true,
+                getBlogPath: (pathPrefix) => `${pathPrefix ? `/${pathPrefix}` : ''}/blog/`,
+                isAnimationEnabled,
+            }}
+            locale={{lang: Lang.En, pathPrefix: 'test'}}
+        >
             <BlogPage {...args} />
         </BlogConstructorProvider>
-    ),
+    );
+};
+
+export const Default = {
+    render: (args: BlogPageProps) => <BlogPage {...args} />,
 };
 
 export const WithNavigation = WithNavigationTemplate.bind({});

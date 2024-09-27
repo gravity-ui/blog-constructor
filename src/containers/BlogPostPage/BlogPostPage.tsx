@@ -1,4 +1,4 @@
-import React, {SyntheticEvent, useMemo} from 'react';
+import React, {SyntheticEvent, useContext, useMemo} from 'react';
 
 import {ShareOptions} from '@gravity-ui/components';
 import {
@@ -18,6 +18,7 @@ import {PostPageContext} from '../../contexts/PostPageContext';
 import {useExtendedComponentMap} from '../../hooks/useExtendedComponentMap';
 import {useLikes} from '../../hooks/useLikes';
 import {MetaProps, PostData, ToggleLikeCallbackType} from '../../models/common';
+import {SettingsContext} from '../../contexts/SettingsContext';
 
 import './BlogPostPage.scss';
 
@@ -53,6 +54,7 @@ export const BlogPostPage = ({
     isSignedInUser = false,
     onClickSignIn,
 }: BlogPostPageProps) => {
+    const {isAnimationEnabled} = useContext(SettingsContext);
     const {hasUserLike, likesCount, handleLike} = useLikes({
         hasLike: likes?.hasUserLike,
         count: likes?.likesCount,
@@ -90,7 +92,10 @@ export const BlogPostPage = ({
                     shareOptions,
                 }}
             >
-                <PageConstructorProvider {...settings}>
+                <PageConstructorProvider
+                    {...settings}
+                    projectSettings={{...(settings?.projectSettings || {}), isAnimationEnabled}}
+                >
                     {metaData ? <MetaWrapper {...metaData} /> : null}
                     <PageConstructor
                         content={content}

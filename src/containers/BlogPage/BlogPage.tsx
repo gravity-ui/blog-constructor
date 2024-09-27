@@ -1,4 +1,4 @@
-import React, {SyntheticEvent, useMemo} from 'react';
+import React, {SyntheticEvent, useContext, useMemo} from 'react';
 
 import {
     CustomConfig,
@@ -23,6 +23,7 @@ import {
     Tag,
     ToggleLikeCallbackType,
 } from '../../models/common';
+import {SettingsContext} from '../../contexts/SettingsContext';
 
 import './BlogPage.scss';
 
@@ -60,6 +61,7 @@ export const BlogPage = ({
     isSignedInUser = false,
     onClickSignIn,
 }: BlogPageProps) => {
+    const {isAnimationEnabled} = useContext(SettingsContext);
     const {requireSignIn, ...promptSignInProps} = usePromptSignInProps(onClickSignIn);
 
     const likesContextData = useMemo(
@@ -82,7 +84,10 @@ export const BlogPage = ({
                     pageCountForShowSupportButtons,
                 }}
             >
-                <PageConstructorProvider {...settings}>
+                <PageConstructorProvider
+                    {...settings}
+                    projectSettings={{...(settings?.projectSettings || {}), isAnimationEnabled}}
+                >
                     {metaData ? <MetaWrapper {...metaData} /> : null}
                     <PageConstructor
                         content={content}
