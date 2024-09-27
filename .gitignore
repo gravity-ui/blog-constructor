@@ -17,6 +17,6 @@ node_modules
 /styles/*css
 
 /test-results/
-/playwright-report/
+/playwright-report*
 /blob-report/
-/playwright/playwright/.cache/
+.cache*
