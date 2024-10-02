@@ -17,13 +17,11 @@ import {routerData} from '../src/demo/mocks';
 import {BlogConstructorProvider} from '../src/constructor/BlogConstructorProvider';
 
 const withContextProvider: Decorator = (Story, context) => (
-    <React.StrictMode>
-        <ThemeProvider theme={context.globals.theme}>
-            <MobileProvider>
-                <Story {...context} />
-            </MobileProvider>
-        </ThemeProvider>
-    </React.StrictMode>
+    <ThemeProvider theme={context.globals.theme}>
+        <MobileProvider>
+            <Story {...context} />
+        </MobileProvider>
+    </ThemeProvider>
 );
 
 const localeEn = {
