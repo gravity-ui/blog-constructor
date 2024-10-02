@@ -28,7 +28,7 @@ export const YFM = (props: YFMProps) => {
                     blog: true,
                     resetPaddings: true,
                 }}
-                className={b({'no-list-reset': true})}
+                contentClassName={b({'no-list-reset': true})}
             />
         </Wrapper>
     );
