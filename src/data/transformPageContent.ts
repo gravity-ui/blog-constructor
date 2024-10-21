@@ -10,7 +10,7 @@ import {getExtendTypographyConfig} from './config';
 import {filterContent} from './contentFilter';
 
 type TypographyConfigType = {
-    [x: string]: Record<string, unknown>;
+    [x: string]: Record<string, unknown> | Record<string, unknown>[];
 };
 
 type TransformPageContentPropsType = {
