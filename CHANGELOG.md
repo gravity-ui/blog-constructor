@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.4.3](https://github.com/gravity-ui/blog-constructor/compare/v6.4.2...v6.4.3) (2024-10-21)
+
+
+### Bug Fixes
+
+* typography config type array ([#219](https://github.com/gravity-ui/blog-constructor/issues/219)) ([2e19416](https://github.com/gravity-ui/blog-constructor/commit/2e19416cab1076e4312bb1553f3b5aaea8efe9a7))
+
 ## [6.4.2](https://github.com/gravity-ui/blog-constructor/compare/v6.4.1...v6.4.2) (2024-09-16)
 
 
