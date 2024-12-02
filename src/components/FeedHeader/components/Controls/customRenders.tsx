@@ -24,11 +24,16 @@ type RenderSwitcherType = ({
     defaultLabel: string;
 }) => SelectProps['renderControl'];
 
+type RenderFilterType = SelectProps['renderFilter'];
+
 export const renderSwitcher: RenderSwitcherType =
     ({initial, list, defaultLabel}) =>
     // eslint-disable-next-line react/display-name
-    ({onClick, ref, onKeyDown, open, renderClear, popupId, activeIndex}) => (
+    ({ref, renderClear, triggerProps: {id, disabled, type, onClick, onKeyDown, ...a11yProps}}) => (
         <CustomSwitcher
+            id={id}
+            disabled={disabled}
+            type={type}
             initial={initial}
             defaultLabel={defaultLabel}
             list={list}
@@ -36,21 +41,24 @@ export const renderSwitcher: RenderSwitcherType =
             onClick={onClick}
             onKeyDown={onKeyDown}
             renderClear={renderClear}
-            open={open}
-            popupId={popupId}
-            activeIndex={activeIndex}
+            a11yProps={a11yProps}
         />
     );
 
-export const renderFilter: SelectProps['renderFilter'] = ({value, onChange, onKeyDown}) => (
+export const renderFilter: RenderFilterType = ({
+    ref,
+    onChange,
+    inputProps: {value, onKeyDown, onChange: _, size: __, placeholder: ___, ...a11yProps},
+}) => (
     <TextInput
-        controlProps={{size: 1}}
         value={value}
         view="clear"
         placeholder={i18n(Keyset.Search)}
         onUpdate={onChange}
         onKeyDown={onKeyDown}
         className={b('popup-filter')}
+        controlRef={ref}
+        controlProps={{size: 1, ...a11yProps}}
     />
 );
 

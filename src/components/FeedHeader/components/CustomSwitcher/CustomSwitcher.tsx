@@ -12,28 +12,38 @@ import './CustomSwitcher.scss';
 const b = block('feed-custom-switcher');
 
 type RenderControlParameters = Partial<Parameters<Required<SelectProps>['renderControl']>[0]>;
+type TriggerProps = Required<RenderControlParameters>['triggerProps'];
+
+type A11yKeys = {
+    [K in keyof TriggerProps]-?: K extends `aria-${string}` | 'role' ? K : never;
+}[keyof TriggerProps];
+
+type RenderControlA11yProps = Pick<TriggerProps, A11yKeys>;
 
 export type CustomSwitcherProps = {
     initial: (string | number | null)[];
     defaultLabel: string;
     list: SelectItem[];
     controlRef: RenderControlParameters['ref'];
-} & Omit<RenderControlParameters, 'ref'>;
+    a11yProps: RenderControlA11yProps;
+} & Omit<RenderControlParameters, 'ref'> &
+    Pick<TriggerProps, 'id' | 'disabled' | 'type'>;
 
 const ICON_SIZE = 12;
 const CLEAR_ICON_SIZE = 11;
 
 export const CustomSwitcher = ({
+    id,
+    disabled,
+    type,
     initial,
     defaultLabel,
     list,
     onClick,
     controlRef,
     onKeyDown,
-    open,
     renderClear,
-    popupId,
-    activeIndex,
+    a11yProps,
 }: CustomSwitcherProps) => {
     const itemsNames = useMemo(() => {
         const items = list
@@ -50,14 +60,14 @@ export const CustomSwitcher = ({
         <div className={b('custom-switcher')} ref={controlRef as LegacyRef<HTMLDivElement>}>
             {/* eslint-disable-next-line jsx-a11y/role-supports-aria-props */}
             <button
+                id={id}
+                disabled={disabled}
+                type={type}
                 onClick={onClick}
                 className={b('custom-switcher-element', {overlay: true})}
                 onKeyDown={onKeyDown}
-                aria-expanded={open}
+                {...a11yProps}
                 aria-labelledby={contentElementId}
-                aria-activedescendant={
-                    activeIndex === undefined ? undefined : `${popupId}-item-${activeIndex}`
-                }
             />
             <div
                 id={contentElementId}
