@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.5.0](https://github.com/gravity-ui/blog-constructor/compare/v6.4.3...v6.5.0) (2024-12-04)
+
+
+### Features
+
+* blog filters a11y ([#224](https://github.com/gravity-ui/blog-constructor/issues/224)) ([6373a0d](https://github.com/gravity-ui/blog-constructor/commit/6373a0dcef3dc5de618de98f8a653877c0c9cb73))
+
 ## [6.4.3](https://github.com/gravity-ui/blog-constructor/compare/v6.4.2...v6.4.3) (2024-10-21)
 
 
