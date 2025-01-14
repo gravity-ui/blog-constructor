@@ -30,7 +30,7 @@ export const transformPost = ({postData, lang, options: {plugins} = {}}: Transfo
 
     return {
         ...post,
-        title,
+        title: yfmTransformer(lang, title as string, {plugins}),
         tags,
         textTitle: typografToText(title, lang),
         htmlTitle: typografToHTML(title, lang),
