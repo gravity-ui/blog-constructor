@@ -100,7 +100,7 @@ export const PostCard = ({
                             blogCard: true,
                         }}
                         id={titleId}
-                        variant={titleHeadingLevel}
+                        tagName={titleHeadingLevel}
                     />
                 )}
                 {description && (
