@@ -7,27 +7,6 @@
     @include text-size(body-3);
     color: var(--g-color-text-primary);
 
-    h1:first-child,
-    h2:first-child,
-    h3:first-child,
-    h4:first-child {
-        padding: 0;
-        margin-top: 0;
-        padding-top: 0;
-    }
-
-    h2 {
-        @include text-size(display-2);
-    }
-
-    h3 {
-        @include text-size(header-2);
-    }
-
-    h4 {
-        @include text-size(header-1);
-    }
-
     @include add-specificity(&) {
         h1,
         h2,
@@ -39,6 +18,27 @@
             margin-top: $indentM;
             padding-top: 0;
             font-weight: var(--g-text-header-font-weight);
+        }
+
+        h1:first-child,
+        h2:first-child,
+        h3:first-child,
+        h4:first-child {
+            padding: 0;
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+        h2 {
+            @include text-size(display-2);
+        }
+
+        h3 {
+            @include text-size(header-2);
+        }
+
+        h4 {
+            @include text-size(header-1);
         }
     }
 
