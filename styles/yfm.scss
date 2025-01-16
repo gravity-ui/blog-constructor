@@ -130,6 +130,15 @@
     .yfm-clipboard {
         margin: $indentM 0;
     }
+
+    .yfm_reset_paddings > h1,
+    .yfm_reset_paddings > h2,
+    .yfm_reset_paddings > h3,
+    .yfm_reset_paddings > h4,
+    .yfm_reset_paddings > h5,
+    .yfm_reset_paddings > h6 {
+        margin-top: 0;
+    }
 }
 
 .yfm_blog_card {
