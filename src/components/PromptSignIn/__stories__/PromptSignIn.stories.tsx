@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import * as React from 'react';
 
 import {Button} from '@gravity-ui/uikit';
 import type {Meta, StoryFn} from '@storybook/react';
@@ -16,9 +16,9 @@ const styleBtn = {margin: '1em'};
 
 const DefaultTemplate: StoryFn<PromptProps> = (args) => {
     const {openTimestamp = 0} = args;
-    const [timestamp, setTime] = useState(openTimestamp);
+    const [timestamp, setTime] = React.useState(openTimestamp);
     const props = {...args, openTimestamp: timestamp};
-    const onClick = useCallback(() => {
+    const onClick = React.useCallback(() => {
         setTime(Date.now());
     }, [setTime]);
 

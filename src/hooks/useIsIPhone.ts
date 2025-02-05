@@ -1,9 +1,9 @@
-import {useContext} from 'react';
+import * as React from 'react';
 
 import {DeviceContext} from '../contexts/DeviceContext';
 
 export const useIsIPhone = () => {
-    const {device} = useContext(DeviceContext);
+    const {device} = React.useContext(DeviceContext);
 
     return device?.model === 'iPhone';
 };

@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import * as React from 'react';
 
 import {LocaleContext} from '../../../contexts/LocaleContext';
 import {PostCardSize, QAProps} from '../../../models/common';
@@ -16,7 +16,7 @@ type DateProps = QAProps & {
 };
 
 export const Date = ({date, size = PostCardSize.SMALL, id, qa}: DateProps) => {
-    const {locale} = useContext(LocaleContext);
+    const {locale} = React.useContext(LocaleContext);
 
     return (
         <div className={b('item', {size})} id={id} data-qa={qa}>

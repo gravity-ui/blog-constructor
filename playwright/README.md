@@ -12,7 +12,7 @@
    Capture a screenshot, by default in light theme only:
 
    ```ts
-   import React from 'react';
+   import * as React from 'react';
 
    import {expect} from '@playwright/experimental-ct-react';
 
@@ -35,7 +35,7 @@
    You can also capture screenshots both in dark and light themes:
 
    ```ts
-   import React from 'react';
+   import * as React from 'react';
 
    import {MyComponent} from '../MyComponent';
 
@@ -56,7 +56,7 @@
    If you need to do any actions with the component:
 
    ```ts
-   import React from 'react';
+   import * as React from 'react';
 
    import {MyComponent} from '../MyComponent';
 

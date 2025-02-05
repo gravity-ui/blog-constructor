@@ -1,4 +1,4 @@
-import React, {SyntheticEvent, useContext, useMemo} from 'react';
+import * as React from 'react';
 
 import {
     CustomConfig,
@@ -42,7 +42,7 @@ export type BlogPageProps = {
     pageCountForShowSupportButtons?: number;
     isSignedInUser?: boolean;
     // Required to enable Sign In on Post like
-    onClickSignIn?: React.EventHandler<SyntheticEvent>;
+    onClickSignIn?: React.EventHandler<React.SyntheticEvent>;
 };
 
 export const BlogPage = ({
@@ -61,10 +61,10 @@ export const BlogPage = ({
     isSignedInUser = false,
     onClickSignIn,
 }: BlogPageProps) => {
-    const {isAnimationEnabled} = useContext(SettingsContext);
+    const {isAnimationEnabled} = React.useContext(SettingsContext);
     const {requireSignIn, ...promptSignInProps} = usePromptSignInProps(onClickSignIn);
 
-    const likesContextData = useMemo(
+    const likesContextData = React.useMemo(
         () => ({toggleLike, hasLikes, isSignedInUser, requireSignIn}),
         [toggleLike, hasLikes, isSignedInUser, requireSignIn],
     );
