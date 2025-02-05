@@ -3,6 +3,7 @@ import React, {SyntheticEvent, useContext, useMemo} from 'react';
 import {ShareOptions} from '@gravity-ui/components';
 import {
     CustomConfig,
+    HeaderBreadCrumbsProps,
     NavigationData,
     PageConstructor,
     PageConstructorProvider,
@@ -39,6 +40,7 @@ export interface BlogPostPageProps {
     isSignedInUser?: boolean;
     // Required to enable Sign In on Post like
     onClickSignIn?: React.EventHandler<SyntheticEvent>;
+    breadcrumbs?: HeaderBreadCrumbsProps;
 }
 
 export const BlogPostPage = ({
@@ -53,6 +55,7 @@ export const BlogPostPage = ({
     shareOptions,
     isSignedInUser = false,
     onClickSignIn,
+    breadcrumbs,
 }: BlogPostPageProps) => {
     const {isAnimationEnabled} = useContext(SettingsContext);
     const {hasUserLike, likesCount, handleLike} = useLikes({
@@ -90,6 +93,7 @@ export const BlogPostPage = ({
                           }
                         : undefined,
                     shareOptions,
+                    breadcrumbs,
                 }}
             >
                 <PageConstructorProvider

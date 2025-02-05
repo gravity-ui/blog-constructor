@@ -29,7 +29,7 @@ const breadcrumbsGoals = prepareAnalyticsEvent({
 
 export const Header = (props: HeaderProps) => {
     const {theme, paddingTop, paddingBottom} = props;
-    const {post} = useContext(PostPageContext);
+    const {post, breadcrumbs: customBreadcrumbs = {}} = useContext(PostPageContext);
     const {locale} = useContext(LocaleContext);
     const {getBlogPath = getDefaultBlogPath} = useContext(SettingsContext);
     const blogPath = getBlogPath(locale.pathPrefix || '');
@@ -55,7 +55,7 @@ export const Header = (props: HeaderProps) => {
                 {...props}
                 title={title}
                 description={description}
-                breadcrumbs={breadcrumbs}
+                breadcrumbs={{...breadcrumbs, ...customBreadcrumbs}}
             >
                 <PostInfo
                     postId={id}
