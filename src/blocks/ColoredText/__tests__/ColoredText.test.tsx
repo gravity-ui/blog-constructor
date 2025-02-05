@@ -1,8 +1,7 @@
-import React from 'react';
-
 import {
     ContentSize,
     ContentTheme,
+    // @ts-ignore
 } from '@gravity-ui/page-constructor/build/esm/models/constructor-items/common';
 import {render, screen} from '@testing-library/react';
 import omit from 'lodash/omit';

@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import * as React from 'react';
 
 import {AnalyticsEventsProp} from '@gravity-ui/page-constructor';
 import {PostPageContext} from '../../contexts/PostPageContext';
@@ -43,7 +43,7 @@ export const PostInfo = ({
     qa,
     analyticsEventsContainer,
 }: PostInfoProps) => {
-    const {likes} = useContext(PostPageContext);
+    const {likes} = React.useContext(PostPageContext);
     const qaAttributes = getQaAttributes(qa, 'date', 'reading-time', 'save');
 
     return (

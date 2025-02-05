@@ -1,4 +1,4 @@
-import React, {useCallback, useContext} from 'react';
+import * as React from 'react';
 
 import {ShareLayoutDirection, SharePopover} from '@gravity-ui/components';
 import {AnalyticsEventsProp, useAnalytics} from '@gravity-ui/page-constructor';
@@ -22,12 +22,12 @@ type SharingProps = {
 };
 
 export const Sharing = ({theme, analyticsEvents}: SharingProps) => {
-    const router = useContext(RouterContext);
-    const isMobile = useContext(MobileContext);
-    const {shareOptions} = useContext(PostPageContext);
+    const router = React.useContext(RouterContext);
+    const isMobile = React.useContext(MobileContext);
+    const {shareOptions} = React.useContext(PostPageContext);
     const handleAnalyticsGlobal = useAnalytics(DefaultEventNames.ShareButton);
 
-    const handleAnalytics = useCallback(() => {
+    const handleAnalytics = React.useCallback(() => {
         handleAnalyticsGlobal(analyticsEvents);
     }, [analyticsEvents, handleAnalyticsGlobal]);
 

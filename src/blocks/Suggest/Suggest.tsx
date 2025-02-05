@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import * as React from 'react';
 
 import {SliderBlock} from '@gravity-ui/page-constructor';
 
@@ -27,7 +27,7 @@ const suggestGoals = prepareAnalyticsEvent({
  * @returns -jsx
  */
 export const Suggest = ({paddingTop = 'l', paddingBottom = 'l'}: SuggestProps) => {
-    const {suggestedPosts} = useContext(PostPageContext);
+    const {suggestedPosts} = React.useContext(PostPageContext);
 
     if (suggestedPosts.length === 0) {
         return null;

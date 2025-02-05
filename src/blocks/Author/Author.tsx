@@ -1,4 +1,4 @@
-import React, {useContext, useMemo} from 'react';
+import * as React from 'react';
 
 import {AuthorType, Author as PCAuthor} from '@gravity-ui/page-constructor';
 
@@ -15,11 +15,11 @@ const b = block('author');
 export const Author = (props: AuthorProps) => {
     const {image, paddingTop, paddingBottom, authorId, qa} = props;
 
-    const {post} = useContext(PostPageContext);
+    const {post} = React.useContext(PostPageContext);
 
     const author = post?.authors?.find(({id}: {id: number | string}) => id === authorId);
 
-    const authorItem = useMemo(() => {
+    const authorItem = React.useMemo(() => {
         const imageUrl = author?.avatar ?? image;
         const authorAvatar = <img src={imageUrl} alt="author" />;
 
