@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import * as React from 'react';
 
 import {InnerForm} from '@gravity-ui/page-constructor';
 
@@ -13,7 +13,7 @@ const b = block('form-block');
 
 export const Form = ({paddingTop, paddingBottom, ...props}: FormProps) => {
     const {formData, border = 'shadow'} = props;
-    const [contentLoaded, setContentLoaded] = useState(false);
+    const [contentLoaded, setContentLoaded] = React.useState(false);
 
     const onContentLoad = () => {
         setContentLoaded(true);

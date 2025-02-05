@@ -1,4 +1,4 @@
-import type {ReactNode} from 'react';
+import * as React from 'react';
 
 import type {NoStrictEntityMods} from '@bem-react/classname';
 
@@ -8,7 +8,7 @@ export interface PaginatorItemProps {
     key: string | ArrowType;
     dataKey: string | ArrowType;
     mods: NoStrictEntityMods;
-    content: ReactNode;
+    content: React.ReactNode;
     queryParams: Query;
     onClick?: (key: number | ArrowType) => void;
     loading?: boolean;

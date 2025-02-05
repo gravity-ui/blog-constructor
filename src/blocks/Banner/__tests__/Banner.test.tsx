@@ -1,9 +1,4 @@
-import React from 'react';
-
-import {
-    ContentSize,
-    ContentTheme,
-} from '@gravity-ui/page-constructor/build/esm/models/constructor-items/common';
+import {ContentSize, ContentTheme} from '@gravity-ui/page-constructor';
 import {render, screen} from '@testing-library/react';
 import pick from 'lodash/pick';
 

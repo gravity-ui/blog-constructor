@@ -1,4 +1,4 @@
-import React, {SyntheticEvent, useContext, useMemo} from 'react';
+import * as React from 'react';
 
 import {ShareOptions} from '@gravity-ui/components';
 import {
@@ -39,7 +39,7 @@ export interface BlogPostPageProps {
     shareOptions?: ShareOptions[];
     isSignedInUser?: boolean;
     // Required to enable Sign In on Post like
-    onClickSignIn?: React.EventHandler<SyntheticEvent>;
+    onClickSignIn?: React.EventHandler<React.SyntheticEvent>;
     breadcrumbs?: HeaderBreadCrumbsProps;
 }
 
@@ -57,7 +57,7 @@ export const BlogPostPage = ({
     onClickSignIn,
     breadcrumbs,
 }: BlogPostPageProps) => {
-    const {isAnimationEnabled} = useContext(SettingsContext);
+    const {isAnimationEnabled} = React.useContext(SettingsContext);
     const {hasUserLike, likesCount, handleLike} = useLikes({
         hasLike: likes?.hasUserLike,
         count: likes?.likesCount,
@@ -67,7 +67,7 @@ export const BlogPostPage = ({
 
     const {requireSignIn, ...promptSignInProps} = usePromptSignInProps(onClickSignIn);
 
-    const likesContextData = useMemo(
+    const likesContextData = React.useMemo(
         () => ({
             toggleLike: likes?.toggleLike,
             hasLikes: Boolean(likes),

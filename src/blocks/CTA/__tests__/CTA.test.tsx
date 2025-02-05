@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {LinkTheme} from '@gravity-ui/page-constructor';
 import {render, screen} from '@testing-library/react';
 

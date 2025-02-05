@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import * as React from 'react';
 
 import {AnalyticsEventsProp, useAnalytics} from '@gravity-ui/page-constructor';
 import {Icon, useUniqId} from '@gravity-ui/uikit';
@@ -49,7 +49,7 @@ export const Save = ({
     qa,
     analyticsEvents,
 }: SaveProps) => {
-    const {toggleLike, isSignedInUser, requireSignIn} = useContext(LikesContext);
+    const {toggleLike, isSignedInUser, requireSignIn} = React.useContext(LikesContext);
     const handleAnalytics = useAnalytics(DefaultEventNames.SaveButton);
     const isLikeable = Boolean(toggleLike);
 

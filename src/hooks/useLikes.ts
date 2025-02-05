@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useState} from 'react';
+import * as React from 'react';
 
 import {ToggleLikeCallbackType} from '../models/common';
 
@@ -18,10 +18,10 @@ type UseLikeData = {
 type UseLikesType = (props: UseLikesProps) => UseLikeData;
 
 export const useLikes: UseLikesType = ({hasLike, count, toggleLikeCallback, postId}) => {
-    const [hasUserLike, setHasUserLike] = useState(hasLike ?? false);
-    const [likesCount, setLikesCount] = useState(count ?? 0);
+    const [hasUserLike, setHasUserLike] = React.useState(hasLike ?? false);
+    const [likesCount, setLikesCount] = React.useState(count ?? 0);
 
-    const handleLike = useCallback(() => {
+    const handleLike = React.useCallback(() => {
         let newLikesCount = likesCount;
 
         if (hasUserLike && likesCount > 0) {
@@ -43,7 +43,7 @@ export const useLikes: UseLikesType = ({hasLike, count, toggleLikeCallback, post
         }
     }, [hasUserLike, likesCount, postId, toggleLikeCallback]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         setHasUserLike(hasLike ?? false);
         setLikesCount(count ?? 0);
     }, [hasLike, count]);

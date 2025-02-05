@@ -1,4 +1,4 @@
-import React, {MouseEvent} from 'react';
+import * as React from 'react';
 
 import {CardLayoutBlock} from '@gravity-ui/page-constructor';
 import {Button} from '@gravity-ui/uikit';
@@ -23,7 +23,7 @@ type PostCardProps = {
     perPageInQuery: number;
     isFetching: boolean;
     handleShowMore: (
-        value?: MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
+        value?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
     ) => Promise<void> | void;
     handlePageChange: (value: number) => Promise<void> | void;
     postsOnPage?: PostData[];
