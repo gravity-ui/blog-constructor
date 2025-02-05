@@ -1,8 +1,8 @@
-import React, {SyntheticEvent, useMemo, useState} from 'react';
+import * as React from 'react';
 
-export function usePromptSignInProps(onClickSignIn?: React.EventHandler<SyntheticEvent>) {
-    const [openTimestamp, setTime] = useState(0);
-    const requireSignIn = useMemo(() => {
+export function usePromptSignInProps(onClickSignIn?: React.EventHandler<React.SyntheticEvent>) {
+    const [openTimestamp, setTime] = React.useState(0);
+    const requireSignIn = React.useMemo(() => {
         return onClickSignIn
             ? () => {
                   setTime(Date.now());

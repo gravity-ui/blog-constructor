@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import {DEFAULT_PADDINGS} from '../../constants';
 import {ClassNameProps, QAProps} from '../../models/common';

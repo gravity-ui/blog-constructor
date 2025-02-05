@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import * as React from 'react';
 
 import type {Meta, StoryFn} from '@storybook/react';
 
@@ -40,7 +40,7 @@ export default {
 } as Meta;
 
 const WithNavigationTemplate: StoryFn<BlogPageProps> = (args) => {
-    const {isAnimationEnabled} = useContext(SettingsContext);
+    const {isAnimationEnabled} = React.useContext(SettingsContext);
 
     return (
         <BlogConstructorProvider

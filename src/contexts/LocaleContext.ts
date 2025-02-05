@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import {Locale} from '../models/locale';
 import {Lang} from '@gravity-ui/uikit';

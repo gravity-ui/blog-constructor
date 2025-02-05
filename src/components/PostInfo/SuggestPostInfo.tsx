@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {useLikes} from '../../hooks/useLikes';
 import {PostCardSize, PostData, QAProps, ToggleLikeCallbackType} from '../../models/common';
 import {block} from '../../utils/cn';

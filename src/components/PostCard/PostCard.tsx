@@ -1,4 +1,4 @@
-import React, {useContext, useMemo} from 'react';
+import * as React from 'react';
 import {AnalyticsEventsProp, CardBase, HTML, YFMWrapper} from '@gravity-ui/page-constructor';
 import {useUniqId} from '@gravity-ui/uikit';
 
@@ -47,9 +47,9 @@ export const PostCard = ({
 
     const title = postTitle || textTitle || htmlTitle;
 
-    const {toggleLike, hasLikes} = useContext(LikesContext);
+    const {toggleLike, hasLikes} = React.useContext(LikesContext);
 
-    const likesProps = useMemo(
+    const likesProps = React.useMemo(
         () =>
             hasLikes
                 ? {
