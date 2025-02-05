@@ -121,7 +121,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^16.1.0",
     "@testing-library/user-event": "^14.4.3",
-    "@types/jest": "^29.2.5",
+    "@types/jest": "^29.5.14",
     "@types/js-yaml": "^4.0.5",
     "@types/lodash": "^4.14.176",
     "@types/react": "^18.3.18",
@@ -154,7 +154,7 @@
     "sass-loader": "^13.3.1",
     "storybook": "^8.0.5",
     "stylelint": "^15.11.0",
-    "ts-jest": "^29.0.5",
+    "ts-jest": "^29.2.5",
     "typescript": "^5.7.3",
     "vite-plugin-commonjs": "^0.10.3",
     "vite-plugin-svgr": "^4.2.0"
