@@ -9,3 +9,5 @@ export * from './models/locale';
 export * from './schema';
 
 export {BREAKPOINTS} from './constants';
+
+export * from './utils';
