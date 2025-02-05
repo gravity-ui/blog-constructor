@@ -3,8 +3,6 @@ const path = require('path');
 
 const utils = require('@gravity-ui/gulp-utils');
 const {task, src, dest, series, parallel} = require('gulp');
-// eslint-disable-next-line no-unused-vars
-const rename = require('gulp-rename');
 const replace = require('gulp-replace');
 const sass = require('gulp-sass')(require('sass'));
 const sourcemaps = require('gulp-sourcemaps');
@@ -25,11 +23,6 @@ const CONFIG_EXTENSION_FOR_DECLARATION = {
     declaration: true,
 };
 
-const CONFIG_EXTENSION_FOR_COMPILE = {
-    incremental: true,
-    isolatedModules: true,
-};
-
 const SRC_FOR_INDEX_BUILD = [
     'src/**/*.{ts,tsx,js,jsx}',
     '!src/demo/**/*',
@@ -39,11 +32,6 @@ const SRC_FOR_INDEX_BUILD = [
     '!src/data/**/*',
     '!src/server.ts',
     '!test-utils/**/*',
-];
-
-const SRC_FOR_SERVER_REQUIREMENTS = [
-    'src/data/**/*.{js,jsx,ts,tsx}',
-    'src/models/**/*.{js,jsx,ts,tsx}',
 ];
 
 const getTsConfig = async ({modules = false, extension = {}}) => {
@@ -103,122 +91,6 @@ async function compileTs(modules = false) {
     });
 }
 
-// function compileTsDeclaration(modules = false) {
-//     const tsProject = getTsConfig({
-//         modules,
-//         extension: CONFIG_EXTENSION_FOR_DECLARATION,
-//     });
-
-//     return src(SRC_FOR_INDEX_BUILD)
-//         .pipe(
-//             replace(/import '.+\.scss';/g, (match) =>
-//                 modules ? match.replace('.scss', '.css') : '',
-//             ),
-//         )
-//         .pipe(tsProject())
-//         .pipe(dest(path.resolve(BUILD_CLIENT_DIR, modules ? ESM_DIR : CJS_DIR)));
-// }
-
-async function compileServerFile() {
-    // const tsProject = getTsConfig({
-    //     extension: {
-    //         declaration: true,
-    //         isolatedModules: false,
-    //     },
-    // });
-
-    // return src('src/server.ts')
-    //     .pipe(rename('index.js'))
-    //     .pipe(tsProject())
-    //     .pipe(dest(path.resolve(SERVER_CLIENT_DIR)));
-
-    const tsProject = await getTsConfig({});
-
-    const transformers = [
-        tsProject.customTransformers.transformScssImports,
-        tsProject.customTransformers.transformLocalModules,
-    ];
-
-    return new Promise((resolve) => {
-        src('src/server.ts')
-            // .pipe(rename('server/index.js'))
-            .pipe(sourcemaps.init())
-            .pipe(
-                tsProject({
-                    customTransformers: {
-                        before: transformers,
-                        afterDeclarations: transformers,
-                    },
-                }),
-            )
-            .pipe(sourcemaps.write('.', {includeContent: true, sourceRoot: '../../src'}))
-            .pipe(
-                utils.addVirtualFile({
-                    fileName: 'package.json',
-                    text: JSON.stringify({type: 'commonjs'}),
-                }),
-            )
-            .pipe(dest(path.resolve(SERVER_CLIENT_DIR)))
-            .on('end', resolve);
-    });
-}
-
-async function compileServerRequirements() {
-    // const tsProject = getTsConfig({
-    //     extension: CONFIG_EXTENSION_FOR_COMPILE,
-    // });
-
-    // return src(SRC_FOR_SERVER_REQUIREMENTS, {base: 'src'})
-    //     .pipe(tsProject())
-    //     .pipe(dest(path.resolve(SERVER_CLIENT_DIR)));
-
-    //     const tsProject = await getTsConfig({});
-
-    //     const transformers = [
-    //         tsProject.customTransformers.transformScssImports,
-    //         tsProject.customTransformers.transformLocalModules,
-    //     ];
-    const tsProject = await getTsConfig({extension: CONFIG_EXTENSION_FOR_COMPILE});
-
-    const transformers = [
-        tsProject.customTransformers.transformScssImports,
-        tsProject.customTransformers.transformLocalModules,
-    ];
-
-    return new Promise((resolve) => {
-        src(SRC_FOR_SERVER_REQUIREMENTS)
-            // .pipe(rename('server/index.js'))
-            .pipe(sourcemaps.init())
-            .pipe(
-                tsProject({
-                    customTransformers: {
-                        before: transformers,
-                        afterDeclarations: transformers,
-                    },
-                }),
-            )
-            .pipe(sourcemaps.write('.', {includeContent: true, sourceRoot: '../../src'}))
-            .pipe(
-                utils.addVirtualFile({
-                    fileName: 'package.json',
-                    text: JSON.stringify({type: 'commonjs'}),
-                }),
-            )
-            .pipe(dest(path.resolve(SERVER_CLIENT_DIR)))
-            .on('end', resolve);
-    });
-}
-
-// function compileServerRequirementsDeclaration() {
-//     const tsProject = getTsConfig({
-//         extension: CONFIG_EXTENSION_FOR_DECLARATION,
-//     });
-
-//     return src(SRC_FOR_SERVER_REQUIREMENTS, {base: 'src'})
-//         .pipe(tsProject())
-//         .pipe(dest(path.resolve(SERVER_CLIENT_DIR)));
-// }
-
 task('compile-to-esm', () => {
     return compileTs(true);
 });
@@ -226,26 +98,6 @@ task('compile-to-esm', () => {
 task('compile-to-cjs', () => {
     return compileTs();
 });
-
-// task('compile-to-esm-declaration', () => {
-//     return compileTsDeclaration(true);
-// });
-
-// task('compile-to-cjs-declaration', () => {
-//     return compileTsDeclaration();
-// });
-
-task('compile-server-file', () => {
-    return compileServerFile();
-});
-
-task('compile-server-requirements', () => {
-    return compileServerRequirements();
-});
-
-// task('compile-server-requirements-declaration', () => {
-//     return compileServerRequirementsDeclaration();
-// });
 
 task('copy-js-declarations', () => {
     return src([
@@ -289,12 +141,6 @@ task(
     series([
         'clean',
         parallel(['compile-to-esm', 'compile-to-cjs']),
-        // parallel(['compile-to-esm-declaration', 'compile-to-cjs-declaration']),
-        parallel([
-            'compile-server-file',
-            'compile-server-requirements',
-            //     'compile-server-requirements-declaration',
-        ]),
         'copy-js-declarations',
         'copy-i18n',
         parallel(['styles-global', 'styles-components']),
