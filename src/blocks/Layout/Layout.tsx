@@ -1,4 +1,4 @@
-import React, {PropsWithChildren, ReactElement, useMemo} from 'react';
+import * as React from 'react';
 
 import {
     Col,
@@ -28,8 +28,8 @@ type LayoutType = {
 };
 
 type SortedLayoutItems = {
-    left: ReactElement[];
-    right: ReactElement[];
+    left: React.ReactElement[];
+    right: React.ReactElement[];
 };
 
 export const Layout = ({
@@ -38,8 +38,8 @@ export const Layout = ({
     children,
     paddingTop = 'xs',
     paddingBottom = 'xs',
-}: PropsWithChildren<LayoutProps>) => {
-    const layout: LayoutType = useMemo(() => {
+}: React.PropsWithChildren<LayoutProps>) => {
+    const layout: LayoutType = React.useMemo(() => {
         const layoutConfig: LayoutType = {
             leftCol: {
                 sizes: {all: 12, lg: 8},
@@ -75,10 +75,10 @@ export const Layout = ({
             </div>
         ));
 
-    const {left, right} = useMemo(
+    const {left, right} = React.useMemo(
         () =>
             children?.reduce(
-                (sortedChildren: SortedLayoutItems, child: ReactElement) => {
+                (sortedChildren: SortedLayoutItems, child: React.ReactElement) => {
                     if (child?.props?.data?.column === 'left') {
                         sortedChildren.left.push(child);
                     } else {

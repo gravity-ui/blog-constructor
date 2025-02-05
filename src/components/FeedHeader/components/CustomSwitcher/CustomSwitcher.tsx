@@ -1,4 +1,4 @@
-import React, {LegacyRef, useMemo} from 'react';
+import * as React from 'react';
 
 import {Icon, SelectProps, useUniqId} from '@gravity-ui/uikit';
 
@@ -40,14 +40,13 @@ export const CustomSwitcher = ({
     initial,
     defaultLabel,
     list,
-    onClick,
+    triggerProps,
     controlRef,
-    onKeyDown,
     renderClear,
     a11yProps,
     qa,
 }: CustomSwitcherProps) => {
-    const itemsNames = useMemo(() => {
+    const itemsNames = React.useMemo(() => {
         const items = list
             .filter((item) => initial.includes(item.value))
             .map((item) => item.content);
@@ -59,16 +58,16 @@ export const CustomSwitcher = ({
     const contentElementId = useUniqId();
 
     return (
-        <div className={b('custom-switcher')} ref={controlRef as LegacyRef<HTMLDivElement>}>
+        <div className={b('custom-switcher')} ref={controlRef as React.LegacyRef<HTMLDivElement>}>
             {/* eslint-disable-next-line jsx-a11y/role-supports-aria-props */}
             <button
                 data-qa={qa}
                 id={id}
                 disabled={disabled}
                 type={type}
-                onClick={onClick}
+                onClick={triggerProps?.onClick}
                 className={b('custom-switcher-element', {overlay: true})}
-                onKeyDown={onKeyDown}
+                onKeyDown={triggerProps?.onKeyDown}
                 {...a11yProps}
                 aria-labelledby={contentElementId}
             />

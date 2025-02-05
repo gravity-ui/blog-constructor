@@ -1,6 +1,6 @@
 import {Theme} from '@gravity-ui/page-constructor';
 import {MobileProvider, ThemeProvider, ToasterComponent, ToasterProvider} from '@gravity-ui/uikit';
-import React from 'react';
+import * as React from 'react';
 import {BlogConstructorProvider} from '../../src/constructor/BlogConstructorProvider';
 
 export const Providers = ({children}) => {

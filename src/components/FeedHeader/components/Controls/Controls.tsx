@@ -1,4 +1,4 @@
-import React, {ReactNode, useContext, useMemo, useState} from 'react';
+import * as React from 'react';
 
 import {useAnalytics} from '@gravity-ui/page-constructor';
 import {Button, Icon, MobileProvider, Select} from '@gravity-ui/uikit';
@@ -23,7 +23,7 @@ const b = block('feed-controls');
 export type SelectItem = {
     content: string;
     value: string;
-    icon?: ReactNode;
+    icon?: React.ReactNode;
 };
 
 export type ControlsProps = {
@@ -43,7 +43,7 @@ export const Controls = ({
     services = [],
     queryParams,
 }: ControlsProps) => {
-    const {hasLikes} = useContext(LikesContext);
+    const {hasLikes} = React.useContext(LikesContext);
     const handleAnalyticsTag = useAnalytics(DefaultEventNames.Tag);
     const handleAnalyticsService = useAnalytics(DefaultEventNames.Service);
     const handleAnalyticsSaveOnly = useAnalytics(DefaultEventNames.SaveOnly);
@@ -55,10 +55,10 @@ export const Controls = ({
         services: servicesInitial,
     } = queryParams || {};
 
-    const [savedOnly, setSavedOnly] = useState<boolean>(savedOnlyInitial === 'true');
-    const [search, setSearch] = useState<string>(searchInitial as string);
+    const [savedOnly, setSavedOnly] = React.useState<boolean>(savedOnlyInitial === 'true');
+    const [search, setSearch] = React.useState<string>(searchInitial as string);
 
-    const isMobile = useContext(MobileContext);
+    const isMobile = React.useContext(MobileContext);
 
     const handleSavedOnly = () => {
         handleAnalyticsSaveOnly();
@@ -129,12 +129,12 @@ export const Controls = ({
         });
     };
 
-    const tagsItems = useMemo(
+    const tagsItems = React.useMemo(
         () => [{value: 'empty', content: i18n(Keyset.AllTags)} as unknown as SelectItem, ...tags],
         [tags],
     );
 
-    const servicesItems = useMemo(
+    const servicesItems = React.useMemo(
         () => (servicesInitial ? [...(servicesInitial as string).split(',')] : []),
         [servicesInitial],
     );
