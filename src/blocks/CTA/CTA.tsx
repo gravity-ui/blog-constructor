@@ -32,7 +32,7 @@ export const CTA = ({
     const theme = useTheme();
     const qaAttributes = getQaAttributes(qa, 'card');
 
-    const backgroundColor = getThemedValue(cardBackgroundColorThemed, theme);
+    const cardBackgroundColor = getThemedValue(cardBackgroundColorThemed, theme);
 
     return (
         <Wrapper
@@ -58,7 +58,9 @@ export const CTA = ({
                     <div
                         key={index}
                         className={b('card')}
-                        style={backgroundColor ? {backgroundColor} : undefined}
+                        style={
+                            cardBackgroundColor ? {backgroundColor: cardBackgroundColor} : undefined
+                        }
                         data-qa={qaAttributes.card}
                     >
                         <Content {...contentData} qa={qaAttributes.content} />

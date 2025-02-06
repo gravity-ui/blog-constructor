@@ -34,7 +34,7 @@ export const TwoItems = DefaultTemplate.bind({});
 export const FourItems = DefaultTemplate.bind({});
 export const FiveItems = DefaultTemplate.bind({});
 export const SixItems = DefaultTemplate.bind({});
-export const Colored = DefaultTemplate.bind({});
+export const CustomColors = DefaultTemplate.bind({});
 
 Default.args = {
     type: BlockType.CTA,
@@ -72,7 +72,7 @@ SixItems.args = {
     items: contentBlocks.slice(0, 6),
 } as CTAModel;
 
-Colored.args = {
+CustomColors.args = {
     type: BlockType.CTA,
     ...getDefaultStoryArgs(),
     items: contentBlocks.slice(0, 3),
