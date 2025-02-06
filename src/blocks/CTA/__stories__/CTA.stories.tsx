@@ -39,34 +39,40 @@ Default.args = {
     type: BlockType.CTA,
     ...getDefaultStoryArgs(),
     items: contentBlocks.slice(0, 3),
+    backgroundColor: undefined,
 } as CTAModel;
 
 OneItem.args = {
     type: BlockType.CTA,
     ...getDefaultStoryArgs(),
     items: contentBlocks.slice(0, 1),
+    backgroundColor: undefined,
 } as CTAModel;
 
 TwoItems.args = {
     type: BlockType.CTA,
     ...getDefaultStoryArgs(),
     items: contentBlocks.slice(0, 2),
+    backgroundColor: undefined,
 } as CTAModel;
 
 FourItems.args = {
     type: BlockType.CTA,
     ...getDefaultStoryArgs(),
     items: contentBlocks.slice(0, 4),
+    backgroundColor: undefined,
 } as CTAModel;
 
 FiveItems.args = {
     type: BlockType.CTA,
     ...getDefaultStoryArgs(),
     items: contentBlocks.slice(0, 5),
+    backgroundColor: undefined,
 } as CTAModel;
 
 SixItems.args = {
     type: BlockType.CTA,
     ...getDefaultStoryArgs(),
     items: contentBlocks.slice(0, 6),
+    backgroundColor: undefined,
 } as CTAModel;
