@@ -1,5 +1,15 @@
 # Changelog
 
+
+## 7.0.0
+
+### ⚠️ Breaking Changes
+
+* Built JS files are now in ES2022
+* Require UIKit 7
+* Require Page-constructor 6
+
+
 ## [6.9.0](https://github.com/gravity-ui/blog-constructor/compare/v6.8.0...v6.9.0) (2025-02-13)
 
 
@@ -20,6 +30,7 @@
 ### Bug Fixes
 
 * mobile popup height ([#240](https://github.com/gravity-ui/blog-constructor/issues/240)) ([a7dddd0](https://github.com/gravity-ui/blog-constructor/commit/a7dddd03a4548945e5b2bb6bb78c577a8d4efeeb))
+
 
 ## [6.7.1](https://github.com/gravity-ui/blog-constructor/compare/v6.7.0...v6.7.1) (2025-02-07)
 
@@ -48,6 +59,7 @@
 ### Features
 
 * add prop for custom breadcrumbs ([#230](https://github.com/gravity-ui/blog-constructor/issues/230)) ([2607b6d](https://github.com/gravity-ui/blog-constructor/commit/2607b6dec9390d5ee919e747700bb37850a41396))
+
 
 ## [6.5.0](https://github.com/gravity-ui/blog-constructor/compare/v6.4.3...v6.5.0) (2024-12-04)
 
