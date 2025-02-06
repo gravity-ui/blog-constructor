@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.6.1](https://github.com/gravity-ui/blog-constructor/compare/v6.6.0...v6.6.1) (2025-02-06)
+
+
+### Bug Fixes
+
+* change arrow function getBreadcrumbs with simple function ([#232](https://github.com/gravity-ui/blog-constructor/issues/232)) ([c6ebe58](https://github.com/gravity-ui/blog-constructor/commit/c6ebe58d7213458432d57e83b08f55ab269e0b83))
+
 ## [6.6.0](https://github.com/gravity-ui/blog-constructor/compare/v6.5.0...v6.6.0) (2025-02-05)
 
 
