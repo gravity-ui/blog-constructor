@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.7.0](https://github.com/gravity-ui/blog-constructor/compare/v6.6.1...v6.7.0) (2025-02-06)
+
+
+### Features
+
+* add custom breadcrumbs to meta ([#236](https://github.com/gravity-ui/blog-constructor/issues/236)) ([0b95f1c](https://github.com/gravity-ui/blog-constructor/commit/0b95f1c81a842b643282e9cf36b5338407a22be2))
+
 ## [6.6.1](https://github.com/gravity-ui/blog-constructor/compare/v6.6.0...v6.6.1) (2025-02-06)
 
 
