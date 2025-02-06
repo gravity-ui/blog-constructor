@@ -24,7 +24,7 @@ const linkGoals = prepareAnalyticsEvent({
 
 export const CTA = ({
     items,
-    backgroundColor: themedBackgroundColor,
+    cardBackgroundColor: cardBackgroundColorThemed,
     paddingTop,
     paddingBottom,
     qa,
@@ -32,7 +32,7 @@ export const CTA = ({
     const theme = useTheme();
     const qaAttributes = getQaAttributes(qa, 'card');
 
-    const backgroundColor = getThemedValue(themedBackgroundColor, theme);
+    const backgroundColor = getThemedValue(cardBackgroundColorThemed, theme);
 
     return (
         <Wrapper

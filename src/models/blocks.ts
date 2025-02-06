@@ -37,7 +37,7 @@ export type ColoredTextProps = ContentBlockProps &
 
 export type CTAProps = QAProps & {
     items: Array<ContentBlockProps>;
-    backgroundColor?: ThemeSupporting<string>;
+    cardBackgroundColor?: ThemeSupporting<string>;
 } & PaddingsYFMProps;
 
 export type HeaderProps = HeaderBlockProps & PaddingsYFMProps;

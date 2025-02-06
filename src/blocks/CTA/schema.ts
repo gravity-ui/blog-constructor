@@ -29,7 +29,7 @@ export const CTA = {
                 },
             },
             // fix after withTheme is added to PC exports https://github.com/gravity-ui/page-constructor/issues/1119
-            backgroundColor: {
+            cardBackgroundColor: {
                 oneOf: [
                     {
                         type: 'string',
