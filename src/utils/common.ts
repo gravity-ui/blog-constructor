@@ -114,7 +114,7 @@ export const getBlogPath = (pathPrefix: string) => {
     return `${prefix}/blog`;
 };
 
-export const getBreadcrumbs = ({tags, blogPath}: GetBreadcrumbsProps) => {
+export function getBreadcrumbs({tags, blogPath}: GetBreadcrumbsProps) {
     const breadcrumbs: HeaderBreadCrumbsProps = {
         items: [{text: i18n(Keyset.TitleBreadcrumbs), url: blogPath}],
         theme: 'light',
@@ -128,7 +128,7 @@ export const getBreadcrumbs = ({tags, blogPath}: GetBreadcrumbsProps) => {
     }
 
     return breadcrumbs;
-};
+}
 
 const getArrayOfEvents = (events?: AnalyticsEventsProp) => {
     if (!events) {
