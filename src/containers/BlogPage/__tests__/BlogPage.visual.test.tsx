@@ -3,6 +3,7 @@ import React from 'react';
 import {test} from '../../../../playwright/core/index';
 
 import {Default, WithNavigation} from './helpers';
+import {MobileProvider} from '@gravity-ui/uikit';
 
 const BLOG_POST_DALAY = 10 * 1000;
 
@@ -16,6 +17,22 @@ test.describe('BlogPage', () => {
     test('render stories <WithNavigation>', async ({mount, expectScreenshot, delay}) => {
         await mount(<WithNavigation />);
         await delay(BLOG_POST_DALAY);
+        await expectScreenshot({skipTheme: 'dark'});
+    });
+
+    test('render stories <Default> with opened select', async ({
+        mount,
+        expectScreenshot,
+        delay,
+        page,
+    }) => {
+        await mount(
+            <MobileProvider mobile={true}>
+                <Default />{' '}
+            </MobileProvider>,
+        );
+        await delay(BLOG_POST_DALAY);
+        await page.click('[data-qa="service-select"]');
         await expectScreenshot({skipTheme: 'dark'});
     });
 });

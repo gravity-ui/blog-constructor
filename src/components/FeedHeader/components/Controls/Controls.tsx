@@ -1,7 +1,7 @@
 import React, {ReactNode, useContext, useMemo, useState} from 'react';
 
 import {useAnalytics} from '@gravity-ui/page-constructor';
-import {Button, Icon, Select} from '@gravity-ui/uikit';
+import {Button, Icon, MobileProvider, Select} from '@gravity-ui/uikit';
 
 import {DefaultGoalIds} from '../../../../constants';
 import {LikesContext} from '../../../../contexts/LikesContext';
@@ -140,77 +140,84 @@ export const Controls = ({
     );
 
     return (
-        <div className={b('header')}>
-            <h1 className={b('header-item', {title: true})}>{i18n(Keyset.Title)}</h1>
-            <div className={b('header-item', {filters: true})}>
-                <div className={b('filter-item')}>
-                    <Search
-                        className={b('search')}
-                        placeholder={i18n(Keyset.Search)}
-                        initialValue={search && typeof search === 'string' ? search : ''}
-                        onSubmit={handleSearch}
-                    />
-                </div>
-                <div className={b('filter-item')}>
-                    <Select
-                        className={b('select')}
-                        size="xl"
-                        options={tagsItems}
-                        defaultValue={[tagInitial] as string[]}
-                        onUpdate={handleTagSelect}
-                        placeholder={i18n(Keyset.AllTags)}
-                        popupClassName={b('popup', {isMobile})}
-                        renderControl={renderSwitcher({
-                            initial: [tagInitial],
-                            list: tagsItems,
-                            defaultLabel: i18n(Keyset.AllTags),
-                        })}
-                        disablePortal
-                        virtualizationThreshold={VIRTUALIZATION_THRESHOLD}
-                        renderOption={renderOption}
-                    />
-                </div>
-
-                {services.length > 0 ? (
+        <MobileProvider mobile={false}>
+            <div className={b('header')}>
+                <h1 className={b('header-item', {title: true})}>{i18n(Keyset.Title)}</h1>
+                <div className={b('header-item', {filters: true})}>
+                    <div className={b('filter-item')}>
+                        <Search
+                            className={b('search')}
+                            placeholder={i18n(Keyset.Search)}
+                            initialValue={search && typeof search === 'string' ? search : ''}
+                            onSubmit={handleSearch}
+                        />
+                    </div>
                     <div className={b('filter-item')}>
                         <Select
                             className={b('select')}
                             size="xl"
-                            multiple
-                            filterable
-                            hasClear
-                            disablePortal
-                            options={services}
-                            defaultValue={servicesItems}
+                            options={tagsItems}
+                            defaultValue={[tagInitial] as string[]}
+                            onUpdate={handleTagSelect}
+                            placeholder={i18n(Keyset.AllTags)}
                             popupClassName={b('popup', {isMobile})}
-                            onUpdate={handleServicesSelect}
-                            placeholder={i18n(Keyset.AllServices)}
                             renderControl={renderSwitcher({
-                                initial: servicesItems,
-                                list: services,
-                                defaultLabel: i18n(Keyset.AllServices),
+                                initial: [tagInitial],
+                                list: tagsItems,
+                                defaultLabel: i18n(Keyset.AllTags),
                             })}
+                            disablePortal
                             virtualizationThreshold={VIRTUALIZATION_THRESHOLD}
                             renderOption={renderOption}
-                            renderFilter={renderFilter}
                         />
                     </div>
-                ) : null}
-                {hasLikes ? (
-                    <div className={b('filter-item', {'width-auto': true})}>
-                        <Button
-                            view={'outlined'}
-                            className={b('saved-only-button', {savedOnly})}
-                            size="xl"
-                            onClick={handleSavedOnly}
-                            selected={savedOnly}
-                        >
-                            <Icon data={Save} size={ICON_SIZE} className={b('icon', {savedOnly})} />
-                            {i18n(Keyset.ActionSavedOnly)}
-                        </Button>
-                    </div>
-                ) : null}
+
+                    {services.length > 0 ? (
+                        <div className={b('filter-item')}>
+                            <Select
+                                className={b('select')}
+                                size="xl"
+                                multiple
+                                filterable
+                                hasClear
+                                disablePortal
+                                options={services}
+                                defaultValue={servicesItems}
+                                popupClassName={b('popup', {isMobile})}
+                                onUpdate={handleServicesSelect}
+                                placeholder={i18n(Keyset.AllServices)}
+                                renderControl={renderSwitcher({
+                                    initial: servicesItems,
+                                    list: services,
+                                    defaultLabel: i18n(Keyset.AllServices),
+                                    qa: 'service-select',
+                                })}
+                                virtualizationThreshold={VIRTUALIZATION_THRESHOLD}
+                                renderOption={renderOption}
+                                renderFilter={renderFilter}
+                            />
+                        </div>
+                    ) : null}
+                    {hasLikes ? (
+                        <div className={b('filter-item', {'width-auto': true})}>
+                            <Button
+                                view={'outlined'}
+                                className={b('saved-only-button', {savedOnly})}
+                                size="xl"
+                                onClick={handleSavedOnly}
+                                selected={savedOnly}
+                            >
+                                <Icon
+                                    data={Save}
+                                    size={ICON_SIZE}
+                                    className={b('icon', {savedOnly})}
+                                />
+                                {i18n(Keyset.ActionSavedOnly)}
+                            </Button>
+                        </div>
+                    ) : null}
+                </div>
             </div>
-        </div>
+        </MobileProvider>
     );
 };
