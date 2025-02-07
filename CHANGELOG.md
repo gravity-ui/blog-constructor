@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.7.1](https://github.com/gravity-ui/blog-constructor/compare/v6.7.0...v6.7.1) (2025-02-07)
+
+
+### Bug Fixes
+
+* change sheet component with popup component on mobile ([#234](https://github.com/gravity-ui/blog-constructor/issues/234)) ([dc7b48a](https://github.com/gravity-ui/blog-constructor/commit/dc7b48a6ed5179e37da762b8ffcb56b0dcceb2f7))
+
 ## [6.7.0](https://github.com/gravity-ui/blog-constructor/compare/v6.6.1...v6.7.0) (2025-02-06)
 
 
