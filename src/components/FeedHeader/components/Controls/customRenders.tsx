@@ -22,12 +22,13 @@ type RenderSwitcherType = ({
     initial: CustomSwitcherProps['initial'];
     list: CustomSwitcherProps['list'];
     defaultLabel: string;
+    qa?: string;
 }) => SelectProps['renderControl'];
 
 type RenderFilterType = SelectProps['renderFilter'];
 
 export const renderSwitcher: RenderSwitcherType =
-    ({initial, list, defaultLabel}) =>
+    ({initial, list, defaultLabel, qa}) =>
     // eslint-disable-next-line react/display-name
     ({ref, renderClear, triggerProps: {id, disabled, type, onClick, onKeyDown, ...a11yProps}}) => (
         <CustomSwitcher
@@ -42,6 +43,7 @@ export const renderSwitcher: RenderSwitcherType =
             onKeyDown={onKeyDown}
             renderClear={renderClear}
             a11yProps={a11yProps}
+            qa={qa}
         />
     );
 

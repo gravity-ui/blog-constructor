@@ -26,6 +26,7 @@ export type CustomSwitcherProps = {
     list: SelectItem[];
     controlRef: RenderControlParameters['ref'];
     a11yProps: RenderControlA11yProps;
+    qa?: string;
 } & Omit<RenderControlParameters, 'ref'> &
     Pick<TriggerProps, 'id' | 'disabled' | 'type'>;
 
@@ -44,6 +45,7 @@ export const CustomSwitcher = ({
     onKeyDown,
     renderClear,
     a11yProps,
+    qa,
 }: CustomSwitcherProps) => {
     const itemsNames = useMemo(() => {
         const items = list
@@ -60,6 +62,7 @@ export const CustomSwitcher = ({
         <div className={b('custom-switcher')} ref={controlRef as LegacyRef<HTMLDivElement>}>
             {/* eslint-disable-next-line jsx-a11y/role-supports-aria-props */}
             <button
+                data-qa={qa}
                 id={id}
                 disabled={disabled}
                 type={type}
