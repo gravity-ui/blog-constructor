@@ -1,4 +1,4 @@
-import {Content, ContentBlockProps, getThemedValue, useTheme} from '@gravity-ui/page-constructor';
+import {Content, ContentBlockProps} from '@gravity-ui/page-constructor';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {CTAProps} from '../../models/blocks';
@@ -22,17 +22,8 @@ const linkGoals = prepareAnalyticsEvent({
     counter: AnalyticsCounter.CrossSite,
 });
 
-export const CTA = ({
-    items,
-    cardBackgroundColor: cardBackgroundColorThemed,
-    paddingTop,
-    paddingBottom,
-    qa,
-}: CTAProps) => {
-    const theme = useTheme();
+export const CTA = ({items, paddingTop, paddingBottom, qa}: CTAProps) => {
     const qaAttributes = getQaAttributes(qa, 'card');
-
-    const cardBackgroundColor = getThemedValue(cardBackgroundColorThemed, theme);
 
     return (
         <Wrapper
@@ -55,14 +46,7 @@ export const CTA = ({
                 });
 
                 return (
-                    <div
-                        key={index}
-                        className={b('card')}
-                        style={
-                            cardBackgroundColor ? {backgroundColor: cardBackgroundColor} : undefined
-                        }
-                        data-qa={qaAttributes.card}
-                    >
+                    <div key={index} className={b('card')} data-qa={qaAttributes.card}>
                         <Content {...contentData} qa={qaAttributes.content} />
                     </div>
                 );

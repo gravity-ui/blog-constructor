@@ -13,7 +13,7 @@
 
 ## Features
 
-* custom `cardBackgroundColor` for CTA block ([#235](https://github.com/gravity-ui/blog-constructor/pull/235))
+* Added CSS API `--bc-cta-card-bg` for card background in CTA block ([#235](https://github.com/gravity-ui/blog-constructor/pull/235))
 
 
 ## [6.7.2](https://github.com/gravity-ui/blog-constructor/compare/v6.7.1...v6.7.2) (2025-02-10)

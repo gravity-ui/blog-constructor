@@ -1,4 +1,4 @@
-import {Block, PageConstructor, Theme} from '@gravity-ui/page-constructor';
+import {Block, PageConstructor} from '@gravity-ui/page-constructor';
 import type {Meta, StoryFn} from '@storybook/react';
 
 import {blockMockData, getDefaultStoryArgs} from '../../../../.mocks/utils';
@@ -34,7 +34,6 @@ export const TwoItems = DefaultTemplate.bind({});
 export const FourItems = DefaultTemplate.bind({});
 export const FiveItems = DefaultTemplate.bind({});
 export const SixItems = DefaultTemplate.bind({});
-export const CustomColors = DefaultTemplate.bind({});
 
 Default.args = {
     type: BlockType.CTA,
@@ -70,14 +69,4 @@ SixItems.args = {
     type: BlockType.CTA,
     ...getDefaultStoryArgs(),
     items: contentBlocks.slice(0, 6),
-} as CTAModel;
-
-CustomColors.args = {
-    type: BlockType.CTA,
-    ...getDefaultStoryArgs(),
-    items: contentBlocks.slice(0, 3),
-    cardBackgroundColor: {
-        [Theme.Light]: '#62c6ff',
-        [Theme.Dark]: 'pink',
-    },
 } as CTAModel;
