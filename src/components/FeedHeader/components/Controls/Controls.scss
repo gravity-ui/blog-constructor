@@ -67,10 +67,6 @@ $block: '.#{$namespace}feed-controls';
         }
 
         &_isMobile {
-            @include add-specificity(&) {
-                max-height: inherit;
-            }
-
             #{$root}__popup-filter {
                 position: relative;
                 border: none;
