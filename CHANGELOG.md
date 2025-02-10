@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.7.2](https://github.com/gravity-ui/blog-constructor/compare/v6.7.1...v6.7.2) (2025-02-10)
+
+
+### Bug Fixes
+
+* mobile popup height ([#240](https://github.com/gravity-ui/blog-constructor/issues/240)) ([a7dddd0](https://github.com/gravity-ui/blog-constructor/commit/a7dddd03a4548945e5b2bb6bb78c577a8d4efeeb))
+
 ## [6.7.1](https://github.com/gravity-ui/blog-constructor/compare/v6.7.0...v6.7.1) (2025-02-07)
 
 
