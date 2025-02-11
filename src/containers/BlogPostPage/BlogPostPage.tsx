@@ -6,6 +6,7 @@ import {
     HeaderBreadCrumbsProps,
     NavigationData,
     PageConstructor,
+    PageConstructorProps,
     PageConstructorProvider,
     PageConstructorProviderProps,
     PageContent,
@@ -35,6 +36,7 @@ export interface BlogPostPageProps {
     post: PostData;
     settings?: PageConstructorProviderProps;
     navigation?: NavigationData;
+    microdata?: PageConstructorProps['microdata'];
     custom?: CustomConfig;
     shareOptions?: ShareOptions[];
     isSignedInUser?: boolean;
@@ -50,6 +52,7 @@ export const BlogPostPage = ({
     content,
     post,
     settings,
+    microdata,
     navigation,
     custom,
     shareOptions,
@@ -105,6 +108,7 @@ export const BlogPostPage = ({
                         content={content}
                         custom={actualComponentMap}
                         navigation={navigation}
+                        microdata={microdata}
                     />
                 </PageConstructorProvider>
             </PostPageContext.Provider>
