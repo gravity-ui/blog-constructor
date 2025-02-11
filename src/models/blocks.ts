@@ -51,7 +51,13 @@ export type MediaProps = ClassNameProps &
     Partial<
         Pick<
             PCMediaProps,
-            'youtube' | 'previewImg' | 'image' | 'video' | 'dataLens' | 'videoMicrodata'
+            | 'youtube'
+            | 'previewImg'
+            | 'image'
+            | 'video'
+            | 'dataLens'
+            | 'videoIframe'
+            | 'videoMicrodata'
         >
     > & {
         text?: string;
