@@ -1,3 +1,4 @@
+import * as React from 'react';
 import {Block, PageConstructor} from '@gravity-ui/page-constructor';
 import type {Meta, StoryFn} from '@storybook/react';
 
@@ -22,10 +23,25 @@ type CTAModel = {
     type: BlockType.CTA;
 } & CTAProps;
 
+type ColoredCTAModel = {
+    '--bc-cta-card-bg'?: string;
+} & CTAModel;
+
 const DefaultTemplate: StoryFn<CTAModel> = (args) => (
     <PostPageContext.Provider value={blockMockData}>
         <PageConstructor content={{blocks: [args] as unknown as Block[]}} custom={customBlocks} />
     </PostPageContext.Provider>
+);
+
+const ColoredTemplate: StoryFn<ColoredCTAModel> = ({['--bc-cta-card-bg']: cardColor, ...args}) => (
+    <div style={cardColor ? ({['--bc-cta-card-bg']: cardColor} as React.CSSProperties) : undefined}>
+        <PostPageContext.Provider value={blockMockData}>
+            <PageConstructor
+                content={{blocks: [args] as unknown as Block[]}}
+                custom={customBlocks}
+            />
+        </PostPageContext.Provider>
+    </div>
 );
 
 export const Default = DefaultTemplate.bind({});
@@ -34,6 +50,7 @@ export const TwoItems = DefaultTemplate.bind({});
 export const FourItems = DefaultTemplate.bind({});
 export const FiveItems = DefaultTemplate.bind({});
 export const SixItems = DefaultTemplate.bind({});
+export const CustomColor = ColoredTemplate.bind({});
 
 Default.args = {
     type: BlockType.CTA,
@@ -70,3 +87,10 @@ SixItems.args = {
     ...getDefaultStoryArgs(),
     items: contentBlocks.slice(0, 6),
 } as CTAModel;
+
+CustomColor.args = {
+    type: BlockType.CTA,
+    ...getDefaultStoryArgs(),
+    items: contentBlocks.slice(0, 3),
+    '--bc-cta-card-bg': '#0ff',
+} as ColoredCTAModel;
