@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.8.0](https://github.com/gravity-ui/blog-constructor/compare/v6.7.2...v6.8.0) (2025-02-11)
+
+
+### Features
+
+* pass pc microdata in the blog post page ([#244](https://github.com/gravity-ui/blog-constructor/issues/244)) ([0834db3](https://github.com/gravity-ui/blog-constructor/commit/0834db34a9f2ac58e1c01380b96117b59e7fd49e))
+
 ## [6.7.2](https://github.com/gravity-ui/blog-constructor/compare/v6.7.1...v6.7.2) (2025-02-10)
 
 
