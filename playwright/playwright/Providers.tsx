@@ -1,5 +1,11 @@
 import {Theme} from '@gravity-ui/page-constructor';
-import {MobileProvider, ThemeProvider, ToasterComponent, ToasterProvider} from '@gravity-ui/uikit';
+import {
+    MobileProvider,
+    ThemeProvider,
+    Toaster,
+    ToasterComponent,
+    ToasterProvider,
+} from '@gravity-ui/uikit';
 import * as React from 'react';
 import {BlogConstructorProvider} from '../../src/constructor/BlogConstructorProvider';
 
@@ -21,10 +27,12 @@ export const Providers = ({children}) => {
         };
     }, []);
 
+    const toaster = new Toaster();
+
     return (
         <ThemeProvider>
             <MobileProvider>
-                <ToasterProvider>
+                <ToasterProvider toaster={toaster}>
                     <BlogConstructorProvider theme={theme} settings={{isAnimationEnabled: false}}>
                         {children}
                         <ToasterComponent />
