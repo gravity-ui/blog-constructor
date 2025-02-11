@@ -8,6 +8,12 @@
 * Built JS files are now in ES2022
 * Require UIKit 7
 * Require Page-constructor 6
+* Changed default card background color in CTA block ([#235](https://github.com/gravity-ui/blog-constructor/pull/235))
+
+
+## Features
+
+* Added CSS API `--bc-cta-card-bg` for card background in CTA block ([#235](https://github.com/gravity-ui/blog-constructor/pull/235))
 
 
 ## [6.9.0](https://github.com/gravity-ui/blog-constructor/compare/v6.8.0...v6.9.0) (2025-02-13)
