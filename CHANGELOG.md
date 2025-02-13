@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.9.0](https://github.com/gravity-ui/blog-constructor/compare/v6.8.0...v6.9.0) (2025-02-13)
+
+
+### Features
+
+* upd peer react 19 ([#246](https://github.com/gravity-ui/blog-constructor/issues/246)) ([983308f](https://github.com/gravity-ui/blog-constructor/commit/983308f4b575b674a84138d3e78098103a14cf65))
+
 ## [6.8.0](https://github.com/gravity-ui/blog-constructor/compare/v6.7.2...v6.8.0) (2025-02-11)
 
 
