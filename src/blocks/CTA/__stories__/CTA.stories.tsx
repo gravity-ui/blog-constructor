@@ -92,5 +92,5 @@ CustomColor.args = {
     type: BlockType.CTA,
     ...getDefaultStoryArgs(),
     items: contentBlocks.slice(0, 3),
-    '--bc-cta-card-bg': '#0ff',
+    '--bc-cta-card-bg': '#eff2f8',
 } as ColoredCTAModel;
