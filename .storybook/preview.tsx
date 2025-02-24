@@ -3,7 +3,7 @@ import '../styles/storybook/index.scss';
 import '@gravity-ui/uikit/styles/styles.scss';
 import '../styles/root.scss';
 
-import React from 'react';
+import * as React from 'react';
 import {themes} from './theme';
 import type {Decorator, Preview} from '@storybook/react';
 import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport';

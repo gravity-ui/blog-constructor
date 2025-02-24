@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import * as React from 'react';
 
 import {Block, PageConstructor, PageConstructorProvider} from '@gravity-ui/page-constructor';
 import type {Meta, StoryFn} from '@storybook/react';
@@ -78,7 +78,7 @@ const contextData = {
 };
 
 const DefaultTemplate: StoryFn<FeedModel> = (args) => {
-    const {isAnimationEnabled} = useContext(SettingsContext);
+    const {isAnimationEnabled} = React.useContext(SettingsContext);
 
     return (
         <FeedContext.Provider value={contextData as unknown as FeedContextProps}>

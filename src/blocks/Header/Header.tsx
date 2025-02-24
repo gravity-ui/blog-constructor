@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import * as React from 'react';
 
 import {AnalyticsEventsProp, HeaderBlock} from '@gravity-ui/page-constructor';
 
@@ -29,9 +29,9 @@ const breadcrumbsGoals = prepareAnalyticsEvent({
 
 export const Header = (props: HeaderProps) => {
     const {theme, paddingTop, paddingBottom} = props;
-    const {post, breadcrumbs: customBreadcrumbs = {}} = useContext(PostPageContext);
-    const {locale} = useContext(LocaleContext);
-    const {getBlogPath = getDefaultBlogPath} = useContext(SettingsContext);
+    const {post, breadcrumbs: customBreadcrumbs = {}} = React.useContext(PostPageContext);
+    const {locale} = React.useContext(LocaleContext);
+    const {getBlogPath = getDefaultBlogPath} = React.useContext(SettingsContext);
     const blogPath = getBlogPath(locale.pathPrefix || '');
 
     const {description, title, id, date, readingTime, tags} = post;

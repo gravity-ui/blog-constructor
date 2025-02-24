@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useEffect, useMemo, useReducer} from 'react';
+import * as React from 'react';
 
 import {useAnalytics} from '@gravity-ui/page-constructor';
 import {Icon} from '@gravity-ui/uikit';
@@ -30,8 +30,8 @@ export const Feed = ({image}: FeedProps) => {
         pinnedPost,
         getPosts,
         pageCountForShowSupportButtons,
-    } = useContext(FeedContext);
-    const router = useContext(RouterContext);
+    } = React.useContext(FeedContext);
+    const router = React.useContext(RouterContext);
     const handleAnalytics = useAnalytics(DefaultEventNames.ShowMore);
     const additionalAnalyticsEvent = prepareAnalyticsEvent({
         name: DefaultGoalIds.showMore,
@@ -52,7 +52,7 @@ export const Feed = ({image}: FeedProps) => {
             queryParams,
         },
         dispatch,
-    ] = useReducer(reducer, {
+    ] = React.useReducer(reducer, {
         errorLoad: false,
         errorShowMore: false,
         isFetching: false,
@@ -81,7 +81,7 @@ export const Feed = ({image}: FeedProps) => {
         dispatch({type: ActionTypes.SetErrorLoad, payload: value});
     };
 
-    const handleChangeQueryParams: HandleChangeQueryParams = useCallback(
+    const handleChangeQueryParams: HandleChangeQueryParams = React.useCallback(
         (value) => {
             dispatch({type: ActionTypes.QueryParamsChange, payload: value});
 
@@ -103,7 +103,7 @@ export const Feed = ({image}: FeedProps) => {
         [router],
     );
 
-    const fetchData = useCallback(
+    const fetchData = React.useCallback(
         async ({page, query}: FetchArgs) => {
             if (query && getPosts) {
                 const queryParamsForRequest = getFeedQueryParams({...queryParams, ...query}, page);
@@ -117,7 +117,7 @@ export const Feed = ({image}: FeedProps) => {
         [getPosts, queryParams],
     );
 
-    const handleLoad = useCallback(
+    const handleLoad = React.useCallback(
         async ({page, query}: FetchArgs) => {
             const pageNumber = Number(page || queryParams.page || DEFAULT_PAGE);
 
@@ -195,11 +195,11 @@ export const Feed = ({image}: FeedProps) => {
         setIsFetching(false);
     };
 
-    const handleOnErrorReload = useCallback(() => {
+    const handleOnErrorReload = React.useCallback(() => {
         handleLoad({page: currentPage, query: queryParams});
     }, [currentPage, handleLoad, queryParams]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         const loadedPostsCount = currentPage * perPageInQuery;
         dispatch({
             type: ActionTypes.SetIsShowMoreVisible,
@@ -207,7 +207,7 @@ export const Feed = ({image}: FeedProps) => {
         });
     }, [currentPage, lastLoadedCount, perPageInQuery, postCountOnPage]);
 
-    const serviceItems = useMemo(
+    const serviceItems = React.useMemo(
         () =>
             services?.map((service) => ({
                 content: service.name,
@@ -216,7 +216,7 @@ export const Feed = ({image}: FeedProps) => {
         [services],
     );
 
-    const tagItems = useMemo(
+    const tagItems = React.useMemo(
         () =>
             tags?.map((tag) => ({
                 content: tag.name,

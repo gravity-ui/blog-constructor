@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {render, screen} from '@testing-library/react';
 
 import {PADDING_SIZES} from '../../../../test-utils/constants';

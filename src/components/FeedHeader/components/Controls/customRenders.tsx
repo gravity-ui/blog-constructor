@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {SelectOption, SelectProps, TextInput} from '@gravity-ui/uikit';
 
 import {Keyset, i18n} from '../../../../i18n';
@@ -39,8 +37,10 @@ export const renderSwitcher: RenderSwitcherType =
             defaultLabel={defaultLabel}
             list={list}
             controlRef={ref}
-            onClick={onClick}
-            onKeyDown={onKeyDown}
+            triggerProps={{
+                onClick,
+                onKeyDown,
+            }}
             renderClear={renderClear}
             a11yProps={a11yProps}
             qa={qa}

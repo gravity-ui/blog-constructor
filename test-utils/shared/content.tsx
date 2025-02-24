@@ -1,5 +1,6 @@
-import React, {ElementType} from 'react';
+import * as React from 'react';
 
+// @ts-ignore
 import type {ContentProps} from '@gravity-ui/page-constructor/build/esm/sub-blocks/Content/Content';
 import {render, screen} from '@testing-library/react';
 import pick from 'lodash/pick';
@@ -45,7 +46,7 @@ type PropsWithContentAsArray<T> = T &
     };
 
 export type ContentTestFunction<T> = {
-    component: ElementType;
+    component: React.ElementType;
     props: PropsWithContentAsArray<T> | PropsWithContentAsObject<T>;
     options?: {qaId?: string; textToFind?: string};
 };

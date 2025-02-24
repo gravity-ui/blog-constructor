@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {Button, ButtonProps} from '@gravity-ui/uikit';
 
 import {useHover} from '../../hooks/useHover';

@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import * as React from 'react';
 
 /**
  * Timer to automatically update `open` state after a given duration
@@ -8,9 +8,9 @@ import {useEffect, useState} from 'react';
  */
 export function useOpenCloseTimer(openTimestamp = Date.now(), openDuration = 4000) {
     const open = Date.now() - openTimestamp < openDuration;
-    const [, reset] = useState(0); // time to reset `open` state
+    const [, reset] = React.useState(0); // time to reset `open` state
 
-    useEffect(() => {
+    React.useEffect(() => {
         const closeTime = openTimestamp + openDuration;
         const delay = closeTime - Date.now();
 

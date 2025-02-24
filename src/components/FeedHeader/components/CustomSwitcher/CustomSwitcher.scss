@@ -27,7 +27,7 @@ $clearIconSize: 11px;
         margin: 0;
 
         // TODO delete this section after Select can customize the popup list
-        & + .g-popup.g-popup_open {
+        & + div[data-floating-ui-status] {
             //stylelint-disable-next-line declaration-no-important
             position: absolute !important;
             //stylelint-disable-next-line declaration-no-important

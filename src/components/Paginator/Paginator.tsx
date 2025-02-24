@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import * as React from 'react';
 
 import {useAnalytics} from '@gravity-ui/page-constructor';
 
@@ -31,22 +31,22 @@ export const Paginator = ({
     queryParams,
     pageCountForShowSupportButtons = DEFAULT_PAGE_COUNT_FOR_SHOW_SUPPORT_BUTTONS,
 }: PaginatorProps) => {
-    const [pagesCount, setPagesCount] = useState(
+    const [pagesCount, setPagesCount] = React.useState(
         getPagesCount({itemsPerPage, totalItems, maxPages}),
     );
 
-    const nonPagedQuery = useMemo(() => {
+    const nonPagedQuery = React.useMemo(() => {
         return _.omit(queryParams, ['page']);
     }, [queryParams]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         const count = getPagesCount({itemsPerPage, totalItems, maxPages});
         setPagesCount(count);
     }, [itemsPerPage, totalItems, maxPages]);
 
     const handlePageChange = (pageIndex: number) => onPageChange?.(pageIndex);
 
-    const isShowSupportButtons = useMemo(
+    const isShowSupportButtons = React.useMemo(
         () => pagesCount > pageCountForShowSupportButtons,
         [pageCountForShowSupportButtons, pagesCount],
     );

@@ -1,4 +1,5 @@
-import React, {useMemo} from 'react';
+import * as React from 'react';
+
 import {ClipboardButton, ThemeProvider} from '@gravity-ui/uikit';
 import {addons, types, useArgs} from '@storybook/manager-api';
 import {AddonPanel} from '@storybook/components';
@@ -14,7 +15,7 @@ const YamlPanel = () => {
     const [params] = useArgs();
     const [globals] = useGlobals();
 
-    const content = useMemo(
+    const content = React.useMemo(
         () =>
             yaml.dump([params], {
                 flowLevel: -1,

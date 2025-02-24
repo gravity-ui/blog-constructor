@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useMemo} from 'react';
+import * as React from 'react';
 
 import {Button} from '@gravity-ui/uikit';
 
@@ -21,13 +21,13 @@ export const PaginatorItem = ({
     loading = false,
     index,
 }: PaginatorItemProps) => {
-    const {locale} = useContext(LocaleContext);
+    const {locale} = React.useContext(LocaleContext);
     const {addNavigationLinkForPages, getBlogPath = getDefaultBlogPath} =
-        useContext(SettingsContext);
+        React.useContext(SettingsContext);
     const urlPath = getBlogPath(locale?.pathPrefix || '');
 
     const itemKey = Number(dataKey) > 0 ? Number(dataKey) : (dataKey as ArrowType);
-    const navigationLink = useMemo(() => {
+    const navigationLink = React.useMemo(() => {
         const queryString = Object.entries({
             ...(index > 1 ? {page: index} : undefined),
             ...queryParams,
@@ -37,7 +37,7 @@ export const PaginatorItem = ({
         return queryString ? `${urlPath}?${queryString}` : urlPath;
     }, [queryParams, index, urlPath]);
 
-    const handleClick = useCallback<
+    const handleClick = React.useCallback<
         (event: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => void
     >(
         (event) => {

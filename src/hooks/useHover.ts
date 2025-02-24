@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 /*
  * Source code copied from https://github.com/uidotdev/usehooks | MIT License

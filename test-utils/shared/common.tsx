@@ -1,4 +1,4 @@
-import React, {ElementType} from 'react';
+import * as React from 'react';
 
 import {QAProps} from '@gravity-ui/uikit';
 import {render, screen} from '@testing-library/react';
@@ -6,7 +6,7 @@ import {render, screen} from '@testing-library/react';
 import {PaddingSize} from '../../src/models/paddings';
 
 type CommonTestInputType<T> = {
-    component: ElementType;
+    component: React.ElementType;
     props: T & {
         paddingTop?: PaddingSize;
         paddingBottom?: PaddingSize;

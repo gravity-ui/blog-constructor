@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import * as React from 'react';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import {MarkdownItPluginCb} from '@diplodoc/transform/lib/plugins/typings';
@@ -160,7 +160,7 @@ export type ToggleLikeCallbackType = ({
 export interface HeaderBlockProps extends PageConstructorHeaderBlockProps {
     backLink?: {
         url: string;
-        title: ReactNode;
+        title: React.ReactNode;
     };
 }
 

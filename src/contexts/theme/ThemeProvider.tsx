@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import {DEFAULT_THEME, UIKIT_ROOT_CLASS} from '../../constants';
 

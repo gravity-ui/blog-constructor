@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {Keyset, i18n} from '../../../i18n';
 import {block} from '../../../utils/cn';
 import {ArrowType} from '../types';

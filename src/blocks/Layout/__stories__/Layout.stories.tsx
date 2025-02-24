@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {Block, PageConstructor} from '@gravity-ui/page-constructor';
 import type {Meta, StoryFn} from '@storybook/react';
 

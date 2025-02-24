@@ -1,4 +1,4 @@
-import {ReactElement} from 'react';
+import * as React from 'react';
 
 import {
     ContentBlockProps,
@@ -43,7 +43,7 @@ export type HeaderProps = HeaderBlockProps & PaddingsYFMProps;
 export type LayoutProps = {
     fullWidth?: boolean;
     mobileOrder?: string;
-    children: ReactElement[];
+    children: React.ReactElement[];
 } & PaddingsYFMProps;
 
 export type MediaProps = ClassNameProps &

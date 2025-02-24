@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useRef, useState} from 'react';
+import * as React from 'react';
 
 import {Icon, TextInput} from '@gravity-ui/uikit';
 import lodashDebounce from 'lodash/debounce';
@@ -49,23 +49,23 @@ export const Search = ({
 }: SearchProps) => {
     const handleChange = lodashDebounce(onSubmit, debounce);
 
-    const [value, setValue] = useState<string>(initialValue);
-    const inputRef = useRef<HTMLInputElement>(null);
+    const [value, setValue] = React.useState<string>(initialValue);
+    const inputRef = React.useRef<HTMLInputElement>(null);
     const isIPhone = useIsIPhone();
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (externalValue !== undefined) {
             setValue(externalValue);
         }
     }, [externalValue]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (autoFocus && !isIPhone) {
             setTimeout(() => inputRef?.current?.focus({preventScroll: true}), AUTOFOCUS_TIMEOUT);
         }
     }, [autoFocus, inputRef, isIPhone]);
 
-    const rightContent = useMemo(() => {
+    const rightContent = React.useMemo(() => {
         const iconData = value ? Close : SearchIcon;
         const iconSize = value ? CLOSE_ICON_SIZE : SEARCH_ICON_SIZE;
 
@@ -106,7 +106,7 @@ export const Search = ({
                 controlProps={{
                     className: b('search-suggest-control'),
                 }}
-                rightContent={rightContent}
+                endContent={rightContent}
             />
         </div>
     );

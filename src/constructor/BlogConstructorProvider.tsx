@@ -1,4 +1,4 @@
-import React, {Fragment, PropsWithChildren} from 'react';
+import * as React from 'react';
 
 import {
     AnalyticsContext,
@@ -36,7 +36,7 @@ export const BlogConstructorProvider = ({
     analytics = {},
     settings = {},
     children,
-}: PropsWithChildren<BlogConstructorProviderProps>) => {
+}: React.PropsWithChildren<BlogConstructorProviderProps>) => {
     const context = [
         <ThemeValueContext.Provider value={{themeValue: theme}} key="theme-context" />,
         <ThemeContext.Provider value={{theme: theme as Theme}} key="pc-theme" />,
@@ -48,5 +48,5 @@ export const BlogConstructorProvider = ({
         <AnalyticsContext.Provider value={analytics} key="analytics-context" />,
     ].reduceRight((prev, provider) => React.cloneElement(provider, {}, prev), children);
 
-    return <Fragment>{context}</Fragment>;
+    return <React.Fragment>{context}</React.Fragment>;
 };

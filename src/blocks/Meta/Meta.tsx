@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import * as React from 'react';
 
 import {AnalyticsEventsProp, HeaderBreadcrumbs, YFMWrapper} from '@gravity-ui/page-constructor';
 
@@ -36,10 +36,10 @@ const breadcrumbsGoals = prepareAnalyticsEvent({
 
 export const Meta = (props: MetaProps) => {
     const {paddingTop = 'l', paddingBottom = 'l', theme = 'light', qa} = props;
-    const {post, breadcrumbs: customBreadcrumbs} = useContext(PostPageContext);
-    const {locale} = useContext(LocaleContext);
+    const {post, breadcrumbs: customBreadcrumbs} = React.useContext(PostPageContext);
+    const {locale} = React.useContext(LocaleContext);
     const qaAttributes = getQaAttributes(qa, 'post-info');
-    const {getBlogPath = getDefaultBlogPath} = useContext(SettingsContext);
+    const {getBlogPath = getDefaultBlogPath} = React.useContext(SettingsContext);
     const blogPath = getBlogPath(locale.pathPrefix || '');
 
     const {title, id, date, readingTime, tags} = post;
