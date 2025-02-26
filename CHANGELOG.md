@@ -1,8 +1,9 @@
 # Changelog
 
-## 7.0.0
+## [7.0.0](https://github.com/gravity-ui/blog-constructor/compare/v6.9.0...v7.0.0) (2025-02-26)
 
-### ⚠️ Breaking Changes
+
+### ⚠ BREAKING CHANGES
 
 * Built JS files are now in ES2022
 * Require UIKit 7
