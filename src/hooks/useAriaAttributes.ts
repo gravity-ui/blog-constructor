@@ -1,4 +1,4 @@
-import {useMemo} from 'react';
+import * as React from 'react';
 
 type Labels = string | number | boolean | undefined;
 type Description = string | number | boolean | undefined;
@@ -14,8 +14,11 @@ interface UseAriaAttributesProps {
  * @returns aria attributes for the element to be labelled
  */
 export const useAriaAttributes = ({labelIds = [], descriptionIds = []}: UseAriaAttributesProps) => {
-    const labelledBy = useMemo(() => labelIds.filter(Boolean).join(' '), [labelIds]);
-    const describedBy = useMemo(() => descriptionIds.filter(Boolean).join(' '), [descriptionIds]);
+    const labelledBy = React.useMemo(() => labelIds.filter(Boolean).join(' '), [labelIds]);
+    const describedBy = React.useMemo(
+        () => descriptionIds.filter(Boolean).join(' '),
+        [descriptionIds],
+    );
 
     return {
         'aria-labelledby': labelledBy,

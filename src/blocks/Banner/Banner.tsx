@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {Content, Image} from '@gravity-ui/page-constructor';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
