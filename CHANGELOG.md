@@ -1,5 +1,16 @@
 # Changelog
 
+## [7.0.0](https://github.com/gravity-ui/blog-constructor/compare/v6.9.0...v7.0.0) (2025-02-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* version 7 ([#229](https://github.com/gravity-ui/blog-constructor/issues/229))
+
+### Features
+
+* version 7 ([#229](https://github.com/gravity-ui/blog-constructor/issues/229)) ([43a283d](https://github.com/gravity-ui/blog-constructor/commit/43a283d0537ecb2a2ac1011bba2a0385dc0273a9))
+
 ## 7.0.0
 
 ### ⚠️ Breaking Changes
