@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.10.0](https://github.com/gravity-ui/blog-constructor/compare/v6.9.0...v6.10.0) (2025-03-13)
+
+
+### Features
+
+* add export BlockType from server ([#252](https://github.com/gravity-ui/blog-constructor/issues/252)) ([#255](https://github.com/gravity-ui/blog-constructor/issues/255)) ([69e8ec2](https://github.com/gravity-ui/blog-constructor/commit/69e8ec2c684365c8d1161da11e51872fd01fda38))
+
 ## [6.9.0](https://github.com/gravity-ui/blog-constructor/compare/v6.8.0...v6.9.0) (2025-02-13)
 
 
