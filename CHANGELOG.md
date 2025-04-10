@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.1.1](https://github.com/gravity-ui/blog-constructor/compare/v7.1.0...v7.1.1) (2025-04-10)
+
+
+### Bug Fixes
+
+* paddings in pagination item ([#261](https://github.com/gravity-ui/blog-constructor/issues/261)) ([eeb3c14](https://github.com/gravity-ui/blog-constructor/commit/eeb3c14dd53e04b940a42f1d7ae87eddfa62e537))
+
 ## [7.1.0](https://github.com/gravity-ui/blog-constructor/compare/v7.0.0...v7.1.0) (2025-03-13)
 
 
