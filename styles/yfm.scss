@@ -1,5 +1,6 @@
 @import './mixins.scss';
 @import './variables.scss';
+@import '@gravity-ui/page-constructor/styles/yfm.scss';
 
 .yfm_blog {
     $root: &;
@@ -135,5 +136,11 @@
 .yfm_blog_card {
     p {
         color: var(--pc-text-header-color);
+    }
+}
+
+.yfm_heading {
+    @include add-specificity(&) {
+        font-family: var(--g-text-body-font-family);
     }
 }
