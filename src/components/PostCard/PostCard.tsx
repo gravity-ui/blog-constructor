@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {AnalyticsEventsProp, CardBase, HTML, YFMWrapper} from '@gravity-ui/page-constructor';
+import {AnalyticsEventsProp, CardBase, YFMWrapper} from '@gravity-ui/page-constructor';
 import {useUniqId} from '@gravity-ui/uikit';
 
 import {LikesContext} from '../../contexts/LikesContext';
@@ -91,14 +91,20 @@ export const PostCard = ({
                         {tags[0].name}
                     </div>
                 )}
-                {title &&
-                    React.createElement(
-                        titleHeadingLevel,
-                        {className: b('title', {size})},
-                        <span>
-                            <HTML id={titleId}>{title}</HTML>
-                        </span>,
-                    )}
+                {title && (
+                    <YFMWrapper
+                        className={b('title', {size})}
+                        tagName={titleHeadingLevel}
+                        content={title}
+                        contentClassName={b('title', {size})}
+                        modifiers={{
+                            blog: true,
+                            blogCard: true,
+                            heading: true,
+                        }}
+                        id={titleId}
+                    />
+                )}
                 {description && (
                     <YFMWrapper
                         className={b('description')}

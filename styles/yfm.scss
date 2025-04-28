@@ -138,3 +138,9 @@
         color: var(--pc-text-header-color);
     }
 }
+
+.yfm_heading {
+    @include add-specificity(&) {
+        font-family: var(--g-text-body-font-family);
+    }
+}
