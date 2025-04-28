@@ -91,7 +91,7 @@
   },
   "peerDependencies": {
     "@diplodoc/transform": "^4.10.7",
-    "@gravity-ui/page-constructor": "^7.0.0-alpha.1",
+    "@gravity-ui/page-constructor": "^7.0.0-alpha.3",
     "@gravity-ui/uikit": "^7.1.1",
     "react": "^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
   },
