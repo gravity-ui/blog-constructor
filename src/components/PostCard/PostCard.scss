@@ -36,14 +36,16 @@ $block: '.#{$namespace}post-card';
     }
 
     &__title {
-        margin-bottom: $indentXXXS;
+        @include add-specificity(&) {
+            margin-bottom: $indentXXXS;
 
-        &_size_s {
-            @include heading4();
-        }
+            &_size_s {
+                @include heading4();
+            }
 
-        &_size_m {
-            @include heading2();
+            &_size_m {
+                @include heading2();
+            }
         }
     }
 
