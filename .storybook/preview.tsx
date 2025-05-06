@@ -39,6 +39,7 @@ const withBlogConstructorProvider: Decorator = (Story, context) => {
 
 const preview: Preview = {
     decorators: [withTheme, withLang, withMobile, withContextProvider, withBlogConstructorProvider],
+
     parameters: {
         docs: {
             theme: themes.light,
@@ -57,6 +58,7 @@ const preview: Preview = {
             },
         },
     },
+
     globalTypes: {
         theme: {
             name: 'Theme',
@@ -91,6 +93,8 @@ const preview: Preview = {
             },
         },
     },
+
+    tags: ['autodocs', 'autodocs', 'autodocs'],
 };
 
 export default preview;

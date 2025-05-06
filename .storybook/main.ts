@@ -7,7 +7,6 @@ const config: StorybookConfig = {
     },
     stories: ['./stories/**/*.mdx', '../src/**/__stories__/*.mdx', '../src/**/*.stories.@(ts|tsx)'],
     docs: {
-        autodocs: true,
         defaultName: 'Docs',
     },
     addons: [
