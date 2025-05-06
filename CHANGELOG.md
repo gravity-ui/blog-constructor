@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.2.0](https://github.com/gravity-ui/blog-constructor/compare/v7.1.1...v7.2.0) (2025-05-06)
+
+
+### Features
+
+* upd deps: storybook and move gulp deps to devDeps ([#260](https://github.com/gravity-ui/blog-constructor/issues/260)) ([c83966e](https://github.com/gravity-ui/blog-constructor/commit/c83966e2f2b0ba06904bf7de8a8597b96139e9ed))
+* update pc version and visual tests ([#264](https://github.com/gravity-ui/blog-constructor/issues/264)) ([0d91664](https://github.com/gravity-ui/blog-constructor/commit/0d91664287e7ccf848e65daf735893c6ed5b264f))
+
 ## [7.1.1](https://github.com/gravity-ui/blog-constructor/compare/v7.1.0...v7.1.1) (2025-04-10)
 
 
