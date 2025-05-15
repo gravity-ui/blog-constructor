@@ -10,8 +10,10 @@ import {ReadingTime} from './components/ReadingTime';
 import {Save} from './components/Save';
 import {Sharing} from './components/Sharing';
 import {getQaAttributes} from '../../utils/common';
+import {CustomInfoButton} from './components/CustomInfoButton';
 
 import './PostInfo.scss';
+import {SettingsContext} from '../../contexts/SettingsContext';
 
 const b = block('post-info');
 
@@ -44,6 +46,7 @@ export const PostInfo = ({
     analyticsEventsContainer,
 }: PostInfoProps) => {
     const {likes} = React.useContext(PostPageContext);
+    const {extraInfoButtons: extraButtons} = React.useContext(SettingsContext);
     const qaAttributes = getQaAttributes(qa, 'date', 'reading-time', 'save');
 
     return (
@@ -62,6 +65,9 @@ export const PostInfo = ({
                     qa={qaAttributes.save}
                 />
             )}
+            {extraButtons?.map(({...buttonProps}, index) => (
+                <CustomInfoButton key={index} {...buttonProps} />
+            ))}
         </div>
     );
 };
