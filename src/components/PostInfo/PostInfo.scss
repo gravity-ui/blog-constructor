@@ -10,6 +10,11 @@ $block: '.#{$namespace}post-info';
         display: flex;
         flex-wrap: nowrap;
         align-items: center;
+        margin-top: $indentXXS;
+
+        &:not(:last-child) {
+            margin-right: $indentSM;
+        }
 
         &_size {
             &_s {
@@ -74,8 +79,7 @@ $block: '.#{$namespace}post-info';
         display: flex;
         align-items: flex-start;
         flex-wrap: wrap;
-        gap: $indentXXS $indentSM;
-        padding-top: $indentSM;
+        padding-top: $indentXXS;
         color: var(--g-color-text-secondary);
 
         &_theme {
