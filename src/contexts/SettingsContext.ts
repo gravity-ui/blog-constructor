@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {CustomInfoButtonProps} from '../components/PostInfo/components/CustomInfoButton';
+import {CustomInfoItemComponent} from '../components/PostInfo/PostInfo';
 
 export interface SettingsContextProps {
     addNavigationLinkForPages?: boolean;
     isAnimationEnabled?: boolean;
 
     getBlogPath?: (pathPrefix: string) => string;
-    extraInfoButtons?: CustomInfoButtonProps[];
+    extraInfoItems?: CustomInfoItemComponent[];
 }
 
 export const SettingsContext = React.createContext<SettingsContextProps>({});

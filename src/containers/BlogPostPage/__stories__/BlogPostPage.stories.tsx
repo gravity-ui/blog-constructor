@@ -5,8 +5,9 @@ import {BlogPostPage, BlogPostPageProps} from '../BlogPostPage';
 
 import navigation from '../../../../.mocks/navigation.json';
 import {BlogConstructorProvider} from '../../../constructor/BlogConstructorProvider';
-import {CircleInfo, CommentDot} from '@gravity-ui/icons';
-import {Popover, PopoverProps} from '@gravity-ui/uikit';
+import {CircleInfo} from '@gravity-ui/icons';
+import {Button, Icon} from '@gravity-ui/uikit';
+import {CustomInfoItemComponent} from '../../../components/PostInfo/PostInfo';
 
 export default {
     title: 'Containers/BlogPostPage',
@@ -19,30 +20,22 @@ export default {
 
 const DefaultTemplate: StoryFn<BlogPostPageProps> = (args) => <BlogPostPage {...args} />;
 
-const ExtraButtonsTemplate: StoryFn<BlogPostPageProps> = (args) => (
+const ExtraInfoItem: CustomInfoItemComponent = ({post}) => (
+    <Button
+        view="flat"
+        size="xs"
+        onClick={() => alert(`Post id is ${post.id}`)}
+        style={{font: 'inherit', color: 'inherit'}}
+    >
+        <Icon data={CircleInfo} />
+        Extra Info Item
+    </Button>
+);
+
+const ExtraItemsTemplate: StoryFn<BlogPostPageProps> = (args) => (
     <BlogConstructorProvider
         settings={{
-            extraInfoButtons: [
-                {
-                    icon: CircleInfo,
-                    text: 'Custom render with popup',
-                    render: ({post, children}) => (
-                        <Popover
-                            style={{width: 300, padding: 16}}
-                            content={`${post.id}: ${post.title}`}
-                            trigger="click"
-                            strategy="fixed"
-                        >
-                            {children as PopoverProps['children']}
-                        </Popover>
-                    ),
-                },
-                {
-                    icon: CommentDot,
-                    text: 'With click handler',
-                    onClick: (post) => alert(`Post id is ${post.id}`),
-                },
-            ],
+            extraInfoItems: [ExtraInfoItem],
         }}
     >
         <BlogPostPage {...args} />
@@ -56,4 +49,4 @@ WithNavigation.args = {
     navigation,
 } as unknown as BlogPostPageProps;
 
-export const WithExtraInfoButtons = ExtraButtonsTemplate.bind({});
+export const WithExtraInfoItems = ExtraItemsTemplate.bind({});

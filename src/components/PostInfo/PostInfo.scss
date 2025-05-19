@@ -26,8 +26,7 @@ $block: '.#{$namespace}post-info';
             }
         }
 
-        &_save,
-        &_extra {
+        &_save {
             padding: 0;
             background: none;
             color: inherit;
@@ -38,8 +37,6 @@ $block: '.#{$namespace}post-info';
         }
 
         &_extra {
-            gap: 6px;
-
             &:hover {
                 color: var(--g-color-text-primary);
             }
