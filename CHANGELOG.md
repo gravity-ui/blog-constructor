@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.3.0](https://github.com/gravity-ui/blog-constructor/compare/v7.2.0...v7.3.0) (2025-05-21)
+
+
+### Features
+
+* blog post header extra buttons ([#266](https://github.com/gravity-ui/blog-constructor/issues/266)) ([7946b89](https://github.com/gravity-ui/blog-constructor/commit/7946b89b401e4901322f3081782c3b67568b8181))
+
 ## [7.2.0](https://github.com/gravity-ui/blog-constructor/compare/v7.1.1...v7.2.0) (2025-05-06)
 
 
