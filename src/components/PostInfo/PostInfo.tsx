@@ -12,8 +12,11 @@ import {Sharing} from './components/Sharing';
 import {getQaAttributes} from '../../utils/common';
 
 import './PostInfo.scss';
+import {SettingsContext} from '../../contexts/SettingsContext';
 
 const b = block('post-info');
+
+export type CustomInfoItemComponent = React.ComponentType<{post: PostData}>;
 
 type PostInfoProps = QAProps & {
     postId: PostData['id'];
@@ -43,7 +46,8 @@ export const PostInfo = ({
     qa,
     analyticsEventsContainer,
 }: PostInfoProps) => {
-    const {likes} = React.useContext(PostPageContext);
+    const {post, likes} = React.useContext(PostPageContext);
+    const {extraInfoItems} = React.useContext(SettingsContext);
     const qaAttributes = getQaAttributes(qa, 'date', 'reading-time', 'save');
 
     return (
@@ -62,6 +66,11 @@ export const PostInfo = ({
                     qa={qaAttributes.save}
                 />
             )}
+            {extraInfoItems?.map((Component, index) => (
+                <div key={index} className={b('item', {extra: true})}>
+                    <Component post={post} />
+                </div>
+            ))}
         </div>
     );
 };

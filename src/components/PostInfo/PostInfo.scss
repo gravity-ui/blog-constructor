@@ -8,10 +8,13 @@ $block: '.#{$namespace}post-info';
         @include text-size(body-2);
 
         display: flex;
-        padding-right: $indentSM;
-        padding-top: $indentXXS;
         flex-wrap: nowrap;
         align-items: center;
+        margin-top: $indentXXS;
+
+        &:not(:last-child) {
+            margin-right: $indentSM;
+        }
 
         &_size {
             &_s {
@@ -24,23 +27,20 @@ $block: '.#{$namespace}post-info';
         }
 
         &_save {
+            padding: 0;
             background: none;
             color: inherit;
             border: none;
-            padding: 0;
-            font: inherit;
+            font-family: inherit;
+            font-weight: inherit;
             cursor: pointer;
         }
-    }
 
-    &__item:last-child {
-        @include text-size(body-2);
-
-        display: flex;
-        padding-right: 0px;
-        padding-top: $indentXXS;
-        flex-wrap: nowrap;
-        align-items: center;
+        &_extra {
+            &:hover {
+                color: var(--g-color-text-primary);
+            }
+        }
     }
 
     &__switcher {
@@ -71,6 +71,7 @@ $block: '.#{$namespace}post-info';
         }
     }
 
+    $block: &;
     &__container {
         display: flex;
         align-items: flex-start;
@@ -81,6 +82,10 @@ $block: '.#{$namespace}post-info';
         &_theme {
             &_dark {
                 color: var(--g-color-text-light-secondary);
+
+                #{$block}__item_extra:hover {
+                    color: var(--g-color-text-light-primary);
+                }
             }
         }
     }
