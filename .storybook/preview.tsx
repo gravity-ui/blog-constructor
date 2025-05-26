@@ -11,7 +11,7 @@ import {withTheme} from './decorators/withTheme';
 import {withLang} from './decorators/withLang';
 import {withMobile} from './decorators/withMobile';
 import {DocsDecorator} from './decorators/DocsDecorator/DocsDecorator';
-import {MobileProvider, ThemeProvider} from '@gravity-ui/uikit';
+import {MobileProvider, ThemeProvider, Lang} from '@gravity-ui/uikit';
 
 import {routerData} from '../src/demo/mocks';
 import {BlogConstructorProvider} from '../src/constructor/BlogConstructorProvider';
@@ -26,10 +26,25 @@ const withContextProvider: Decorator = (Story, context) => (
     </React.StrictMode>
 );
 
+const localeEn = {
+    code: 'en-En',
+    lang: Lang.En,
+    langName: 'English',
+    pathPrefix: 'en',
+};
+
+const localeRu = {
+    code: 'ru-Ru',
+    lang: Lang.Ru,
+    langName: 'Russia',
+    pathPrefix: 'ru',
+};
+
 const withBlogConstructorProvider: Decorator = (Story, context) => {
     return (
         <BlogConstructorProvider
             router={routerData}
+            locale={context.globals.lang === 'en' ? localeEn : localeRu}
             isMobile={context.globals.platform === 'mobile'}
         >
             <Story {...context} />

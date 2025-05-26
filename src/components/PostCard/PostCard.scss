@@ -26,7 +26,6 @@ $block: '.#{$namespace}post-card';
     &__header {
         &_fullWidth {
             min-height: auto;
-            height: 100%;
 
             @media (min-width: map-get($gridBreakpoints, 'lg')) {
                 width: 66%;
