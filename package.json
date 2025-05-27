@@ -75,7 +75,7 @@
   },
   "dependencies": {
     "@bem-react/classname": "^1.6.0",
-    "@gravity-ui/components": "^4.0.1",
+    "@gravity-ui/components": "^4.3.1",
     "@gravity-ui/gulp-utils": "^1.0.1",
     "@gravity-ui/i18n": "^1.7.0",
     "lodash": "^4.17.21",
