@@ -1,5 +1,21 @@
 # Changelog
 
+## [8.0.0](https://github.com/gravity-ui/blog-constructor/compare/v7.3.0...v8.0.0) (2025-05-29)
+
+
+### ⚠ BREAKING CHANGES
+
+- **deps**: major update to `@gravity-ui/page-constructor` v7.x, `@gravity-ui/icons` v2.13.0, updated peer dependencies in `package.json`/`package-lock.json`.
+- **Suggest**: removed `lazyLoad` prop from `SliderBlock` usage.
+- **PostCard**: replaced `HTML` with `YFMWrapper` for `title` rendering, improved formatting and markdown support.
+
+
+### Bug Fixes
+
+* img height on pinned posts ([#269](https://github.com/gravity-ui/blog-constructor/issues/269)) ([639a9c0](https://github.com/gravity-ui/blog-constructor/commit/639a9c0cd90b48114dd19f68f275194cfe62e1d0))
+* post card info minimal gap ([#272](https://github.com/gravity-ui/blog-constructor/issues/272)) ([5a2797d](https://github.com/gravity-ui/blog-constructor/commit/5a2797d36cbf28559f632d69082e59466b55bcc1))
+* update gravity-ui/components version ([#271](https://github.com/gravity-ui/blog-constructor/issues/271)) ([ef135bc](https://github.com/gravity-ui/blog-constructor/commit/ef135bcf73d8212b7b917cbffd3af2837d68c5c5))
+
 ## [7.3.0](https://github.com/gravity-ui/blog-constructor/compare/v7.2.0...v7.3.0) (2025-05-21)
 
 
