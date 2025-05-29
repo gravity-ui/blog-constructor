@@ -1,5 +1,23 @@
 # Changelog
 
+## [8.0.0](https://github.com/gravity-ui/blog-constructor/compare/v7.3.0...v8.0.0) (2025-05-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* next ([#218](https://github.com/gravity-ui/blog-constructor/issues/218))
+
+### Features
+
+* next ([#218](https://github.com/gravity-ui/blog-constructor/issues/218)) ([b797006](https://github.com/gravity-ui/blog-constructor/commit/b7970066c26c505ee975c0f83266706e0fda9fdc))
+
+
+### Bug Fixes
+
+* img height on pinned posts ([#269](https://github.com/gravity-ui/blog-constructor/issues/269)) ([639a9c0](https://github.com/gravity-ui/blog-constructor/commit/639a9c0cd90b48114dd19f68f275194cfe62e1d0))
+* post card info minimal gap ([#272](https://github.com/gravity-ui/blog-constructor/issues/272)) ([5a2797d](https://github.com/gravity-ui/blog-constructor/commit/5a2797d36cbf28559f632d69082e59466b55bcc1))
+* update gravity-ui/components version ([#271](https://github.com/gravity-ui/blog-constructor/issues/271)) ([ef135bc](https://github.com/gravity-ui/blog-constructor/commit/ef135bcf73d8212b7b917cbffd3af2837d68c5c5))
+
 ## [7.3.0](https://github.com/gravity-ui/blog-constructor/compare/v7.2.0...v7.3.0) (2025-05-21)
 
 
