@@ -5,11 +5,9 @@
 
 ### ⚠ BREAKING CHANGES
 
-* next ([#218](https://github.com/gravity-ui/blog-constructor/issues/218))
-
-### Features
-
-* next ([#218](https://github.com/gravity-ui/blog-constructor/issues/218)) ([b797006](https://github.com/gravity-ui/blog-constructor/commit/b7970066c26c505ee975c0f83266706e0fda9fdc))
+- **deps**: major update to `@gravity-ui/page-constructor` v7.x, `@gravity-ui/icons` v2.13.0, updated peer dependencies in `package.json`/`package-lock.json`.
+- **Suggest**: removed `lazyLoad` prop from `SliderBlock` usage.
+- **PostCard**: replaced `HTML` with `YFMWrapper` for `title` rendering, improved formatting and markdown support.
 
 
 ### Bug Fixes
