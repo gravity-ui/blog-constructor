@@ -1,7 +1,12 @@
 import {Block, PageConstructor} from '@gravity-ui/page-constructor';
 import {Meta, StoryFn} from '@storybook/react';
 
-import {blockMockData, getDefaultStoryArgs} from '../../../../.mocks/utils';
+import {
+    blockMockData,
+    getHeaderWithBackgroundStoryArgs,
+    getHeaderWithImageOutGridStoryArgs,
+    getHeaderWithImageStoryArgs,
+} from '../../../../.mocks/utils';
 import customBlocks from '../../../constructor/blocksMap';
 import {PostPageContext} from '../../../contexts/PostPageContext';
 import {HeaderProps} from '../../../models/blocks';
@@ -27,8 +32,20 @@ const DefaultTemplate: StoryFn<HeaderModel> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
+export const ImageOutGrid = DefaultTemplate.bind({});
+export const BgImage = DefaultTemplate.bind({});
 
 Default.args = {
     type: BlockType.Header,
-    ...getDefaultStoryArgs(),
+    ...getHeaderWithImageStoryArgs(),
+} as unknown as HeaderModel;
+
+BgImage.args = {
+    type: BlockType.Header,
+    ...getHeaderWithBackgroundStoryArgs(),
+} as unknown as HeaderModel;
+
+ImageOutGrid.args = {
+    type: BlockType.Header,
+    ...getHeaderWithImageOutGridStoryArgs(),
 } as unknown as HeaderModel;

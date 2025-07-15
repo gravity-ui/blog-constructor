@@ -16,6 +16,10 @@ import {
     getBlogPath as getDefaultBlogPath,
     prepareAnalyticsEvent,
 } from '../../utils/common';
+import {block} from '../../utils/cn';
+import './Header.scss';
+
+const b = block('header-block');
 
 const analyticsEventsContainer: Record<string, AnalyticsEventsProp> = {
     sharing: prepareAnalyticsEvent({name: DefaultGoalIds.shareTop}),
@@ -28,7 +32,7 @@ const breadcrumbsGoals = prepareAnalyticsEvent({
 });
 
 export const Header = (props: HeaderProps) => {
-    const {theme, paddingTop, paddingBottom} = props;
+    const {theme, paddingTop, paddingBottom, imageInGrid = true} = props;
     const {post, breadcrumbs: customBreadcrumbs = {}} = React.useContext(PostPageContext);
     const {locale} = React.useContext(LocaleContext);
     const {getBlogPath = getDefaultBlogPath} = React.useContext(SettingsContext);
@@ -56,6 +60,10 @@ export const Header = (props: HeaderProps) => {
                 title={title}
                 description={description}
                 breadcrumbs={{...breadcrumbs, ...customBreadcrumbs}}
+                mediaClassName={b('image')}
+                gridClassName={b('grid')}
+                contentWrapperClassName={b('content-wrapper')}
+                className={b({'image-out-grid': !imageInGrid})}
             >
                 <PostInfo
                     postId={id}
