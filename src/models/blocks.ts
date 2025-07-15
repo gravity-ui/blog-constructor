@@ -38,7 +38,11 @@ export type CTAProps = QAProps & {
     items: Array<ContentBlockProps>;
 } & PaddingsYFMProps;
 
-export type HeaderProps = HeaderBlockProps & PaddingsYFMProps;
+type HeaderBlogProps = {
+    imageInGrid?: boolean;
+};
+
+export type HeaderProps = HeaderBlockProps & PaddingsYFMProps & HeaderBlogProps;
 
 export type LayoutProps = {
     fullWidth?: boolean;
