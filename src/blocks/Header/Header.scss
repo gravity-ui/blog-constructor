@@ -21,6 +21,7 @@ $block: '.#{$namespace}header-block';
             img {
                 margin-left: auto;
                 width: 456px;
+                max-width: 32%;
                 border-radius: 20px;
             }
         }
@@ -29,17 +30,21 @@ $block: '.#{$namespace}header-block';
             position: static;
             min-height: 420px;
         }
-    }
 
-    @media (max-width: map-get($gridBreakpoints, 'xl')) {
-        &_image-out-grid {
-            #{$root}__image {
-                img {
-                    width: 32%;
-                }
-            }
+        .pc-header-block__content-inner {
+            padding-right: 0;
         }
     }
+
+    //@media (max-width: map-get($gridBreakpoints, 'xl')) {
+    //    &_image-out-grid {
+    //        #{$root}__image {
+    //            img {
+    //                width: 32%;
+    //            }
+    //        }
+    //    }
+    //}
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {
         &_image-out-grid {
