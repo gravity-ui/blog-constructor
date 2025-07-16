@@ -20,14 +20,7 @@
           "color": "#CCDAFF"
         },
         "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png",
-        "imageInGrid": false,
-        "buttons": [
-          {
-            "text": "button 1",
-            "url": "http://example.com/",
-            "theme": "action"
-          }
-        ]
+        "imageInGrid": false
       },
       {
         "type": "blog-layout-block",
