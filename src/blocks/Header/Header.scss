@@ -26,6 +26,7 @@ $block: '.#{$namespace}header-block';
 
         #{$root}__content-wrapper {
             position: static;
+            min-height: 420px;
         }
     }
 
@@ -47,6 +48,7 @@ $block: '.#{$namespace}header-block';
 
             #{$root}__content-wrapper {
                 max-width: none;
+                min-height: auto;
             }
         }
     }
