@@ -5,6 +5,11 @@ $block: '.#{$namespace}header-block';
 
 #{$block} {
     $root: &;
+    $imageRight: 16px;
+    $imageWidth: 456px;
+    $containerMargin: 40px;
+    $headerMaxWidth: 1440px;
+    $containerWIthPadding: calc($newContentWidth + $indentXXXS * 2 + $gridContainerPadding * 2);
 
     &__grid {
         z-index: 10;
@@ -14,15 +19,14 @@ $block: '.#{$namespace}header-block';
         #{$root}__image {
             right: $indentXS;
             left: 50%;
-            max-width: 1440px;
+            max-width: $headerMaxWidth;
             width: 100%;
             transform: translateX(calc(-50% - $indentXS));
 
             img {
                 margin-left: auto;
-                width: 456px;
-                max-width: 32%;
-                border-radius: 20px;
+                width: $imageWidth;
+                border-radius: 16px;
             }
         }
 
@@ -36,15 +40,47 @@ $block: '.#{$namespace}header-block';
         }
     }
 
-    //@media (max-width: map-get($gridBreakpoints, 'xl')) {
-    //    &_image-out-grid {
-    //        #{$root}__image {
-    //            img {
-    //                width: 32%;
-    //            }
-    //        }
-    //    }
-    //}
+    @media (min-width: map-get($gridBreakpoints, 'lg')) {
+        &_image-out-grid {
+            .pc-header-block__content-inner {
+                max-width: calc(
+                    min(100vw, $containerWIthPadding) - $containerMargin - $imageWidth -
+                        $imageRight +
+                        (
+                            min(max(100vw, $containerWIthPadding), $headerMaxWidth) -
+                                $containerWIthPadding
+                        ) /
+                        2
+                );
+                padding-right: $indentL;
+            }
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'lg')) and (min-width: map-get($gridBreakpoints, 'md')) {
+        $imageWidth: 32vw;
+
+        &_image-out-grid {
+            #{$root}__image {
+                img {
+                    width: $imageWidth;
+                }
+            }
+
+            .pc-header-block__content-inner {
+                max-width: calc(
+                    min(100vw, $containerWIthPadding) - $containerMargin - $imageWidth -
+                        $imageRight +
+                        (
+                            min(max(100vw, $containerWIthPadding), $headerMaxWidth) -
+                                $containerWIthPadding
+                        ) /
+                        2
+                );
+                padding-right: $indentL;
+            }
+        }
+    }
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {
         &_image-out-grid {
