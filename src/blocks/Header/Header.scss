@@ -5,11 +5,10 @@ $block: '.#{$namespace}header-block';
 
 #{$block} {
     $root: &;
-    $imageRight: 16px;
+    $imageRight: $indentXS;
     $imageWidth: 456px;
-    $containerMargin: 40px;
     $headerMaxWidth: 1440px;
-    $containerWIthPadding: calc($newContentWidth + $indentXXXS * 2 + $gridContainerPadding * 2);
+    $containerWithPadding: calc($newContentWidth + $indentXXXS * 2 + $gridContainerPadding * 2);
 
     &__grid {
         z-index: 10;
@@ -44,11 +43,11 @@ $block: '.#{$namespace}header-block';
         &_image-out-grid {
             .pc-header-block__content-inner {
                 max-width: calc(
-                    min(100vw, $containerWIthPadding) - $containerMargin - $imageWidth -
+                    min(100vw, $containerWithPadding) - $gridContainerPadding - $imageWidth -
                         $imageRight +
                         (
-                            min(max(100vw, $containerWIthPadding), $headerMaxWidth) -
-                                $containerWIthPadding
+                            min(max(100vw, $containerWithPadding), $headerMaxWidth) -
+                                $containerWithPadding
                         ) /
                         2
                 );
@@ -69,11 +68,11 @@ $block: '.#{$namespace}header-block';
 
             .pc-header-block__content-inner {
                 max-width: calc(
-                    min(100vw, $containerWIthPadding) - $containerMargin - $imageWidth -
+                    min(100vw, $containerWithPadding) - $gridContainerPadding - $imageWidth -
                         $imageRight +
                         (
-                            min(max(100vw, $containerWIthPadding), $headerMaxWidth) -
-                                $containerWIthPadding
+                            min(max(100vw, $containerWithPadding), $headerMaxWidth) -
+                                $containerWithPadding
                         ) /
                         2
                 );
