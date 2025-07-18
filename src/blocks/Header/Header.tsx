@@ -37,6 +37,7 @@ export const Header = (props: HeaderProps) => {
     const {locale} = React.useContext(LocaleContext);
     const {getBlogPath = getDefaultBlogPath} = React.useContext(SettingsContext);
     const blogPath = getBlogPath(locale.pathPrefix || '');
+    const containerRef = React.useRef<HTMLDivElement>(null);
 
     const {description, title, id, date, readingTime, tags} = post;
 
@@ -48,6 +49,21 @@ export const Header = (props: HeaderProps) => {
 
     breadcrumbs.analyticsEvents = breadcrumbsGoals;
 
+    React.useEffect(() => {
+        const onResize = () => {
+            if (containerRef.current) {
+                const width = containerRef.current?.clientWidth;
+                containerRef.current.style.setProperty('--block-width', `${width}px`);
+            }
+        };
+
+        onResize();
+
+        window.addEventListener('resize', onResize);
+
+        return () => window.removeEventListener('resize', onResize);
+    }, []);
+
     return (
         <Wrapper
             paddings={{
@@ -55,25 +71,26 @@ export const Header = (props: HeaderProps) => {
                 [PaddingsDirections.bottom]: paddingBottom,
             }}
         >
-            <HeaderBlock
-                {...props}
-                title={title}
-                description={description}
-                breadcrumbs={{...breadcrumbs, ...customBreadcrumbs}}
-                mediaClassName={b('image')}
-                gridClassName={b('grid')}
-                contentWrapperClassName={b('content-wrapper')}
-                className={b({'image-out-grid': !imageInGrid})}
-            >
-                <PostInfo
-                    postId={id}
-                    date={date}
-                    readingTime={readingTime}
-                    analyticsEventsContainer={analyticsEventsContainer}
-                    theme={theme}
-                    qa="blog-header-meta-container"
-                />
-            </HeaderBlock>
+            <div ref={containerRef} className={b({'image-out-grid': !imageInGrid})}>
+                <HeaderBlock
+                    {...props}
+                    title={title}
+                    description={description}
+                    breadcrumbs={{...breadcrumbs, ...customBreadcrumbs}}
+                    mediaClassName={b('image')}
+                    gridClassName={b('grid')}
+                    contentWrapperClassName={b('content-wrapper')}
+                >
+                    <PostInfo
+                        postId={id}
+                        date={date}
+                        readingTime={readingTime}
+                        analyticsEventsContainer={analyticsEventsContainer}
+                        theme={theme}
+                        qa="blog-header-meta-container"
+                    />
+                </HeaderBlock>
+            </div>
         </Wrapper>
     );
 };
