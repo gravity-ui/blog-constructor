@@ -6,8 +6,8 @@ $block: '.#{$namespace}header-block';
 #{$block} {
     $root: &;
     $imageRight: $indentXS;
-    $imageWidth: 456px;
     $headerMaxWidth: 1440px;
+    $imageWidth: calc(100% / 12 * 4);
     $containerWithPadding: calc($newContentWidth + $indentXXXS * 2 + $gridContainerPadding * 2);
     $blockWidth: var(--block-width);
 
@@ -40,25 +40,52 @@ $block: '.#{$namespace}header-block';
         }
     }
 
-    @media (min-width: map-get($gridBreakpoints, 'lg')) {
+    @media (min-width: 1280px) {
         &_image-out-grid {
             .pc-header-block__content-inner {
-                max-width: calc(
-                    min($blockWidth, $containerWithPadding) - $gridContainerPadding - $imageWidth -
-                        $imageRight +
-                        (
-                            min(max($blockWidth, $containerWithPadding), $headerMaxWidth) -
-                                $containerWithPadding
-                        ) /
-                        2
-                );
+                $textWidth: calc(100% / 12 * 8 + $indentL);
+                max-width: $textWidth;
+                //max-width: calc(
+                //    min($blockWidth, $containerWithPadding) - $gridContainerPadding - $imageWidth -
+                //        $imageRight +
+                //        (
+                //            min(max($blockWidth, $containerWithPadding), $headerMaxWidth) -
+                //                $containerWithPadding
+                //        ) /
+                //        2
+                //);
+                padding-right: $indentL;
+            }
+        }
+    }
+
+    @media (max-width: 1280px) and (min-width: map-get($gridBreakpoints, 'lg')) {
+        &_image-out-grid {
+            //#{$root}__image {
+            //    img {
+            //        width: $imageWidth;
+            //    }
+            //}
+
+            .pc-header-block__content-inner {
+                $textWidth: calc(100% / 12 * 9);
+                max-width: $textWidth;
+                //max-width: calc(
+                //    min($blockWidth, $containerWithPadding) - $gridContainerPadding - $imageWidth -
+                //        $imageRight +
+                //        (
+                //            min(max($blockWidth, $containerWithPadding), $headerMaxWidth) -
+                //                $containerWithPadding
+                //        ) /
+                //        2
+                //);
                 padding-right: $indentL;
             }
         }
     }
 
     @media (max-width: map-get($gridBreakpoints, 'lg')) and (min-width: map-get($gridBreakpoints, 'md')) {
-        $imageWidth: 32vw;
+        $imageWidth: calc(100% / 12 * 6);
 
         &_image-out-grid {
             #{$root}__image {
@@ -68,16 +95,18 @@ $block: '.#{$namespace}header-block';
             }
 
             .pc-header-block__content-inner {
-                max-width: calc(
-                    min($blockWidth, $containerWithPadding) - $gridContainerPadding - $imageWidth -
-                        $imageRight +
-                        (
-                            min(max($blockWidth, $containerWithPadding), $headerMaxWidth) -
-                                $containerWithPadding
-                        ) /
-                        2
-                );
-                padding-right: $indentL;
+                $textWidth: calc(100% / 12 * 6);
+                max-width: $textWidth;
+                //max-width: calc(
+                //    min($blockWidth, $containerWithPadding) - $gridContainerPadding - $imageWidth -
+                //        $imageRight +
+                //        (
+                //            min(max($blockWidth, $containerWithPadding), $headerMaxWidth) -
+                //                $containerWithPadding
+                //        ) /
+                //        2
+                //);
+                padding-right: 0;
             }
         }
     }
