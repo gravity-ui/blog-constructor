@@ -5,12 +5,8 @@ $block: '.#{$namespace}header-block';
 
 #{$block} {
     $root: &;
-    $imageRight: $indentXS;
     $headerMaxWidth: 1440px;
-    //$imageWidth: 456px;
     $imageWidth: calc(100% / 12 * 4);
-    $containerWithPadding: calc($newContentWidth + $indentXXXS * 2 + $gridContainerPadding * 2);
-    $blockWidth: var(--block-width);
 
     &__grid {
         z-index: 10;
@@ -46,15 +42,6 @@ $block: '.#{$namespace}header-block';
             .pc-header-block__content-inner {
                 $textWidth: calc(100% / 12 * 8);
                 max-width: $textWidth;
-                //max-width: calc(
-                //    min($blockWidth, $containerWithPadding) - $gridContainerPadding - $imageWidth -
-                //        $imageRight +
-                //        (
-                //            min(max($blockWidth, $containerWithPadding), $headerMaxWidth) -
-                //                $containerWithPadding
-                //        ) /
-                //        2
-                //);
                 padding-right: $indentL;
             }
         }
@@ -62,32 +49,16 @@ $block: '.#{$namespace}header-block';
 
     @media (max-width: map-get($gridBreakpoints, 'lg')) and (min-width: map-get($gridBreakpoints, 'lg')) {
         &_image-out-grid {
-            //#{$root}__image {
-            //    img {
-            //        width: $imageWidth;
-            //    }
-            //}
-
             .pc-header-block__content-inner {
                 $textWidth: calc(100% / 12 * 8 + $indentL);
                 max-width: $textWidth;
-                //max-width: calc(
-                //    min($blockWidth, $containerWithPadding) - $gridContainerPadding - $imageWidth -
-                //        $imageRight +
-                //        (
-                //            min(max($blockWidth, $containerWithPadding), $headerMaxWidth) -
-                //                $containerWithPadding
-                //        ) /
-                //        2
-                //);
                 padding-right: $indentL;
             }
         }
     }
 
     @media (max-width: map-get($gridBreakpoints, 'lg')) and (min-width: map-get($gridBreakpoints, 'md')) {
-        //$imageWidth: 32vw;
-        $imageWidth: calc(100% / 12 * 6 - 16px);
+        $imageWidth: calc(100% / 12 * 6 - $indentXS);
 
         &_image-out-grid {
             #{$root}__image {
@@ -99,16 +70,6 @@ $block: '.#{$namespace}header-block';
             .pc-header-block__content-inner {
                 $textWidth: calc(100% / 12 * 6);
                 max-width: $textWidth;
-                //max-width: calc(
-                //    min($blockWidth, $containerWithPadding) - $gridContainerPadding - $imageWidth -
-                //        $imageRight +
-                //        (
-                //            min(max($blockWidth, $containerWithPadding), $headerMaxWidth) -
-                //                $containerWithPadding
-                //        ) /
-                //        2
-                //);
-                //padding-right: $indentL;
                 padding-right: $indentL;
             }
         }

@@ -37,7 +37,6 @@ export const Header = (props: HeaderProps) => {
     const {locale} = React.useContext(LocaleContext);
     const {getBlogPath = getDefaultBlogPath} = React.useContext(SettingsContext);
     const blogPath = getBlogPath(locale.pathPrefix || '');
-    const containerRef = React.useRef<HTMLDivElement>(null);
 
     const {description, title, id, date, readingTime, tags} = post;
 
@@ -49,21 +48,6 @@ export const Header = (props: HeaderProps) => {
 
     breadcrumbs.analyticsEvents = breadcrumbsGoals;
 
-    React.useEffect(() => {
-        const onResize = () => {
-            if (containerRef.current) {
-                const width = containerRef.current?.clientWidth;
-                containerRef.current.style.setProperty('--block-width', `${width}px`);
-            }
-        };
-
-        onResize();
-
-        window.addEventListener('resize', onResize);
-
-        return () => window.removeEventListener('resize', onResize);
-    }, []);
-
     return (
         <Wrapper
             paddings={{
@@ -71,7 +55,7 @@ export const Header = (props: HeaderProps) => {
                 [PaddingsDirections.bottom]: paddingBottom,
             }}
         >
-            <div ref={containerRef} className={b({'image-out-grid': !imageInGrid})}>
+            <div className={b({'image-out-grid': !imageInGrid})}>
                 <HeaderBlock
                     {...props}
                     title={title}
