@@ -14,6 +14,7 @@
       {
         "type": "blog-header-block",
         "resetPaddings": true,
+        "width": "s",
         "verticalOffset": "m",
         "theme": "dark",
         "background": {
