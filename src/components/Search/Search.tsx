@@ -1,12 +1,11 @@
 import * as React from 'react';
 
 import {Icon, TextInput} from '@gravity-ui/uikit';
+import {Magnifier, Xmark} from '@gravity-ui/icons';
 import lodashDebounce from 'lodash/debounce';
 
 import {useIsIPhone} from '../../hooks/useIsIPhone';
 import {Keyset, i18n} from '../../i18n';
-import {Close} from '../../icons/Close';
-import {SearchIcon} from '../../icons/SearchIcon';
 import {ClassNameProps} from '../../models/common';
 import {block} from '../../utils/cn';
 
@@ -66,7 +65,7 @@ export const Search = ({
     }, [autoFocus, inputRef, isIPhone]);
 
     const rightContent = React.useMemo(() => {
-        const iconData = value ? Close : SearchIcon;
+        const iconData = value ? Xmark : Magnifier;
         const iconSize = value ? CLOSE_ICON_SIZE : SEARCH_ICON_SIZE;
 
         const handleClick = () => {

@@ -2,16 +2,15 @@ import * as React from 'react';
 
 import {AnalyticsEventsProp, useAnalytics} from '@gravity-ui/page-constructor';
 import {Icon, useUniqId} from '@gravity-ui/uikit';
+import {Bookmark, BookmarkFill} from '@gravity-ui/icons';
 
 import {LikesContext} from '../../../contexts/LikesContext';
-import {Save as SaveIcon} from '../../../icons/Save';
-import {SaveFilled} from '../../../icons/SaveFilled';
 import {DefaultEventNames, QAProps} from '../../../models/common';
 import {block} from '../../../utils/cn';
 import {postLikeStatus} from '../../../utils/common';
+import {Keyset, i18n} from '../../../i18n';
 
 import '../PostInfo.scss';
-import {Keyset, i18n} from '../../../i18n';
 
 const ICON_SIZE = 16;
 
@@ -87,7 +86,7 @@ export const Save = ({
             <div className={b('content', {cursor: isLikeable, theme})}>
                 <span className={b('icon')}>
                     <Icon
-                        data={hasUserLike ? SaveFilled : SaveIcon}
+                        data={hasUserLike ? BookmarkFill : Bookmark}
                         size={ICON_SIZE}
                         className={b({filled: Boolean(hasUserLike)})}
                     />

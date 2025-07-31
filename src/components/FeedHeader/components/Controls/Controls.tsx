@@ -2,13 +2,13 @@ import * as React from 'react';
 
 import {useAnalytics} from '@gravity-ui/page-constructor';
 import {Button, Icon, MobileProvider, Select} from '@gravity-ui/uikit';
+import {Bookmark} from '@gravity-ui/icons';
 
 import {DefaultGoalIds} from '../../../../constants';
 import {LikesContext} from '../../../../contexts/LikesContext';
 import {MobileContext} from '../../../../contexts/MobileContext';
 import {AnalyticsCounter} from '../../../../counters/utils';
 import {Keyset, i18n} from '../../../../i18n';
-import {Save} from '../../../../icons/Save';
 import {DefaultEventNames, FetchArgs, Query} from '../../../../models/common';
 import {block} from '../../../../utils/cn';
 import {Search} from '../../../Search/Search';
@@ -208,7 +208,7 @@ export const Controls = ({
                                 selected={savedOnly}
                             >
                                 <Icon
-                                    data={Save}
+                                    data={Bookmark}
                                     size={ICON_SIZE}
                                     className={b('icon', {savedOnly})}
                                 />
