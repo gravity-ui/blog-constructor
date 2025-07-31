@@ -27,7 +27,7 @@ interface SearchProps extends ClassNameProps {
 }
 
 const SEARCH_ICON_SIZE = 16;
-const CLOSE_ICON_SIZE = 12;
+const CLOSE_ICON_SIZE = 20;
 const AUTOFOCUS_TIMEOUT = 0;
 
 /**
@@ -65,7 +65,7 @@ export const Search = ({
     }, [autoFocus, inputRef, isIPhone]);
 
     const rightContent = React.useMemo(() => {
-        const iconData = value ? Xmark : Magnifier;
+        const isClose = Boolean(value);
         const iconSize = value ? CLOSE_ICON_SIZE : SEARCH_ICON_SIZE;
 
         const handleClick = () => {
@@ -79,12 +79,12 @@ export const Search = ({
 
         return (
             <button
-                className={b('input-icon')}
+                className={b('input-icon', {close: isClose})}
                 onClick={handleClick}
                 aria-label={value ? i18n(Keyset.ClearAction) : undefined}
                 aria-hidden={!value}
             >
-                <Icon size={iconSize} data={iconData} />
+                <Icon size={iconSize} data={isClose ? Xmark : Magnifier} />
             </button>
         );
     }, [handleChange, onSubmit, value]);

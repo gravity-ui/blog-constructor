@@ -30,7 +30,6 @@ export type CustomSwitcherProps = {
     Pick<TriggerProps, 'id' | 'disabled' | 'type'>;
 
 const ICON_SIZE = 12;
-const CLEAR_ICON_SIZE = 12;
 
 export const CustomSwitcher = ({
     id,
@@ -79,9 +78,7 @@ export const CustomSwitcher = ({
             </div>
             {renderClear &&
                 renderClear({
-                    renderIcon: () => (
-                        <Icon data={Xmark} size={CLEAR_ICON_SIZE} className={b('clear')} />
-                    ),
+                    renderIcon: () => <Icon data={Xmark} className={b('clear')} />,
                 })}
             {hasCounter && (
                 <div className={b('custom-switcher-element', {counter: true})}>
