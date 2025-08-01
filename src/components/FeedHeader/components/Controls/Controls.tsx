@@ -1,8 +1,8 @@
 import * as React from 'react';
 
+import {Bookmark} from '@gravity-ui/icons';
 import {useAnalytics} from '@gravity-ui/page-constructor';
 import {Button, Icon, MobileProvider, Select} from '@gravity-ui/uikit';
-import {Bookmark} from '@gravity-ui/icons';
 
 import {DefaultGoalIds} from '../../../../constants';
 import {LikesContext} from '../../../../contexts/LikesContext';
@@ -11,8 +11,8 @@ import {AnalyticsCounter} from '../../../../counters/utils';
 import {Keyset, i18n} from '../../../../i18n';
 import {DefaultEventNames, FetchArgs, Query} from '../../../../models/common';
 import {block} from '../../../../utils/cn';
-import {Search} from '../../../Search/Search';
 import {prepareAnalyticsEvent} from '../../../../utils/common';
+import {Search} from '../../../Search/Search';
 
 import {renderFilter, renderOption, renderSwitcher} from './customRenders';
 

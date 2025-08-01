@@ -1,6 +1,8 @@
 import {Content, ContentBlockProps} from '@gravity-ui/page-constructor';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
+import {DefaultGoalIds} from '../../constants';
+import {AnalyticsCounter} from '../../counters/utils';
 import {CTAProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
 import {block} from '../../utils/cn';
@@ -10,8 +12,6 @@ import {
     prepareAnalyticsEvent,
     updateContentSizes,
 } from '../../utils/common';
-import {DefaultGoalIds} from '../../constants';
-import {AnalyticsCounter} from '../../counters/utils';
 
 import './CTA.scss';
 

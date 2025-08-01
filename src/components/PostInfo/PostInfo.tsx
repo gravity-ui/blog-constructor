@@ -1,18 +1,19 @@
 import * as React from 'react';
 
 import {AnalyticsEventsProp} from '@gravity-ui/page-constructor';
+
 import {PostPageContext} from '../../contexts/PostPageContext';
+import {SettingsContext} from '../../contexts/SettingsContext';
 import {PostData, QAProps} from '../../models/common';
 import {block} from '../../utils/cn';
+import {getQaAttributes} from '../../utils/common';
 
 import {Date} from './components/Date';
 import {ReadingTime} from './components/ReadingTime';
 import {Save} from './components/Save';
 import {Sharing} from './components/Sharing';
-import {getQaAttributes} from '../../utils/common';
 
 import './PostInfo.scss';
-import {SettingsContext} from '../../contexts/SettingsContext';
 
 const b = block('post-info');
 

@@ -2,9 +2,8 @@
 import {MarkdownItPluginCb} from '@diplodoc/transform/lib/plugins/typings';
 import {ConstructorBlock, PageContent} from '@gravity-ui/page-constructor';
 import {contentTransformer} from '@gravity-ui/page-constructor/server';
-import yaml from 'js-yaml';
-
 import {Lang} from '@gravity-ui/uikit';
+import yaml from 'js-yaml';
 
 import {getExtendTypographyConfig} from './config';
 import {filterContent} from './contentFilter';

@@ -1,10 +1,10 @@
-import {Icon} from '@gravity-ui/uikit';
 import {Clock} from '@gravity-ui/icons';
+import {Icon} from '@gravity-ui/uikit';
 
 import {Keyset, i18n} from '../../../i18n';
+import {QAProps} from '../../../models/common';
 import {block} from '../../../utils/cn';
 
-import {QAProps} from '../../../models/common';
 import '../PostInfo.scss';
 
 const b = block('post-info');

@@ -7,6 +7,8 @@ import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {DefaultGoalIds} from '../../constants';
 import {LocaleContext} from '../../contexts/LocaleContext';
 import {PostPageContext} from '../../contexts/PostPageContext';
+import {SettingsContext} from '../../contexts/SettingsContext';
+import {AnalyticsCounter} from '../../counters/utils';
 import {HeaderProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
 import {
@@ -14,8 +16,6 @@ import {
     getBlogPath as getDefaultBlogPath,
     prepareAnalyticsEvent,
 } from '../../utils/common';
-import {SettingsContext} from '../../contexts/SettingsContext';
-import {AnalyticsCounter} from '../../counters/utils';
 
 const analyticsEventsContainer: Record<string, AnalyticsEventsProp> = {
     sharing: prepareAnalyticsEvent({name: DefaultGoalIds.shareTop}),

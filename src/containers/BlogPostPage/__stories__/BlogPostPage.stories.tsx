@@ -1,13 +1,13 @@
+import {CircleInfo} from '@gravity-ui/icons';
+import {Button, Icon} from '@gravity-ui/uikit';
 import type {Meta, StoryFn} from '@storybook/react';
 
 import {postPageMockData} from '../../../../.mocks/utils';
+import {CustomInfoItemComponent} from '../../../components/PostInfo/PostInfo';
+import {BlogConstructorProvider} from '../../../constructor/BlogConstructorProvider';
 import {BlogPostPage, BlogPostPageProps} from '../BlogPostPage';
 
 import navigation from '../../../../.mocks/navigation.json';
-import {BlogConstructorProvider} from '../../../constructor/BlogConstructorProvider';
-import {CircleInfo} from '@gravity-ui/icons';
-import {Button, Icon} from '@gravity-ui/uikit';
-import {CustomInfoItemComponent} from '../../../components/PostInfo/PostInfo';
 
 export default {
     title: 'Containers/BlogPostPage',

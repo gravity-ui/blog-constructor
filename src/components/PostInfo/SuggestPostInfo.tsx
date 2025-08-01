@@ -1,12 +1,12 @@
+import {DefaultGoalIds} from '../../constants';
 import {useLikes} from '../../hooks/useLikes';
 import {PostCardSize, PostData, QAProps, ToggleLikeCallbackType} from '../../models/common';
 import {block} from '../../utils/cn';
+import {prepareAnalyticsEvent} from '../../utils/common';
 
 import {Date} from './components/Date';
 import {ReadingTime} from './components/ReadingTime';
 import {Save} from './components/Save';
-import {prepareAnalyticsEvent} from '../../utils/common';
-import {DefaultGoalIds} from '../../constants';
 
 import './PostInfo.scss';
 

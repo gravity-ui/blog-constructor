@@ -7,6 +7,9 @@ import isEqual from 'lodash/isEqual';
 import {getDefaultStoryArgs} from '../../../../.mocks/utils';
 import customBlocks from '../../../constructor/blocksMap';
 import {FeedContext, FeedContextProps} from '../../../contexts/FeedContext';
+import {RouterContext} from '../../../contexts/RouterContext';
+import {SettingsContext} from '../../../contexts/SettingsContext';
+import {routerData} from '../../../demo/mocks';
 import {FeedProps} from '../../../models/blocks';
 import {
     BlockType,
@@ -21,9 +24,6 @@ import {Feed} from '../Feed';
 import mockedPosts from '../../../../.mocks/posts.json';
 import mockedServices from '../../../../.mocks/services.json';
 import mockedTags from '../../../../.mocks/tags.json';
-import {RouterContext} from '../../../contexts/RouterContext';
-import {routerData} from '../../../demo/mocks';
-import {SettingsContext} from '../../../contexts/SettingsContext';
 
 export default {
     title: 'Blocks/Feed',

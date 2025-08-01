@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import {Theme} from '@gravity-ui/page-constructor';
 import {
     MobileProvider,
@@ -6,7 +8,7 @@ import {
     ToasterComponent,
     ToasterProvider,
 } from '@gravity-ui/uikit';
-import * as React from 'react';
+
 import {BlogConstructorProvider} from '../../src/constructor/BlogConstructorProvider';
 
 const toaster = new Toaster();

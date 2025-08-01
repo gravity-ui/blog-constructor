@@ -1,18 +1,20 @@
+import {Lang, ThemeContext} from '@gravity-ui/uikit';
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import {PADDING_SIZES_BY_PADDING_TYPE} from '../../../../test-utils/constants';
 import {testPadding} from '../../../../test-utils/shared/common';
+import {LocaleContext} from '../../../contexts/LocaleContext';
+import {LikesRoutineType, PostPageContext} from '../../../contexts/PostPageContext';
+import {Keyset, i18n} from '../../../i18n';
 import {MetaProps} from '../../../models/blocks';
+import {PostData} from '../../../models/common';
 import {PaddingSize} from '../../../models/paddings';
 import {getQaAttributes} from '../../../utils/common';
-import {Meta} from '../Meta';
-import {LikesRoutineType, PostPageContext} from '../../../contexts/PostPageContext';
-import post from '../../../../.mocks/post.json';
-import {PostData} from '../../../models/common';
-import {LocaleContext} from '../../../contexts/LocaleContext';
 import {format} from '../../../utils/date';
-import {Keyset, i18n} from '../../../i18n';
-import {Lang, ThemeContext} from '@gravity-ui/uikit';
+import {Meta} from '../Meta';
+
+import post from '../../../../.mocks/post.json';
 
 const locale = {
     code: 'en-En',

@@ -6,8 +6,9 @@ import {PostInfo} from '../../components/PostInfo/PostInfo';
 import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {DefaultGoalIds} from '../../constants';
 import {LocaleContext} from '../../contexts/LocaleContext';
-import {SettingsContext} from '../../contexts/SettingsContext';
 import {PostPageContext} from '../../contexts/PostPageContext';
+import {SettingsContext} from '../../contexts/SettingsContext';
+import {AnalyticsCounter} from '../../counters/utils';
 import {MetaProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
 import {block} from '../../utils/cn';
@@ -18,7 +19,6 @@ import {
     getQaAttributes,
     prepareAnalyticsEvent,
 } from '../../utils/common';
-import {AnalyticsCounter} from '../../counters/utils';
 
 import './Meta.scss';
 

@@ -14,6 +14,7 @@ import {PromptSignIn} from '../../components/PromptSignIn/PromptSignIn';
 import {usePromptSignInProps} from '../../components/PromptSignIn/hooks/usePromptSignInProps';
 import {FeedContext} from '../../contexts/FeedContext';
 import {LikesContext} from '../../contexts/LikesContext';
+import {SettingsContext} from '../../contexts/SettingsContext';
 import {useExtendedComponentMap} from '../../hooks/useExtendedComponentMap';
 import {
     GetPostsType,
@@ -23,7 +24,6 @@ import {
     Tag,
     ToggleLikeCallbackType,
 } from '../../models/common';
-import {SettingsContext} from '../../contexts/SettingsContext';
 
 import './BlogPage.scss';
 

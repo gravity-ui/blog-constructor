@@ -1,6 +1,8 @@
 import {Content, Image} from '@gravity-ui/page-constructor';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
+import {DefaultGoalIds} from '../../constants';
+import {AnalyticsCounter} from '../../counters/utils';
 import {BannerProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
 import {block} from '../../utils/cn';
@@ -10,8 +12,6 @@ import {
     prepareAnalyticsEvent,
     updateContentSizes,
 } from '../../utils/common';
-import {DefaultGoalIds} from '../../constants';
-import {AnalyticsCounter} from '../../counters/utils';
 
 import './Banner.scss';
 

@@ -1,13 +1,13 @@
 import * as React from 'react';
 
+import {FormBlockProps, isHubspotDataForm} from '@gravity-ui/page-constructor';
+import {Meta, StoryFn} from '@storybook/react';
 import {v4 as uuidv4} from 'uuid';
 
-import {Meta, StoryFn} from '@storybook/react';
-
-import formsData from '../../../../.mocks/forms.json';
 import {FormBlockModel} from '../../../models/blocks';
 import {Form} from '../Form';
-import {FormBlockProps, isHubspotDataForm} from '@gravity-ui/page-constructor';
+
+import formsData from '../../../../.mocks/forms.json';
 
 export default {
     title: 'Blocks/Form',

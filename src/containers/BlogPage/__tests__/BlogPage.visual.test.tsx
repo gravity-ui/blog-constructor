@@ -1,7 +1,8 @@
+import {MobileProvider} from '@gravity-ui/uikit';
+
 import {test} from '../../../../playwright/core/index';
 
 import {Default, WithNavigation} from './helpers';
-import {MobileProvider} from '@gravity-ui/uikit';
 
 const BLOG_POST_DALAY = 10 * 1000;
 
