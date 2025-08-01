@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.1.0](https://github.com/gravity-ui/blog-constructor/compare/v8.0.0...v8.1.0) (2025-08-01)
+
+
+### Features
+
+* use gravity icons ([#275](https://github.com/gravity-ui/blog-constructor/issues/275)) ([64ccc0b](https://github.com/gravity-ui/blog-constructor/commit/64ccc0b1472ea5fb4ae9bc14a49dfcc38d464cd4))
+
 ## [8.0.0](https://github.com/gravity-ui/blog-constructor/compare/v7.3.0...v8.0.0) (2025-05-29)
 
 
