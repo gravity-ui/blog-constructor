@@ -1,9 +1,8 @@
 import * as React from 'react';
 
 import {Icon, SelectProps, useUniqId} from '@gravity-ui/uikit';
+import {ChevronDown, Xmark} from '@gravity-ui/icons';
 
-import {DropdownArrow} from '../../../../icons/DropdownArrow';
-import {Close} from '../../../../icons/Close';
 import {block} from '../../../../utils/cn';
 import {SelectItem} from '../Controls/Controls';
 
@@ -31,7 +30,6 @@ export type CustomSwitcherProps = {
     Pick<TriggerProps, 'id' | 'disabled' | 'type'>;
 
 const ICON_SIZE = 12;
-const CLEAR_ICON_SIZE = 11;
 
 export const CustomSwitcher = ({
     id,
@@ -80,9 +78,7 @@ export const CustomSwitcher = ({
             </div>
             {renderClear &&
                 renderClear({
-                    renderIcon: () => (
-                        <Icon data={Close} size={CLEAR_ICON_SIZE} className={b('clear')} />
-                    ),
+                    renderIcon: () => <Icon data={Xmark} className={b('clear')} />,
                 })}
             {hasCounter && (
                 <div className={b('custom-switcher-element', {counter: true})}>
@@ -90,7 +86,7 @@ export const CustomSwitcher = ({
                 </div>
             )}
             <div className={b('custom-switcher-element', {arrow: true})}>
-                <Icon data={DropdownArrow} size={ICON_SIZE} className={b('switcher-arrow')} />
+                <Icon data={ChevronDown} size={ICON_SIZE} className={b('switcher-arrow')} />
             </div>
         </div>
     );

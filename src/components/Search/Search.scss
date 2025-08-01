@@ -24,6 +24,10 @@ $block: '.#{$namespace}search';
         background: none;
         color: var(--g-color-text-hint);
         cursor: pointer;
+
+        &_close {
+            padding-right: 5px;
+        }
     }
 
     &__search-suggest {

@@ -1,7 +1,7 @@
 import {Icon} from '@gravity-ui/uikit';
+import {Clock} from '@gravity-ui/icons';
 
 import {Keyset, i18n} from '../../../i18n';
-import {Time} from '../../../icons/Time';
 import {block} from '../../../utils/cn';
 
 import {QAProps} from '../../../models/common';
@@ -20,7 +20,7 @@ type ReadingTimeProps = QAProps & {
 export const ReadingTime = ({readingTime, size = 's', id, qa}: ReadingTimeProps) => (
     <div className={b('item', {size})} id={id} data-qa={qa}>
         <span className={b('icon')}>
-            <Icon data={Time} size={ICON_SIZE} className={b('icon-color')} />
+            <Icon data={Clock} size={ICON_SIZE} className={b('icon-color')} />
         </span>
         {i18n(Keyset.ContextReadingTime, {count: readingTime})}
     </div>

@@ -1,12 +1,11 @@
 import * as React from 'react';
 
 import {Icon, TextInput} from '@gravity-ui/uikit';
+import {Magnifier, Xmark} from '@gravity-ui/icons';
 import lodashDebounce from 'lodash/debounce';
 
 import {useIsIPhone} from '../../hooks/useIsIPhone';
 import {Keyset, i18n} from '../../i18n';
-import {Close} from '../../icons/Close';
-import {SearchIcon} from '../../icons/SearchIcon';
 import {ClassNameProps} from '../../models/common';
 import {block} from '../../utils/cn';
 
@@ -28,7 +27,7 @@ interface SearchProps extends ClassNameProps {
 }
 
 const SEARCH_ICON_SIZE = 16;
-const CLOSE_ICON_SIZE = 12;
+const CLOSE_ICON_SIZE = 20;
 const AUTOFOCUS_TIMEOUT = 0;
 
 /**
@@ -66,7 +65,7 @@ export const Search = ({
     }, [autoFocus, inputRef, isIPhone]);
 
     const rightContent = React.useMemo(() => {
-        const iconData = value ? Close : SearchIcon;
+        const isClose = Boolean(value);
         const iconSize = value ? CLOSE_ICON_SIZE : SEARCH_ICON_SIZE;
 
         const handleClick = () => {
@@ -80,12 +79,12 @@ export const Search = ({
 
         return (
             <button
-                className={b('input-icon')}
+                className={b('input-icon', {close: isClose})}
                 onClick={handleClick}
                 aria-label={value ? i18n(Keyset.ClearAction) : undefined}
                 aria-hidden={!value}
             >
-                <Icon size={iconSize} data={iconData} />
+                <Icon size={iconSize} data={isClose ? Xmark : Magnifier} />
             </button>
         );
     }, [handleChange, onSubmit, value]);

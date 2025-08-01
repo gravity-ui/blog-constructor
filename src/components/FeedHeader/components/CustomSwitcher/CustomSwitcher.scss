@@ -3,7 +3,7 @@
 
 $block: '.#{$namespace}feed-custom-switcher';
 
-$clearIconSize: 11px;
+$clearIconSize: 18px;
 
 #{$block} {
     $root: &;
@@ -39,7 +39,7 @@ $clearIconSize: 11px;
         .g-select-clear {
             width: $clearIconSize;
             height: $clearIconSize;
-            margin-right: 9px;
+            margin-right: 6px;
         }
     }
 
