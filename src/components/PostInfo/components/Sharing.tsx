@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 import {ShareLayoutDirection, SharePopover} from '@gravity-ui/components';
-import {AnalyticsEventsProp, useAnalytics} from '@gravity-ui/page-constructor';
 import {ArrowUpFromSquare} from '@gravity-ui/icons';
+import {AnalyticsEventsProp, useAnalytics} from '@gravity-ui/page-constructor';
 
 import {MobileContext} from '../../../contexts/MobileContext';
 import {PostPageContext} from '../../../contexts/PostPageContext';

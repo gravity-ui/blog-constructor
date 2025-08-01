@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import {Icon, SelectProps, useUniqId} from '@gravity-ui/uikit';
 import {ChevronDown, Xmark} from '@gravity-ui/icons';
+import {Icon, SelectProps, useUniqId} from '@gravity-ui/uikit';
 
 import {block} from '../../../../utils/cn';
 import {SelectItem} from '../Controls/Controls';

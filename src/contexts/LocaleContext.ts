@@ -1,7 +1,8 @@
 import * as React from 'react';
 
-import {Locale} from '../models/locale';
 import {Lang} from '@gravity-ui/uikit';
+
+import {Locale} from '../models/locale';
 
 export type LocaleContextProps = {
     locale: Locale;

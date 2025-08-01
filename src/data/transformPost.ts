@@ -1,7 +1,7 @@
 import {typografToHTML, typografToText, yfmTransformer} from '@gravity-ui/page-constructor/server';
+import {Lang} from '@gravity-ui/uikit';
 
 import {PostData, TransformPostOptions} from '../models/common';
-import {Lang} from '@gravity-ui/uikit';
 
 export type TransformPostType = {
     postData: PostData;

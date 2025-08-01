@@ -1,12 +1,13 @@
 import * as React from 'react';
+
 import {AnalyticsEventsProp, CardBase, YFMWrapper} from '@gravity-ui/page-constructor';
 import {useUniqId} from '@gravity-ui/uikit';
 
 import {LikesContext} from '../../contexts/LikesContext';
+import {useAriaAttributes} from '../../hooks/useAriaAttributes';
 import {PostCardSize, PostCardTitleHeadingLevel, PostData} from '../../models/common';
 import {block} from '../../utils/cn';
 import {SuggestPostInfo} from '../PostInfo/SuggestPostInfo';
-import {useAriaAttributes} from '../../hooks/useAriaAttributes';
 
 import './PostCard.scss';
 

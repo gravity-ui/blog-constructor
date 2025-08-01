@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 import {ShareOptions} from '@gravity-ui/components';
+import {HeaderBreadCrumbsProps} from '@gravity-ui/page-constructor';
 
 import {PostData} from '../models/common';
-import {HeaderBreadCrumbsProps} from '@gravity-ui/page-constructor';
 
 export type LikesRoutineType = {
     handleUserLike: () => void;

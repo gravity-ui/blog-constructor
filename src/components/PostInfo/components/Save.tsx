@@ -1,14 +1,14 @@
 import * as React from 'react';
 
+import {Bookmark, BookmarkFill} from '@gravity-ui/icons';
 import {AnalyticsEventsProp, useAnalytics} from '@gravity-ui/page-constructor';
 import {Icon, useUniqId} from '@gravity-ui/uikit';
-import {Bookmark, BookmarkFill} from '@gravity-ui/icons';
 
 import {LikesContext} from '../../../contexts/LikesContext';
+import {Keyset, i18n} from '../../../i18n';
 import {DefaultEventNames, QAProps} from '../../../models/common';
 import {block} from '../../../utils/cn';
 import {postLikeStatus} from '../../../utils/common';
-import {Keyset, i18n} from '../../../i18n';
 
 import '../PostInfo.scss';
 
