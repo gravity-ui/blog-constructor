@@ -1,19 +1,18 @@
 import * as React from 'react';
 
 import {useAnalytics} from '@gravity-ui/page-constructor';
+import _ from 'lodash';
 
 import {DefaultGoalIds} from '../../constants';
 import {AnalyticsCounter} from '../../counters/utils';
 import {DefaultEventNames} from '../../models/common';
 import {block} from '../../utils/cn';
+import {prepareAnalyticsEvent} from '../../utils/common';
 
 import {NavigationButton} from './components/NavigationButton';
 import {PaginatorItem} from './components/PaginatorItem';
 import {ArrowType, PaginatorItemProps, PaginatorProps} from './types';
 import {getPageConfigs, getPagesCount} from './utils';
-import {prepareAnalyticsEvent} from '../../utils/common';
-
-import _ from 'lodash';
 
 import './Paginator.scss';
 

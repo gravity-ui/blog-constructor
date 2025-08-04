@@ -19,9 +19,9 @@ import {
     DEFAULT_ROWS_PER_PAGE,
 } from '../blocks/constants';
 import {RouterContextProps} from '../contexts/RouterContext';
+import {AnalyticsCounter} from '../counters/utils';
 import {Keyset, i18n} from '../i18n';
 import {GetPostsRequest, Query, Tag} from '../models/common';
-import {AnalyticsCounter} from '../counters/utils';
 
 const QA_ATTRIBUTES_KEYS = ['container', 'content', 'wrapper', 'image', 'button'];
 

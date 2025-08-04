@@ -1,8 +1,11 @@
 import * as React from 'react';
 
+import {Lang} from '@gravity-ui/uikit';
 import type {Meta, StoryFn} from '@storybook/react';
 
 import {BlogConstructorProvider} from '../../../constructor/BlogConstructorProvider';
+import {SettingsContext} from '../../../contexts/SettingsContext';
+import {routerData} from '../../../demo/mocks';
 import {GetPostsRequest} from '../../../models/common';
 import {BlogPage, BlogPageProps} from '../BlogPage';
 
@@ -11,9 +14,6 @@ import navigation from '../../../../.mocks/navigation.json';
 import posts from '../../../../.mocks/posts.json';
 import services from '../../../../.mocks/services.json';
 import tags from '../../../../.mocks/tags.json';
-import {Lang} from '@gravity-ui/uikit';
-import {routerData} from '../../../demo/mocks';
-import {SettingsContext} from '../../../contexts/SettingsContext';
 
 const mockMetaComponent = <title>Blog page</title>;
 

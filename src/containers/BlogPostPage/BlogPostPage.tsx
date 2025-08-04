@@ -17,10 +17,10 @@ import {PromptSignIn} from '../../components/PromptSignIn/PromptSignIn';
 import {usePromptSignInProps} from '../../components/PromptSignIn/hooks/usePromptSignInProps';
 import {LikesContext} from '../../contexts/LikesContext';
 import {PostPageContext} from '../../contexts/PostPageContext';
+import {SettingsContext} from '../../contexts/SettingsContext';
 import {useExtendedComponentMap} from '../../hooks/useExtendedComponentMap';
 import {useLikes} from '../../hooks/useLikes';
 import {MetaProps, PostData, ToggleLikeCallbackType} from '../../models/common';
-import {SettingsContext} from '../../contexts/SettingsContext';
 
 import './BlogPostPage.scss';
 

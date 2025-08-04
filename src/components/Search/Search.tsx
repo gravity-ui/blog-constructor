@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import {Icon, TextInput} from '@gravity-ui/uikit';
 import {Magnifier, Xmark} from '@gravity-ui/icons';
+import {Icon, TextInput} from '@gravity-ui/uikit';
 import lodashDebounce from 'lodash/debounce';
 
 import {useIsIPhone} from '../../hooks/useIsIPhone';
