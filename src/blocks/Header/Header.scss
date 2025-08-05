@@ -6,7 +6,8 @@ $block: '.#{$namespace}header-block';
 #{$block} {
     $root: &;
     $headerMaxWidth: 1440px;
-    $imageWidth: calc(100% / 12 * 4);
+    $columnWidth: calc(100% / 12);
+    $imageWidth: calc($columnWidth * 4);
 
     &__grid {
         z-index: 10;
@@ -40,7 +41,7 @@ $block: '.#{$namespace}header-block';
     @media (min-width: map-get($gridBreakpoints, 'lg')) {
         &_image-out-grid {
             #{$root}__content-inner {
-                $textWidth: calc(100% / 12 * 8);
+                $textWidth: calc($columnWidth * 8);
                 max-width: $textWidth;
                 padding-right: $indentL;
             }
@@ -50,7 +51,7 @@ $block: '.#{$namespace}header-block';
     @media (max-width: map-get($gridBreakpoints, 'lg')) and (min-width: map-get($gridBreakpoints, 'lg')) {
         &_image-out-grid {
             #{$root}__content-inner {
-                $textWidth: calc(100% / 12 * 8 + $indentL);
+                $textWidth: calc($columnWidth * 8 + $indentL);
                 max-width: $textWidth;
                 padding-right: $indentL;
             }
@@ -58,7 +59,7 @@ $block: '.#{$namespace}header-block';
     }
 
     @media (max-width: map-get($gridBreakpoints, 'lg')) and (min-width: map-get($gridBreakpoints, 'md')) {
-        $imageWidth: calc(100% / 12 * 6 - $indentXS);
+        $imageWidth: calc($columnWidth * 6 - $indentXS);
 
         &_image-out-grid {
             #{$root}__image {
@@ -68,7 +69,7 @@ $block: '.#{$namespace}header-block';
             }
 
             #{$root}__content-inner {
-                $textWidth: calc(100% / 12 * 6);
+                $textWidth: calc($columnWidth * 6);
                 max-width: $textWidth;
                 padding-right: $indentL;
             }
