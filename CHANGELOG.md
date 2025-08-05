@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.2.0](https://github.com/gravity-ui/blog-constructor/compare/v8.1.0...v8.2.0) (2025-08-05)
+
+
+### Features
+
+* **Header:** add image out grid ([#274](https://github.com/gravity-ui/blog-constructor/issues/274)) ([707ccb9](https://github.com/gravity-ui/blog-constructor/commit/707ccb9be712ae21cbbe54a2d639255ea6c388ef))
+
 ## [8.1.0](https://github.com/gravity-ui/blog-constructor/compare/v8.0.0...v8.1.0) (2025-08-01)
 
 
