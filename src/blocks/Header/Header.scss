@@ -1,0 +1,91 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$namespace}header-block';
+
+#{$block} {
+    $root: &;
+    $headerMaxWidth: 1440px;
+    $columnWidth: calc(100% / 12);
+    $imageWidth: calc($columnWidth * 4);
+
+    &__grid {
+        z-index: 10;
+    }
+
+    &_image-out-grid {
+        #{$root}__image {
+            right: $indentXS;
+            left: 50%;
+            max-width: $headerMaxWidth;
+            width: 100%;
+            transform: translateX(calc(-50% - $indentXS));
+
+            img {
+                margin-left: auto;
+                width: $imageWidth;
+                border-radius: 16px;
+            }
+        }
+
+        #{$root}__content-wrapper {
+            position: static;
+            min-height: 420px;
+        }
+
+        #{$root}__content-inner {
+            padding-right: 0;
+        }
+    }
+
+    @media (min-width: map-get($gridBreakpoints, 'lg')) {
+        &_image-out-grid {
+            #{$root}__content-inner {
+                $textWidth: calc($columnWidth * 8);
+                max-width: $textWidth;
+                padding-right: $indentL;
+            }
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'lg')) and (min-width: map-get($gridBreakpoints, 'lg')) {
+        &_image-out-grid {
+            #{$root}__content-inner {
+                $textWidth: calc($columnWidth * 8 + $indentL);
+                max-width: $textWidth;
+                padding-right: $indentL;
+            }
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'lg')) and (min-width: map-get($gridBreakpoints, 'md')) {
+        $imageWidth: calc($columnWidth * 6 - $indentXS);
+
+        &_image-out-grid {
+            #{$root}__image {
+                img {
+                    width: $imageWidth;
+                }
+            }
+
+            #{$root}__content-inner {
+                $textWidth: calc($columnWidth * 6);
+                max-width: $textWidth;
+                padding-right: $indentL;
+            }
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        &_image-out-grid {
+            #{$root}__image {
+                display: none;
+            }
+
+            #{$root}__content-wrapper {
+                max-width: none;
+                min-height: auto;
+            }
+        }
+    }
+}

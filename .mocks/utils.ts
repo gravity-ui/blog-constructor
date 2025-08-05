@@ -45,6 +45,39 @@ export const getDefaultStoryArgs = () => {
     };
 };
 
+export const getHeaderWithBackgroundStoryArgs = () => {
+    return {
+        paddingBottom: 'l',
+        paddingTop: 'l',
+        text: 'Lorem ipsum dolor',
+        background: {
+            url: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png',
+        },
+    };
+};
+
+export const getHeaderWithImageStoryArgs = () => {
+    return {
+        paddingBottom: 'l',
+        paddingTop: 'l',
+        text: 'Lorem ipsum dolor',
+        image: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png',
+    };
+};
+
+export const getHeaderWithImageOutGridStoryArgs = () => {
+    return {
+        paddingBottom: 'l',
+        paddingTop: 'l',
+        text: 'Lorem ipsum dolor',
+        image: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png',
+        background: {
+            color: 'rgba(238, 242, 248, 1)',
+        },
+        imageInGrid: false,
+    };
+};
+
 export const getVideoStoryArgs = () => {
     return {
         video: {
