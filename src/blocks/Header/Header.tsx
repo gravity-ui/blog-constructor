@@ -64,6 +64,7 @@ export const Header = (props: HeaderProps) => {
                     mediaClassName={b('image')}
                     gridClassName={b('grid')}
                     contentWrapperClassName={b('content-wrapper')}
+                    contentInnerClassName={b('content-inner')}
                 >
                     <PostInfo
                         postId={id}

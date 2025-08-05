@@ -32,14 +32,14 @@ $block: '.#{$namespace}header-block';
             min-height: 420px;
         }
 
-        .pc-header-block__content-inner {
+        #{$root}__content-inner {
             padding-right: 0;
         }
     }
 
     @media (min-width: map-get($gridBreakpoints, 'lg')) {
         &_image-out-grid {
-            .pc-header-block__content-inner {
+            #{$root}__content-inner {
                 $textWidth: calc(100% / 12 * 8);
                 max-width: $textWidth;
                 padding-right: $indentL;
@@ -49,7 +49,7 @@ $block: '.#{$namespace}header-block';
 
     @media (max-width: map-get($gridBreakpoints, 'lg')) and (min-width: map-get($gridBreakpoints, 'lg')) {
         &_image-out-grid {
-            .pc-header-block__content-inner {
+            #{$root}__content-inner {
                 $textWidth: calc(100% / 12 * 8 + $indentL);
                 max-width: $textWidth;
                 padding-right: $indentL;
@@ -67,7 +67,7 @@ $block: '.#{$namespace}header-block';
                 }
             }
 
-            .pc-header-block__content-inner {
+            #{$root}__content-inner {
                 $textWidth: calc(100% / 12 * 6);
                 max-width: $textWidth;
                 padding-right: $indentL;
