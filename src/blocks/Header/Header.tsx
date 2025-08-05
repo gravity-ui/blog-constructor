@@ -11,12 +11,13 @@ import {SettingsContext} from '../../contexts/SettingsContext';
 import {AnalyticsCounter} from '../../counters/utils';
 import {HeaderProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
+import {block} from '../../utils/cn';
 import {
     getBreadcrumbs,
     getBlogPath as getDefaultBlogPath,
     prepareAnalyticsEvent,
 } from '../../utils/common';
-import {block} from '../../utils/cn';
+
 import './Header.scss';
 
 const b = block('header-block');
