@@ -91,6 +91,11 @@ export type FormProps = {
 } & PaddingsYFMProps &
     QAProps;
 
+export type CompactMediaProps = {
+    description?: string;
+} & PaddingsYFMProps &
+    Partial<Pick<PCMediaProps, 'image'>>;
+
 // blocks models
 export type AuthorBlockModel = {
     type: BlockType.Author;
@@ -140,6 +145,10 @@ export type FormBlockModel = {
     type: BlockType.Form;
 } & FormProps;
 
+export type CompactMediaBlockModel = {
+    type: BlockType.CompactMedia;
+} & CompactMediaProps;
+
 export type BlockModel =
     | AuthorBlockModel
     | BannerBlockModel
@@ -151,7 +160,8 @@ export type BlockModel =
     | MetaBlockModel
     | SuggestBlockModel
     | YFMBlockModel
-    | FeedBlockModel;
+    | FeedBlockModel
+    | CompactMediaBlockModel;
 
 export type Block = BlockModel & {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
