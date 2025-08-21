@@ -12,7 +12,7 @@ $imageWidth: 232px;
     }
 
     &__media {
-        width: $imageWidth;
+        max-width: $imageWidth;
         padding: $indentXXXS 0;
     }
 
@@ -21,7 +21,8 @@ $imageWidth: 232px;
         object-position: left;
 
         max-height: calc(104px - 2 * $indentXXXS);
-        width: $imageWidth;
+        max-width: $imageWidth;
+        width: auto;
     }
 
     @media (max-width: map-get($gridBreakpoints, 'lg')) {
