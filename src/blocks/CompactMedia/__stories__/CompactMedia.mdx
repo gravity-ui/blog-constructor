@@ -1,0 +1,10 @@
+import {Meta, Markdown} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as CompactMediaStories from './CompactMedia.stories.tsx';
+import README from '../README.md?raw';
+
+<Meta of={CompactMediaStories} />
+<StoryTemplate>
+    <Markdown>{README}</Markdown>
+</StoryTemplate>

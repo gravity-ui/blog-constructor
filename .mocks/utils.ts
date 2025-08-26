@@ -95,5 +95,14 @@ export const getVideoStoryArgs = () => {
     };
 };
 
+export const getCompactMediaStoryArgs = () => {
+    return {
+        paddingBottom: 'l',
+        paddingTop: 'l',
+        description: 'Lorem ipsum dolor sit amet lorem ipsum dolor sit amet dolor sit amet',
+        image: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logotype-cube.svg',
+    };
+};
+
 export const youtubeSrc = 'https://youtu.be/0Qd3T6skprA';
 export const dataLensSrc = 'm2bzon9y39lck';

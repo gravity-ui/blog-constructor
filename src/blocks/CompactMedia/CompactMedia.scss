@@ -1,0 +1,39 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$namespace}compact-media';
+$imageWidth: 232px;
+
+#{$block} {
+    $root: &;
+
+    &__container {
+        max-width: 296px;
+    }
+
+    &__media {
+        max-width: $imageWidth;
+        padding: $indentXXXS 0;
+    }
+
+    &__image {
+        object-fit: contain;
+        object-position: left;
+
+        max-height: calc(104px - 2 * $indentXXXS);
+        max-width: $imageWidth;
+        width: auto;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'lg')) {
+        &__container {
+            max-width: none;
+            width: 50%;
+        }
+    }
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__container {
+            width: 100%;
+        }
+    }
+}
