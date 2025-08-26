@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.3.0](https://github.com/gravity-ui/blog-constructor/compare/v8.2.0...v8.3.0) (2025-08-26)
+
+
+### Features
+
+* **CompactMedia:** add new block ([#279](https://github.com/gravity-ui/blog-constructor/issues/279)) ([94a0bd7](https://github.com/gravity-ui/blog-constructor/commit/94a0bd768720562fbecd37d03e18eba708330cc9))
+
 ## [8.2.0](https://github.com/gravity-ui/blog-constructor/compare/v8.1.0...v8.2.0) (2025-08-05)
 
 
