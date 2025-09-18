@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {
+    AuthorItem,
     ContentBlockProps,
     FormBlockData,
     HeaderBlockProps,
@@ -96,6 +97,12 @@ export type CompactMediaProps = {
 } & PaddingsYFMProps &
     Partial<Pick<PCMediaProps, 'image'>>;
 
+export type TakeProps = YFMProps & {
+    author: AuthorItem;
+    color?: string;
+    noBackground?: boolean;
+};
+
 // blocks models
 export type AuthorBlockModel = {
     type: BlockType.Author;
@@ -149,6 +156,10 @@ export type CompactMediaBlockModel = {
     type: BlockType.CompactMedia;
 } & CompactMediaProps;
 
+export type TakeBlockModel = {
+    type: BlockType.Take;
+} & TakeProps;
+
 export type BlockModel =
     | AuthorBlockModel
     | BannerBlockModel
@@ -161,7 +172,8 @@ export type BlockModel =
     | SuggestBlockModel
     | YFMBlockModel
     | FeedBlockModel
-    | CompactMediaBlockModel;
+    | CompactMediaBlockModel
+    | TakeBlockModel;
 
 export type Block = BlockModel & {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

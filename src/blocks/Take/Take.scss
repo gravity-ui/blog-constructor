@@ -1,0 +1,100 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$namespace}take';
+// Styles for this component only is not from the theme
+$fontSizeRegular: 24px;
+$lineHeightRegular: 32px;
+$fontSizeRegularMobile: 20px;
+$lineHeightRegularMobile: 28px;
+$imageWidth: 88px;
+$imageHeight: 88px;
+$imageWidthMobile: 80px;
+$imageHeightMobile: 80px;
+
+#{$block} {
+    $root: &;
+
+    &__container {
+        --container-color: #ff5959;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        align-self: stretch;
+        gap: $gridContainerPadding;
+
+        border-radius: $indentSM 0 0 $indentSM;
+        border-left: $indent4XS solid var(--container-color);
+
+        background: linear-gradient(
+            90deg,
+            color-mix(in sRGB, var(--container-color) 20%, transparent) 0%,
+            rgba(255, 255, 255, 0.2) 100%
+        );
+
+        font-family: 'YS Text';
+
+        &_noBackground {
+            background: none;
+        }
+    }
+
+    &__text {
+        font-size: $fontSizeRegular;
+        line-height: $lineHeightRegular;
+        font-weight: var(--g-text-body-font-weight);
+        font-family: inherit;
+    }
+
+    &__author {
+        align-items: flex-start;
+        // Overriding nested PCAuthor elements
+        .pc-author {
+            &__avatar {
+                width: $imageWidth;
+                height: $imageHeight;
+
+                img {
+                    width: $imageWidth;
+                    height: $imageHeight;
+                }
+            }
+            &__label {
+                max-width: 298px;
+            }
+            &__name {
+                @include text-size(header-1);
+            }
+            &__description {
+                @include text-size(body-3);
+            }
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__text {
+            font-size: $fontSizeRegularMobile;
+            line-height: $lineHeightRegularMobile;
+        }
+        &__author {
+            // Overriding nested PCAuthor elements
+            .pc-author {
+                &__avatar {
+                    width: $imageWidthMobile;
+                    height: $imageHeightMobile;
+
+                    img {
+                        width: $imageWidthMobile;
+                        height: $imageHeightMobile;
+                    }
+                }
+                &__name {
+                    @include text-size(body-3);
+                }
+                &__description {
+                    @include text-size(body-2);
+                }
+            }
+        }
+    }
+}

@@ -115,6 +115,7 @@ export enum BlockType {
     Feed = 'blog-feed-block',
     Form = 'blog-form-block',
     CompactMedia = 'blog-compact-media-block',
+    Take = 'blog-take-block',
 }
 
 export type MetaProps = {

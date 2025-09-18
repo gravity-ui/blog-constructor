@@ -5,7 +5,7 @@ export enum PaddingsDirections {
     right = 'right',
 }
 
-export type PaddingSize = 'xs' | 's' | 'm' | 'l' | 'xl';
+export type PaddingSize = 'xs' | 's' | 'sm' | 'm' | 'l' | 'xl';
 
 export type Paddings = {
     [key in PaddingsDirections]?: PaddingSize;

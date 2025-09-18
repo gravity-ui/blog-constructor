@@ -13,6 +13,7 @@ type WrapperProps = ClassNameProps &
     QAProps & {
         paddings?: Paddings;
         children?: React.ReactNode;
+        style?: React.CSSProperties;
     };
 
 export const Wrapper: React.FunctionComponent<WrapperProps> = ({
@@ -20,6 +21,7 @@ export const Wrapper: React.FunctionComponent<WrapperProps> = ({
     paddings = DEFAULT_PADDINGS,
     className,
     qa,
+    style,
 }) => (
     <section
         className={b(
@@ -32,6 +34,7 @@ export const Wrapper: React.FunctionComponent<WrapperProps> = ({
             className,
         )}
         data-qa={qa}
+        style={style}
     >
         {children}
     </section>

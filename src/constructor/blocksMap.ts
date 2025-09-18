@@ -10,6 +10,7 @@ import {Layout} from '../blocks/Layout/Layout';
 import {Media} from '../blocks/Media/Media';
 import {Meta} from '../blocks/Meta/Meta';
 import {Suggest} from '../blocks/Suggest/Suggest';
+import {Take} from '../blocks/Take/Take';
 import {YFM} from '../blocks/YFM/YFM';
 import {BlockType} from '../models/common';
 
@@ -26,6 +27,7 @@ const blocks = {
     [BlockType.Feed]: Feed,
     [BlockType.Form]: Form,
     [BlockType.CompactMedia]: CompactMedia,
+    [BlockType.Take]: Take,
 };
 
 const headers = {
