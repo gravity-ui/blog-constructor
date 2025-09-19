@@ -15,6 +15,7 @@ $imageWidth: 232px;
 
     &__title {
         @include text-size(header-2);
+        font-weight: 500;
     }
 
     &__items {
