@@ -37,7 +37,7 @@ export const CustomColor = DefaultTemplate.bind({});
 
 CustomColor.args = {
     type: BlockType.Take,
-    color: '#7CE28E',
+    color: '#FF5F5E',
     ...getTakeStoryArgs(),
 } as TakeModel;
 

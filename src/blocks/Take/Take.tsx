@@ -54,6 +54,7 @@ export const Take = (props: TakeProps) => {
                 type={isMobile ? AuthorType.Column : AuthorType.Line}
                 author={author}
                 className={b('author')}
+                authorContainerClassName={b('avatar')}
             />
         </Wrapper>
     );

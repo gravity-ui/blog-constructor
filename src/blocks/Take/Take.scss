@@ -16,7 +16,7 @@ $imageHeightMobile: 80px;
     $root: &;
 
     &__container {
-        --container-color: #ff5959;
+        --container-color: #d6e0e9;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -50,24 +50,26 @@ $imageHeightMobile: 80px;
         align-items: flex-start;
         // Overriding nested PCAuthor elements
         .pc-author {
-            &__avatar {
-                width: $imageWidth;
-                height: $imageHeight;
-
-                img {
-                    width: $imageWidth;
-                    height: $imageHeight;
-                }
-            }
             &__label {
                 max-width: 298px;
             }
             &__name {
+                font-weight: var(--g-text-accent-font-weight);
                 @include text-size(header-1);
             }
             &__description {
                 @include text-size(body-3);
             }
+        }
+    }
+
+    &__avatar {
+        width: $imageWidth;
+        height: $imageHeight;
+
+        img {
+            width: $imageWidth;
+            height: $imageHeight;
         }
     }
 
@@ -79,21 +81,22 @@ $imageHeightMobile: 80px;
         &__author {
             // Overriding nested PCAuthor elements
             .pc-author {
-                &__avatar {
-                    width: $imageWidthMobile;
-                    height: $imageHeightMobile;
-
-                    img {
-                        width: $imageWidthMobile;
-                        height: $imageHeightMobile;
-                    }
-                }
                 &__name {
-                    @include text-size(body-3);
+                    font-weight: var(--g-text-accent-font-weight);
+                    @include text-size(subheader-3);
                 }
                 &__description {
                     @include text-size(body-2);
                 }
+            }
+        }
+        &__avatar {
+            width: $imageWidthMobile;
+            height: $imageHeightMobile;
+
+            img {
+                width: $imageWidthMobile;
+                height: $imageHeightMobile;
             }
         }
     }
