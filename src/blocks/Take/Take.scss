@@ -16,7 +16,7 @@ $imageHeightMobile: 80px;
     $root: &;
 
     &__container {
-        --container-color: #d6e0e9;
+        --take-color: #d6e0e9;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -24,11 +24,11 @@ $imageHeightMobile: 80px;
         gap: $gridContainerPadding;
 
         border-radius: $indentSM 0 0 $indentSM;
-        border-left: $indent4XS solid var(--container-color);
+        border-left: $indent4XS solid var(--take-color);
 
         background: linear-gradient(
             90deg,
-            color-mix(in sRGB, var(--container-color) 20%, transparent) 0%,
+            color-mix(in sRGB, var(--take-color) 20%, transparent) 0%,
             rgba(255, 255, 255, 0.2) 100%
         );
 
@@ -48,11 +48,9 @@ $imageHeightMobile: 80px;
 
     &__author {
         align-items: flex-start;
+        max-width: 402px;
         // Overriding nested PCAuthor elements
         .pc-author {
-            &__label {
-                max-width: 298px;
-            }
             &__name {
                 font-weight: var(--g-text-accent-font-weight);
                 @include text-size(header-1);
@@ -79,6 +77,7 @@ $imageHeightMobile: 80px;
             line-height: $lineHeightRegularMobile;
         }
         &__author {
+            max-width: none;
             // Overriding nested PCAuthor elements
             .pc-author {
                 &__name {

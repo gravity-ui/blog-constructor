@@ -26,9 +26,7 @@ export const Take = (props: TakeProps) => {
 
     const isMobile = React.useContext(MobileContext);
 
-    const containerStyle = color
-        ? ({'--container-color': color} as React.CSSProperties)
-        : undefined;
+    const containerStyle = color ? ({'--take-color': color} as React.CSSProperties) : undefined;
 
     return (
         <Wrapper
