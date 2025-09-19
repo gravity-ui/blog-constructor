@@ -12,6 +12,10 @@
             padding-top: $indentXS;
         }
 
+        &_sm {
+            padding-top: $indentSM;
+        }
+
         &_m {
             padding-top: $indentM;
         }
@@ -34,6 +38,10 @@
             padding-bottom: $indentXS;
         }
 
+        &_sm {
+            padding-bottom: $indentSM;
+        }
+
         &_m {
             padding-bottom: $indentM;
         }
@@ -44,6 +52,58 @@
 
         &_xl {
             padding-bottom: $indentXL;
+        }
+    }
+
+    &_padding-left {
+        &_xs {
+            padding-left: 0px;
+        }
+
+        &_s {
+            padding-left: $indentXS;
+        }
+
+        &_sm {
+            padding-left: $indentSM;
+        }
+
+        &_m {
+            padding-left: $indentM;
+        }
+
+        &_l {
+            padding-left: $indentL;
+        }
+
+        &_xl {
+            padding-left: $indentXL;
+        }
+    }
+
+    &_padding-right {
+        &_xs {
+            padding-right: 0px;
+        }
+
+        &_s {
+            padding-right: $indentXS;
+        }
+
+        &_sm {
+            padding-right: $indentSM;
+        }
+
+        &_m {
+            padding-right: $indentM;
+        }
+
+        &_l {
+            padding-right: $indentL;
+        }
+
+        &_xl {
+            padding-right: $indentXL;
         }
     }
 }

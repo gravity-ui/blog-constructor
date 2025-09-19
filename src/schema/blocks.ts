@@ -9,3 +9,4 @@ export * from '../blocks/Meta/schema';
 export * from '../blocks/Suggest/schema';
 export * from '../blocks/YFM/schema';
 export * from '../blocks/CompactMedia/schema';
+export * from '../blocks/Take/schema';

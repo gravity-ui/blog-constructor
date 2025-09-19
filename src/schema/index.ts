@@ -3,8 +3,20 @@ import {BlockType} from '../models/common';
 import * as blocks from './blocks';
 import * as headers from './headers';
 
-const {Author, Banner, ColoredText, CTA, Feed, Layout, Media, Meta, Suggest, YFM, CompactMedia} =
-    blocks;
+const {
+    Author,
+    Banner,
+    ColoredText,
+    CTA,
+    Feed,
+    Layout,
+    Media,
+    Meta,
+    Suggest,
+    YFM,
+    CompactMedia,
+    Take,
+} = blocks;
 const {Header} = headers;
 
 export const validators = {
@@ -28,5 +40,6 @@ export const schemasForCustom = {
         [BlockType.Suggest]: Suggest,
         [BlockType.YFM]: YFM,
         [BlockType.CompactMedia]: CompactMedia,
+        [BlockType.Take]: Take,
     },
 };
