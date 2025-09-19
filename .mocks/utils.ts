@@ -119,5 +119,31 @@ export const getTakeStoryArgs = () => {
     };
 };
 
+export const getSideCardListStoryArgs = () => {
+    return {
+        title: 'Side card list',
+        paddingBottom: 'l',
+        paddingTop: 'l',
+        items: [
+            {
+                image: {
+                    src: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logotype-cube.svg',
+                    alt: 'card 1',
+                },
+                description: 'Lorem ipsum dolor sit amet lorem ipsum dolor sit amet dolor sit amet',
+                url: 'https://example.com',
+            },
+            {
+                image: {
+                    src: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logotype-long.svg',
+                    alt: 'card 2',
+                },
+                description: 'Lorem ipsum dolor sit amet lorem ipsum dolor sit amet dolor sit amet',
+                url: 'https://example.com',
+            },
+        ],
+    };
+};
+
 export const youtubeSrc = 'https://youtu.be/0Qd3T6skprA';
 export const dataLensSrc = 'm2bzon9y39lck';

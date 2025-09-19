@@ -103,6 +103,16 @@ export type TakeProps = YFMProps & {
     noBackground?: boolean;
 };
 
+export type SideCard = Pick<PCMediaProps, 'image'> & {
+    description: string;
+    url: string;
+};
+
+export type SideCardListProps = {
+    title?: string;
+    items: SideCard[];
+} & PaddingsYFMProps;
+
 // blocks models
 export type AuthorBlockModel = {
     type: BlockType.Author;
@@ -160,6 +170,10 @@ export type TakeBlockModel = {
     type: BlockType.Take;
 } & TakeProps;
 
+export type SideCardListBlockModel = {
+    type: BlockType.SideCardList;
+} & SideCardListProps;
+
 export type BlockModel =
     | AuthorBlockModel
     | BannerBlockModel
@@ -173,7 +187,8 @@ export type BlockModel =
     | YFMBlockModel
     | FeedBlockModel
     | CompactMediaBlockModel
-    | TakeBlockModel;
+    | TakeBlockModel
+    | SideCardListBlockModel;
 
 export type Block = BlockModel & {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
