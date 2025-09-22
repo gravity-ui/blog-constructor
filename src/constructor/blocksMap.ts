@@ -9,6 +9,7 @@ import {Header} from '../blocks/Header/Header';
 import {Layout} from '../blocks/Layout/Layout';
 import {Media} from '../blocks/Media/Media';
 import {Meta} from '../blocks/Meta/Meta';
+import {SideCardList} from '../blocks/SideCardList/SideCardList';
 import {Suggest} from '../blocks/Suggest/Suggest';
 import {Take} from '../blocks/Take/Take';
 import {YFM} from '../blocks/YFM/YFM';
@@ -28,6 +29,7 @@ const blocks = {
     [BlockType.Form]: Form,
     [BlockType.CompactMedia]: CompactMedia,
     [BlockType.Take]: Take,
+    [BlockType.SideCardList]: SideCardList,
 };
 
 const headers = {

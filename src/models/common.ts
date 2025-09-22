@@ -116,6 +116,7 @@ export enum BlockType {
     Form = 'blog-form-block',
     CompactMedia = 'blog-compact-media-block',
     Take = 'blog-take-block',
+    SideCardList = 'blog-side-card-list-block',
 }
 
 export type MetaProps = {

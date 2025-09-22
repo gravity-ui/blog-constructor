@@ -137,6 +137,24 @@
         "mobileOrder": "reverse",
         "children": [
           {
+            "type": "blog-side-card-list-block",
+            "column": "right",
+            "resetPaddings": true,
+            "title": "Side card list",
+            "items": [
+              {
+                "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logotype-cube.svg",
+                "description": "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet dolor sit amet",
+                "url": "https://example.com"
+              },
+              {
+                "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logotype-long.svg",
+                "description": "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet dolor sit amet",
+                "url": "https://example.com"
+              }
+            ]
+          },
+          {
             "type": "blog-yfm-block",
             "column": "right",
             "resetPaddings": true,

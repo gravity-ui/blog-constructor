@@ -1,0 +1,63 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$namespace}side-card-list';
+
+$imageWidth: 232px;
+
+#{$block} {
+    &__container {
+        display: flex;
+        flex-direction: column;
+        gap: $indentSM;
+        max-width: $imageWidth + 2 * $indentM;
+    }
+
+    &__title {
+        @include text-size(header-2);
+        font-weight: 500;
+    }
+
+    &__items {
+        display: flex;
+        flex-direction: column;
+        gap: $indentXS;
+    }
+
+    &__item {
+        @include add-specificity(&) {
+            min-height: auto;
+        }
+
+        &-image {
+            object-fit: contain;
+            object-position: left;
+
+            max-height: 104px;
+            max-width: $imageWidth;
+            width: auto;
+        }
+
+        &-media {
+            max-width: $imageWidth;
+            padding: 0 0 $indentXS;
+        }
+
+        &-description {
+            padding-bottom: $indentXXS;
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'lg')) {
+        &__container {
+            max-width: none;
+            width: 50%;
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__container {
+            width: 100%;
+        }
+    }
+}
