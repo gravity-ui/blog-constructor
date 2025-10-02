@@ -1,5 +1,13 @@
 # Changelog
 
+## [8.4.0](https://github.com/gravity-ui/blog-constructor/compare/v8.3.0...v8.4.0) (2025-09-22)
+
+
+### Features
+
+* side card list block ([#283](https://github.com/gravity-ui/blog-constructor/issues/283)) ([ae54fa5](https://github.com/gravity-ui/blog-constructor/commit/ae54fa5e1f3fbdcada4756cebb037a555f8d4c48))
+* **Take:** add new block ([#281](https://github.com/gravity-ui/blog-constructor/issues/281)) ([242df50](https://github.com/gravity-ui/blog-constructor/commit/242df507f1893d47b93965d7e60a7f9c4581823c))
+
 ## [8.3.0](https://github.com/gravity-ui/blog-constructor/compare/v8.2.0...v8.3.0) (2025-08-26)
 
 
