@@ -31,6 +31,7 @@ export type ControlsProps = {
     tags?: SelectItem[];
     services?: SelectItem[];
     queryParams: Query;
+    title?: string;
 };
 
 const ICON_SIZE = 16;
@@ -42,6 +43,7 @@ export const Controls = ({
     tags = [],
     services = [],
     queryParams,
+    title = i18n(Keyset.Title),
 }: ControlsProps) => {
     const {hasLikes} = React.useContext(LikesContext);
     const handleAnalyticsTag = useAnalytics(DefaultEventNames.Tag);
@@ -142,7 +144,7 @@ export const Controls = ({
     return (
         <MobileProvider mobile={false}>
             <div className={b('header')}>
-                <h1 className={b('header-item', {title: true})}>{i18n(Keyset.Title)}</h1>
+                <h1 className={b('header-item', {title: true})}>{title}</h1>
                 <div className={b('header-item', {filters: true})}>
                     <div className={b('filter-item')}>
                         <Search

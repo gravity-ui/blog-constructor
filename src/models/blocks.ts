@@ -84,6 +84,7 @@ export type YFMProps = {
 
 export type FeedProps = {
     image: string;
+    title?: string;
 };
 
 export type FormProps = {

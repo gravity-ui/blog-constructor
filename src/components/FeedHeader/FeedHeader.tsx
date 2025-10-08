@@ -31,6 +31,7 @@ export const FeedHeader = ({
     verticalOffset = 'l',
     className,
     queryParams,
+    title,
 }: FeedHeaderContainerProps) => {
     const backgroundThemed = background && getThemedValue(background, theme as Theme);
 
@@ -57,6 +58,7 @@ export const FeedHeader = ({
                     />
                 ) : null}
                 <Controls
+                    title={title}
                     tags={tags}
                     services={services}
                     handleLoadData={handleLoadData}
