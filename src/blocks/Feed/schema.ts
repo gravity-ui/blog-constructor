@@ -1,7 +1,7 @@
 import {validators} from '@gravity-ui/page-constructor';
 
 const {
-    common: {TitleProps, BlockBaseProps},
+    common: {BlockBaseProps},
 } = validators;
 
 import {BlockType} from '../../models/common';
@@ -9,20 +9,14 @@ import {BlockType} from '../../models/common';
 export const Feed = {
     [BlockType.Feed]: {
         additionalProperties: false,
-        required: [],
+        required: 'image',
         properties: {
             ...BlockBaseProps,
-            title: TitleProps,
+            title: {
+                type: 'string',
+            },
             image: {
                 type: 'string',
-            },
-            description: {
-                type: 'string',
-                contentType: 'text',
-            },
-            size: {
-                type: 'string',
-                enum: ['s', 'm'],
             },
         },
     },

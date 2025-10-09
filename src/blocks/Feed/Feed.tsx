@@ -21,7 +21,7 @@ const CONTAINER_ID = 'blog-cards';
 const PAGE_QUERY = 'page';
 const FIRST_PAGE = 1;
 
-export const Feed = ({image}: FeedProps) => {
+export const Feed = ({image, title}: FeedProps) => {
     const {
         posts,
         totalCount,
@@ -239,6 +239,7 @@ export const Feed = ({image}: FeedProps) => {
                     url: image,
                     disableCompress: true,
                 }}
+                title={title}
             />
             {errorLoad ? (
                 <PostsError onButtonClick={handleOnErrorReload} />

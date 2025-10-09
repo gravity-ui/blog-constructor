@@ -42,6 +42,7 @@ export const getDefaultStoryArgs = () => {
         paddingTop: 'l',
         text: 'Lorem ipsum dolor',
         image: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png',
+        title: 'Blog',
     };
 };
 
