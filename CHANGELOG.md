@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.5.0](https://github.com/gravity-ui/blog-constructor/compare/v8.4.0...v8.5.0) (2025-10-09)
+
+
+### Features
+
+* add title to feed block ([#284](https://github.com/gravity-ui/blog-constructor/issues/284)) ([70551ae](https://github.com/gravity-ui/blog-constructor/commit/70551ae7f8e0d011b26fa595babc0b30d11276b0))
+
 ## [8.4.0](https://github.com/gravity-ui/blog-constructor/compare/v8.3.0...v8.4.0) (2025-09-22)
 
 
