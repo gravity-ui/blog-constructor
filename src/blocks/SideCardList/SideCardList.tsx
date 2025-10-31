@@ -33,7 +33,7 @@ export const SideCardList = ({title, items, paddingTop, paddingBottom}: SideCard
                                     <YFMWrapper
                                         content={description}
                                         modifiers={{
-                                            blog: true,
+                                            blogDescription: true,
                                             resetPaddings: true,
                                         }}
                                     />

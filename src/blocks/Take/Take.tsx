@@ -44,7 +44,7 @@ export const Take = (props: TakeProps) => {
                 contentClassName={b('text')}
                 tagName="div"
                 modifiers={{
-                    blog: true,
+                    blogDescription: true,
                     resetPaddings: true,
                 }}
             />

@@ -102,6 +102,10 @@
         color: var(--g-text-color-base);
     }
 
+    &_description {
+        color: var(--g-color-text-primary);
+    }
+
     a {
         color: var(--g-color-text-link);
         border-radius: var(--g-focus-border-radius);
