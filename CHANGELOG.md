@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.5.1](https://github.com/gravity-ui/blog-constructor/compare/v8.5.0...v8.5.1) (2025-10-31)
+
+
+### Bug Fixes
+
+* change blog description yfm modifier for take and side card list ([#286](https://github.com/gravity-ui/blog-constructor/issues/286)) ([3a8b8e3](https://github.com/gravity-ui/blog-constructor/commit/3a8b8e3ccdbdaad60832ef3a0f82e3f1614c1bf4))
+
 ## [8.5.0](https://github.com/gravity-ui/blog-constructor/compare/v8.4.0...v8.5.0) (2025-10-09)
 
 
