@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.5.2](https://github.com/gravity-ui/blog-constructor/compare/v8.5.1...v8.5.2) (2025-11-06)
+
+
+### Bug Fixes
+
+* header image-out-grid image border-radius ([#288](https://github.com/gravity-ui/blog-constructor/issues/288)) ([5f0a1f7](https://github.com/gravity-ui/blog-constructor/commit/5f0a1f790b3332dc4d3450be7671d26ec9402986))
+
 ## [8.5.1](https://github.com/gravity-ui/blog-constructor/compare/v8.5.0...v8.5.1) (2025-10-31)
 
 
