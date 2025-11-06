@@ -20,6 +20,7 @@ $block: '.#{$namespace}header-block';
             max-width: $headerMaxWidth;
             width: 100%;
             transform: translateX(calc(-50% - $indentXS));
+            border-radius: 16px;
 
             img {
                 margin-left: auto;
