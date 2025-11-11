@@ -3,14 +3,14 @@
 
 $block: '.#{$namespace}side-card-list';
 
-$imageWidth: 232px;
+$containerWidth: 232px;
 
 #{$block} {
     &__container {
         display: flex;
         flex-direction: column;
         gap: $indentSM;
-        max-width: $imageWidth + 2 * $indentM;
+        max-width: $containerWidth + 2 * $indentM;
     }
 
     &__title {
@@ -33,13 +33,13 @@ $imageWidth: 232px;
             object-fit: contain;
             object-position: left;
 
-            max-height: 104px;
-            max-width: $imageWidth;
+            max-height: 40px;
+            max-width: 160px;
             width: auto;
         }
 
         &-media {
-            max-width: $imageWidth;
+            max-width: $containerWidth;
             padding: 0 0 $indentXS;
         }
 
