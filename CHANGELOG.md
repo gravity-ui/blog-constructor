@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.5.3](https://github.com/gravity-ui/blog-constructor/compare/v8.5.2...v8.5.3) (2025-11-11)
+
+
+### Bug Fixes
+
+* update side card list logo size ([#290](https://github.com/gravity-ui/blog-constructor/issues/290)) ([8512667](https://github.com/gravity-ui/blog-constructor/commit/851266729530c3211a308490aa2c78378b608a24))
+
 ## [8.5.2](https://github.com/gravity-ui/blog-constructor/compare/v8.5.1...v8.5.2) (2025-11-06)
 
 
