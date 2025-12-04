@@ -1,6 +1,6 @@
 {
   "name": "@gravity-ui/blog-constructor",
-  "version": "8.5.3",
+  "version": "9.0.0-alpha.1",
   "description": "Gravity UI Blog Constructor",
   "license": "MIT",
   "type": "commonjs",
