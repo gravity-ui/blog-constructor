@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.5.4](https://github.com/gravity-ui/blog-constructor/compare/v8.5.3...v8.5.4) (2025-12-15)
+
+
+### Bug Fixes
+
+* take block paddings wrapper ([#293](https://github.com/gravity-ui/blog-constructor/issues/293)) ([81d68d1](https://github.com/gravity-ui/blog-constructor/commit/81d68d1d3798e78bbc19d4c4ec16e7fab982664e))
+
 ## [8.5.3](https://github.com/gravity-ui/blog-constructor/compare/v8.5.2...v8.5.3) (2025-11-11)
 
 
