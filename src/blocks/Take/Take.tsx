@@ -30,30 +30,30 @@ export const Take = (props: TakeProps) => {
 
     return (
         <Wrapper
-            className={b('container', {noBackground})}
             paddings={{
                 [PaddingsDirections.top]: paddingTop,
                 [PaddingsDirections.bottom]: paddingBottom,
                 [PaddingsDirections.left]: paddingLeft,
                 [PaddingsDirections.right]: paddingRight,
             }}
-            style={containerStyle}
         >
-            <YFMWrapper
-                content={text}
-                contentClassName={b('text')}
-                tagName="div"
-                modifiers={{
-                    blogDescription: true,
-                    resetPaddings: true,
-                }}
-            />
-            <PCAuthor
-                type={isMobile ? AuthorType.Column : AuthorType.Line}
-                author={author}
-                className={b('author')}
-                authorContainerClassName={b('avatar')}
-            />
+            <div className={b('container', {noBackground})} style={containerStyle}>
+                <YFMWrapper
+                    content={text}
+                    contentClassName={b('text')}
+                    tagName="div"
+                    modifiers={{
+                        blogDescription: true,
+                        resetPaddings: true,
+                    }}
+                />
+                <PCAuthor
+                    type={isMobile ? AuthorType.Column : AuthorType.Line}
+                    author={author}
+                    className={b('author')}
+                    authorContainerClassName={b('avatar')}
+                />
+            </div>
         </Wrapper>
     );
 };

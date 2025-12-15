@@ -16,6 +16,7 @@ $imageHeightMobile: 80px;
     $root: &;
 
     &__container {
+        padding: $indentSM 0 $indentSM $indentSM;
         --take-color: #d6e0e9;
         display: flex;
         flex-direction: column;
