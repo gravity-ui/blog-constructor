@@ -54,7 +54,7 @@ $block: '.#{$namespace}post-card';
 
     &__tag {
         color: var(--g-color-text-secondary);
-        font-weight: var(--g-text-accent-font-weight);
+        font-weight: var(--pc-text-accent-font-weight);
 
         &_size_s {
             @include text-size(body-2);
