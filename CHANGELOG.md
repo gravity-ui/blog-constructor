@@ -5,11 +5,11 @@
 
 ### ⚠ BREAKING CHANGES
 
-* release 9 ([#296](https://github.com/gravity-ui/blog-constructor/issues/296))
+* Update page-constructor on v8 with updated swiper on v10 ([#296](https://github.com/gravity-ui/blog-constructor/issues/296))
 
 ### Features
 
-* release 9 ([#296](https://github.com/gravity-ui/blog-constructor/issues/296)) ([82e65b1](https://github.com/gravity-ui/blog-constructor/commit/82e65b1adc00cd1ff3dc8e195e2beb1717471083))
+* Update page-constructor on v8 with updated swiper on v10 ([#296](https://github.com/gravity-ui/blog-constructor/issues/296)) ([82e65b1](https://github.com/gravity-ui/blog-constructor/commit/82e65b1adc00cd1ff3dc8e195e2beb1717471083))
 
 ## [8.5.4](https://github.com/gravity-ui/blog-constructor/compare/v8.5.3...v8.5.4) (2025-12-15)
 
