@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.1.0](https://github.com/gravity-ui/blog-constructor/compare/v9.0.0...v9.1.0) (2026-02-05)
+
+
+### Features
+
+* change yfm_heading font-family variable ([#299](https://github.com/gravity-ui/blog-constructor/issues/299)) ([0fb6a02](https://github.com/gravity-ui/blog-constructor/commit/0fb6a023f347616acbc191f1153b0fa951aefbb7))
+
 ## [9.0.0](https://github.com/gravity-ui/blog-constructor/compare/v8.5.4...v9.0.0) (2026-01-28)
 
 
