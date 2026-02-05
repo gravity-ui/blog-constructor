@@ -145,6 +145,6 @@
 
 .yfm_heading {
     @include add-specificity(&) {
-        font-family: var(--g-text-body-font-family);
+        font-family: var(--g-text-display-font-family);
     }
 }
