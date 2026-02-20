@@ -46,7 +46,17 @@ export const Search = ({
     autoFocus = false,
     value: externalValue,
 }: SearchProps) => {
-    const handleChange = lodashDebounce(onSubmit, debounce);
+    const onSubmitRef = React.useRef(onSubmit);
+    onSubmitRef.current = onSubmit;
+
+    const handleChange = React.useMemo(
+        () =>
+            lodashDebounce(
+                (...args: Parameters<typeof onSubmit>) => onSubmitRef.current(...args),
+                debounce,
+            ),
+        [debounce],
+    );
 
     const [value, setValue] = React.useState<string>(initialValue);
     const inputRef = React.useRef<HTMLInputElement>(null);

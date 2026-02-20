@@ -77,14 +77,17 @@ export const Controls = ({
         });
     };
 
-    const handleSearch = (searchValue: string) => {
-        setSearch(searchValue);
+    const handleSearch = React.useCallback(
+        (searchValue: string) => {
+            setSearch(searchValue);
 
-        handleLoadData({
-            page: DEFAULT_PAGE,
-            query: {search: searchValue, page: DEFAULT_PAGE},
-        });
-    };
+            handleLoadData({
+                page: DEFAULT_PAGE,
+                query: {search: searchValue, page: DEFAULT_PAGE},
+            });
+        },
+        [handleLoadData],
+    );
 
     const handleTagSelect = (selectedTags: string[]) => {
         const event = prepareAnalyticsEvent({
