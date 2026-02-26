@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.1.1](https://github.com/gravity-ui/blog-constructor/compare/v9.1.0...v9.1.1) (2026-02-25)
+
+
+### Bug Fixes
+
+* debounce on posts search ([#302](https://github.com/gravity-ui/blog-constructor/issues/302)) ([f9ac76b](https://github.com/gravity-ui/blog-constructor/commit/f9ac76bb11ed6edb1dcee900d4ea198de93539a0))
+
 ## [9.1.0](https://github.com/gravity-ui/blog-constructor/compare/v9.0.0...v9.1.0) (2026-02-05)
 
 
