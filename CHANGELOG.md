@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.1.2](https://github.com/gravity-ui/blog-constructor/compare/v9.1.1...v9.1.2) (2026-03-16)
+
+
+### Bug Fixes
+
+* **Search:** update selector weight ([#304](https://github.com/gravity-ui/blog-constructor/issues/304)) ([1849b62](https://github.com/gravity-ui/blog-constructor/commit/1849b629e4d0013305e0fb9ee9d9619b2c6db2fd))
+
 ## [9.1.1](https://github.com/gravity-ui/blog-constructor/compare/v9.1.0...v9.1.1) (2026-02-25)
 
 
