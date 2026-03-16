@@ -1,11 +1,14 @@
+import {Icon} from '@gravity-ui/uikit';
 import {ShareOptions} from '@gravity-ui/components';
 
 import post from './post.json';
 import page from './page.json';
-
+import services from './services.json';
 import suggestedPosts from './suggestedPosts.json';
+import tags from './tags.json';
 
-import {PostData} from '../src/models/common';
+import {FilterConfig, PostData} from '../src/models/common';
+import {Keyset, i18n} from '../src/i18n';
 
 /**
  * function for generate post page data,
@@ -145,3 +148,29 @@ export const getSideCardListStoryArgs = () => {
 
 export const youtubeSrc = 'https://youtu.be/0Qd3T6skprA';
 export const dataLensSrc = 'm2bzon9y39lck';
+
+export function getFiltersConfig(): FilterConfig[] {
+    return [
+        {
+            queryParamName: 'tags',
+            items: tags.map((tag) => ({
+                content: tag.name,
+                value: tag.slug,
+                icon: tag.icon ? <Icon data={tag.icon} /> : undefined,
+            })),
+            allLabel: i18n(Keyset.AllTags),
+        },
+        {
+            queryParamName: 'services',
+            items: services.map((service) => ({
+                content: service.name,
+                value: `${service.id}`,
+            })),
+            allLabel: i18n(Keyset.AllServices),
+            multiple: true,
+            filterable: true,
+            hasClear: true,
+            qa: 'service-select',
+        },
+    ];
+}

@@ -22,8 +22,7 @@ type FeedHeaderProps = HeaderProps & ControlsProps;
 type FeedHeaderContainerProps = FeedHeaderProps & ClassNameProps;
 
 export const FeedHeader = ({
-    tags,
-    services,
+    filters,
     handleLoadData,
     offset = 'default',
     background,
@@ -59,8 +58,7 @@ export const FeedHeader = ({
                 ) : null}
                 <Controls
                     title={title}
-                    tags={tags}
-                    services={services}
+                    filters={filters}
                     handleLoadData={handleLoadData}
                     queryParams={queryParams}
                 />
