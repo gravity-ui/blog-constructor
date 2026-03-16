@@ -3,8 +3,8 @@ import * as React from 'react';
 import {ChevronDown, Xmark} from '@gravity-ui/icons';
 import {Icon, SelectProps, useUniqId} from '@gravity-ui/uikit';
 
+import {SelectItem} from '../../../../models/common';
 import {block} from '../../../../utils/cn';
-import {SelectItem} from '../Controls/Controls';
 
 import './CustomSwitcher.scss';
 

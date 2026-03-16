@@ -3,6 +3,7 @@ import * as React from 'react';
 import {Lang} from '@gravity-ui/uikit';
 import type {Meta, StoryFn} from '@storybook/react';
 
+import {getFiltersConfig} from '../../../../.mocks/utils';
 import {BlogConstructorProvider} from '../../../constructor/BlogConstructorProvider';
 import {SettingsContext} from '../../../contexts/SettingsContext';
 import {routerData} from '../../../demo/mocks';
@@ -12,8 +13,6 @@ import {BlogPage, BlogPageProps} from '../BlogPage';
 import page from '../../../../.mocks/blogPage.json';
 import navigation from '../../../../.mocks/navigation.json';
 import posts from '../../../../.mocks/posts.json';
-import services from '../../../../.mocks/services.json';
-import tags from '../../../../.mocks/tags.json';
 
 const mockMetaComponent = <title>Blog page</title>;
 
@@ -24,8 +23,7 @@ export default {
         theme: 'light',
         content: page.content,
         posts,
-        services,
-        tags,
+        filters: getFiltersConfig(),
         metaData: {
             needHelmetWrapper: true,
             metaComponent: mockMetaComponent,

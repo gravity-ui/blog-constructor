@@ -17,11 +17,10 @@ import {LikesContext} from '../../contexts/LikesContext';
 import {SettingsContext} from '../../contexts/SettingsContext';
 import {useExtendedComponentMap} from '../../hooks/useExtendedComponentMap';
 import {
+    FilterConfig,
     GetPostsType,
     MetaProps,
     PostsProps,
-    Service,
-    Tag,
     ToggleLikeCallbackType,
 } from '../../models/common';
 
@@ -30,8 +29,7 @@ import './BlogPage.scss';
 export type BlogPageProps = {
     content: PageContent;
     posts: PostsProps;
-    tags: Tag[];
-    services?: Service[];
+    filters?: FilterConfig[];
     navigation?: NavigationData;
     getPosts: GetPostsType;
     hasLikes?: boolean;
@@ -48,8 +46,7 @@ export type BlogPageProps = {
 export const BlogPage = ({
     content,
     posts,
-    tags,
-    services,
+    filters,
     getPosts,
     metaData,
     custom,
@@ -78,8 +75,7 @@ export const BlogPage = ({
                     posts: posts.posts,
                     pinnedPost: posts.pinnedPost,
                     totalCount: posts.count,
-                    tags,
-                    services: services ?? [],
+                    filters,
                     getPosts,
                     pageCountForShowSupportButtons,
                 }}
