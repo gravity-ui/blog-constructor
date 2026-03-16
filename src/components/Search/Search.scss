@@ -47,7 +47,7 @@ $block: '.#{$namespace}search';
         }
     }
 
-    #{$block} &__search-suggest-control {
+    #{$block} &__search-suggest &__search-suggest-control {
         padding-left: $indentXXS;
         padding-right: $indentM;
     }
