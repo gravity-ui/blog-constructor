@@ -34,7 +34,7 @@ $block: '.#{$namespace}feed-filter';
             }
 
             .g-list__item {
-                margin: 4px;
+                margin: $indent4XS;
                 border-radius: $selectorItemBorderRadius;
             }
         }
@@ -62,7 +62,7 @@ $block: '.#{$namespace}feed-filter';
 
     &__popup-filter {
         @include text-size(body-2);
-        padding: 4px 12px;
+        padding: $indent4XS $indentXXS;
 
         border: none;
 
