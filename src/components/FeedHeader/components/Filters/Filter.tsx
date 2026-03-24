@@ -1,10 +1,10 @@
 import * as React from 'react';
 
 import {useAnalytics} from '@gravity-ui/page-constructor';
-import {Select} from '@gravity-ui/uikit';
+import {Select, SelectOption} from '@gravity-ui/uikit';
 
 import {MobileContext} from '../../../../contexts/MobileContext';
-import {FilterConfig, Query, SelectItem} from '../../../../models/common';
+import {FilterConfig, Query} from '../../../../models/common';
 import {block} from '../../../../utils/cn';
 
 import {renderFilter, renderOption, renderSwitcher} from './customRenders';
@@ -31,7 +31,7 @@ export const Filter = ({filter, initialValue, onSelect, className}: FilterProps)
         multiple,
         filterable,
         hasClear,
-        items,
+        options,
         allLabel,
         placeholder,
         qa,
@@ -62,9 +62,9 @@ export const Filter = ({filter, initialValue, onSelect, className}: FilterProps)
         defaultValue = [initialValue] as string[];
     }
 
-    const itemsWithEmpty: SelectItem[] = multiple
-        ? items
-        : [{value: 'empty', content: allLabel} as SelectItem, ...items];
+    const optionsWithEmpty: SelectOption[] = multiple
+        ? options
+        : [{value: 'empty', content: allLabel}, ...options];
 
     return (
         <div className={className}>
@@ -75,14 +75,14 @@ export const Filter = ({filter, initialValue, onSelect, className}: FilterProps)
                 filterable={filterable}
                 hasClear={hasClear ?? multiple}
                 disablePortal
-                options={itemsWithEmpty}
+                options={optionsWithEmpty}
                 defaultValue={defaultValue}
                 popupClassName={b('popup', {isMobile})}
                 onUpdate={handleFilterSelect}
                 placeholder={placeholder ?? allLabel}
                 renderControl={renderSwitcher({
                     initial: defaultValue,
-                    list: itemsWithEmpty,
+                    list: optionsWithEmpty,
                     defaultLabel: allLabel,
                     qa,
                 })}

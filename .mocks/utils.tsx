@@ -156,7 +156,7 @@ export function getFiltersConfig(): FilterConfig[] {
     return [
         {
             queryParamName: 'tags',
-            items: tags.map((tag) => ({
+            options: tags.map((tag) => ({
                 content: tag.name,
                 value: tag.slug,
                 icon: tag.icon ? <Icon data={tag.icon} /> : undefined,
@@ -169,7 +169,7 @@ export function getFiltersConfig(): FilterConfig[] {
         },
         {
             queryParamName: 'services',
-            items: services.map((service) => ({
+            options: services.map((service) => ({
                 content: service.name,
                 value: `${service.id}`,
             })),

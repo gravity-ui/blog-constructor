@@ -196,8 +196,6 @@ export interface QAProps {
     qa?: string;
 }
 
-export type SelectItem = SelectOption;
-
 export type FilterConfig = Pick<
     SelectProps,
     'multiple' | 'filterable' | 'hasClear' | 'placeholder'
@@ -205,7 +203,7 @@ export type FilterConfig = Pick<
     /** The key used in queryParams and passed to handleLoadData query */
     queryParamName: string;
     /** The selectable items for this filter */
-    items: SelectItem[];
+    options: SelectOption[];
     /** Label shown when nothing is selected (acts as "All ..." placeholder) */
     allLabel: string;
     /** Optional QA attribute forwarded to the switcher */
