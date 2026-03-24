@@ -2,22 +2,14 @@ import * as React from 'react';
 
 import {Bookmark} from '@gravity-ui/icons';
 import {useAnalytics} from '@gravity-ui/page-constructor';
-import {Button, Icon, MobileProvider, Select} from '@gravity-ui/uikit';
+import {Button, Icon, MobileProvider} from '@gravity-ui/uikit';
 
 import {LikesContext} from '../../../../contexts/LikesContext';
-import {MobileContext} from '../../../../contexts/MobileContext';
 import {Keyset, i18n} from '../../../../i18n';
-import {
-    DefaultEventNames,
-    FetchArgs,
-    FilterConfig,
-    Query,
-    SelectItem,
-} from '../../../../models/common';
+import {DefaultEventNames, FetchArgs, FilterConfig, Query} from '../../../../models/common';
 import {block} from '../../../../utils/cn';
 import {Search} from '../../../Search/Search';
-
-import {renderFilter, renderOption, renderSwitcher} from './customRenders';
+import {Filter} from '../Filters/Filter';
 
 import './Controls.scss';
 
@@ -32,7 +24,6 @@ export type ControlsProps = {
 
 const ICON_SIZE = 16;
 const DEFAULT_PAGE = 1;
-const VIRTUALIZATION_THRESHOLD = 1000;
 
 export const Controls = ({
     handleLoadData,
@@ -47,8 +38,6 @@ export const Controls = ({
 
     const [savedOnly, setSavedOnly] = React.useState<boolean>(savedOnlyInitial === 'true');
     const [search, setSearch] = React.useState<string>(searchInitial as string);
-
-    const isMobile = React.useContext(MobileContext);
 
     const handleSavedOnly = () => {
         handleAnalyticsSaveOnly();
@@ -75,18 +64,11 @@ export const Controls = ({
         [handleLoadData],
     );
 
-    const makeHandleFilterSelect = (filter: FilterConfig) => (selectedValues: string[]) => {
-        const query: Query = {page: DEFAULT_PAGE};
-
-        if (filter.multiple) {
-            query[filter.queryParamName] = selectedValues.join(',');
-        } else {
-            const isEmpty = selectedValues.some((v) => v === 'empty');
-            query[filter.queryParamName] = isEmpty ? '' : selectedValues[0];
-        }
-
-        handleLoadData({page: DEFAULT_PAGE, query});
-    };
+    const handleFilterSelect = React.useCallback(
+        (query: Query) =>
+            handleLoadData({page: DEFAULT_PAGE, query: {page: DEFAULT_PAGE, ...query}}),
+        [handleLoadData],
+    );
 
     return (
         <MobileProvider mobile={false}>
@@ -102,50 +84,15 @@ export const Controls = ({
                         />
                     </div>
 
-                    {filters.map((filter) => {
-                        const initialRaw = queryParams?.[filter.queryParamName];
-
-                        let defaultValue: string[];
-                        if (filter.multiple) {
-                            defaultValue = initialRaw ? (initialRaw as string).split(',') : [];
-                        } else {
-                            defaultValue = [initialRaw] as string[];
-                        }
-
-                        const itemsWithEmpty: SelectItem[] = filter.multiple
-                            ? filter.items
-                            : [
-                                  {value: 'empty', content: filter.allLabel} as SelectItem,
-                                  ...filter.items,
-                              ];
-
-                        return (
-                            <div key={filter.queryParamName} className={b('filter-item')}>
-                                <Select
-                                    className={b('select')}
-                                    size="xl"
-                                    multiple={filter.multiple}
-                                    filterable={filter.filterable}
-                                    hasClear={filter.hasClear ?? filter.multiple}
-                                    disablePortal
-                                    options={itemsWithEmpty}
-                                    defaultValue={defaultValue}
-                                    popupClassName={b('popup', {isMobile})}
-                                    onUpdate={makeHandleFilterSelect(filter)}
-                                    placeholder={filter.placeholder ?? filter.allLabel}
-                                    renderControl={renderSwitcher({
-                                        initial: defaultValue,
-                                        list: itemsWithEmpty,
-                                        defaultLabel: filter.allLabel,
-                                        qa: filter.qa,
-                                    })}
-                                    virtualizationThreshold={VIRTUALIZATION_THRESHOLD}
-                                    renderOption={renderOption}
-                                    renderFilter={filter.filterable ? renderFilter : undefined}
-                                />
-                            </div>
-                        );
-                    })}
+                    {filters.map((filter) => (
+                        <Filter
+                            key={filter.queryParamName}
+                            filter={filter}
+                            initialValue={queryParams?.[filter.queryParamName]}
+                            onSelect={handleFilterSelect}
+                            className={b('filter-item')}
+                        />
+                    ))}
 
                     {hasLikes ? (
                         <div className={b('filter-item', {'width-auto': true})}>

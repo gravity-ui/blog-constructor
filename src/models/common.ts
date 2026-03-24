@@ -2,7 +2,10 @@ import * as React from 'react';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import {MarkdownItPluginCb} from '@diplodoc/transform/lib/plugins/typings';
-import {HeaderBlockProps as PageConstructorHeaderBlockProps} from '@gravity-ui/page-constructor';
+import {
+    AnalyticsEventsProp,
+    HeaderBlockProps as PageConstructorHeaderBlockProps,
+} from '@gravity-ui/page-constructor';
 import {SelectOption, SelectProps} from '@gravity-ui/uikit';
 import {IBrowser, IDevice} from 'ua-parser-js';
 
@@ -207,6 +210,8 @@ export type FilterConfig = Pick<
     allLabel: string;
     /** Optional QA attribute forwarded to the switcher */
     qa?: string;
+    /** Optional analytics events fired when this filter value changes */
+    analyticsEvents?: AnalyticsEventsProp;
 };
 
 export enum PostCardSize {

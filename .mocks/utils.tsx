@@ -7,8 +7,11 @@ import services from './services.json';
 import suggestedPosts from './suggestedPosts.json';
 import tags from './tags.json';
 
+import {DefaultGoalIds} from '../src/constants';
+import {AnalyticsCounter} from '../src/counters/utils';
 import {FilterConfig, PostData} from '../src/models/common';
 import {Keyset, i18n} from '../src/i18n';
+import {prepareAnalyticsEvent} from '../src/utils/common';
 
 /**
  * function for generate post page data,
@@ -159,6 +162,10 @@ export function getFiltersConfig(): FilterConfig[] {
                 icon: tag.icon ? <Icon data={tag.icon} /> : undefined,
             })),
             allLabel: i18n(Keyset.AllTags),
+            analyticsEvents: prepareAnalyticsEvent({
+                name: DefaultGoalIds.tag,
+                counter: AnalyticsCounter.CrossSite,
+            }),
         },
         {
             queryParamName: 'services',
@@ -171,6 +178,10 @@ export function getFiltersConfig(): FilterConfig[] {
             filterable: true,
             hasClear: true,
             qa: 'service-select',
+            analyticsEvents: prepareAnalyticsEvent({
+                name: DefaultGoalIds.service,
+                counter: AnalyticsCounter.CrossSite,
+            }),
         },
     ];
 }

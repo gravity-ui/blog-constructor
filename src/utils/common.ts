@@ -169,10 +169,6 @@ export const getFeedQueryParams = (
         filters.forEach(({queryParamName}) => {
             filterParams[queryParamName] = queryParams.get(queryParamName) || undefined;
         });
-    } else {
-        // fallback: preserve legacy tags/services keys if no filters config provided
-        filterParams['tags'] = queryParams.get('tags') || undefined;
-        filterParams['services'] = queryParams.get('services') || undefined;
     }
 
     return {page, perPage, savedOnly, search, ...filterParams};

@@ -9,16 +9,17 @@ The `filters` prop is passed via [`FeedContext`](../../contexts/FeedContext.ts) 
 
 ## `FilterConfig`
 
-| Property       | Type           | Required | Description                                                                                 |
-| :------------- | :------------- | :------- | :------------------------------------------------------------------------------------------ |
-| queryParamName | `string`       | `true`   | The URL query parameter key used to store the selected value and passed to `handleLoadData` |
-| items          | `SelectItem[]` | `true`   | The list of selectable options (`{ value: string; content: React.ReactNode }`)              |
-| allLabel       | `string`       | `true`   | Label shown when nothing is selected (acts as an "All …" placeholder option in single mode) |
-| multiple       | `boolean`      | `false`  | Enables multi-select mode; selected values are joined with `,` in the query param           |
-| filterable     | `boolean`      | `false`  | Shows a search input inside the dropdown                                                    |
-| hasClear       | `boolean`      | `false`  | Shows a clear button; defaults to `true` when `multiple` is enabled                         |
-| placeholder    | `string`       | `false`  | Placeholder text shown in the trigger button; falls back to `allLabel` when omitted         |
-| qa             | `string`       | `false`  | `data-qa` attribute forwarded to the switcher button for testing                            |
+| Property        | Type                  | Required | Description                                                                                 |
+| :-------------- | :-------------------- | :------- | :------------------------------------------------------------------------------------------ |
+| queryParamName  | `string`              | `true`   | The URL query parameter key used to store the selected value and passed to `handleLoadData` |
+| items           | `SelectItem[]`        | `true`   | The list of selectable options (`{ value: string; content: React.ReactNode }`)              |
+| allLabel        | `string`              | `true`   | Label shown when nothing is selected (acts as an "All …" placeholder option in single mode) |
+| multiple        | `boolean`             | `false`  | Enables multi-select mode; selected values are joined with `,` in the query param           |
+| filterable      | `boolean`             | `false`  | Shows a search input inside the dropdown                                                    |
+| hasClear        | `boolean`             | `false`  | Shows a clear button; defaults to `true` when `multiple` is enabled                         |
+| placeholder     | `string`              | `false`  | Placeholder text shown in the trigger button; falls back to `allLabel` when omitted         |
+| qa              | `string`              | `false`  | `data-qa` attribute forwarded to the switcher button for testing                            |
+| analyticsEvents | `AnalyticsEventsProp` | `false`  | Analytics event(s) fired when the filter value changes; accepts a single event or an array  |
 
 ### Example
 
@@ -33,6 +34,10 @@ const filters: FilterConfig[] = [
     allLabel: 'All tags',
     multiple: true,
     filterable: true,
+    analyticsEvents: {
+      name: 'filter-click',
+      type: 'tags',
+    },
   },
   {
     queryParamName: 'service',
@@ -41,6 +46,10 @@ const filters: FilterConfig[] = [
       {value: 'storage', content: 'Storage'},
     ],
     allLabel: 'All services',
+    analyticsEvents: {
+      name: 'filter-click',
+      type: 'services',
+    },
   },
 ];
 ```
