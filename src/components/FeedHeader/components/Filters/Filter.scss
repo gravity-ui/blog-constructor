@@ -8,6 +8,12 @@ $block: '.#{$namespace}feed-filter';
     $selectorContainerBorderRadius: 12px;
     $popupMaxHeight: 500px;
 
+    &__switch {
+        margin-right: $indentXXXS;
+        margin-left: $indentXXXS;
+        margin-bottom: $indentXXS;
+    }
+
     &__select {
         width: 100%;
     }
