@@ -1,13 +1,12 @@
 import * as React from 'react';
 
-import {GetPostsType, PostData, Service, Tag} from '../models/common';
+import {FilterConfig, GetPostsType, PostData} from '../models/common';
 
 export interface FeedContextProps {
     posts?: PostData[];
     pinnedPost?: PostData;
     totalCount?: number;
-    tags?: Tag[];
-    services?: Service[];
+    filters?: FilterConfig[];
     getPosts?: GetPostsType;
     pageCountForShowSupportButtons?: number;
 }

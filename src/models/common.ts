@@ -2,7 +2,11 @@ import * as React from 'react';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import {MarkdownItPluginCb} from '@diplodoc/transform/lib/plugins/typings';
-import {HeaderBlockProps as PageConstructorHeaderBlockProps} from '@gravity-ui/page-constructor';
+import {
+    AnalyticsEventsProp,
+    HeaderBlockProps as PageConstructorHeaderBlockProps,
+} from '@gravity-ui/page-constructor';
+import {SelectOption, SelectProps} from '@gravity-ui/uikit';
 import {IBrowser, IDevice} from 'ua-parser-js';
 
 import {Locale} from '../models/locale';
@@ -26,14 +30,6 @@ export type Author = {
     description: string | null;
     fullDescription: string | null;
     shortDescription: string | null;
-} & {
-    [x: string]: string | null;
-};
-
-export type Service = {
-    id: number | string;
-    slug: string;
-    name: string;
 } & {
     [x: string]: string | null;
 };
@@ -168,12 +164,11 @@ export interface HeaderBlockProps extends PageConstructorHeaderBlockProps {
 }
 
 export type GetPostsRequest = {
-    tags: string | undefined;
     page: number;
     perPage: number;
     savedOnly: boolean;
     search: string | undefined;
-    services: string | undefined;
+    [filterParam: string]: string | number | boolean | undefined;
 };
 
 export type GetPostsType = (query: GetPostsRequest) => Promise<PostsProps>;
@@ -200,6 +195,22 @@ export type FetchArgs = {
 export interface QAProps {
     qa?: string;
 }
+
+export type FilterConfig = Pick<
+    SelectProps,
+    'multiple' | 'filterable' | 'hasClear' | 'placeholder'
+> & {
+    /** The key used in queryParams and passed to handleLoadData query */
+    queryParamName: string;
+    /** The selectable items for this filter */
+    options: SelectOption[];
+    /** Label shown when nothing is selected (acts as "All ..." placeholder) */
+    allLabel: string;
+    /** Optional QA attribute forwarded to the switcher */
+    qa?: string;
+    /** Optional analytics events fired when this filter value changes */
+    analyticsEvents?: AnalyticsEventsProp;
+};
 
 export enum PostCardSize {
     SMALL = 's',

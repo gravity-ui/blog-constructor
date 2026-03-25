@@ -1,16 +1,11 @@
 import {SelectOption, SelectProps, TextInput} from '@gravity-ui/uikit';
 
 import {Keyset, i18n} from '../../../../i18n';
-import {block} from '../../../../utils/cn';
 import {
     CustomSelectOption,
     CustomSelectOptionProps,
 } from '../CustomSelectOption/CustomSelectOption';
 import {CustomSwitcher, CustomSwitcherProps} from '../CustomSwitcher/CustomSwitcher';
-
-import './Controls.scss';
-
-const b = block('feed-controls');
 
 type RenderSwitcherType = ({
     initial,
@@ -23,7 +18,7 @@ type RenderSwitcherType = ({
     qa?: string;
 }) => SelectProps['renderControl'];
 
-type RenderFilterType = SelectProps['renderFilter'];
+type RenderFilterType = (options: {className?: string}) => SelectProps['renderFilter'];
 
 export const renderSwitcher: RenderSwitcherType =
     ({initial, list, defaultLabel, qa}) =>
@@ -47,22 +42,25 @@ export const renderSwitcher: RenderSwitcherType =
         />
     );
 
-export const renderFilter: RenderFilterType = ({
-    ref,
-    onChange,
-    inputProps: {value, onKeyDown, onChange: _, size: __, placeholder: ___, ...a11yProps},
-}) => (
-    <TextInput
-        value={value}
-        view="clear"
-        placeholder={i18n(Keyset.Search)}
-        onUpdate={onChange}
-        onKeyDown={onKeyDown}
-        className={b('popup-filter')}
-        controlRef={ref}
-        controlProps={{size: 1, ...a11yProps}}
-    />
-);
+export const renderFilter: RenderFilterType =
+    ({className}) =>
+    // eslint-disable-next-line react/display-name
+    ({
+        ref,
+        onChange,
+        inputProps: {value, onKeyDown, onChange: _, size: __, placeholder: ___, ...a11yProps},
+    }) => (
+        <TextInput
+            value={value}
+            view="clear"
+            placeholder={i18n(Keyset.Search)}
+            onUpdate={onChange}
+            onKeyDown={onKeyDown}
+            className={className}
+            controlRef={ref}
+            controlProps={{size: 1, ...a11yProps}}
+        />
+    );
 
 export const renderOption = (option: SelectOption) => (
     <CustomSelectOption data={option as CustomSelectOptionProps['data']} />
