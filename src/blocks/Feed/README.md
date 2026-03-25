@@ -12,7 +12,7 @@ The `filters` prop is passed via [`FeedContext`](../../contexts/FeedContext.ts) 
 | Property        | Type                  | Required | Description                                                                                 |
 | :-------------- | :-------------------- | :------- | :------------------------------------------------------------------------------------------ |
 | queryParamName  | `string`              | `true`   | The URL query parameter key used to store the selected value and passed to `handleLoadData` |
-| items           | `SelectItem[]`        | `true`   | The list of selectable options (`{ value: string; content: React.ReactNode }`)              |
+| options         | `SelectOption[]`      | `true`   | The list of selectable options (`{ value: string; content: React.ReactNode }`)              |
 | allLabel        | `string`              | `true`   | Label shown when nothing is selected (acts as an "All …" placeholder option in single mode) |
 | multiple        | `boolean`             | `false`  | Enables multi-select mode; selected values are joined with `,` in the query param           |
 | filterable      | `boolean`             | `false`  | Shows a search input inside the dropdown                                                    |
@@ -27,7 +27,7 @@ The `filters` prop is passed via [`FeedContext`](../../contexts/FeedContext.ts) 
 const filters: FilterConfig[] = [
   {
     queryParamName: 'tags',
-    items: [
+    options: [
       {value: 'news', content: 'News'},
       {value: 'tutorial', content: 'Tutorial'},
     ],
@@ -41,7 +41,7 @@ const filters: FilterConfig[] = [
   },
   {
     queryParamName: 'service',
-    items: [
+    options: [
       {value: 'compute', content: 'Compute'},
       {value: 'storage', content: 'Storage'},
     ],
