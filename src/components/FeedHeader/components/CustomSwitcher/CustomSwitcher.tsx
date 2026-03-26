@@ -1,7 +1,14 @@
 import * as React from 'react';
 
 import {ChevronDown, Xmark} from '@gravity-ui/icons';
-import {Icon, SelectOption, SelectProps, useUniqId} from '@gravity-ui/uikit';
+import {
+    Icon,
+    SelectOption,
+    SelectOptionGroup,
+    SelectOptions,
+    SelectProps,
+    useUniqId,
+} from '@gravity-ui/uikit';
 
 import {block} from '../../../../utils/cn';
 
@@ -21,7 +28,7 @@ type RenderControlA11yProps = Pick<TriggerProps, A11yKeys>;
 export type CustomSwitcherProps = {
     initial: (string | number | null)[];
     defaultLabel: string;
-    list: SelectOption[];
+    list: SelectOptions;
     controlRef: RenderControlParameters['ref'];
     a11yProps: RenderControlA11yProps;
     qa?: string;
@@ -44,7 +51,12 @@ export const CustomSwitcher = ({
     qa,
 }: CustomSwitcherProps) => {
     const itemsNames = React.useMemo(() => {
-        const items = list
+        const flatList: SelectOption[] =
+            list.length > 0 && 'options' in list[0]
+                ? (list as SelectOptionGroup[]).flatMap((g) => g.options ?? [])
+                : (list as SelectOption[]);
+
+        const items = flatList
             .filter((item) => initial.includes(item.value))
             .map((item) => item.content);
 

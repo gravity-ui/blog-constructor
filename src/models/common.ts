@@ -6,7 +6,7 @@ import {
     AnalyticsEventsProp,
     HeaderBlockProps as PageConstructorHeaderBlockProps,
 } from '@gravity-ui/page-constructor';
-import {SelectOption, SelectProps} from '@gravity-ui/uikit';
+import {SelectOptions, SelectProps} from '@gravity-ui/uikit';
 import {IBrowser, IDevice} from 'ua-parser-js';
 
 import {Locale} from '../models/locale';
@@ -196,21 +196,32 @@ export interface QAProps {
     qa?: string;
 }
 
-export type FilterConfig = Pick<
-    SelectProps,
-    'multiple' | 'filterable' | 'hasClear' | 'placeholder'
-> & {
+type FilterConfigBase = {
     /** The key used in queryParams and passed to handleLoadData query */
     queryParamName: string;
-    /** The selectable items for this filter */
-    options: SelectOption[];
-    /** Label shown when nothing is selected (acts as "All ..." placeholder) */
-    allLabel: string;
-    /** Optional QA attribute forwarded to the switcher */
+    /** Optional QA attribute forwarded to the control */
     qa?: string;
     /** Optional analytics events fired when this filter value changes */
     analyticsEvents?: AnalyticsEventsProp;
 };
+
+type SelectFilterConfig = FilterConfigBase &
+    Pick<SelectProps, 'multiple' | 'filterable' | 'hasClear' | 'placeholder'> & {
+        type: 'select';
+        /** The selectable items for this filter */
+        options: SelectOptions;
+        /** Label shown when nothing is selected (acts as "All …" placeholder option in single mode) */
+        allLabel: string;
+    };
+
+type BooleanFilterConfig = FilterConfigBase & {
+    /** Renders a Switch instead of a Select */
+    type: 'boolean';
+    /** Label rendered next to the switch toggle */
+    label: string;
+};
+
+export type FilterConfig = SelectFilterConfig | BooleanFilterConfig;
 
 export enum PostCardSize {
     SMALL = 's',

@@ -155,6 +155,7 @@ export const dataLensSrc = 'm2bzon9y39lck';
 export function getFiltersConfig(): FilterConfig[] {
     return [
         {
+            type: 'select',
             queryParamName: 'tags',
             options: tags.map((tag) => ({
                 content: tag.name,
@@ -168,6 +169,7 @@ export function getFiltersConfig(): FilterConfig[] {
             }),
         },
         {
+            type: 'select',
             queryParamName: 'services',
             options: services.map((service) => ({
                 content: service.name,

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import {useAnalytics} from '@gravity-ui/page-constructor';
-import {Select, SelectOption} from '@gravity-ui/uikit';
+import {Flex, Select, SelectOptions, Switch} from '@gravity-ui/uikit';
 
 import {MobileContext} from '../../../../contexts/MobileContext';
 import {FilterConfig, Query} from '../../../../models/common';
@@ -26,17 +26,34 @@ export const Filter = ({filter, initialValue, onSelect, className}: FilterProps)
     const isMobile = React.useContext(MobileContext);
     const handleAnalyticsFilter = useAnalytics();
 
-    const {
-        queryParamName,
-        multiple,
-        filterable,
-        hasClear,
-        options,
-        allLabel,
-        placeholder,
-        qa,
-        analyticsEvents,
-    } = filter;
+    const {queryParamName, qa, analyticsEvents, type} = filter;
+
+    const handleSwitchToggle = (checked: boolean) => {
+        if (analyticsEvents) {
+            handleAnalyticsFilter(analyticsEvents);
+        }
+
+        onSelect({[queryParamName]: checked ? 'true' : ''});
+    };
+
+    if (type === 'boolean') {
+        const {label} = filter;
+
+        return (
+            <Flex className={b('switch')} alignItems="center">
+                <Switch
+                    size="l"
+                    qa={qa}
+                    defaultChecked={Boolean(initialValue)}
+                    onUpdate={handleSwitchToggle}
+                >
+                    {label}
+                </Switch>
+            </Flex>
+        );
+    }
+
+    const {multiple, filterable, hasClear, options, placeholder, allLabel} = filter;
 
     const handleFilterSelect = (selectedValues: string[]) => {
         if (analyticsEvents) {
@@ -62,7 +79,7 @@ export const Filter = ({filter, initialValue, onSelect, className}: FilterProps)
         defaultValue = [initialValue] as string[];
     }
 
-    const optionsWithEmpty: SelectOption[] = multiple
+    const optionsWithEmpty: SelectOptions = multiple
         ? options
         : [{value: 'empty', content: allLabel}, ...options];
 
