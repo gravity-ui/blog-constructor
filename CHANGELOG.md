@@ -1,5 +1,16 @@
 # Changelog
 
+## [10.0.0](https://github.com/gravity-ui/blog-constructor/compare/v9.1.2...v10.0.0) (2026-04-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* release 10 ([#308](https://github.com/gravity-ui/blog-constructor/issues/308))
+
+### Features
+
+* release 10 ([#308](https://github.com/gravity-ui/blog-constructor/issues/308)) ([e1d9912](https://github.com/gravity-ui/blog-constructor/commit/e1d991215ece69378bf8a9981c3445297e671969))
+
 ## [9.1.2](https://github.com/gravity-ui/blog-constructor/compare/v9.1.1...v9.1.2) (2026-03-16)
 
 
