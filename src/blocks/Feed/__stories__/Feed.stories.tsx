@@ -4,26 +4,17 @@ import {Block, PageConstructor, PageConstructorProvider} from '@gravity-ui/page-
 import type {Meta, StoryFn} from '@storybook/react';
 import isEqual from 'lodash/isEqual';
 
-import {getDefaultStoryArgs} from '../../../../.mocks/utils';
+import {getDefaultStoryArgs, getFiltersConfig} from '../../../../.mocks/utils';
 import customBlocks from '../../../constructor/blocksMap';
 import {FeedContext, FeedContextProps} from '../../../contexts/FeedContext';
 import {RouterContext} from '../../../contexts/RouterContext';
 import {SettingsContext} from '../../../contexts/SettingsContext';
 import {routerData} from '../../../demo/mocks';
 import {FeedProps} from '../../../models/blocks';
-import {
-    BlockType,
-    GetPostsRequest,
-    GetPostsType,
-    PostsProps,
-    Service,
-    Tag,
-} from '../../../models/common';
+import {BlockType, GetPostsRequest, GetPostsType, PostsProps} from '../../../models/common';
 import {Feed} from '../Feed';
 
 import mockedPosts from '../../../../.mocks/posts.json';
-import mockedServices from '../../../../.mocks/services.json';
-import mockedTags from '../../../../.mocks/tags.json';
 
 export default {
     title: 'Blocks/Feed',
@@ -44,7 +35,7 @@ const getPosts: GetPostsType = async (query: GetPostsRequest) => {
                 !query.tags ||
                 isEqual(
                     post.tags.map((tag) => tag.id.toString()),
-                    query.tags.split(','),
+                    (query.tags as string).split(','),
                 ),
         )
         .filter(
@@ -52,7 +43,7 @@ const getPosts: GetPostsType = async (query: GetPostsRequest) => {
                 !query.services ||
                 isEqual(
                     post.services.map((service) => service.id.toString()),
-                    query.services.split(','),
+                    (query.services as string).split(','),
                 ),
         )
         .filter(
@@ -72,8 +63,7 @@ const getPosts: GetPostsType = async (query: GetPostsRequest) => {
 
 const contextData = {
     ...mockedPosts,
-    services: mockedServices as Service[],
-    tags: mockedTags as Tag[],
+    filters: getFiltersConfig(),
     getPosts,
 };
 

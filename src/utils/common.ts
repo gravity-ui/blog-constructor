@@ -21,7 +21,7 @@ import {
 import {RouterContextProps} from '../contexts/RouterContext';
 import {AnalyticsCounter} from '../counters/utils';
 import {Keyset, i18n} from '../i18n';
-import {GetPostsRequest, Query, Tag} from '../models/common';
+import {FilterConfig, GetPostsRequest, Query, Tag} from '../models/common';
 
 const QA_ATTRIBUTES_KEYS = ['container', 'content', 'wrapper', 'image', 'button'];
 
@@ -152,16 +152,26 @@ export const getMergedAnalyticsEvents = (
     return eventsAsArray.concat(existingAsArray);
 };
 
-export const getFeedQueryParams = (queryString: Query, pageNumber?: number): GetPostsRequest => {
+export const getFeedQueryParams = (
+    queryString: Query,
+    pageNumber?: number,
+    filters?: FilterConfig[],
+): GetPostsRequest => {
     const queryParams = getPageSearchParams(queryString);
-    const tags = queryParams.get('tags') || undefined;
     const page = pageNumber || Number(queryParams.get('page') || DEFAULT_PAGE);
     const perPage = Number(queryParams.get('perPage') || DEFAULT_ROWS_PER_PAGE);
     const savedOnly = queryParams.get('savedOnly') === 'true';
     const search = queryParams.get('search') || undefined;
-    const serviceIds = queryParams.get('services') || undefined;
 
-    return {tags, page, perPage, savedOnly, search, services: serviceIds};
+    const filterParams: Record<string, string | undefined> = {};
+
+    if (filters?.length) {
+        filters.forEach(({queryParamName}) => {
+            filterParams[queryParamName] = queryParams.get(queryParamName) || undefined;
+        });
+    }
+
+    return {page, perPage, savedOnly, search, ...filterParams};
 };
 
 export const scrollOnPageChange = (containerId: string) => {

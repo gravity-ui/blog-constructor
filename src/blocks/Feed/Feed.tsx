@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import {useAnalytics} from '@gravity-ui/page-constructor';
-import {Icon} from '@gravity-ui/uikit';
 
 import {FeedHeader} from '../../components/FeedHeader/FeedHeader';
 import {Posts} from '../../components/Posts/Posts';
@@ -22,15 +21,8 @@ const PAGE_QUERY = 'page';
 const FIRST_PAGE = 1;
 
 export const Feed = ({image, title}: FeedProps) => {
-    const {
-        posts,
-        totalCount,
-        tags,
-        services,
-        pinnedPost,
-        getPosts,
-        pageCountForShowSupportButtons,
-    } = React.useContext(FeedContext);
+    const {posts, totalCount, filters, pinnedPost, getPosts, pageCountForShowSupportButtons} =
+        React.useContext(FeedContext);
     const router = React.useContext(RouterContext);
     const handleAnalytics = useAnalytics(DefaultEventNames.ShowMore);
     const additionalAnalyticsEvent = prepareAnalyticsEvent({
@@ -106,7 +98,11 @@ export const Feed = ({image, title}: FeedProps) => {
     const fetchData = React.useCallback(
         async ({page, query}: FetchArgs) => {
             if (query && getPosts) {
-                const queryParamsForRequest = getFeedQueryParams({...queryParams, ...query}, page);
+                const queryParamsForRequest = getFeedQueryParams(
+                    {...queryParams, ...query},
+                    page,
+                    filters,
+                );
                 const data = await getPosts(queryParamsForRequest);
 
                 return data;
@@ -114,7 +110,7 @@ export const Feed = ({image, title}: FeedProps) => {
                 throw new Error('cant get request');
             }
         },
-        [getPosts, queryParams],
+        [getPosts, queryParams, filters],
     );
 
     const handleLoad = React.useCallback(
@@ -207,31 +203,11 @@ export const Feed = ({image, title}: FeedProps) => {
         });
     }, [currentPage, lastLoadedCount, perPageInQuery, postCountOnPage]);
 
-    const serviceItems = React.useMemo(
-        () =>
-            services?.map((service) => ({
-                content: service.name,
-                value: `${service.id}`,
-            })),
-        [services],
-    );
-
-    const tagItems = React.useMemo(
-        () =>
-            tags?.map((tag) => ({
-                content: tag.name,
-                value: tag.slug,
-                icon: tag.icon && <Icon data={tag.icon} />,
-            })),
-        [tags],
-    );
-
     return (
         <div>
             <FeedHeader
                 verticalOffset="s"
-                tags={tagItems}
-                services={serviceItems}
+                filters={filters}
                 handleLoadData={handleLoad}
                 queryParams={queryParams}
                 background={{
