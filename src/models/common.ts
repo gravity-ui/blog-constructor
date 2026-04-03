@@ -226,6 +226,31 @@ export type SavedOnlyFilterConfig = FilterConfigBase & {
 
 export type FilterConfig = SelectFilterConfig | SearchFilterConfig | SavedOnlyFilterConfig;
 
+/**
+ * Filters can be supplied either as a flat array (all filters in one row)
+ * or as an array of rows (each inner array is rendered as a separate row).
+ *
+ * @example Single row (backward-compatible)
+ * filters: [searchFilter, tagsFilter]
+ *
+ * @example Multiple rows
+ * filters: [[searchFilter, savedOnlyFilter], [tagsFilter, serviceFilter]]
+ */
+export type FiltersConfig = FilterConfig[] | FilterConfig[][];
+
+export function normalizeFiltersToRows(filters: FiltersConfig): FilterConfig[][] {
+    if (filters.length === 0) {
+        return [];
+    }
+
+    // If the first element is itself an array, the input is already multi-row.
+    if (Array.isArray(filters[0])) {
+        return filters as FilterConfig[][];
+    }
+
+    return [filters as FilterConfig[]];
+}
+
 export enum PostCardSize {
     SMALL = 's',
     MEDIUM = 'm',

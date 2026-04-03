@@ -31,6 +31,7 @@ export const FeedHeader = ({
     className,
     queryParams,
     title,
+    resetTitleMargin,
 }: FeedHeaderContainerProps) => {
     const backgroundThemed = background && getThemedValue(background, theme as Theme);
 
@@ -61,6 +62,7 @@ export const FeedHeader = ({
                     filters={filters}
                     handleLoadData={handleLoadData}
                     queryParams={queryParams}
+                    resetTitleMargin={resetTitleMargin}
                 />
             </Grid>
         </header>

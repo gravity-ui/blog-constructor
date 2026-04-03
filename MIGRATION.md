@@ -12,11 +12,11 @@ This release replaces the hardcoded `tags` / `services` filter props with a sing
 
 ### `BlogPage` props
 
-| Before                    | After                      |
-| ------------------------- | -------------------------- |
-| `tags?: SelectItem[]`     | removed                    |
-| `services?: SelectItem[]` | removed                    |
-| _(not present)_           | `filters?: FilterConfig[]` |
+| Before                    | After                     |
+| ------------------------- | ------------------------- |
+| `tags?: SelectItem[]`     | removed                   |
+| `services?: SelectItem[]` | removed                   |
+| _(not present)_           | `filters?: FiltersConfig` |
 
 **Before**
 
@@ -32,9 +32,9 @@ This release replaces the hardcoded `tags` / `services` filter props with a sing
 **After**
 
 ```tsx
-import {FilterConfig} from '@gravity-ui/blog-constructor';
+import {FiltersConfig} from '@gravity-ui/blog-constructor';
 
-const filters: FilterConfig[] = [
+const filters: FiltersConfig = [
   {
     queryParamName: 'tags',
     options: tags.map((t) => ({value: t.slug, content: t.name})),
@@ -59,7 +59,28 @@ const filters: FilterConfig[] = [
 
 ---
 
-### Migrating hardcoded Search / SavedOnly to `FilterConfig`
+### Multi-row filter layout
+
+`FiltersConfig` supports both a flat array (single row) and an array of rows. Each inner array is rendered as a separate row of controls:
+
+```tsx
+import {FiltersConfig} from '@gravity-ui/blog-constructor';
+
+// Single row (flat array — backward-compatible with FilterConfig[])
+const filters: FiltersConfig = [searchFilter, tagsFilter];
+
+// Multiple rows (array of arrays)
+const filters: FiltersConfig = [
+  [searchFilter, savedOnlyFilter],
+  [tagsFilter, serviceFilter],
+];
+
+<BlogPage filters={filters} getPosts={getPosts} />;
+```
+
+---
+
+### Migrating hardcoded Search / SavedOnly to `FiltersConfig`
 
 Previously the search input and "saved only" button were always rendered by `Controls` and could not be removed or reordered. They are now opt-in entries in the `filters` array.
 
@@ -68,9 +89,9 @@ Previously the search input and "saved only" button were always rendered by `Con
 **After** — declare them explicitly in `filters`:
 
 ```tsx
-import {FilterConfig} from '@gravity-ui/blog-constructor';
+import {FiltersConfig} from '@gravity-ui/blog-constructor';
 
-const filters: FilterConfig[] = [
+const filters: FiltersConfig = [
   {type: 'search', queryParamName: 'search'},
   {
     queryParamName: 'tags',
@@ -83,13 +104,13 @@ const filters: FilterConfig[] = [
 <BlogPage filters={filters} getPosts={getPosts} />;
 ```
 
----
-
 If you omit the `search` or `savedOnly` entries they will not be rendered.
+
+---
 
 ### `GetPostsRequest` type
 
-The fixed `tags` and `services` fields are replaced by an open index signature so every `queryParamName` you declare in `FilterConfig` is forwarded automatically.
+The fixed `tags` and `services` fields are replaced by an open index signature so every `queryParamName` you declare in `FiltersConfig` is forwarded automatically.
 
 **Before**
 
@@ -124,7 +145,7 @@ const getPosts = async ({tags, services, page, ...}: GetPostsRequest) => { ... }
 
 // After
 const getPosts = async ({page, perPage, savedOnly, search, tags, services, ...}: GetPostsRequest) => { ... };
-// `tags` and `services` are still present when you declare them in FilterConfig —
+// `tags` and `services` are still present when you declare them in FiltersConfig —
 // they are just no longer statically typed.
 ```
 
@@ -132,7 +153,7 @@ const getPosts = async ({page, perPage, savedOnly, search, tags, services, ...}:
 
 ### `Service` type removed
 
-The `Service` model has been deleted from `src/models/common.ts`. If you imported it, replace usages with a plain object type or your own domain type:
+The `Service` model has been deleted from [`src/models/common.ts`](src/models/common.ts). If you imported it, replace usages with a plain object type or your own domain type:
 
 ```ts
 // Before
@@ -149,13 +170,13 @@ type Service = {
 
 ---
 
-### `SelectItem` type removed from `Controls`
+### `SelectItem` type removed
 
-`SelectItem` was an internal type exported from `Controls.tsx`. It is no longer exported. Use `SelectOption` from `@gravity-ui/uikit` instead when building option arrays:
+`SelectItem` was an internal type used for `tags` and `services` props. It is no longer exported. Use `SelectOption` from `@gravity-ui/uikit` instead when building option arrays:
 
 ```ts
 // Before
-import {SelectItem} from '@gravity-ui/blog-constructor/Controls';
+import {SelectItem} from '@gravity-ui/blog-constructor';
 const items: SelectItem[] = [{value: 'foo', content: 'Foo'}];
 
 // After
@@ -167,7 +188,7 @@ const items: SelectOption[] = [{value: 'foo', content: 'Foo'}];
 
 ### `FeedContext` changes
 
-`tags` and `services` fields are removed from [`FeedContextProps`](src/contexts/FeedContext.ts). The context now carries `filters?: FilterConfig[]` instead. This is an internal change — if you consumed `FeedContext` directly, update accordingly:
+`tags` and `services` fields are removed from [`FeedContextProps`](src/contexts/FeedContext.ts). The context now carries `filters?: FiltersConfig` instead. This is an internal change — if you consumed `FeedContext` directly, update accordingly:
 
 ```ts
 // Before
@@ -181,7 +202,7 @@ const {filters} = React.useContext(FeedContext);
 
 ### `getFeedQueryParams` utility
 
-The helper now accepts an optional third argument `filters?: FilterConfig[]`. Pass your filters array so dynamic query params are extracted correctly:
+The helper now accepts an optional third argument `filters?: FiltersConfig`. Pass your filters array so dynamic query params are extracted correctly:
 
 ```ts
 // Before
@@ -198,11 +219,11 @@ getFeedQueryParams(queryString, pageNumber, filters);
 Per-filter analytics are now configured inline on each `FilterConfig` entry via the `analyticsEvents` field. The dedicated `DefaultEventNames.Tag` / `DefaultEventNames.Service` / `DefaultEventNames.SaveOnly` calls inside `Controls` are removed.
 
 ```ts
-import {DefaultEventNames} from '@gravity-ui/blog-constructor';
+import {DefaultEventNames, FiltersConfig} from '@gravity-ui/blog-constructor';
 import {prepareAnalyticsEvent} from '@gravity-ui/blog-constructor/utils';
 import {AnalyticsCounter} from '@gravity-ui/blog-constructor/counters';
 
-const filters: FilterConfig[] = [
+const filters: FiltersConfig = [
   {
     type: 'savedOnly',
     queryParamName: 'savedOnly',
@@ -225,6 +246,6 @@ const filters: FilterConfig[] = [
 
 ---
 
-### `FilterConfig` reference
+### `FilterConfig` / `FiltersConfig` reference
 
-Full type (see [`src/models/common.ts`](src/models/common.ts)):
+Full types (see [`src/models/common.ts`](src/models/common.ts)):

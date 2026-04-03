@@ -23,6 +23,14 @@ $block: '.#{$namespace}feed-controls';
 
             padding-top: 112px;
             padding-bottom: $indentXXL;
+
+            &#{$block}__header-item_reset-margin {
+                margin: 0;
+            }
+        }
+
+        &_filters + &_filters {
+            margin-top: $indentXXXS;
         }
     }
 }

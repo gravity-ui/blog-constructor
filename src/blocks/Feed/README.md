@@ -1,11 +1,30 @@
 The data in this component is taken from contexts.
 
-| Property | Type     | Required | Description           |
-| :------- | :------- | :------- | :-------------------- |
-| image    | `string` | `true`   | Image for feed header |
-| title    | `string` | `false`  | Title for feed header |
+| Property         | Type      | Required | Description                                    |
+| :--------------- | :-------- | :------- | :--------------------------------------------- |
+| image            | `string`  | `true`   | Image for feed header                          |
+| title            | `string`  | `false`  | Title for feed header                          |
+| resetTitleMargin | `boolean` | `false`  | When `true`, resets the `h1` title `margin: 0` |
 
-The `filters` prop is passed via [`FeedContext`](../../contexts/FeedContext.ts) (populated by [`BlogPage`](../../containers/BlogPage/BlogPage.tsx)). Each entry in the `filters` array is a [`FilterConfig`](../../models/common.ts) discriminated union that renders a filter control in the feed header.
+The `filters` prop is passed via [`FeedContext`](../../contexts/FeedContext.ts) (populated by [`BlogPage`](../../containers/BlogPage/BlogPage.tsx)). It accepts a [`FiltersConfig`](../../models/common.ts) value — either a flat array of filter configs (all rendered in one row) or an array of rows (each inner array is rendered as a separate row in the feed header).
+
+## `FiltersConfig`
+
+`FiltersConfig` is `FilterConfig[] | FilterConfig[][]`.
+
+- **Single row** (flat array, backward-compatible): all filters are placed in one row.
+- **Multiple rows** (array of arrays): each inner array becomes its own row of filter controls.
+
+```tsx
+// Single row — backward-compatible
+const filters: FiltersConfig = [searchFilter, tagsFilter];
+
+// Multiple rows
+const filters: FiltersConfig = [
+  [searchFilter, savedOnlyFilter],
+  [tagsFilter, serviceFilter],
+];
+```
 
 ## `FilterConfig`
 
