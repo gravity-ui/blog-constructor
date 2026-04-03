@@ -155,6 +155,10 @@ export const dataLensSrc = 'm2bzon9y39lck';
 export function getFiltersConfig(): FilterConfig[] {
     return [
         {
+            type: 'search',
+            queryParamName: 'search',
+        },
+        {
             queryParamName: 'tags',
             options: tags.map((tag) => ({
                 content: tag.name,
@@ -182,6 +186,10 @@ export function getFiltersConfig(): FilterConfig[] {
                 name: DefaultGoalIds.service,
                 counter: AnalyticsCounter.CrossSite,
             }),
+        },
+        {
+            type: 'savedOnly',
+            queryParamName: 'savedOnly',
         },
     ];
 }

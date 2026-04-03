@@ -1,0 +1,11 @@
+@import '../../../../../styles/mixins.scss';
+@import '../../../../../styles/variables.scss';
+
+$block: '.#{$namespace}search-filter';
+
+#{$block} {
+    &__search {
+        width: 100%;
+        max-width: 100%;
+    }
+}

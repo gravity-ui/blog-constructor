@@ -1,59 +1,44 @@
 import * as React from 'react';
 
-import {useAnalytics} from '@gravity-ui/page-constructor';
 import {Select, SelectOption} from '@gravity-ui/uikit';
 
 import {MobileContext} from '../../../../contexts/MobileContext';
-import {FilterConfig, Query} from '../../../../models/common';
 import {block} from '../../../../utils/cn';
 
 import {renderFilter, renderOption, renderSwitcher} from './customRenders';
 
-import './Filter.scss';
+import './SelectFilter.scss';
 
 const b = block('feed-filter');
 
 const VIRTUALIZATION_THRESHOLD = 1000;
 
-export type FilterProps = {
-    filter: FilterConfig;
+export type SelectFilterProps = {
+    multiple?: boolean;
+    filterable?: boolean;
+    hasClear?: boolean;
+    placeholder?: string;
+    options: SelectOption[];
+    allLabel: string;
+    qa?: string;
     initialValue: string | number | null | undefined;
-    onSelect: (query: Query) => void;
+    onChange: (value: string) => void;
     className?: string;
 };
 
-export const Filter = ({filter, initialValue, onSelect, className}: FilterProps) => {
+export const SelectFilter = ({
+    multiple,
+    filterable,
+    hasClear,
+    placeholder,
+    options,
+    allLabel,
+    qa,
+    initialValue,
+    onChange,
+    className,
+}: SelectFilterProps) => {
     const isMobile = React.useContext(MobileContext);
-    const handleAnalyticsFilter = useAnalytics();
-
-    const {
-        queryParamName,
-        multiple,
-        filterable,
-        hasClear,
-        options,
-        allLabel,
-        placeholder,
-        qa,
-        analyticsEvents,
-    } = filter;
-
-    const handleFilterSelect = (selectedValues: string[]) => {
-        if (analyticsEvents) {
-            handleAnalyticsFilter(analyticsEvents);
-        }
-
-        const query: Query = {};
-
-        if (multiple) {
-            query[queryParamName] = selectedValues.join(',');
-        } else {
-            const isEmpty = selectedValues.some((v) => v === 'empty');
-            query[queryParamName] = isEmpty ? '' : selectedValues[0];
-        }
-
-        onSelect(query);
-    };
 
     let defaultValue: string[];
     if (multiple) {
@@ -65,6 +50,15 @@ export const Filter = ({filter, initialValue, onSelect, className}: FilterProps)
     const optionsWithEmpty: SelectOption[] = multiple
         ? options
         : [{value: 'empty', content: allLabel}, ...options];
+
+    const handleChange = (selectedValues: string[]) => {
+        if (multiple) {
+            onChange(selectedValues.join(','));
+        } else {
+            const isEmpty = selectedValues.some((v) => v === 'empty');
+            onChange(isEmpty ? '' : selectedValues[0]);
+        }
+    };
 
     return (
         <div className={className}>
@@ -78,7 +72,7 @@ export const Filter = ({filter, initialValue, onSelect, className}: FilterProps)
                 options={optionsWithEmpty}
                 defaultValue={defaultValue}
                 popupClassName={b('popup', {isMobile})}
-                onUpdate={handleFilterSelect}
+                onUpdate={handleChange}
                 placeholder={placeholder ?? allLabel}
                 renderControl={renderSwitcher({
                     initial: defaultValue,

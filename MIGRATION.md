@@ -59,6 +59,34 @@ const filters: FilterConfig[] = [
 
 ---
 
+### Migrating hardcoded Search / SavedOnly to `FilterConfig`
+
+Previously the search input and "saved only" button were always rendered by `Controls` and could not be removed or reordered. They are now opt-in entries in the `filters` array.
+
+**Before** — search and savedOnly were implicit, always present.
+
+**After** — declare them explicitly in `filters`:
+
+```tsx
+import {FilterConfig} from '@gravity-ui/blog-constructor';
+
+const filters: FilterConfig[] = [
+  {type: 'search', queryParamName: 'search'},
+  {
+    queryParamName: 'tags',
+    options: tags.map((t) => ({value: t.slug, content: t.name})),
+    allLabel: 'All tags',
+  },
+  {type: 'savedOnly', queryParamName: 'savedOnly'},
+];
+
+<BlogPage filters={filters} getPosts={getPosts} />;
+```
+
+---
+
+If you omit the `search` or `savedOnly` entries they will not be rendered.
+
 ### `GetPostsRequest` type
 
 The fixed `tags` and `services` fields are replaced by an open index signature so every `queryParamName` you declare in `FilterConfig` is forwarded automatically.
@@ -167,19 +195,28 @@ getFeedQueryParams(queryString, pageNumber, filters);
 
 ### Analytics
 
-Per-filter analytics are now configured inline on each `FilterConfig` entry via the `analyticsEvents` field. The dedicated `DefaultEventNames.Tag` / `DefaultEventNames.Service` calls inside `Controls` are removed.
+Per-filter analytics are now configured inline on each `FilterConfig` entry via the `analyticsEvents` field. The dedicated `DefaultEventNames.Tag` / `DefaultEventNames.Service` / `DefaultEventNames.SaveOnly` calls inside `Controls` are removed.
 
 ```ts
+import {DefaultEventNames} from '@gravity-ui/blog-constructor';
 import {prepareAnalyticsEvent} from '@gravity-ui/blog-constructor/utils';
 import {AnalyticsCounter} from '@gravity-ui/blog-constructor/counters';
 
 const filters: FilterConfig[] = [
   {
+    type: 'savedOnly',
+    queryParamName: 'savedOnly',
+    analyticsEvents: prepareAnalyticsEvent({
+      name: DefaultEventNames.SaveOnly,
+      counter: AnalyticsCounter.CrossSite,
+    }),
+  },
+  {
     queryParamName: 'tags',
     options: [...],
     allLabel: 'All tags',
     analyticsEvents: prepareAnalyticsEvent({
-      name: 'tag',
+      name: DefaultEventNames.Tag,
       counter: AnalyticsCounter.CrossSite,
     }),
   },
@@ -191,15 +228,3 @@ const filters: FilterConfig[] = [
 ### `FilterConfig` reference
 
 Full type (see [`src/models/common.ts`](src/models/common.ts)):
-
-| Property          | Type                  | Required | Description                                            |
-| ----------------- | --------------------- | -------- | ------------------------------------------------------ |
-| `queryParamName`  | `string`              | ✅       | URL query param key; also the key sent to `getPosts`   |
-| `options`         | `SelectOption[]`      | ✅       | Selectable items (`{value, content, icon?}`)           |
-| `allLabel`        | `string`              | ✅       | Label for the "select all / nothing selected" state    |
-| `multiple`        | `boolean`             | —        | Enable multi-select; values joined with `,`            |
-| `filterable`      | `boolean`             | —        | Show search input inside the dropdown                  |
-| `hasClear`        | `boolean`             | —        | Show clear button (defaults to `true` when `multiple`) |
-| `placeholder`     | `string`              | —        | Trigger button placeholder; falls back to `allLabel`   |
-| `qa`              | `string`              | —        | `data-qa` attribute on the trigger button              |
-| `analyticsEvents` | `AnalyticsEventsProp` | —        | Event(s) fired on value change                         |

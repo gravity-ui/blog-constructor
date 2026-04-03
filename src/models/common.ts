@@ -196,21 +196,35 @@ export interface QAProps {
     qa?: string;
 }
 
-export type FilterConfig = Pick<
-    SelectProps,
-    'multiple' | 'filterable' | 'hasClear' | 'placeholder'
-> & {
+type FilterConfigBase = {
     /** The key used in queryParams and passed to handleLoadData query */
     queryParamName: string;
-    /** The selectable items for this filter */
-    options: SelectOption[];
-    /** Label shown when nothing is selected (acts as "All ..." placeholder) */
-    allLabel: string;
-    /** Optional QA attribute forwarded to the switcher */
-    qa?: string;
-    /** Optional analytics events fired when this filter value changes */
+    /** Optional analytics events fired when this control's value changes */
     analyticsEvents?: AnalyticsEventsProp;
 };
+
+export type SelectFilterConfig = FilterConfigBase &
+    Pick<SelectProps, 'multiple' | 'filterable' | 'hasClear' | 'placeholder'> & {
+        type?: 'select';
+        /** The selectable items for this filter */
+        options: SelectOption[];
+        /** Label shown when nothing is selected (acts as "All ..." placeholder) */
+        allLabel: string;
+        /** Optional QA attribute forwarded to the switcher */
+        qa?: string;
+    };
+
+export type SearchFilterConfig = FilterConfigBase & {
+    type: 'search';
+    /** Placeholder text for the search input */
+    placeholder?: string;
+};
+
+export type SavedOnlyFilterConfig = FilterConfigBase & {
+    type: 'savedOnly';
+};
+
+export type FilterConfig = SelectFilterConfig | SearchFilterConfig | SavedOnlyFilterConfig;
 
 export enum PostCardSize {
     SMALL = 's',

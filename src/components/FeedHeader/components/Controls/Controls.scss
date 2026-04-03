@@ -25,43 +25,4 @@ $block: '.#{$namespace}feed-controls';
             padding-bottom: $indentXXL;
         }
     }
-
-    &__search {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    &__filter-item {
-        margin-right: $indentXXXS;
-        margin-left: $indentXXXS;
-        margin-bottom: $indentXXS;
-        min-width: 230px;
-        flex-grow: 1;
-
-        @media (min-width: map-get($gridBreakpoints, 'sm')) {
-            max-width: 240px;
-        }
-
-        &_width-auto {
-            width: auto;
-            min-width: auto;
-            flex-grow: 0;
-        }
-    }
-
-    &__saved-only-button_savedOnly {
-        @include monochrome-button();
-
-        &:focus {
-            color: var(--g-color-base-background);
-        }
-    }
-
-    &__icon {
-        color: var(--g-color-base-brand);
-
-        &_savedOnly {
-            color: var(--g-color-base-background);
-        }
-    }
 }

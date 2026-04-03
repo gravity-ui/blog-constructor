@@ -1,0 +1,22 @@
+@import '../../../../../styles/mixins.scss';
+@import '../../../../../styles/variables.scss';
+
+$block: '.#{$namespace}filter-control';
+
+#{$block} {
+    margin-right: $indentXXXS;
+    margin-left: $indentXXXS;
+    margin-bottom: $indentXXS;
+    min-width: 230px;
+    flex-grow: 1;
+
+    @media (min-width: map-get($gridBreakpoints, 'sm')) {
+        max-width: 240px;
+    }
+
+    &_width-auto {
+        width: auto;
+        min-width: auto;
+        flex-grow: 0;
+    }
+}
