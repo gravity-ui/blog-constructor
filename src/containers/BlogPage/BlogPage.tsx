@@ -17,7 +17,7 @@ import {LikesContext} from '../../contexts/LikesContext';
 import {SettingsContext} from '../../contexts/SettingsContext';
 import {useExtendedComponentMap} from '../../hooks/useExtendedComponentMap';
 import {
-    FilterConfig,
+    FiltersConfig,
     GetPostsType,
     MetaProps,
     PostsProps,
@@ -29,7 +29,7 @@ import './BlogPage.scss';
 export type BlogPageProps = {
     content: PageContent;
     posts: PostsProps;
-    filters?: FilterConfig[];
+    filters?: FiltersConfig;
     navigation?: NavigationData;
     getPosts: GetPostsType;
     hasLikes?: boolean;

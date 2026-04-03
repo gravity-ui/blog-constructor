@@ -21,7 +21,7 @@ import {
 import {RouterContextProps} from '../contexts/RouterContext';
 import {AnalyticsCounter} from '../counters/utils';
 import {Keyset, i18n} from '../i18n';
-import {FilterConfig, GetPostsRequest, Query, Tag} from '../models/common';
+import {FiltersConfig, GetPostsRequest, Query, Tag, normalizeFiltersToRows} from '../models/common';
 
 const QA_ATTRIBUTES_KEYS = ['container', 'content', 'wrapper', 'image', 'button'];
 
@@ -155,7 +155,7 @@ export const getMergedAnalyticsEvents = (
 export const getFeedQueryParams = (
     queryString: Query,
     pageNumber?: number,
-    filters?: FilterConfig[],
+    filters?: FiltersConfig,
 ): GetPostsRequest => {
     const queryParams = getPageSearchParams(queryString);
     const page = pageNumber || Number(queryParams.get('page') || DEFAULT_PAGE);
@@ -166,7 +166,8 @@ export const getFeedQueryParams = (
     const filterParams: Record<string, string | undefined> = {};
 
     if (filters?.length) {
-        filters.forEach(({queryParamName}) => {
+        const rows = normalizeFiltersToRows(filters);
+        rows.flat().forEach(({queryParamName}) => {
             filterParams[queryParamName] = queryParams.get(queryParamName) || undefined;
         });
     }

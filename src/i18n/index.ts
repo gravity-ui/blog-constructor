@@ -20,6 +20,7 @@ export enum Keyset {
     AllTags = 'label_all_tags',
     ActionSavedOnly = 'action_saved_only',
     AllServices = 'label_all_services',
+    AllOptions = 'label_all_some_filter',
     PromptSignInOnLike = 'prompt_sign_in_on_like',
     SignIn = 'Sign In',
     Save = 'save',
@@ -43,6 +44,7 @@ const en = {
     [Keyset.AllTags]: 'All topics',
     [Keyset.ActionSavedOnly]: 'Saved',
     [Keyset.AllServices]: 'All Services',
+    [Keyset.AllOptions]: 'All options',
     [Keyset.PromptSignInOnLike]: 'Sign in to save this post',
     [Keyset.ContextReadingTime]: [
         '{{count}} min to read',
@@ -72,6 +74,7 @@ const ru = {
     [Keyset.AllTags]: 'Все темы',
     [Keyset.ActionSavedOnly]: 'Сохранённые',
     [Keyset.AllServices]: 'Все сервисы',
+    [Keyset.AllOptions]: 'Все варианты',
     [Keyset.PromptSignInOnLike]: 'Войдите, чтобы сохранить пост',
     [Keyset.ContextReadingTime]: [
         '{{count}} минута чтения',

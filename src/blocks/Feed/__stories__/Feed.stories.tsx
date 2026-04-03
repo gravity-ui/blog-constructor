@@ -4,7 +4,11 @@ import {Block, PageConstructor, PageConstructorProvider} from '@gravity-ui/page-
 import type {Meta, StoryFn} from '@storybook/react';
 import isEqual from 'lodash/isEqual';
 
-import {getDefaultStoryArgs, getFiltersConfig} from '../../../../.mocks/utils';
+import {
+    getDefaultStoryArgs,
+    getFiltersConfig,
+    getMultiRowFiltersConfig,
+} from '../../../../.mocks/utils';
 import customBlocks from '../../../constructor/blocksMap';
 import {FeedContext, FeedContextProps} from '../../../contexts/FeedContext';
 import {RouterContext} from '../../../contexts/RouterContext';
@@ -61,34 +65,49 @@ const getPosts: GetPostsType = async (query: GetPostsRequest) => {
     } as unknown as PostsProps;
 };
 
-const contextData = {
-    ...mockedPosts,
-    filters: getFiltersConfig(),
-    getPosts,
+const createTemplate = (contextData: FeedContextProps): StoryFn<FeedModel> => {
+    const Template: StoryFn<FeedModel> = (args) => {
+        const {isAnimationEnabled} = React.useContext(SettingsContext);
+
+        return (
+            <FeedContext.Provider value={contextData}>
+                <RouterContext.Provider value={routerData}>
+                    <PageConstructorProvider projectSettings={{isAnimationEnabled}}>
+                        <PageConstructor
+                            content={{blocks: [args] as unknown as Block[]}}
+                            custom={customBlocks}
+                        />
+                    </PageConstructorProvider>
+                </RouterContext.Provider>
+            </FeedContext.Provider>
+        );
+    };
+
+    return Template;
 };
 
-const DefaultTemplate: StoryFn<FeedModel> = (args) => {
-    const {isAnimationEnabled} = React.useContext(SettingsContext);
-
-    return (
-        <FeedContext.Provider value={contextData as unknown as FeedContextProps}>
-            <RouterContext.Provider value={routerData}>
-                <PageConstructorProvider projectSettings={{isAnimationEnabled}}>
-                    <PageConstructor
-                        content={{blocks: [args] as unknown as Block[]}}
-                        custom={customBlocks}
-                    />
-                </PageConstructorProvider>
-            </RouterContext.Provider>
-        </FeedContext.Provider>
-    );
-};
-
-export const Default = DefaultTemplate.bind({});
-
-Default.args = {
+const defaultArgs = {
     type: BlockType.Feed,
     color: '#000',
     imageSize: 'm',
     ...getDefaultStoryArgs(),
 } as FeedModel;
+
+export const Default = createTemplate({
+    ...mockedPosts,
+    filters: getFiltersConfig(),
+    getPosts,
+} as unknown as FeedContextProps).bind({});
+
+Default.args = defaultArgs;
+
+export const MultiRowFilters = createTemplate({
+    ...mockedPosts,
+    filters: getMultiRowFiltersConfig(),
+    getPosts,
+} as unknown as FeedContextProps).bind({});
+
+MultiRowFilters.args = {
+    ...defaultArgs,
+    resetTitleMargin: true,
+};
