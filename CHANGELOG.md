@@ -5,13 +5,14 @@
 
 ### ⚠ BREAKING CHANGES
 
-* release 10 ([#308](https://github.com/gravity-ui/blog-constructor/issues/308))
+* Feed: This release replaces the hardcoded `tags` / `services`, `search` input and `saved only` button with the `filters` prop array.
+You can read more info in the guide below.
 
 [Migration Guide to v10](MIGRATION.md#upgrading-from-v9x-to-v10x)
 
 ### Features
 
-* release 10 ([#308](https://github.com/gravity-ui/blog-constructor/issues/308)) ([e1d9912](https://github.com/gravity-ui/blog-constructor/commit/e1d991215ece69378bf8a9981c3445297e671969))
+* feed abstracting filters ([#308](https://github.com/gravity-ui/blog-constructor/issues/308)) ([e1d9912](https://github.com/gravity-ui/blog-constructor/commit/e1d991215ece69378bf8a9981c3445297e671969))
 
 ## [9.1.2](https://github.com/gravity-ui/blog-constructor/compare/v9.1.1...v9.1.2) (2026-03-16)
 
