@@ -4,11 +4,8 @@
 $block: '.#{$namespace}filter-control';
 
 #{$block} {
-    margin-right: $indentXXXS;
-    margin-left: $indentXXXS;
-    margin-bottom: $indentXXS;
+    flex: 230px 1 0;
     min-width: 230px;
-    flex-grow: 1;
 
     @media (min-width: map-get($gridBreakpoints, 'sm')) {
         max-width: 240px;
@@ -18,5 +15,6 @@ $block: '.#{$namespace}filter-control';
         width: auto;
         min-width: auto;
         flex-grow: 0;
+        flex-basis: auto;
     }
 }

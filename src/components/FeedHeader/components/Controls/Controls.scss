@@ -9,17 +9,12 @@ $block: '.#{$namespace}feed-controls';
         display: flex;
         flex-direction: column;
         border-radius: var(--bc-border-radius);
-        padding-bottom: $indentS;
+        padding-bottom: $indentM;
         z-index: 10;
-    }
 
-    &__header-item {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-
-        &_title {
+        &-title {
             @include text-size(display-4);
+            text-align: center;
 
             padding-top: 112px;
             padding-bottom: $indentXXL;
@@ -29,8 +24,17 @@ $block: '.#{$namespace}feed-controls';
             }
         }
 
-        &_filters + &_filters {
-            margin-top: $indentXXXS;
+        &-filters {
+            display: flex;
+            gap: $indentXS;
+            flex-direction: column;
+
+            &-row {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: $indentXS;
+            }
         }
     }
 }

@@ -39,22 +39,22 @@ export const Controls = ({
     return (
         <MobileProvider mobile={false}>
             <div className={b('header')}>
-                <h1 className={b('header-item', {title: true, 'reset-margin': resetTitleMargin})}>
-                    {title}
-                </h1>
-                {rows.map((row, rowIndex) => (
-                    // eslint-disable-next-line react/no-array-index-key
-                    <div key={rowIndex} className={b('header-item', {filters: true})}>
-                        {row.map((filter) => (
-                            <FilterControl
-                                key={filter.queryParamName}
-                                filter={filter}
-                                initialValue={queryParams?.[filter.queryParamName]}
-                                onChange={handleFilterChange}
-                            />
-                        ))}
-                    </div>
-                ))}
+                <h1 className={b('header-title', {'reset-margin': resetTitleMargin})}>{title}</h1>
+                <div className={b('header-filters')}>
+                    {rows.map((row, rowIndex) => (
+                        // eslint-disable-next-line react/no-array-index-key
+                        <div key={rowIndex} className={b('header-filters-row')}>
+                            {row.map((filter) => (
+                                <FilterControl
+                                    key={filter.queryParamName}
+                                    filter={filter}
+                                    initialValue={queryParams?.[filter.queryParamName]}
+                                    onChange={handleFilterChange}
+                                />
+                            ))}
+                        </div>
+                    ))}
+                </div>
             </div>
         </MobileProvider>
     );
