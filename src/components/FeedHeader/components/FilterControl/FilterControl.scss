@@ -7,7 +7,7 @@ $block: '.#{$namespace}filter-control';
     flex: 230px 1 0;
     min-width: 230px;
 
-    @media (min-width: map-get($gridBreakpoints, 'sm')) {
+    @media (min-width: map-get($gridBreakpoints, 'lg')) {
         max-width: 240px;
     }
 
