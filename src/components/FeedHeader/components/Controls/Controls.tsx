@@ -42,7 +42,6 @@ export const Controls = ({
                 <h1 className={b('header-title', {'reset-margin': resetTitleMargin})}>{title}</h1>
                 <div className={b('header-filters')}>
                     {rows.map((row, rowIndex) => (
-                        // eslint-disable-next-line react/no-array-index-key
                         <div key={rowIndex} className={b('header-filters-row')}>
                             {row.map((filter) => (
                                 <FilterControl

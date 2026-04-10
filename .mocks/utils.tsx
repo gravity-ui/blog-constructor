@@ -202,6 +202,7 @@ export function getMultiRowFiltersConfig(): FiltersConfig {
                 queryParamName: 'search',
             },
             {
+                type: 'select',
                 queryParamName: 'other',
                 options: tags.map((tag) => ({
                     content: tag.name,
@@ -211,6 +212,7 @@ export function getMultiRowFiltersConfig(): FiltersConfig {
                 allLabel: i18n(Keyset.AllOptions),
             },
             {
+                type: 'select',
                 queryParamName: 'another',
                 options: tags.map((tag) => ({
                     content: tag.name,
@@ -222,6 +224,7 @@ export function getMultiRowFiltersConfig(): FiltersConfig {
         ],
         [
             {
+                type: 'select',
                 queryParamName: 'tags',
                 options: tags.map((tag) => ({
                     content: tag.name,
@@ -231,6 +234,7 @@ export function getMultiRowFiltersConfig(): FiltersConfig {
                 allLabel: i18n(Keyset.AllTags),
             },
             {
+                type: 'select',
                 queryParamName: 'services',
                 options: services.map((service) => ({
                     content: service.name,
