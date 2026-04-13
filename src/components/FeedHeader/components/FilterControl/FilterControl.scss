@@ -1,0 +1,20 @@
+@import '../../../../../styles/mixins.scss';
+@import '../../../../../styles/variables.scss';
+
+$block: '.#{$namespace}filter-control';
+
+#{$block} {
+    flex: 230px 1 0;
+    min-width: 230px;
+
+    @media (min-width: map-get($gridBreakpoints, 'lg')) {
+        max-width: 240px;
+    }
+
+    &_width-auto {
+        width: auto;
+        min-width: auto;
+        flex-grow: 0;
+        flex-basis: auto;
+    }
+}

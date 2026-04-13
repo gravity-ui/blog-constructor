@@ -20,7 +20,7 @@ const CONTAINER_ID = 'blog-cards';
 const PAGE_QUERY = 'page';
 const FIRST_PAGE = 1;
 
-export const Feed = ({image, title}: FeedProps) => {
+export const Feed = ({image, title, resetTitleMargin}: FeedProps) => {
     const {posts, totalCount, filters, pinnedPost, getPosts, pageCountForShowSupportButtons} =
         React.useContext(FeedContext);
     const router = React.useContext(RouterContext);
@@ -216,6 +216,7 @@ export const Feed = ({image, title}: FeedProps) => {
                     disableCompress: true,
                 }}
                 title={title}
+                resetTitleMargin={resetTitleMargin}
             />
             {errorLoad ? (
                 <PostsError onButtonClick={handleOnErrorReload} />

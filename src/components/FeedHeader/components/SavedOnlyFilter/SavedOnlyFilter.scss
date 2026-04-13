@@ -1,0 +1,22 @@
+@import '../../../../../styles/mixins.scss';
+@import '../../../../../styles/variables.scss';
+
+$block: '.#{$namespace}saved-only-filter';
+
+#{$block} {
+    &__button_savedOnly {
+        @include monochrome-button();
+
+        &:focus {
+            color: var(--g-color-base-background);
+        }
+    }
+
+    &__icon {
+        color: var(--g-color-base-brand);
+
+        &_savedOnly {
+            color: var(--g-color-base-background);
+        }
+    }
+}

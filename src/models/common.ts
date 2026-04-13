@@ -196,21 +196,60 @@ export interface QAProps {
     qa?: string;
 }
 
-export type FilterConfig = Pick<
-    SelectProps,
-    'multiple' | 'filterable' | 'hasClear' | 'placeholder'
-> & {
+type FilterConfigBase = {
     /** The key used in queryParams and passed to handleLoadData query */
     queryParamName: string;
-    /** The selectable items for this filter */
-    options: SelectOption[];
-    /** Label shown when nothing is selected (acts as "All ..." placeholder) */
-    allLabel: string;
-    /** Optional QA attribute forwarded to the switcher */
-    qa?: string;
-    /** Optional analytics events fired when this filter value changes */
+    /** Optional analytics events fired when this control's value changes */
     analyticsEvents?: AnalyticsEventsProp;
 };
+
+export type SelectFilterConfig = FilterConfigBase &
+    Pick<SelectProps, 'multiple' | 'filterable' | 'hasClear' | 'placeholder'> & {
+        type?: 'select';
+        /** The selectable items for this filter */
+        options: SelectOption[];
+        /** Label shown when nothing is selected (acts as "All ..." placeholder) */
+        allLabel: string;
+        /** Optional QA attribute forwarded to the switcher */
+        qa?: string;
+    };
+
+export type SearchFilterConfig = FilterConfigBase & {
+    type: 'search';
+    /** Placeholder text for the search input */
+    placeholder?: string;
+};
+
+export type SavedOnlyFilterConfig = FilterConfigBase & {
+    type: 'savedOnly';
+};
+
+export type FilterConfig = SelectFilterConfig | SearchFilterConfig | SavedOnlyFilterConfig;
+
+/**
+ * Filters can be supplied either as a flat array (all filters in one row)
+ * or as an array of rows (each inner array is rendered as a separate row).
+ *
+ * @example Single row (backward-compatible)
+ * filters: [searchFilter, tagsFilter]
+ *
+ * @example Multiple rows
+ * filters: [[searchFilter, savedOnlyFilter], [tagsFilter, serviceFilter]]
+ */
+export type FiltersConfig = FilterConfig[] | FilterConfig[][];
+
+export function normalizeFiltersToRows(filters: FiltersConfig): FilterConfig[][] {
+    if (filters.length === 0) {
+        return [];
+    }
+
+    // If the first element is itself an array, the input is already multi-row.
+    if (Array.isArray(filters[0])) {
+        return filters as FilterConfig[][];
+    }
+
+    return [filters as FilterConfig[]];
+}
 
 export enum PostCardSize {
     SMALL = 's',

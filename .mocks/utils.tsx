@@ -9,7 +9,7 @@ import tags from './tags.json';
 
 import {DefaultGoalIds} from '../src/constants';
 import {AnalyticsCounter} from '../src/counters/utils';
-import {FilterConfig, PostData} from '../src/models/common';
+import {FilterConfig, FiltersConfig, PostData} from '../src/models/common';
 import {Keyset, i18n} from '../src/i18n';
 import {prepareAnalyticsEvent} from '../src/utils/common';
 
@@ -155,6 +155,10 @@ export const dataLensSrc = 'm2bzon9y39lck';
 export function getFiltersConfig(): FilterConfig[] {
     return [
         {
+            type: 'search',
+            queryParamName: 'search',
+        },
+        {
             queryParamName: 'tags',
             options: tags.map((tag) => ({
                 content: tag.name,
@@ -183,5 +187,65 @@ export function getFiltersConfig(): FilterConfig[] {
                 counter: AnalyticsCounter.CrossSite,
             }),
         },
+        {
+            type: 'savedOnly',
+            queryParamName: 'savedOnly',
+        },
+    ];
+}
+
+export function getMultiRowFiltersConfig(): FiltersConfig {
+    return [
+        [
+            {
+                type: 'search',
+                queryParamName: 'search',
+            },
+            {
+                type: 'select',
+                queryParamName: 'other',
+                options: tags.map((tag) => ({
+                    content: tag.name,
+                    value: tag.slug,
+                    icon: tag.icon ? <Icon data={tag.icon} /> : undefined,
+                })),
+                allLabel: i18n(Keyset.AllOptions),
+            },
+            {
+                type: 'select',
+                queryParamName: 'another',
+                options: tags.map((tag) => ({
+                    content: tag.name,
+                    value: tag.slug,
+                    icon: tag.icon ? <Icon data={tag.icon} /> : undefined,
+                })),
+                allLabel: i18n(Keyset.AllOptions),
+            },
+        ],
+        [
+            {
+                type: 'select',
+                queryParamName: 'tags',
+                options: tags.map((tag) => ({
+                    content: tag.name,
+                    value: tag.slug,
+                    icon: tag.icon ? <Icon data={tag.icon} /> : undefined,
+                })),
+                allLabel: i18n(Keyset.AllTags),
+            },
+            {
+                type: 'select',
+                queryParamName: 'services',
+                options: services.map((service) => ({
+                    content: service.name,
+                    value: `${service.id}`,
+                })),
+                allLabel: i18n(Keyset.AllServices),
+                multiple: true,
+                filterable: true,
+                hasClear: true,
+                qa: 'service-select',
+            },
+        ],
     ];
 }

@@ -1,12 +1,12 @@
 import * as React from 'react';
 
-import {FilterConfig, GetPostsType, PostData} from '../models/common';
+import {FiltersConfig, GetPostsType, PostData} from '../models/common';
 
 export interface FeedContextProps {
     posts?: PostData[];
     pinnedPost?: PostData;
     totalCount?: number;
-    filters?: FilterConfig[];
+    filters?: FiltersConfig;
     getPosts?: GetPostsType;
     pageCountForShowSupportButtons?: number;
 }
