@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.0.1](https://github.com/gravity-ui/blog-constructor/compare/v10.0.0...v10.0.1) (2026-04-13)
+
+
+### Bug Fixes
+
+* feed multiple filters config ([#310](https://github.com/gravity-ui/blog-constructor/issues/310)) ([0762bad](https://github.com/gravity-ui/blog-constructor/commit/0762bad312e17aed29fe0cb23d1364c4bd837384))
+
 ## [10.0.0](https://github.com/gravity-ui/blog-constructor/compare/v9.1.2...v10.0.0) (2026-04-02)
 
 
