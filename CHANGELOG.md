@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.0.2](https://github.com/gravity-ui/blog-constructor/compare/v10.0.1...v10.0.2) (2026-04-24)
+
+
+### Bug Fixes
+
+* **Feed:** schema required value ([#312](https://github.com/gravity-ui/blog-constructor/issues/312)) ([17910e0](https://github.com/gravity-ui/blog-constructor/commit/17910e043264713c21723756ee3972193f9eab90))
+
 ## [10.0.1](https://github.com/gravity-ui/blog-constructor/compare/v10.0.0...v10.0.1) (2026-04-13)
 
 
