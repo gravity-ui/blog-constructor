@@ -9,7 +9,7 @@ import {BlockType} from '../../models/common';
 export const Feed = {
     [BlockType.Feed]: {
         additionalProperties: false,
-        required: 'image',
+        required: ['image'],
         properties: {
             ...BlockBaseProps,
             title: {
