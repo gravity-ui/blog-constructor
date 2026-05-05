@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.0.3](https://github.com/gravity-ui/blog-constructor/compare/v10.0.2...v10.0.3) (2026-05-05)
+
+
+### Bug Fixes
+
+* **Feed:** filters select popup alignment ([#315](https://github.com/gravity-ui/blog-constructor/issues/315)) ([4e876c2](https://github.com/gravity-ui/blog-constructor/commit/4e876c2c45b099751ad44ee00ebf2dd2f76a0404))
+
 ## [10.0.2](https://github.com/gravity-ui/blog-constructor/compare/v10.0.1...v10.0.2) (2026-04-24)
 
 
