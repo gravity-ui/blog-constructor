@@ -10,6 +10,11 @@ $block: '.#{$namespace}feed-filter';
 
     &__select {
         width: 100%;
+
+        div[data-floating-ui-status][data-floating-ui-placement*='end'] {
+            //stylelint-disable-next-line declaration-no-important
+            right: 0 !important;
+        }
     }
 
     &__select:hover {
