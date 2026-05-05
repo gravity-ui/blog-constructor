@@ -39,7 +39,7 @@ export const Header = (props: HeaderProps) => {
     const {getBlogPath = getDefaultBlogPath} = React.useContext(SettingsContext);
     const blogPath = getBlogPath(locale.pathPrefix || '');
 
-    const {description, id, date, readingTime, tags, htmlTitle} = post;
+    const {description, title, id, date, readingTime, tags, htmlTitle} = post;
 
     const breadcrumbs = getBreadcrumbs({tags, blogPath});
 
@@ -59,7 +59,7 @@ export const Header = (props: HeaderProps) => {
             <div className={b({'image-out-grid': !imageInGrid})}>
                 <HeaderBlock
                     {...props}
-                    title={htmlTitle}
+                    title={htmlTitle || title}
                     description={description}
                     breadcrumbs={{...breadcrumbs, ...customBreadcrumbs}}
                     mediaClassName={b('image')}
