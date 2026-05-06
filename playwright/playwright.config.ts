@@ -86,7 +86,16 @@ const config: PlaywrightTestConfig = {
     projects: [
         {
             name: 'chromium',
-            use: {...devices['Desktop Chrome']},
+            use: {
+                ...devices['Desktop Chrome'],
+                launchOptions: {
+                    args: [
+                        '--font-render-hinting=none',
+                        '--disable-font-subpixel-positioning',
+                        '--disable-lcd-text',
+                    ],
+                },
+            },
         },
         {
             name: 'webkit',
