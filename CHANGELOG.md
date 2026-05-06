@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.0.4](https://github.com/gravity-ui/blog-constructor/compare/v10.0.3...v10.0.4) (2026-05-06)
+
+
+### Bug Fixes
+
+* **Header:** update title to use htmlTitle from post object ([#314](https://github.com/gravity-ui/blog-constructor/issues/314)) ([883b026](https://github.com/gravity-ui/blog-constructor/commit/883b02610eb8f07bf08becdb5c0313db6528c7fc))
+
 ## [10.0.3](https://github.com/gravity-ui/blog-constructor/compare/v10.0.2...v10.0.3) (2026-05-05)
 
 
