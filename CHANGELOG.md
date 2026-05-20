@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.1.0](https://github.com/gravity-ui/blog-constructor/compare/v10.0.4...v10.1.0) (2026-05-20)
+
+
+### Features
+
+* move @gravity-ui/icons to deps ([#319](https://github.com/gravity-ui/blog-constructor/issues/319)) ([a150789](https://github.com/gravity-ui/blog-constructor/commit/a1507892fe4737725ed44a18bfbed13e1ba45b8d))
+
 ## [10.0.4](https://github.com/gravity-ui/blog-constructor/compare/v10.0.3...v10.0.4) (2026-05-06)
 
 
