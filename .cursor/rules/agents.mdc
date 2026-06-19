@@ -1,0 +1,8 @@
+---
+description: Project agent guidelines — defer to AGENTS.md
+alwaysApply: true
+---
+
+Project guidance for AI coding agents in this repository lives in `AGENTS.md` at the repo root. Read it first — it contains the pre-response gate, the agent-skills wiring, and the index of `.agents/` topical docs (architecture, navigation, commands, coding conventions, testing, etc.).
+
+@AGENTS.md
