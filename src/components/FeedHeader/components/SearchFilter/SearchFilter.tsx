@@ -10,6 +10,7 @@ export type SearchFilterProps = {
     placeholder?: string;
     initialValue: string | undefined;
     onChange: (value: string) => void;
+    onClick?: () => void;
     className?: string;
 };
 
@@ -17,6 +18,7 @@ export const SearchFilter = ({
     placeholder,
     initialValue,
     onChange,
+    onClick,
     className,
 }: SearchFilterProps) => {
     return (
@@ -26,6 +28,7 @@ export const SearchFilter = ({
                 placeholder={placeholder ?? i18n(Keyset.Search)}
                 initialValue={initialValue && typeof initialValue === 'string' ? initialValue : ''}
                 onSubmit={onChange}
+                onClick={onClick}
             />
         </div>
     );

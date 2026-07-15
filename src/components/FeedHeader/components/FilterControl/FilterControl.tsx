@@ -40,39 +40,54 @@ export const FilterControl = ({filter, initialValue, onChange}: FilterControlPro
     );
 
     if (filter.type === 'search') {
-        const {queryParamName, placeholder} = filter as SearchFilterConfig;
+        const {queryParamName, placeholder, onClick} = filter as SearchFilterConfig;
+
         return (
             <div className={b()}>
                 <SearchFilter
                     placeholder={placeholder}
                     initialValue={initialValue as string | undefined}
                     onChange={(value) => handleChange({[queryParamName]: value} as Query)}
+                    onClick={onClick}
                 />
             </div>
         );
     }
 
     if (filter.type === 'savedOnly') {
-        const {queryParamName} = filter as SavedOnlyFilterConfig;
+        const {queryParamName, onClick} = filter as SavedOnlyFilterConfig;
 
         if (!hasLikes) {
             return null;
         }
 
+        const handleSavedOnlyChange = (value: boolean) => {
+            onClick?.(value);
+            handleChange({[queryParamName]: value ? 'true' : '', search: ''} as Query);
+        };
+
         return (
             <div className={b({'width-auto': true})}>
                 <SavedOnlyFilter
                     initialValue={initialValue === 'true'}
-                    onChange={(value) =>
-                        handleChange({[queryParamName]: value ? 'true' : '', search: ''} as Query)
-                    }
+                    onChange={handleSavedOnlyChange}
                 />
             </div>
         );
     }
 
-    const {queryParamName, multiple, filterable, hasClear, placeholder, options, allLabel, qa} =
-        filter as SelectFilterConfig;
+    const {
+        queryParamName,
+        multiple,
+        filterable,
+        hasClear,
+        placeholder,
+        options,
+        allLabel,
+        qa,
+        onOpen,
+        onClose,
+    } = filter as SelectFilterConfig;
 
     return (
         <div className={b()}>
@@ -86,6 +101,8 @@ export const FilterControl = ({filter, initialValue, onChange}: FilterControlPro
                 qa={qa}
                 initialValue={initialValue}
                 onChange={(value) => handleChange({[queryParamName]: value} as Query)}
+                onOpen={onOpen}
+                onClose={onClose}
             />
         </div>
     );

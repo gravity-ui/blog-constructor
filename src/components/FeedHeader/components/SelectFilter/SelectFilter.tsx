@@ -3,6 +3,7 @@ import * as React from 'react';
 import {Select, SelectOption} from '@gravity-ui/uikit';
 
 import {MobileContext} from '../../../../contexts/MobileContext';
+import {SelectFilterCloseData} from '../../../../models/common';
 import {block} from '../../../../utils/cn';
 
 import {renderFilter, renderOption, renderSwitcher} from './customRenders';
@@ -23,6 +24,8 @@ export type SelectFilterProps = {
     qa?: string;
     initialValue: string | number | null | undefined;
     onChange: (value: string) => void;
+    onOpen?: () => void;
+    onClose?: (data: SelectFilterCloseData) => void;
     className?: string;
 };
 
@@ -36,6 +39,8 @@ export const SelectFilter = ({
     qa,
     initialValue,
     onChange,
+    onOpen,
+    onClose,
     className,
 }: SelectFilterProps) => {
     const isMobile = React.useContext(MobileContext);
@@ -44,8 +49,13 @@ export const SelectFilter = ({
     if (multiple) {
         defaultValue = initialValue ? (initialValue as string).split(',') : [];
     } else {
-        defaultValue = [initialValue] as string[];
+        defaultValue =
+            initialValue === null || initialValue === undefined ? [] : [`${initialValue}`];
     }
+
+    const selectedValuesRef = React.useRef(defaultValue);
+    const selectedValuesOnOpenRef = React.useRef(defaultValue);
+    const isOpenRef = React.useRef(false);
 
     const optionsWithEmpty: SelectOption[] = multiple
         ? options
@@ -53,11 +63,32 @@ export const SelectFilter = ({
 
     const handleChange = (selectedValues: string[]) => {
         if (multiple) {
+            selectedValuesRef.current = selectedValues;
             onChange(selectedValues.join(','));
         } else {
             const isEmpty = selectedValues.some((v) => v === 'empty');
+            selectedValuesRef.current = isEmpty ? [] : selectedValues;
             onChange(isEmpty ? '' : selectedValues[0]);
         }
+    };
+
+    const handleOpenChange = (isOpen: boolean) => {
+        if (isOpen) {
+            selectedValuesOnOpenRef.current = [...selectedValuesRef.current];
+            isOpenRef.current = true;
+            onOpen?.();
+            return;
+        }
+
+        if (isOpenRef.current) {
+            const selectedValues = [...selectedValuesRef.current];
+            onClose?.({
+                selectedValues,
+                selectedValuesOnOpen: [...selectedValuesOnOpenRef.current],
+            });
+        }
+
+        isOpenRef.current = false;
     };
 
     return (
@@ -73,6 +104,7 @@ export const SelectFilter = ({
                 defaultValue={defaultValue}
                 popupClassName={b('popup', {isMobile})}
                 onUpdate={handleChange}
+                onOpenChange={handleOpenChange}
                 placeholder={placeholder ?? allLabel}
                 renderControl={renderSwitcher({
                     initial: defaultValue,

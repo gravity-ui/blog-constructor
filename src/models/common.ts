@@ -203,6 +203,11 @@ type FilterConfigBase = {
     analyticsEvents?: AnalyticsEventsProp;
 };
 
+export type SelectFilterCloseData = {
+    selectedValues: string[];
+    selectedValuesOnOpen: string[];
+};
+
 export type SelectFilterConfig = FilterConfigBase &
     Pick<SelectProps, 'multiple' | 'filterable' | 'hasClear' | 'placeholder'> & {
         type?: 'select';
@@ -212,16 +217,24 @@ export type SelectFilterConfig = FilterConfigBase &
         allLabel: string;
         /** Optional QA attribute forwarded to the switcher */
         qa?: string;
+        /** Optional callback fired when the select opens */
+        onOpen?: () => void;
+        /** Optional callback fired when the select closes */
+        onClose?: (data: SelectFilterCloseData) => void;
     };
 
 export type SearchFilterConfig = FilterConfigBase & {
     type: 'search';
     /** Placeholder text for the search input */
     placeholder?: string;
+    /** Optional callback fired when the search input is clicked */
+    onClick?: () => void;
 };
 
 export type SavedOnlyFilterConfig = FilterConfigBase & {
     type: 'savedOnly';
+    /** Optional callback fired with the next saved-only state */
+    onClick?: (state: boolean) => void;
 };
 
 export type FilterConfig = SelectFilterConfig | SearchFilterConfig | SavedOnlyFilterConfig;
