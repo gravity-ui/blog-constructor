@@ -4,6 +4,7 @@ import {useAnalytics} from '@gravity-ui/page-constructor';
 
 import {LikesContext} from '../../../../contexts/LikesContext';
 import {
+    DynamicAnalyticsEventsProp,
     FilterConfig,
     Query,
     SavedOnlyFilterConfig,
@@ -18,6 +19,9 @@ import {SelectFilter} from '../SelectFilter/SelectFilter';
 import './FilterControl.scss';
 
 const b = block('filter-control');
+
+const resolveAnalyticsEvents = <T,>(analyticsEvents: DynamicAnalyticsEventsProp<T>, data: T) =>
+    typeof analyticsEvents === 'function' ? analyticsEvents(data) : analyticsEvents;
 
 export type FilterControlProps = {
     filter: FilterConfig;
@@ -40,7 +44,7 @@ export const FilterControl = ({filter, initialValue, onChange}: FilterControlPro
     );
 
     if (filter.type === 'search') {
-        const {queryParamName, placeholder, onClick} = filter as SearchFilterConfig;
+        const {queryParamName, placeholder, clickAnalyticsEvents} = filter as SearchFilterConfig;
 
         return (
             <div className={b()}>
@@ -48,21 +52,27 @@ export const FilterControl = ({filter, initialValue, onChange}: FilterControlPro
                     placeholder={placeholder}
                     initialValue={initialValue as string | undefined}
                     onChange={(value) => handleChange({[queryParamName]: value} as Query)}
-                    onClick={onClick}
+                    onClick={
+                        clickAnalyticsEvents
+                            ? () => handleAnalytics(clickAnalyticsEvents)
+                            : undefined
+                    }
                 />
             </div>
         );
     }
 
     if (filter.type === 'savedOnly') {
-        const {queryParamName, onClick} = filter as SavedOnlyFilterConfig;
+        const {queryParamName, clickAnalyticsEvents} = filter as SavedOnlyFilterConfig;
 
         if (!hasLikes) {
             return null;
         }
 
         const handleSavedOnlyChange = (value: boolean) => {
-            onClick?.(value);
+            if (clickAnalyticsEvents) {
+                handleAnalytics(resolveAnalyticsEvents(clickAnalyticsEvents, value));
+            }
             handleChange({[queryParamName]: value ? 'true' : '', search: ''} as Query);
         };
 
@@ -85,8 +95,8 @@ export const FilterControl = ({filter, initialValue, onChange}: FilterControlPro
         options,
         allLabel,
         qa,
-        onOpen,
-        onClose,
+        openAnalyticsEvents,
+        closeAnalyticsEvents,
     } = filter as SelectFilterConfig;
 
     return (
@@ -101,8 +111,15 @@ export const FilterControl = ({filter, initialValue, onChange}: FilterControlPro
                 qa={qa}
                 initialValue={initialValue}
                 onChange={(value) => handleChange({[queryParamName]: value} as Query)}
-                onOpen={onOpen}
-                onClose={onClose}
+                onOpen={
+                    openAnalyticsEvents ? () => handleAnalytics(openAnalyticsEvents) : undefined
+                }
+                onClose={
+                    closeAnalyticsEvents
+                        ? (data) =>
+                              handleAnalytics(resolveAnalyticsEvents(closeAnalyticsEvents, data))
+                        : undefined
+                }
             />
         </div>
     );

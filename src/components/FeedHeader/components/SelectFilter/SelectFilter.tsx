@@ -29,6 +29,16 @@ export type SelectFilterProps = {
     className?: string;
 };
 
+const getSelectedValuesChangesCount = (initial: string[], current: string[]) => {
+    const initialValues = new Set(initial);
+    const currentValues = new Set(current);
+
+    const removedValuesCount = initial.filter((value) => !currentValues.has(value)).length;
+    const addedValuesCount = current.filter((value) => !initialValues.has(value)).length;
+
+    return removedValuesCount + addedValuesCount;
+};
+
 export const SelectFilter = ({
     multiple,
     filterable,
@@ -84,7 +94,10 @@ export const SelectFilter = ({
             const selectedValues = [...selectedValuesRef.current];
             onClose?.({
                 selectedValues,
-                selectedValuesOnOpen: [...selectedValuesOnOpenRef.current],
+                changesCount: getSelectedValuesChangesCount(
+                    selectedValuesOnOpenRef.current,
+                    selectedValues,
+                ),
             });
         }
 

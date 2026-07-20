@@ -205,8 +205,12 @@ type FilterConfigBase = {
 
 export type SelectFilterCloseData = {
     selectedValues: string[];
-    selectedValuesOnOpen: string[];
+    changesCount: number;
 };
+
+export type DynamicAnalyticsEventsProp<T> =
+    | AnalyticsEventsProp
+    | ((data: T) => AnalyticsEventsProp);
 
 export type SelectFilterConfig = FilterConfigBase &
     Pick<SelectProps, 'multiple' | 'filterable' | 'hasClear' | 'placeholder'> & {
@@ -217,24 +221,24 @@ export type SelectFilterConfig = FilterConfigBase &
         allLabel: string;
         /** Optional QA attribute forwarded to the switcher */
         qa?: string;
-        /** Optional callback fired when the select opens */
-        onOpen?: () => void;
-        /** Optional callback fired when the select closes */
-        onClose?: (data: SelectFilterCloseData) => void;
+        /** Optional analytics events fired when the select opens */
+        openAnalyticsEvents?: AnalyticsEventsProp;
+        /** Optional analytics events fired when the select closes */
+        closeAnalyticsEvents?: DynamicAnalyticsEventsProp<SelectFilterCloseData>;
     };
 
 export type SearchFilterConfig = FilterConfigBase & {
     type: 'search';
     /** Placeholder text for the search input */
     placeholder?: string;
-    /** Optional callback fired when the search input is clicked */
-    onClick?: () => void;
+    /** Optional analytics events fired when the search input is clicked */
+    clickAnalyticsEvents?: AnalyticsEventsProp;
 };
 
 export type SavedOnlyFilterConfig = FilterConfigBase & {
     type: 'savedOnly';
-    /** Optional callback fired with the next saved-only state */
-    onClick?: (state: boolean) => void;
+    /** Optional analytics events fired with the next saved-only state */
+    clickAnalyticsEvents?: DynamicAnalyticsEventsProp<boolean>;
 };
 
 export type FilterConfig = SelectFilterConfig | SearchFilterConfig | SavedOnlyFilterConfig;
