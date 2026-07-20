@@ -208,10 +208,6 @@ export type SelectFilterCloseData = {
     changesCount: number;
 };
 
-export type DynamicAnalyticsEventsProp<T> =
-    | AnalyticsEventsProp
-    | ((data: T) => AnalyticsEventsProp);
-
 export type SelectFilterConfig = FilterConfigBase &
     Pick<SelectProps, 'multiple' | 'filterable' | 'hasClear' | 'placeholder'> & {
         type?: 'select';
@@ -224,7 +220,7 @@ export type SelectFilterConfig = FilterConfigBase &
         /** Optional analytics events fired when the select opens */
         openAnalyticsEvents?: AnalyticsEventsProp;
         /** Optional analytics events fired when the select closes */
-        closeAnalyticsEvents?: DynamicAnalyticsEventsProp<SelectFilterCloseData>;
+        closeAnalyticsEvents?: AnalyticsEventsProp;
     };
 
 export type SearchFilterConfig = FilterConfigBase & {
@@ -238,7 +234,7 @@ export type SearchFilterConfig = FilterConfigBase & {
 export type SavedOnlyFilterConfig = FilterConfigBase & {
     type: 'savedOnly';
     /** Optional analytics events fired with the next saved-only state */
-    clickAnalyticsEvents?: DynamicAnalyticsEventsProp<boolean>;
+    clickAnalyticsEvents?: AnalyticsEventsProp;
 };
 
 export type FilterConfig = SelectFilterConfig | SearchFilterConfig | SavedOnlyFilterConfig;

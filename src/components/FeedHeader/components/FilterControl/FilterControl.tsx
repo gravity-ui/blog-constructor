@@ -4,7 +4,6 @@ import {useAnalytics} from '@gravity-ui/page-constructor';
 
 import {LikesContext} from '../../../../contexts/LikesContext';
 import {
-    DynamicAnalyticsEventsProp,
     FilterConfig,
     Query,
     SavedOnlyFilterConfig,
@@ -19,9 +18,6 @@ import {SelectFilter} from '../SelectFilter/SelectFilter';
 import './FilterControl.scss';
 
 const b = block('filter-control');
-
-const resolveAnalyticsEvents = <T,>(analyticsEvents: DynamicAnalyticsEventsProp<T>, data: T) =>
-    typeof analyticsEvents === 'function' ? analyticsEvents(data) : analyticsEvents;
 
 export type FilterControlProps = {
     filter: FilterConfig;
@@ -71,7 +67,7 @@ export const FilterControl = ({filter, initialValue, onChange}: FilterControlPro
 
         const handleSavedOnlyChange = (value: boolean) => {
             if (clickAnalyticsEvents) {
-                handleAnalytics(resolveAnalyticsEvents(clickAnalyticsEvents, value));
+                handleAnalytics(clickAnalyticsEvents, {state: value ? 'on' : 'off'});
             }
             handleChange({[queryParamName]: value ? 'true' : '', search: ''} as Query);
         };
@@ -116,8 +112,12 @@ export const FilterControl = ({filter, initialValue, onChange}: FilterControlPro
                 }
                 onClose={
                     closeAnalyticsEvents
-                        ? (data) =>
-                              handleAnalytics(resolveAnalyticsEvents(closeAnalyticsEvents, data))
+                        ? ({selectedValues, changesCount}) =>
+                              handleAnalytics(closeAnalyticsEvents, {
+                                  selected_values: selectedValues.length ? selectedValues : null,
+                                  changes_count: changesCount,
+                                  count_filters: selectedValues.length,
+                              } as unknown as Record<string, string>)
                         : undefined
                 }
             />
