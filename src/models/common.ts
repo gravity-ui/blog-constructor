@@ -199,7 +199,7 @@ export interface QAProps {
 type FilterConfigBase = {
     /** The key used in queryParams and passed to handleLoadData query */
     queryParamName: string;
-    /** Optional analytics events fired when this control's value changes */
+    /** Optional base analytics events for filter interactions */
     analyticsEvents?: AnalyticsEventsProp;
 };
 
@@ -217,24 +217,16 @@ export type SelectFilterConfig = FilterConfigBase &
         allLabel: string;
         /** Optional QA attribute forwarded to the switcher */
         qa?: string;
-        /** Optional analytics events fired when the select opens */
-        openAnalyticsEvents?: AnalyticsEventsProp;
-        /** Optional analytics events fired when the select closes */
-        closeAnalyticsEvents?: AnalyticsEventsProp;
     };
 
 export type SearchFilterConfig = FilterConfigBase & {
     type: 'search';
     /** Placeholder text for the search input */
     placeholder?: string;
-    /** Optional analytics events fired when the search input is clicked */
-    clickAnalyticsEvents?: AnalyticsEventsProp;
 };
 
 export type SavedOnlyFilterConfig = FilterConfigBase & {
     type: 'savedOnly';
-    /** Optional analytics events fired with the next saved-only state */
-    clickAnalyticsEvents?: AnalyticsEventsProp;
 };
 
 export type FilterConfig = SelectFilterConfig | SearchFilterConfig | SavedOnlyFilterConfig;

@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import type {AnalyticsEvent, AnalyticsEventsProp} from '@gravity-ui/page-constructor';
 import {useAnalytics} from '@gravity-ui/page-constructor';
 
 import {LikesContext} from '../../../../contexts/LikesContext';
@@ -19,6 +20,20 @@ import './FilterControl.scss';
 
 const b = block('filter-control');
 
+const addAnalyticsEventPostfix = (
+    analyticsEvents: AnalyticsEventsProp,
+    postfix: string,
+): AnalyticsEventsProp => {
+    const addPostfix = (event: AnalyticsEvent): AnalyticsEvent => ({
+        ...event,
+        name: `${event.name}_${postfix}`,
+    });
+
+    return Array.isArray(analyticsEvents)
+        ? analyticsEvents.map(addPostfix)
+        : addPostfix(analyticsEvents);
+};
+
 export type FilterControlProps = {
     filter: FilterConfig;
     initialValue: string | number | null | undefined;
@@ -29,18 +44,22 @@ export const FilterControl = ({filter, initialValue, onChange}: FilterControlPro
     const handleAnalytics = useAnalytics();
     const {hasLikes} = React.useContext(LikesContext);
 
-    const handleChange = React.useCallback(
-        (query: Query) => {
+    const handleFilterAnalytics = React.useCallback(
+        (postfix: string, params?: Record<string, unknown>) => {
             if (filter.analyticsEvents) {
-                handleAnalytics(filter.analyticsEvents);
+                handleAnalytics(
+                    addAnalyticsEventPostfix(filter.analyticsEvents, postfix),
+                    params as Record<string, string>,
+                );
             }
-            onChange(query);
         },
-        [filter.analyticsEvents, handleAnalytics, onChange],
+        [filter.analyticsEvents, handleAnalytics],
     );
 
+    const handleChange = React.useCallback((query: Query) => onChange(query), [onChange]);
+
     if (filter.type === 'search') {
-        const {queryParamName, placeholder, clickAnalyticsEvents} = filter as SearchFilterConfig;
+        const {queryParamName, placeholder} = filter as SearchFilterConfig;
 
         return (
             <div className={b()}>
@@ -48,27 +67,21 @@ export const FilterControl = ({filter, initialValue, onChange}: FilterControlPro
                     placeholder={placeholder}
                     initialValue={initialValue as string | undefined}
                     onChange={(value) => handleChange({[queryParamName]: value} as Query)}
-                    onClick={
-                        clickAnalyticsEvents
-                            ? () => handleAnalytics(clickAnalyticsEvents)
-                            : undefined
-                    }
+                    onClick={() => handleFilterAnalytics('CLICK')}
                 />
             </div>
         );
     }
 
     if (filter.type === 'savedOnly') {
-        const {queryParamName, clickAnalyticsEvents} = filter as SavedOnlyFilterConfig;
+        const {queryParamName} = filter as SavedOnlyFilterConfig;
 
         if (!hasLikes) {
             return null;
         }
 
         const handleSavedOnlyChange = (value: boolean) => {
-            if (clickAnalyticsEvents) {
-                handleAnalytics(clickAnalyticsEvents, {state: value ? 'on' : 'off'});
-            }
+            handleFilterAnalytics('CLICK', {state: value ? 'on' : 'off'});
             handleChange({[queryParamName]: value ? 'true' : '', search: ''} as Query);
         };
 
@@ -82,18 +95,8 @@ export const FilterControl = ({filter, initialValue, onChange}: FilterControlPro
         );
     }
 
-    const {
-        queryParamName,
-        multiple,
-        filterable,
-        hasClear,
-        placeholder,
-        options,
-        allLabel,
-        qa,
-        openAnalyticsEvents,
-        closeAnalyticsEvents,
-    } = filter as SelectFilterConfig;
+    const {queryParamName, multiple, filterable, hasClear, placeholder, options, allLabel, qa} =
+        filter as SelectFilterConfig;
 
     return (
         <div className={b()}>
@@ -107,18 +110,13 @@ export const FilterControl = ({filter, initialValue, onChange}: FilterControlPro
                 qa={qa}
                 initialValue={initialValue}
                 onChange={(value) => handleChange({[queryParamName]: value} as Query)}
-                onOpen={
-                    openAnalyticsEvents ? () => handleAnalytics(openAnalyticsEvents) : undefined
-                }
-                onClose={
-                    closeAnalyticsEvents
-                        ? ({selectedValues, changesCount}) =>
-                              handleAnalytics(closeAnalyticsEvents, {
-                                  selected_values: selectedValues.length ? selectedValues : null,
-                                  changes_count: changesCount,
-                                  count_filters: selectedValues.length,
-                              } as unknown as Record<string, string>)
-                        : undefined
+                onOpen={() => handleFilterAnalytics('CLICK')}
+                onClose={({selectedValues, changesCount}) =>
+                    handleFilterAnalytics('CLOSE', {
+                        selected_values: selectedValues.length ? selectedValues : null,
+                        changes_count: changesCount,
+                        count_filters: selectedValues.length,
+                    })
                 }
             />
         </div>
