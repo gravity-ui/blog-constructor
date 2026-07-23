@@ -23,6 +23,7 @@ interface SearchProps extends ClassNameProps {
     placeholder?: string;
     size?: SearchSize;
     autoFocus?: boolean;
+    onClick?: React.MouseEventHandler<HTMLInputElement>;
     className?: string;
 }
 
@@ -44,6 +45,7 @@ export const Search = ({
     placeholder = i18n(Keyset.Search),
     size = 'm',
     autoFocus = false,
+    onClick,
     value: externalValue,
 }: SearchProps) => {
     const onSubmitRef = React.useRef(onSubmit);
@@ -114,6 +116,7 @@ export const Search = ({
                 view="clear"
                 controlProps={{
                     className: b('search-suggest-control'),
+                    onClick,
                 }}
                 endContent={rightContent}
             />

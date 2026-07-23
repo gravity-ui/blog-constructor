@@ -33,7 +33,10 @@ const filters: FiltersConfig = [
 | Property        | Type                  | Required | Description                                                                                 |
 | :-------------- | :-------------------- | :------- | :------------------------------------------------------------------------------------------ |
 | queryParamName  | `string`              | `true`   | The URL query parameter key used to store the selected value and passed to `handleLoadData` |
-| analyticsEvents | `AnalyticsEventsProp` | `false`  | Analytics event(s) fired when the filter value changes; accepts a single event or an array  |
+| analyticsEvents | `AnalyticsEventsProp` | `false`  | Base analytics event(s). The interaction suffix is appended to each event name              |
+
+Select opening, search clicks, and saved-only changes append `_CLICK`; select closing appends
+`_CLOSE`.
 
 ### `type?: 'select'` (default)
 
@@ -91,7 +94,7 @@ const filters: FilterConfig[] = [
     multiple: true,
     filterable: true,
     analyticsEvents: {
-      name: 'filter-click',
+      name: 'filter-tags',
       type: 'tags',
     },
   },
@@ -104,7 +107,7 @@ const filters: FilterConfig[] = [
     ],
     allLabel: 'All services',
     analyticsEvents: {
-      name: 'filter-click',
+      name: 'filter-service',
       type: 'services',
     },
   },

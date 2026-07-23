@@ -199,8 +199,13 @@ export interface QAProps {
 type FilterConfigBase = {
     /** The key used in queryParams and passed to handleLoadData query */
     queryParamName: string;
-    /** Optional analytics events fired when this control's value changes */
+    /** Optional base analytics events for filter interactions */
     analyticsEvents?: AnalyticsEventsProp;
+};
+
+export type SelectFilterCloseData = {
+    selectedValues: string[];
+    changesCount: number;
 };
 
 export type SelectFilterConfig = FilterConfigBase &
