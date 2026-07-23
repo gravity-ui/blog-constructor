@@ -1,5 +1,12 @@
 # Changelog
 
+## [11.0.0](https://github.com/gravity-ui/blog-constructor/compare/v10.1.0...v11.0.0) (2026-07-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* add event postfix(_CLICK, _CLOSE) to analyticsEvents in filters ([#323](https://github.com/gravity-ui/blog-constructor/issues/323))
+
 ## [10.1.0](https://github.com/gravity-ui/blog-constructor/compare/v10.0.4...v10.1.0) (2026-05-20)
 
 
