@@ -1,5 +1,16 @@
 # Changelog
 
+## [11.0.0](https://github.com/gravity-ui/blog-constructor/compare/v10.1.0...v11.0.0) (2026-07-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* add events handler to filters ([#323](https://github.com/gravity-ui/blog-constructor/issues/323))
+
+### Features
+
+* add events handler to filters ([#323](https://github.com/gravity-ui/blog-constructor/issues/323)) ([cd83d1d](https://github.com/gravity-ui/blog-constructor/commit/cd83d1d23709f37ae6230b2a013bed1c01308dfa))
+
 ## [10.1.0](https://github.com/gravity-ui/blog-constructor/compare/v10.0.4...v10.1.0) (2026-05-20)
 
 
