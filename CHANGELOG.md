@@ -1,5 +1,12 @@
 # Changelog
 
+## [11.0.1](https://github.com/gravity-ui/blog-constructor/compare/v11.0.0...v11.0.1) (2026-07-27)
+
+
+### Bug Fixes
+
+* **FilterControl:** fix params in goals ([#325](https://github.com/gravity-ui/blog-constructor/issues/325)) ([bea899f](https://github.com/gravity-ui/blog-constructor/commit/bea899fb2fb37d00958385ad890a6a79812954e4))
+
 ## [11.0.0](https://github.com/gravity-ui/blog-constructor/compare/v10.1.0...v11.0.0) (2026-07-23)
 
 
