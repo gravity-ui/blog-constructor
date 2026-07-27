@@ -123,6 +123,7 @@ export const FilterControl = ({filter, initialValue, onChange}: FilterControlPro
                         selected_values: selectedValues.length
                             ? getSelectedOptionNames(selectedValues, options)
                             : null,
+                        selected_ids: selectedValues.length ? selectedValues : null,
                         changes_count: changesCount,
                         count_filters: selectedValues.length,
                     })
