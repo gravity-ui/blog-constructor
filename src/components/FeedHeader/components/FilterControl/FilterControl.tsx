@@ -38,7 +38,7 @@ const getSelectedOptionNames = (selectedValues: string[], options: SelectFilterC
     selectedValues.map((selectedValue) => {
         const selectedOption = options.find((option) => option.value === selectedValue);
 
-        return typeof selectedOption?.content === 'string' ? selectedOption.content : selectedValue;
+        return selectedOption?.content || selectedValue;
     });
 
 export type FilterControlProps = {
