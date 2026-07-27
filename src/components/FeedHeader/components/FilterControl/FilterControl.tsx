@@ -34,6 +34,13 @@ const addAnalyticsEventPostfix = (
         : addPostfix(analyticsEvents);
 };
 
+const getSelectedOptionNames = (selectedValues: string[], options: SelectFilterConfig['options']) =>
+    selectedValues.map((selectedValue) => {
+        const selectedOption = options.find((option) => option.value === selectedValue);
+
+        return typeof selectedOption?.content === 'string' ? selectedOption.content : selectedValue;
+    });
+
 export type FilterControlProps = {
     filter: FilterConfig;
     initialValue: string | number | null | undefined;
@@ -113,7 +120,9 @@ export const FilterControl = ({filter, initialValue, onChange}: FilterControlPro
                 onOpen={() => handleFilterAnalytics('CLICK')}
                 onClose={({selectedValues, changesCount}) =>
                     handleFilterAnalytics('CLOSE', {
-                        selected_values: selectedValues.length ? selectedValues : null,
+                        selected_values: selectedValues.length
+                            ? getSelectedOptionNames(selectedValues, options)
+                            : null,
                         changes_count: changesCount,
                         count_filters: selectedValues.length,
                     })
