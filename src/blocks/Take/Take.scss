@@ -17,21 +17,16 @@ $imageHeightMobile: 80px;
 
     &__container {
         padding: $indentSM 0 $indentSM $indentSM;
-        --take-color: #d6e0e9;
+        --take-color: var(--g-color-private-blue-550, #2a9fff);
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         align-self: stretch;
         gap: $gridContainerPadding;
 
-        border-radius: $indentSM 0 0 $indentSM;
         border-left: $indent4XS solid var(--take-color);
 
-        background: linear-gradient(
-            90deg,
-            color-mix(in sRGB, var(--take-color) 20%, transparent) 0%,
-            rgba(255, 255, 255, 0.2) 100%
-        );
+        background: color-mix(in sRGB, var(--take-color) 15%, transparent);
 
         font-family: 'YS Text';
 
@@ -45,6 +40,7 @@ $imageHeightMobile: 80px;
         line-height: $lineHeightRegular;
         font-weight: var(--g-text-body-font-weight);
         font-family: inherit;
+        padding-inline-end: $indentM;
     }
 
     &__author {
