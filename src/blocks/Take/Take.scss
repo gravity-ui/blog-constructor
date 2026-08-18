@@ -38,6 +38,10 @@ $imageSize: 80px;
         a {
             color: var(--g-color-text-primary);
             text-decoration: underline;
+
+            &:hover {
+                color: var(--g-color-text-secondary);
+            }
         }
     }
 
