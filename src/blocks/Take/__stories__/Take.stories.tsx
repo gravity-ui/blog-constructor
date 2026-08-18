@@ -66,6 +66,9 @@ LinkAndSections.args = {
     ...getTakeStoryArgs(),
     text: transform(
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. [Read more](https://example.com).\n\n' +
+            'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' +
+            'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' +
+            'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' +
             'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         {lang: 'en'},
     ).result.html,
