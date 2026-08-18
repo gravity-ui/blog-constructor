@@ -34,6 +34,11 @@ $imageSize: 80px;
         font-family: inherit;
         color: var(--g-color-text-primary);
         padding-inline-end: $indentM;
+
+        a {
+            color: var(--g-color-text-primary);
+            text-decoration: underline;
+        }
     }
 
     &__author {

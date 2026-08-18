@@ -2,5 +2,5 @@ import {composeStories} from '@storybook/react';
 
 import * as TakeStories from '../__stories__/Take.stories';
 
-export const {Default, CustomColor, NoBackground, CustomColorNoBackground} =
+export const {Default, CustomColor, NoBackground, CustomColorNoBackground, LinkAndSections} =
     composeStories(TakeStories);

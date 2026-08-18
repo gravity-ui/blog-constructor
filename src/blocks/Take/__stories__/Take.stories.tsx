@@ -1,3 +1,4 @@
+import transform from '@diplodoc/transform';
 import {Block, PageConstructor} from '@gravity-ui/page-constructor';
 import {Meta, StoryFn} from '@storybook/react';
 
@@ -56,4 +57,16 @@ CustomColorNoBackground.args = {
     color: '#A87CEF',
     noBackground: true,
     ...getTakeStoryArgs(),
+} as TakeModel;
+
+export const LinkAndSections = DefaultTemplate.bind({});
+
+LinkAndSections.args = {
+    type: BlockType.Take,
+    ...getTakeStoryArgs(),
+    text: transform(
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. [Read more](https://example.com).\n\n' +
+            'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        {lang: 'en'},
+    ).result.html,
 } as TakeModel;
