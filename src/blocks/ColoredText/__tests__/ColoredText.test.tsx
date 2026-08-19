@@ -54,7 +54,7 @@ describe('ColoredText', () => {
 
         expect(coloredText).toBeInTheDocument();
         expect(coloredText).toBeVisible();
-        expect(content).toHaveClass('pc-content_theme_light');
+        expect(content).toHaveClass('pc-content_theme_default');
     });
 
     test('Render image', async () => {
