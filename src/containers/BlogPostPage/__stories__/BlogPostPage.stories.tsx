@@ -13,12 +13,19 @@ export default {
     title: 'Containers/BlogPostPage',
     component: BlogPostPage,
     args: {
-        theme: 'light',
         ...postPageMockData,
     },
 } as Meta;
 
-const DefaultTemplate: StoryFn<BlogPostPageProps> = (args) => <BlogPostPage {...args} />;
+const DefaultTemplate: StoryFn<BlogPostPageProps> = (args, context) => (
+    <BlogPostPage
+        {...args}
+        settings={{
+            ...args.settings,
+            theme: context.globals.theme,
+        }}
+    />
+);
 
 const ExtraInfoItem: CustomInfoItemComponent = ({post}) => (
     <Button
@@ -32,13 +39,19 @@ const ExtraInfoItem: CustomInfoItemComponent = ({post}) => (
     </Button>
 );
 
-const ExtraItemsTemplate: StoryFn<BlogPostPageProps> = (args) => (
+const ExtraItemsTemplate: StoryFn<BlogPostPageProps> = (args, context) => (
     <BlogConstructorProvider
         settings={{
             extraInfoItems: [ExtraInfoItem],
         }}
     >
-        <BlogPostPage {...args} />
+        <BlogPostPage
+            {...args}
+            settings={{
+                ...args.settings,
+                theme: context.globals.theme,
+            }}
+        />
     </BlogConstructorProvider>
 );
 

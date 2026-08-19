@@ -7,6 +7,7 @@ import {
     HeaderBlockProps,
     MediaProps as PCMediaProps,
     TextTheme,
+    ThemeSupporting,
 } from '@gravity-ui/page-constructor';
 
 import {BlockType, ClassNameProps, PostData, QAProps} from './common';
@@ -29,8 +30,8 @@ export type BannerProps = ContentBlockProps &
 export type ColoredTextProps = ContentBlockProps &
     QAProps & {
         background?: {
-            color?: string;
-            image?: string;
+            color?: ThemeSupporting<string>;
+            image?: ThemeSupporting<string>;
             altText?: string;
         };
     } & PaddingsYFMProps;

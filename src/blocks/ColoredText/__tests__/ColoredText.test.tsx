@@ -48,10 +48,13 @@ const contentQaAttributes = getQaAttributes(qaAttributes.content, 'list');
 
 describe('ColoredText', () => {
     test('Render by default', async () => {
-        render(<ColoredText {...pick(coloredTextData, 'title')} />);
+        render(<ColoredText {...pick(coloredTextData, 'title', 'qa')} />);
         const coloredText = screen.getByText(coloredTextData.title);
+        const content = screen.getByTestId(contentQaAttributes.container);
+
         expect(coloredText).toBeInTheDocument();
         expect(coloredText).toBeVisible();
+        expect(content).toHaveClass('pc-content_theme_light');
     });
 
     test('Render image', async () => {
