@@ -1,5 +1,12 @@
 # Changelog
 
+## [11.1.0](https://github.com/gravity-ui/blog-constructor/compare/v11.0.1...v11.1.0) (2026-08-19)
+
+
+### Features
+
+* **ColoredText:** add themed background ([#328](https://github.com/gravity-ui/blog-constructor/issues/328)) ([c1db5cd](https://github.com/gravity-ui/blog-constructor/commit/c1db5cd7f0f09ca3e4ceb88f3749b82da6eedea9))
+
 ## [11.0.1](https://github.com/gravity-ui/blog-constructor/compare/v11.0.0...v11.0.1) (2026-07-27)
 
 
