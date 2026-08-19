@@ -1,4 +1,4 @@
-import {BackgroundImage, Content} from '@gravity-ui/page-constructor';
+import {BackgroundImage, Content, getThemedValue, useTheme} from '@gravity-ui/page-constructor';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {ColoredTextProps} from '../../models/blocks';
@@ -19,6 +19,10 @@ export const ColoredText = ({
 }: ColoredTextProps) => {
     const contentData = updateContentSizes(content);
     const qaAttributes = getQaAttributes(qa);
+    const theme = useTheme();
+
+    const themedColor = getThemedValue(background?.color, theme);
+    const themedImage = getThemedValue(background?.image, theme);
 
     return (
         <Wrapper
@@ -30,15 +34,15 @@ export const ColoredText = ({
         >
             <div
                 className={b('container')}
-                style={{backgroundColor: background?.color || 'none'}}
+                style={{backgroundColor: themedColor || 'none'}}
                 data-qa={qaAttributes.container}
             >
                 <div className={b('picture-container')}>
-                    {background?.image && (
+                    {themedImage && (
                         <BackgroundImage
                             className={b('picture')}
                             alt={background?.altText}
-                            src={background?.image}
+                            src={themedImage}
                         />
                     )}
                 </div>

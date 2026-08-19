@@ -6,17 +6,17 @@ import {BlogBlockBase} from '../../schema/common';
 const {
     subBlocks: {ContentBase},
     components: {ImageProps},
-    common: {BlockBaseProps},
+    common: {BlockBaseProps, withTheme},
 } = validators;
 
 const BackgroundProps = {
     type: 'object',
     additionalProperties: false,
     properties: {
-        image: ImageProps,
-        color: {
+        image: withTheme(ImageProps),
+        color: withTheme({
             type: 'string',
-        },
+        }),
         altText: {
             type: 'string',
             contentType: 'text',
