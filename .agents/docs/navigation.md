@@ -16,9 +16,7 @@ Quick locator index. For the full directory tree see `.agents/docs/architecture.
 | Data schema utilities                                            | `src/schema/`                                  |
 | BEM `cn` helper, date utils, common helpers                      | `src/utils/` (especially `src/utils/cn.ts`)    |
 | `BlogConstructorProvider`                                        | `src/constructor/`                             |
-| Main public entry                                                | `src/index.ts`                                 |
-| Public block entry                                               | `src/blocks/index.ts`                          |
-| Public component entry                                           | `src/components/index.ts`                      |
+| Client public entry                                              | `src/index.ts`                                 |
 | Server public entry                                              | `src/server.ts`                                |
 
 ## Tests
