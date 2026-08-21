@@ -1,3 +1,5 @@
+'use client';
+
 import {Button} from '@gravity-ui/uikit';
 
 import {Keyset, i18n} from '../../i18n';

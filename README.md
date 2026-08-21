@@ -49,6 +49,23 @@ import {BlogPostPage, BlogConstructorProvider} from '@gravity-ui/blog-constructo
 
 Documentation about [providerProps](./src/constructor/README.md).
 
+### Standalone blocks and components
+
+Blocks and reusable components can be imported without rendering a complete blog page:
+
+```jsx
+import {YFM} from '@gravity-ui/blog-constructor/blocks/YFM';
+import {PostCard} from '@gravity-ui/blog-constructor/components/PostCard';
+
+<YFM text="<p>Rendered in a Server Component</p>" />
+<PostCard post={post} />
+```
+
+The server-compatible entries are `Banner`, `CTA`, `CompactMedia`, `Media`, `YFM`, `PostsEmpty`,
+and `Wrapper`. Other components expose their own `use client` boundary. The
+`@gravity-ui/blog-constructor/blocks` and `@gravity-ui/blog-constructor/components` barrels are
+also available.
+
 Also blog-constructor have server components to help you transform your data if you need
 
 ```jsx

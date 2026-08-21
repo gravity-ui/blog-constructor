@@ -19,6 +19,26 @@
         "default": "./build/cjs/index.js"
       }
     },
+    "./blocks": {
+      "types": "./build/esm/blocks/index.d.ts",
+      "require": "./build/cjs/blocks/index.js",
+      "import": "./build/esm/blocks/index.js"
+    },
+    "./blocks/*": {
+      "types": "./build/esm/blocks/*/*.d.ts",
+      "require": "./build/cjs/blocks/*/*.js",
+      "import": "./build/esm/blocks/*/*.js"
+    },
+    "./components": {
+      "types": "./build/esm/components/index.d.ts",
+      "require": "./build/cjs/components/index.js",
+      "import": "./build/esm/components/index.js"
+    },
+    "./components/*": {
+      "types": "./build/esm/components/*/*.d.ts",
+      "require": "./build/cjs/components/*/*.js",
+      "import": "./build/esm/components/*/*.js"
+    },
     "./server": {
       "types": "./server/index.d.ts",
       "require": "./server/index.js",
