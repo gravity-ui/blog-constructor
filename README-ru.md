@@ -49,6 +49,23 @@ import {BlogPostPage, BlogConstructorProvider} from '@gravity-ui/blog-constructo
 
 Подробнее см. в [документации о `providerProps`](./src/constructor/README.md).
 
+### Отдельные блоки и компоненты
+
+Блоки и переиспользуемые компоненты можно импортировать без рендера полной страницы блога:
+
+```jsx
+import {YFM} from '@gravity-ui/blog-constructor/blocks/YFM';
+import {PostCard} from '@gravity-ui/blog-constructor/components/PostCard';
+
+<YFM text="<p>Рендерится в Server Component</p>" />
+<PostCard post={post} />
+```
+
+Совместимые с сервером точки входа: `Banner`, `CTA`, `CompactMedia`, `Media`, `YFM`, `PostsEmpty` и
+`Wrapper`. Остальные компоненты создают собственную границу `use client`. Также
+доступны общие точки входа `@gravity-ui/blog-constructor/blocks` и
+`@gravity-ui/blog-constructor/components`.
+
 Кроме того, `blog-constructor` содержит серверные компоненты для преобразования данных.
 
 ```jsx

@@ -14,7 +14,7 @@ src/
   schema/        data schema utilities
   utils/         helpers — cn.ts (BEM), date, common
   constructor/   BlogConstructorProvider
-  index.ts       client public entry
+  index.ts       main public entry
   server.ts      server public entry
 styles/          shared SCSS exposed via "./styles/*" subpath export
 playwright/      visual/CT config and helpers
@@ -27,6 +27,9 @@ scripts/         maintenance scripts (e.g. playwright-docker.sh)
 
 ## Public API surface
 
-- **Client entry:** `src/index.ts` — exports `BlogConstructorProvider`, `BlogPage`, `BlogPostPage`, model types, schema utilities, `BREAKPOINTS`.
+- **Main entry:** `src/index.ts` — exports `BlogConstructorProvider`, `BlogPage`, `BlogPostPage`, model types, schema utilities, `BREAKPOINTS`.
+- **Blocks:** `src/blocks/index.ts` — exposed as `./blocks`; direct top-level block imports are available through `./blocks/*`.
+- **Components:** `src/components/index.ts` — exposed as `./components`; direct top-level component imports are available through `./components/*`.
+- **Server Components:** `Banner`, `CTA`, `CompactMedia`, `Media`, `YFM`, `PostsEmpty`, and `Wrapper`; all other React entries are explicit client boundaries.
 - **Server entry:** `src/server.ts` — exports `transformPost`, `sanitizeMeta`, `createReadableContent`, `transformPageContent`.
-- Subpath exports include `./server` and `./styles/*` (raw SCSS). Any change to these contracts is a breaking change — update `MIGRATION.md` and use a `feat!:` / `BREAKING CHANGE:` commit.
+- Additional subpath exports include `./server` and `./styles/*` (raw SCSS). Any breaking change to these contracts requires updating `MIGRATION.md` and using a `feat!:` / `BREAKING CHANGE:` commit.

@@ -1,3 +1,5 @@
+'use client';
+
 import {BackgroundImage, Content, getThemedValue, useTheme} from '@gravity-ui/page-constructor';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
