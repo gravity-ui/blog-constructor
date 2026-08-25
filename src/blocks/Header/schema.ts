@@ -16,6 +16,9 @@ export const Header = {
             ...BlockBaseProps,
             ...BlogBlockBase,
             ...HeaderProperties,
+            imageInGrid: {
+                type: 'boolean',
+            },
         },
     },
 };
