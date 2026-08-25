@@ -15,15 +15,14 @@ export const filteredItem = (itemsSchema: ObjectSchema) => ({
     },
 });
 
+export const PaddingSize = {
+    type: 'string',
+    enum: sizeTypes,
+};
+
 export const BlogBlockBase = {
-    paddingTop: {
-        type: 'string',
-        enum: sizeTypes,
-    },
-    paddingBottom: {
-        type: 'string',
-        enum: sizeTypes,
-    },
+    paddingTop: PaddingSize,
+    paddingBottom: PaddingSize,
     fullWidth: {
         type: 'boolean',
     },
