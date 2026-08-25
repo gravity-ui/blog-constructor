@@ -4,6 +4,7 @@ export * from '../blocks/ColoredText/schema';
 export * from '../blocks/CompactMedia/schema';
 export * from '../blocks/CTA/schema';
 export * from '../blocks/Feed/schema';
+export * from '../blocks/Form/schema';
 export * from '../blocks/Layout/schema';
 export * from '../blocks/Media/schema';
 export * from '../blocks/Meta/schema';

@@ -9,8 +9,8 @@ const {
     subBlocks: {HubspotFormProps},
 } = validators;
 
-export const Media = {
-    [BlockType.Media]: {
+export const Form = {
+    [BlockType.Form]: {
         type: 'object',
         additionalProperties: false,
         properties: {
