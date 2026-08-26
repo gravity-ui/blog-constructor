@@ -2,7 +2,7 @@ export interface ObjectSchema extends Record<string, unknown> {
     properties: object;
 }
 
-const sizeTypes = ['xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl'];
+const sizeTypes = ['xs', 's', 'sm', 'm', 'l', 'xl'];
 
 export const filteredItem = (itemsSchema: ObjectSchema) => ({
     ...itemsSchema,
