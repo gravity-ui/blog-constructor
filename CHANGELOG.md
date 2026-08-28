@@ -1,5 +1,12 @@
 # Changelog
 
+## [11.2.0](https://github.com/gravity-ui/blog-constructor/compare/v11.1.0...v11.2.0) (2026-08-28)
+
+
+### Features
+
+* schema fixes ([#331](https://github.com/gravity-ui/blog-constructor/issues/331)) ([28d78e2](https://github.com/gravity-ui/blog-constructor/commit/28d78e22b8e796d160715108009a1b55a495e1c1))
+
 ## [11.1.0](https://github.com/gravity-ui/blog-constructor/compare/v11.0.1...v11.1.0) (2026-08-19)
 
 
