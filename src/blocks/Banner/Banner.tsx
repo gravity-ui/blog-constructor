@@ -1,4 +1,6 @@
-import {Content, Image} from '@gravity-ui/page-constructor';
+import * as React from 'react';
+
+import {ButtonProps, Content, Image} from '@gravity-ui/page-constructor';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {DefaultGoalIds} from '../../constants';
@@ -43,8 +45,14 @@ export const Banner = ({
     const contentData = updateContentSizes(content);
 
     contentData.buttons?.forEach((button) => {
-        // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign
-        button.analyticsEvents = getMergedAnalyticsEvents(buttonGoals, button.analyticsEvents);
+        if (!React.isValidElement(button)) {
+            const buttonConfig = button as ButtonProps;
+
+            buttonConfig.analyticsEvents = getMergedAnalyticsEvents(
+                buttonGoals,
+                buttonConfig.analyticsEvents,
+            );
+        }
     });
 
     return (
