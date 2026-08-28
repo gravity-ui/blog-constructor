@@ -16,20 +16,20 @@ import {YFM} from '../blocks/YFM/YFM';
 import {BlockType} from '../models/common';
 
 const blocks = {
-    [BlockType.YFM]: YFM,
-    [BlockType.Layout]: Layout,
-    [BlockType.Media]: Media,
-    [BlockType.Banner]: Banner,
-    [BlockType.CTA]: CTA,
-    [BlockType.ColoredText]: ColoredText,
     [BlockType.Author]: Author,
-    [BlockType.Suggest]: Suggest,
-    [BlockType.Meta]: Meta,
+    [BlockType.Banner]: Banner,
+    [BlockType.ColoredText]: ColoredText,
+    [BlockType.CompactMedia]: CompactMedia,
+    [BlockType.CTA]: CTA,
     [BlockType.Feed]: Feed,
     [BlockType.Form]: Form,
-    [BlockType.CompactMedia]: CompactMedia,
-    [BlockType.Take]: Take,
+    [BlockType.Layout]: Layout,
+    [BlockType.Media]: Media,
+    [BlockType.Meta]: Meta,
     [BlockType.SideCardList]: SideCardList,
+    [BlockType.Suggest]: Suggest,
+    [BlockType.Take]: Take,
+    [BlockType.YFM]: YFM,
 };
 
 const headers = {

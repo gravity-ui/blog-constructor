@@ -2,14 +2,14 @@ A block component for displaying a list of partner cards.
 
 ## Props
 
-| Prop          | Type       | Description                                     |
-| ------------- | ---------- | ----------------------------------------------- |
-| className     | string     | Optional CSS class name                         |
-| title         | string     | Optional title to display above the card list   |
-| items         | SideCard[] | Array of card items                             |
-| paddingTop    | string     | Top padding size (xxs, xs, s, m, l, xl, xxl)    |
-| paddingBottom | string     | Bottom padding size (xxs, xs, s, m, l, xl, xxl) |
-| qa            | string     | QA attribute for testing                        |
+| Prop          | Type       | Description                                   |
+| ------------- | ---------- | --------------------------------------------- |
+| className     | string     | Optional CSS class name                       |
+| title         | string     | Optional title to display above the card list |
+| items         | SideCard[] | Array of card items                           |
+| paddingTop    | string     | Top padding size (xs, s, sm, m, l, xl)        |
+| paddingBottom | string     | Bottom padding size (xs, s, sm, m, l, xl)     |
+| qa            | string     | QA attribute for testing                      |
 
 ## SideCard
 

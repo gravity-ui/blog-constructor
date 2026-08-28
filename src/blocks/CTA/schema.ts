@@ -21,7 +21,7 @@ export const CTA = {
                 items: {
                     type: 'object',
                     additionalProperties: false,
-                    required: ['title', 'links'],
+                    required: ['title'],
                     properties: {
                         ...ContentBase,
                     },

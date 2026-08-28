@@ -1,6 +1,6 @@
 import {PaddingSize} from '../src/models/paddings';
 
-export const PADDING_SIZES: PaddingSize[] = ['xs', 's', 'm', 'l', 'xl'];
+export const PADDING_SIZES: PaddingSize[] = ['xs', 's', 'sm', 'm', 'l', 'xl'];
 export const PADDING_TYPES: string[] = ['paddingTop', 'paddingBottom'];
 
 export const PADDING_SIZES_BY_PADDING_TYPE: Record<string, PaddingSize>[] = PADDING_TYPES.reduce(

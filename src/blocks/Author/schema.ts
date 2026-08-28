@@ -16,7 +16,7 @@ export const Author = {
             ...BlockBaseProps,
             ...BlogBlockBase,
             authorId: {
-                type: 'number',
+                oneOf: [{type: 'number'}, {type: 'string'}],
             },
         },
     },

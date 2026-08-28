@@ -1,7 +1,7 @@
 import {validators} from '@gravity-ui/page-constructor';
 
 import {BlockType} from '../../models/common';
-import {BlogBlockBase} from '../../schema/common';
+import {BlogBlockBase, PaddingSize} from '../../schema/common';
 
 const {
     common: {BlockBaseProps},
@@ -15,6 +15,8 @@ export const Take = {
         properties: {
             ...BlockBaseProps,
             ...BlogBlockBase,
+            paddingRight: PaddingSize,
+            paddingLeft: PaddingSize,
             text: {type: 'string', contentType: 'text'},
             author: {
                 type: 'object',
@@ -27,6 +29,8 @@ export const Take = {
                     avatar: {type: 'string'},
                 },
             },
+            color: {type: 'string'},
+            noBackground: {type: 'boolean'},
         },
     },
 };

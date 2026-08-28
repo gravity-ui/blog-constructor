@@ -5,35 +5,17 @@ import {BlogBlockBase} from '../../schema/common';
 
 const {
     common: {BlockBaseProps},
-    components: {YandexFormProps},
-    subBlocks: {HubspotFormProps},
+    blocks: {FormBlock},
 } = validators;
 
-export const Media = {
-    [BlockType.Media]: {
+export const Form = {
+    [BlockType.Form]: {
         type: 'object',
         additionalProperties: false,
         properties: {
             ...BlockBaseProps,
             ...BlogBlockBase,
-            formData: {
-                oneOf: [
-                    {
-                        type: 'object',
-                        optionName: 'yandex',
-                        properties: {
-                            yandex: YandexFormProps,
-                        },
-                    },
-                    {
-                        type: 'object',
-                        optionName: 'hubspot',
-                        properties: {
-                            hubspot: HubspotFormProps,
-                        },
-                    },
-                ],
-            },
+            formData: FormBlock['form-block'].properties.formData,
             border: {
                 type: 'string',
                 enum: ['shadow', 'line', 'none'],

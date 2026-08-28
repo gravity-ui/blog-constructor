@@ -4,8 +4,22 @@ import {BlockType} from '../../models/common';
 import {BlogBlockBase} from '../../schema/common';
 
 const {
-    common: {BlockBaseProps},
+    common: {BlockBaseProps, MediaProps},
 } = validators;
+
+const SideCard = {
+    type: 'object',
+    required: ['image', 'description', 'url'],
+    properties: {
+        image: MediaProps.image,
+        description: {
+            type: 'string',
+        },
+        url: {
+            type: 'string',
+        },
+    },
+};
 
 export const SideCardList = {
     [BlockType.SideCardList]: {
@@ -15,29 +29,12 @@ export const SideCardList = {
         properties: {
             ...BlockBaseProps,
             ...BlogBlockBase,
-            className: {
-                type: 'string',
-            },
             title: {
                 type: 'string',
             },
             items: {
                 type: 'array',
-                items: {
-                    type: 'object',
-                    required: ['image', 'description', 'url'],
-                    properties: {
-                        image: {
-                            type: 'string',
-                        },
-                        description: {
-                            type: 'string',
-                        },
-                        url: {
-                            type: 'string',
-                        },
-                    },
-                },
+                items: SideCard,
             },
         },
     },
