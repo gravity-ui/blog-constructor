@@ -66,56 +66,6 @@ function reachGoals(goals: string | object, counterName = 'main') {
     });
 }
 
-// eslint-disable-next-line complexity
-function getServicePrefix(id: string) {
-    switch (id) {
-        case 'compute':
-            return 'CMPT';
-        case 'iam':
-            return 'IAM';
-        case 'vpc':
-            return 'VPC';
-        case 'storage':
-            return 'STRG';
-        case 'speechkit':
-            return 'SK';
-        case 'managed-clickhouse':
-            return 'CH';
-        case 'managed-mongodb':
-            return 'MONGO';
-        case 'managed-postgresql':
-            return 'POSTGR';
-        case 'managed-redis':
-            return 'MR';
-        case 'managed-mysql':
-            return 'MMSQL';
-        case 'managed-kubernetes':
-            return 'MK';
-        case 'translate':
-            return 'TRSL';
-        case 'instance-groups':
-            return 'INSTGR';
-        case 'load-balancer':
-            return 'LB';
-        case 'message-queue':
-            return 'MQ';
-        case 'datalens':
-            return 'DL';
-        case 'monitoring':
-            return 'MNTRG';
-        case 'data-proc':
-            return 'DP';
-        case 'kms':
-            return 'KMS';
-        case 'ydb':
-            return 'YDB';
-        case 'interconnect':
-            return 'INTRCNCT';
-    }
-
-    return undefined;
-}
-
 function getMarketPlacePrefix(id: string) {
     return `product_${id}_`;
 }
@@ -157,7 +107,6 @@ export default {
     params,
     reachGoal,
     reachGoals,
-    getServicePrefix,
     getMarketPlacePrefix,
     goalGoToConsole,
     goalGoToForm,
