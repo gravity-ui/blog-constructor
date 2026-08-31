@@ -1,3 +1,5 @@
+'use client';
+
 import {DefaultGoalIds} from '../../constants';
 import {useLikes} from '../../hooks/useLikes';
 import {PostCardSize, PostData, QAProps, ToggleLikeCallbackType} from '../../models/common';

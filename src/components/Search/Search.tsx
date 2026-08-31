@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 import {Magnifier, Xmark} from '@gravity-ui/icons';

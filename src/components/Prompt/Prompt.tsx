@@ -1,3 +1,5 @@
+'use client';
+
 import {Button, ButtonProps} from '@gravity-ui/uikit';
 
 import {useHover} from '../../hooks/useHover';
