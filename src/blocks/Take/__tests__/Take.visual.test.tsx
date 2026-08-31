@@ -1,6 +1,12 @@
 import {test} from '../../../../playwright/core/index';
 
-import {CustomColor, CustomColorNoBackground, Default, NoBackground} from './helpers';
+import {
+    CustomColor,
+    CustomColorNoBackground,
+    Default,
+    LinkAndSections,
+    NoBackground,
+} from './helpers';
 
 test.describe('Take', () => {
     test('render stories <Default>', async ({mount, expectScreenshot, defaultDelay}) => {
@@ -27,6 +33,12 @@ test.describe('Take', () => {
         defaultDelay,
     }) => {
         await mount(<CustomColorNoBackground />);
+        await defaultDelay();
+        await expectScreenshot({skipTheme: 'dark'});
+    });
+
+    test('render stories <LinkAndSections>', async ({mount, expectScreenshot, defaultDelay}) => {
+        await mount(<LinkAndSections />);
         await defaultDelay();
         await expectScreenshot({skipTheme: 'dark'});
     });
