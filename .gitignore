@@ -21,3 +21,6 @@ node_modules
 /playwright-report*
 /blob-report/
 .cache*
+
+# ai
+*.local.md
