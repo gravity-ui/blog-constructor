@@ -66,54 +66,9 @@ function reachGoals(goals: string | object, counterName = 'main') {
     });
 }
 
-function getMarketPlacePrefix(id: string) {
-    return `product_${id}_`;
-}
-
-function goalGoToConsole(prefix: string) {
-    return prefix && `${prefix}GOTOCONSOLE`;
-}
-
-function goalGoToForm(prefix: string) {
-    return prefix && `${prefix}GOTOFORM`;
-}
-
-function goalGoToDocs(prefix: string) {
-    return prefix && `${prefix}GOTODOCS`;
-}
-
-function goalFormSubmit(prefix: string) {
-    return prefix && `${prefix}FORMSUBMIT`;
-}
-
-function goalEventFormSubmit(id: string) {
-    return `event${id || 's'}_form_submit`;
-}
-
-function goalEventVideoAction(id: string, action: string) {
-    return `event${id}_video_${action}`;
-}
-
-function goalCaseFormSubmit(id: string) {
-    return `case${id ? `_${id}` : 's'}_form_submit`;
-}
-
-function goalSwitchLang(place: string) {
-    return `SWITCH_LANG_${place}`;
-}
-
 export default {
     hit,
     params,
     reachGoal,
     reachGoals,
-    getMarketPlacePrefix,
-    goalGoToConsole,
-    goalGoToForm,
-    goalGoToDocs,
-    goalFormSubmit,
-    goalEventFormSubmit,
-    goalEventVideoAction,
-    goalCaseFormSubmit,
-    goalSwitchLang,
 };
