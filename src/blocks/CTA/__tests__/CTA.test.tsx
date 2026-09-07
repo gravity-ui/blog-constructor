@@ -1,5 +1,5 @@
-import {LinkTheme} from '@gravity-ui/page-constructor';
-import {render, screen} from '@testing-library/react';
+import {LinkTheme, PageConstructorProvider} from '@gravity-ui/page-constructor';
+import {fireEvent, render, screen} from '@testing-library/react';
 
 import {PADDING_SIZES} from '../../../../test-utils/constants';
 import {testPaddingBottom, testPaddingTop} from '../../../../test-utils/shared/common';
@@ -80,5 +80,45 @@ describe('CTA', () => {
             props: ctaData,
             options: {qaId: linkQa.normal},
         });
+    });
+
+    test('emits default, extended, and custom link events without mutating content', () => {
+        const sendEvents = jest.fn();
+        const customEvent = {name: 'custom-cta-event'};
+        const links = [
+            {
+                url: 'https://example.com/cta',
+                text: 'Analytics link',
+                analyticsEvents: customEvent,
+            },
+        ];
+        const items = [{title: 'CTA', links}];
+
+        render(
+            <PageConstructorProvider
+                analytics={{
+                    sendEvents,
+                    autoEvents: {
+                        enabled: true,
+                        extendedEvents: {prefix: 'TEST_PREFIX_', counter: 'test-counter'},
+                    },
+                }}
+            >
+                <CTA items={items} />
+            </PageConstructorProvider>,
+        );
+        fireEvent.click(screen.getByRole('link', {name: 'Analytics link'}));
+
+        expect(sendEvents).toHaveBeenCalledTimes(1);
+        expect(sendEvents).toHaveBeenCalledWith([
+            expect.objectContaining({name: 'link-click', type: 'default-event'}),
+            {
+                name: 'TEST_PREFIX_CTA_CLICK',
+                type: 'extended-event',
+                counters: {include: ['test-counter']},
+            },
+            customEvent,
+        ]);
+        expect(links[0].analyticsEvents).toBe(customEvent);
     });
 });

@@ -6,16 +6,12 @@ import {PostCard} from '../../components/PostCard/PostCard';
 import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {DefaultGoalIds} from '../../constants';
 import {PostPageContext} from '../../contexts/PostPageContext';
-import {AnalyticsCounter} from '../../counters/utils';
 import {Keyset, i18n} from '../../i18n';
 import {SuggestProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
-import {prepareAnalyticsEvent} from '../../utils/common';
+import {createExtendedEvent} from '../../utils/analytics';
 
-const suggestGoals = prepareAnalyticsEvent({
-    name: DefaultGoalIds.suggest,
-    counter: AnalyticsCounter.CrossSite,
-});
+const suggestGoals = createExtendedEvent(DefaultGoalIds.suggest);
 
 /**
  * Suggested posts block

@@ -9,7 +9,6 @@ interface BlogConstructorProviderProps {
   router?: RouterContextProps;
   theme?: ThemeValueType;
   device?: DeviceContextProps;
-  analytics?: AnalyticsContextProps;
   settings?: SettingsContextProps;
   children?: React.ReactNode;
 }
@@ -69,16 +68,12 @@ export interface DeviceContextProps {
 }
 ```
 
-### `Analytics` - analytics settings
+### Analytics settings
 
-```jsx
-interface AnalyticsContextProps {
-  sendEvents?: (events: AnalyticsEvent[]) => void;
-  autoEvents?: boolean;
-}
-```
-
-**!!! Important thing** - We throw analytics settings in blog constructor provide, if we need analytics from only-blog components. If we need analytics in page-constructor blocks we need to throw analytics settings in [page settings props](../containers/BlogPage/README.md)
+`BlogConstructorProvider` does not provide analytics. Pass the single analytics configuration via
+the `settings` prop of [`BlogPage`](../containers/BlogPage/README.md) or
+[`BlogPostPage`](../containers/BlogPostPage/README.md). This configuration reaches both Page
+Constructor primitives and Blog Constructor components.
 
 ### `Settings` - blog settings
 

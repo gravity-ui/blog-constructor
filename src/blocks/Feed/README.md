@@ -33,10 +33,12 @@ const filters: FiltersConfig = [
 | Property        | Type                  | Required | Description                                                                                 |
 | :-------------- | :-------------------- | :------- | :------------------------------------------------------------------------------------------ |
 | queryParamName  | `string`              | `true`   | The URL query parameter key used to store the selected value and passed to `handleLoadData` |
-| analyticsEvents | `AnalyticsEventsProp` | `false`  | Base analytics event(s). The interaction suffix is appended to each event name              |
+| analyticsEvents | `AnalyticsEventsProp` | `false`  | Consumer custom event(s). The interaction suffix is appended to each event name             |
 
 Select opening, search clicks, and saved-only changes append `_CLICK`; select closing appends
-`_CLOSE`.
+`_CLOSE`. The built-in `tags`, `service`, and `services` select identities automatically emit the
+registered Blog Constructor theme/service goals after a completed selection. Do not configure
+those registered goals through `analyticsEvents`.
 
 ### `type?: 'select'` (default)
 
@@ -94,8 +96,7 @@ const filters: FilterConfig[] = [
     multiple: true,
     filterable: true,
     analyticsEvents: {
-      name: 'filter-tags',
-      type: 'tags',
+      name: 'consumer-filter-tags',
     },
   },
   // dropdown — single-select
@@ -107,8 +108,7 @@ const filters: FilterConfig[] = [
     ],
     allLabel: 'All services',
     analyticsEvents: {
-      name: 'filter-service',
-      type: 'services',
+      name: 'consumer-filter-service',
     },
   },
 ];

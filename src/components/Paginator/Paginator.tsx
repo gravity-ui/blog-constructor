@@ -4,10 +4,9 @@ import {useAnalytics} from '@gravity-ui/page-constructor';
 import _ from 'lodash';
 
 import {DefaultGoalIds} from '../../constants';
-import {AnalyticsCounter} from '../../counters/utils';
 import {DefaultEventNames} from '../../models/common';
+import {createExtendedEvent} from '../../utils/analytics';
 import {block} from '../../utils/cn';
-import {prepareAnalyticsEvent} from '../../utils/common';
 
 import {NavigationButton} from './components/NavigationButton';
 import {PaginatorItem} from './components/PaginatorItem';
@@ -19,6 +18,9 @@ import './Paginator.scss';
 const b = block('paginator');
 
 const DEFAULT_PAGE_COUNT_FOR_SHOW_SUPPORT_BUTTONS = 6;
+const homeEvent = createExtendedEvent(DefaultGoalIds.home);
+const nextEvent = createExtendedEvent(DefaultGoalIds.next);
+const pageEvent = createExtendedEvent(DefaultGoalIds.page);
 
 export const Paginator = ({
     itemsPerPage,
@@ -62,18 +64,10 @@ export const Paginator = ({
         let newPage = page;
 
         if (type === 'prev' && page > 1) {
-            const event = prepareAnalyticsEvent({
-                name: DefaultGoalIds.home,
-                counter: AnalyticsCounter.CrossSite,
-            });
-            handleAnalyticsHome(event);
+            handleAnalyticsHome(homeEvent);
             newPage = 1;
         } else if (type === 'next' && page < pagesCount) {
-            const event = prepareAnalyticsEvent({
-                name: DefaultGoalIds.next,
-                counter: AnalyticsCounter.CrossSite,
-            });
-            handleAnalyticsNext(event);
+            handleAnalyticsNext(nextEvent);
             newPage = page + 1;
         }
 
@@ -84,11 +78,7 @@ export const Paginator = ({
 
     const handlePageClick = (index: number | ArrowType) => {
         if (index !== page && typeof index === 'number') {
-            const event = prepareAnalyticsEvent({
-                name: DefaultGoalIds.page,
-                counter: AnalyticsCounter.CrossSite,
-            });
-            handleAnalyticsPage(event, {page: String(index)});
+            handleAnalyticsPage(pageEvent, {page: String(index)});
             handlePageChange(index);
         }
     };

@@ -59,9 +59,10 @@ export const Save = ({
         <button
             className={b('item', {size, save: true})}
             onClick={(event) => {
-                // both preventDefault and stopImmediatePropagation required to work properly
+                // Prevent both navigation and the enclosing post-card interaction.
                 // https://stackoverflow.com/questions/24415631/reactjs-syntheticevent-stoppropagation-only-works-with-react-events
                 event.preventDefault();
+                event.stopPropagation();
                 event.nativeEvent.stopImmediatePropagation();
 
                 if (!isLikeable) {

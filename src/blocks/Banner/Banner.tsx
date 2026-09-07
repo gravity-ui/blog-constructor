@@ -4,16 +4,11 @@ import {ButtonProps, Content, Image} from '@gravity-ui/page-constructor';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {DefaultGoalIds} from '../../constants';
-import {AnalyticsCounter} from '../../counters/utils';
 import {BannerProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
+import {createExtendedEvent} from '../../utils/analytics';
 import {block} from '../../utils/cn';
-import {
-    getMergedAnalyticsEvents,
-    getQaAttributes,
-    prepareAnalyticsEvent,
-    updateContentSizes,
-} from '../../utils/common';
+import {getMergedAnalyticsEvents, getQaAttributes, updateContentSizes} from '../../utils/common';
 
 import './Banner.scss';
 
@@ -21,10 +16,7 @@ const b = block('banner');
 
 const BANNER_CUSTOM_QA_ATTRIBUTES = ['image-container'];
 
-const buttonGoals = prepareAnalyticsEvent({
-    name: DefaultGoalIds.bannerCommon,
-    counter: AnalyticsCounter.CrossSite,
-});
+const buttonGoals = createExtendedEvent(DefaultGoalIds.bannerCommon);
 
 export const Banner = ({
     color,
@@ -42,18 +34,19 @@ export const Banner = ({
         contentStyle.backgroundColor = color;
     }
 
-    const contentData = updateContentSizes(content);
-
-    contentData.buttons?.forEach((button) => {
-        if (!React.isValidElement(button)) {
-            const buttonConfig = button as ButtonProps;
-
-            buttonConfig.analyticsEvents = getMergedAnalyticsEvents(
-                buttonGoals,
-                buttonConfig.analyticsEvents,
-            );
+    const buttons = content.buttons?.map((button) => {
+        if (React.isValidElement(button)) {
+            return button;
         }
+
+        const buttonConfig = button as ButtonProps;
+
+        return {
+            ...buttonConfig,
+            analyticsEvents: getMergedAnalyticsEvents(buttonGoals, buttonConfig.analyticsEvents),
+        };
     });
+    const contentData = updateContentSizes({...content, buttons});
 
     return (
         <Wrapper
