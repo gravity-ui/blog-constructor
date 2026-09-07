@@ -8,14 +8,14 @@ import {DefaultGoalIds} from '../../constants';
 import {LocaleContext} from '../../contexts/LocaleContext';
 import {PostPageContext} from '../../contexts/PostPageContext';
 import {SettingsContext} from '../../contexts/SettingsContext';
-import {AnalyticsCounter} from '../../counters/utils';
 import {HeaderProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
+import {createExtendedEvent} from '../../utils/analytics';
 import {block} from '../../utils/cn';
 import {
     getBreadcrumbs,
     getBlogPath as getDefaultBlogPath,
-    prepareAnalyticsEvent,
+    getMergedAnalyticsEvents,
 } from '../../utils/common';
 
 import './Header.scss';
@@ -23,18 +23,15 @@ import './Header.scss';
 const b = block('header-block');
 
 const analyticsEventsContainer: Record<string, AnalyticsEventsProp> = {
-    sharing: prepareAnalyticsEvent({name: DefaultGoalIds.shareTop}),
-    save: prepareAnalyticsEvent({name: DefaultGoalIds.saveTop}),
+    sharing: createExtendedEvent(DefaultGoalIds.shareTop),
+    save: createExtendedEvent(DefaultGoalIds.saveTop),
 };
 
-const breadcrumbsGoals = prepareAnalyticsEvent({
-    name: DefaultGoalIds.breadcrumbsTop,
-    counter: AnalyticsCounter.CrossSite,
-});
+const breadcrumbsGoals = createExtendedEvent(DefaultGoalIds.breadcrumbsTop);
 
 export const Header = (props: HeaderProps) => {
     const {theme, paddingTop, paddingBottom, imageInGrid = true} = props;
-    const {post, breadcrumbs: customBreadcrumbs = {}} = React.useContext(PostPageContext);
+    const {post, breadcrumbs: customBreadcrumbs} = React.useContext(PostPageContext);
     const {locale} = React.useContext(LocaleContext);
     const {getBlogPath = getDefaultBlogPath} = React.useContext(SettingsContext);
     const blogPath = getBlogPath(locale.pathPrefix || '');
@@ -47,7 +44,14 @@ export const Header = (props: HeaderProps) => {
         breadcrumbs.theme = 'dark';
     }
 
-    breadcrumbs.analyticsEvents = breadcrumbsGoals;
+    const preparedBreadcrumbs = {
+        ...breadcrumbs,
+        ...customBreadcrumbs,
+        analyticsEvents: getMergedAnalyticsEvents(
+            breadcrumbsGoals,
+            customBreadcrumbs?.analyticsEvents,
+        ),
+    };
 
     return (
         <Wrapper
@@ -61,7 +65,7 @@ export const Header = (props: HeaderProps) => {
                     {...props}
                     title={htmlTitle || title}
                     description={description}
-                    breadcrumbs={{...breadcrumbs, ...customBreadcrumbs}}
+                    breadcrumbs={preparedBreadcrumbs}
                     mediaClassName={b('image')}
                     gridClassName={b('grid')}
                     contentWrapperClassName={b('content-wrapper')}

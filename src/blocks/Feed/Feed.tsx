@@ -8,10 +8,10 @@ import {PostsError} from '../../components/PostsError/PostsError';
 import {DefaultGoalIds} from '../../constants';
 import {FeedContext} from '../../contexts/FeedContext';
 import {RouterContext} from '../../contexts/RouterContext';
-import {AnalyticsCounter} from '../../counters/utils';
 import {FeedProps} from '../../models/blocks';
 import {DefaultEventNames, FetchArgs, HandleChangeQueryParams} from '../../models/common';
-import {getFeedQueryParams, prepareAnalyticsEvent, scrollOnPageChange} from '../../utils/common';
+import {createExtendedEvent} from '../../utils/analytics';
+import {getFeedQueryParams, scrollOnPageChange} from '../../utils/common';
 import {DEFAULT_PAGE, DEFAULT_ROWS_PER_PAGE} from '../constants';
 
 import {ActionTypes, reducer} from './reducer';
@@ -19,16 +19,13 @@ import {ActionTypes, reducer} from './reducer';
 const CONTAINER_ID = 'blog-cards';
 const PAGE_QUERY = 'page';
 const FIRST_PAGE = 1;
+const showMoreEvent = createExtendedEvent(DefaultGoalIds.showMore);
 
 export const Feed = ({image, title, resetTitleMargin}: FeedProps) => {
     const {posts, totalCount, filters, pinnedPost, getPosts, pageCountForShowSupportButtons} =
         React.useContext(FeedContext);
     const router = React.useContext(RouterContext);
     const handleAnalytics = useAnalytics(DefaultEventNames.ShowMore);
-    const additionalAnalyticsEvent = prepareAnalyticsEvent({
-        name: DefaultGoalIds.showMore,
-        counter: AnalyticsCounter.CrossSite,
-    });
 
     const [
         {
@@ -156,7 +153,7 @@ export const Feed = ({image, title, resetTitleMargin}: FeedProps) => {
     };
 
     const handleShowMore = async () => {
-        handleAnalytics(additionalAnalyticsEvent);
+        handleAnalytics(showMoreEvent);
 
         const nextPage = currentPage + 1;
 

@@ -1,7 +1,6 @@
 import {format, parse} from 'url';
 
 import {
-    AnalyticsEvent,
     AnalyticsEventsProp,
     ContentBlockProps,
     HeaderBreadCrumbsProps,
@@ -19,7 +18,6 @@ import {
     DEFAULT_ROWS_PER_PAGE,
 } from '../blocks/constants';
 import {RouterContextProps} from '../contexts/RouterContext';
-import {AnalyticsCounter} from '../counters/utils';
 import {Keyset, i18n} from '../i18n';
 import {FiltersConfig, GetPostsRequest, Query, Tag, normalizeFiltersToRows} from '../models/common';
 
@@ -199,21 +197,3 @@ export const getQaAttributes = (qa?: string, ...customKeys: (string | Array<stri
 
     return attributes;
 };
-
-type PrepareAnalyticsEventArgs = {
-    name: string;
-    counter?: AnalyticsCounter;
-    options?: Record<string, string | number>;
-};
-
-export const prepareAnalyticsEvent = ({
-    name,
-    counter = AnalyticsCounter.Main,
-    options = {},
-}: PrepareAnalyticsEventArgs): AnalyticsEvent => ({
-    ...options,
-    name,
-    counters: {
-        include: [counter],
-    },
-});

@@ -1,5 +1,5 @@
-import {ContentSize, ContentTheme} from '@gravity-ui/page-constructor';
-import {render, screen} from '@testing-library/react';
+import {ContentSize, ContentTheme, PageConstructorProvider} from '@gravity-ui/page-constructor';
+import {fireEvent, render, screen} from '@testing-library/react';
 import pick from 'lodash/pick';
 
 import {PADDING_SIZES} from '../../../../test-utils/constants';
@@ -145,6 +145,45 @@ describe('Banner', () => {
             props: bannerData,
             options: {qaId: contentQaAttributes.button},
         });
+    });
+
+    test('emits default, extended, and custom button events without mutating content', () => {
+        const sendEvents = jest.fn();
+        const customEvent = {name: 'custom-banner-event'};
+        const buttons = [
+            {
+                url: 'https://example.com/banner',
+                text: 'Analytics button',
+                analyticsEvents: customEvent,
+            },
+        ];
+
+        render(
+            <PageConstructorProvider
+                analytics={{
+                    sendEvents,
+                    autoEvents: {
+                        enabled: true,
+                        extendedEvents: {prefix: 'TEST_PREFIX_', counter: 'test-counter'},
+                    },
+                }}
+            >
+                <Banner title="Banner" buttons={buttons} />
+            </PageConstructorProvider>,
+        );
+        fireEvent.click(screen.getByRole('link', {name: 'Analytics button'}));
+
+        expect(sendEvents).toHaveBeenCalledTimes(1);
+        expect(sendEvents).toHaveBeenCalledWith([
+            expect.objectContaining({name: 'button-click', type: 'default-event'}),
+            {
+                name: 'TEST_PREFIX_TEXT-BANNER_CLICK',
+                type: 'extended-event',
+                counters: {include: ['test-counter']},
+            },
+            customEvent,
+        ]);
+        expect(buttons[0].analyticsEvents).toBe(customEvent);
     });
 
     test('Render with centered', async () => {

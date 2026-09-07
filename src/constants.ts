@@ -14,22 +14,22 @@ export const UIKIT_ROOT_CLASS = 'g-root';
 export const UIKIT_THEME_LIGHT_CLASS = `${UIKIT_ROOT_CLASS}_theme_${DEFAULT_THEME}`;
 
 export enum DefaultGoalIds {
-    shareTop = 'SITE_BLOG_SHARE-TOP_CLICK',
-    shareBottom = 'SITE_BLOG_SHARE-BOTTOM_CLICK',
-    breadcrumbsTop = 'SITE_BLOG_BREADCRUMBS-TOP_CLICK',
-    breadcrumbsBottom = 'SITE_BLOG_BREADCRUMBS-BOTTOM_CLICK',
-    saveTop = 'SITE_BLOG_SAVE-TOP_CLICK',
-    saveBottom = 'SITE_BLOG_SAVE-BOTTOM_CLICK',
-    saveSuggest = 'SITE_BLOG_SAVE-SUGGEST_CLICK',
-    suggest = 'SITE_BLOG_INTERESTING-CARD_CLICK',
-    bannerCommon = 'SITE_BLOG_TEXT-BANNER_CLICK',
-    cta = 'SITE_BLOG_CTA_CLICK',
-    tag = 'SITE_BLOG_THEME-SELECTOR_CLCK',
-    service = 'SITE_BLOG_SERVICE-SELECTOR_CLCK',
-    showMore = 'SITE_BLOG-PAGINATION_SHOW-MORE_CLCK',
-    next = 'SITE_BLOG-PAGINATION_NEXT_CLCK',
-    home = 'SITE_BLOG-PAGINATION_HOME_CLCK',
-    page = 'SITE_BLOG-PAGINATION_PAGE-NMBR_CLCK',
+    shareTop = 'SHARE-TOP_CLICK',
+    shareBottom = 'SHARE-BOTTOM_CLICK',
+    breadcrumbsTop = 'BREADCRUMBS-TOP_CLICK',
+    breadcrumbsBottom = 'BREADCRUMBS-BOTTOM_CLICK',
+    saveTop = 'SAVE-TOP_CLICK',
+    saveBottom = 'SAVE-BOTTOM_CLICK',
+    saveSuggest = 'SAVE-SUGGEST_CLICK',
+    suggest = 'INTERESTING-CARD_CLICK',
+    bannerCommon = 'TEXT-BANNER_CLICK',
+    cta = 'CTA_CLICK',
+    tag = 'THEME-SELECTOR_CLCK',
+    service = 'SERVICE-SELECTOR_CLCK',
+    showMore = 'PAGINATION_SHOW-MORE_CLCK',
+    next = 'PAGINATION_NEXT_CLCK',
+    home = 'PAGINATION_HOME_CLCK',
+    page = 'PAGINATION_PAGE-NMBR_CLCK',
 }
 
 export const DEFAULT_PADDINGS: Paddings = {

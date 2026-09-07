@@ -49,6 +49,35 @@ import {BlogPostPage, BlogConstructorProvider} from '@gravity-ui/blog-constructo
 
 Documentation about [providerProps](./src/constructor/README.md).
 
+### Analytics
+
+Configure analytics once through the page `settings` prop:
+
+```tsx
+const settings = {
+  analytics: {
+    sendEvents,
+    autoEvents: {
+      enabled: true,
+      extendedEvents: {
+        prefix: 'SITE_BLOG_',
+        counter: 'cross-site',
+      },
+    },
+  },
+};
+
+<BlogPage {...props} settings={settings} />;
+```
+
+`enabled` controls generic Page Constructor events. The presence of `extendedEvents` independently
+enables Blog Constructor's registered goals and decorates them with the configured prefix and
+counter. Blog goals are owned by the library; do not add them to block or filter content. Custom
+`analyticsEvents` remain unchanged and are sent after the internally supplied Blog event.
+
+The legacy boolean `autoEvents` form remains supported by Page Constructor, but it does not enable
+Blog extended events. Use the object configuration above when registered Blog goals are required.
+
 Also blog-constructor have server components to help you transform your data if you need
 
 ```jsx
