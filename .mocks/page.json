@@ -16,12 +16,19 @@
         "resetPaddings": true,
         "width": "s",
         "verticalOffset": "m",
-        "theme": "dark",
         "background": {
-          "url": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png",
-          "disableCompress": true,
-          "color": "#CCDAFF",
-          "fullWidth": false
+          "light": {
+            "url": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png",
+            "disableCompress": true,
+            "color": "#CCDAFF",
+            "fullWidth": false
+          },
+          "dark": {
+            "url": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png",
+            "disableCompress": true,
+            "color": "#555555",
+            "fullWidth": false
+          }
         },
         "buttons": [
           {

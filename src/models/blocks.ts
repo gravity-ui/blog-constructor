@@ -97,8 +97,8 @@ export type FormProps = {
 
 export type CompactMediaProps = {
     description?: string;
-} & PaddingsYFMProps &
-    Partial<Pick<PCMediaProps, 'image'>>;
+    image?: ThemeSupporting<NonNullable<PCMediaProps['image']>>;
+} & PaddingsYFMProps;
 
 export type TakeProps = YFMProps & {
     author: AuthorItem;
