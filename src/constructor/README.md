@@ -70,7 +70,7 @@ export interface DeviceContextProps {
 
 ### Analytics settings
 
-`BlogConstructorProvider` does not provide analytics. Pass the single analytics configuration via
+Pass the single analytics configuration via
 the `settings` prop of [`BlogPage`](../containers/BlogPage/README.md) or
 [`BlogPostPage`](../containers/BlogPostPage/README.md). This configuration reaches both Page
 Constructor primitives and Blog Constructor components.
