@@ -8,16 +8,15 @@ import {DefaultGoalIds} from '../../constants';
 import {LocaleContext} from '../../contexts/LocaleContext';
 import {PostPageContext} from '../../contexts/PostPageContext';
 import {SettingsContext} from '../../contexts/SettingsContext';
-import {AnalyticsCounter} from '../../counters/utils';
 import {MetaProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
+import {createExtendedEvent} from '../../utils/analytics';
 import {block} from '../../utils/cn';
 import {
     getBreadcrumbs,
     getBlogPath as getDefaultBlogPath,
     getMergedAnalyticsEvents,
     getQaAttributes,
-    prepareAnalyticsEvent,
 } from '../../utils/common';
 
 import './Meta.scss';
@@ -25,14 +24,11 @@ import './Meta.scss';
 const b = block('meta');
 
 const analyticsEventsContainer: Record<string, AnalyticsEventsProp> = {
-    sharing: prepareAnalyticsEvent({name: DefaultGoalIds.shareBottom}),
-    save: prepareAnalyticsEvent({name: DefaultGoalIds.saveBottom}),
+    sharing: createExtendedEvent(DefaultGoalIds.shareBottom),
+    save: createExtendedEvent(DefaultGoalIds.saveBottom),
 };
 
-const breadcrumbsGoals = prepareAnalyticsEvent({
-    name: DefaultGoalIds.breadcrumbsBottom,
-    counter: AnalyticsCounter.CrossSite,
-});
+const breadcrumbsGoals = createExtendedEvent(DefaultGoalIds.breadcrumbsBottom);
 
 export const Meta = (props: MetaProps) => {
     const {paddingTop = 'l', paddingBottom = 'l', theme = 'light', qa} = props;
@@ -45,8 +41,6 @@ export const Meta = (props: MetaProps) => {
     const {title, id, date, readingTime, tags} = post;
 
     const breadcrumbs = getBreadcrumbs({tags, blogPath});
-
-    breadcrumbs.analyticsEvents = getMergedAnalyticsEvents(breadcrumbsGoals);
 
     return (
         <Wrapper
@@ -61,6 +55,10 @@ export const Meta = (props: MetaProps) => {
                     items={customBreadcrumbs?.items || breadcrumbs.items}
                     className={b('breadcrumbs')}
                     theme={theme}
+                    analyticsEvents={getMergedAnalyticsEvents(
+                        breadcrumbsGoals,
+                        customBreadcrumbs?.analyticsEvents,
+                    )}
                 />
             )}
             {title && (

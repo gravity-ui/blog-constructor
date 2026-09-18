@@ -1,11 +1,6 @@
 import * as React from 'react';
 
-import {
-    AnalyticsContext,
-    AnalyticsContextProps,
-    Theme,
-    ThemeContext,
-} from '@gravity-ui/page-constructor';
+import {Theme, ThemeContext} from '@gravity-ui/page-constructor';
 
 import {DEFAULT_THEME} from '../constants';
 import {DeviceContext, DeviceContextProps} from '../contexts/DeviceContext';
@@ -22,7 +17,6 @@ export interface BlogConstructorProviderProps {
     router?: RouterContextProps;
     theme?: ThemeValueType;
     device?: DeviceContextProps;
-    analytics?: AnalyticsContextProps;
     settings?: SettingsContextProps;
     children?: React.ReactNode;
 }
@@ -33,7 +27,6 @@ export const BlogConstructorProvider = ({
     router = {} as RouterContextProps,
     theme = DEFAULT_THEME,
     device = {},
-    analytics = {},
     settings = {},
     children,
 }: React.PropsWithChildren<BlogConstructorProviderProps>) => {
@@ -45,7 +38,6 @@ export const BlogConstructorProvider = ({
         <MobileContext.Provider value={Boolean(isMobile)} key="is-mobile-context" />,
         <DeviceContext.Provider value={device} key="device-context" />,
         <SettingsContext.Provider value={settings} key="settings-context" />,
-        <AnalyticsContext.Provider value={analytics} key="analytics-context" />,
     ].reduceRight((prev, provider) => React.cloneElement(provider, {}, prev), children);
 
     return <React.Fragment>{context}</React.Fragment>;

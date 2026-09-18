@@ -1,8 +1,8 @@
 import {DefaultGoalIds} from '../../constants';
 import {useLikes} from '../../hooks/useLikes';
 import {PostCardSize, PostData, QAProps, ToggleLikeCallbackType} from '../../models/common';
+import {createExtendedEvent} from '../../utils/analytics';
 import {block} from '../../utils/cn';
-import {prepareAnalyticsEvent} from '../../utils/common';
 
 import {Date} from './components/Date';
 import {ReadingTime} from './components/ReadingTime';
@@ -12,7 +12,7 @@ import './PostInfo.scss';
 
 const b = block('post-info');
 
-const saveEvents = prepareAnalyticsEvent({name: DefaultGoalIds.saveSuggest});
+const saveEvents = createExtendedEvent(DefaultGoalIds.saveSuggest);
 
 export interface SuggestPostInfoProps
     extends Pick<PostData, 'date' | 'readingTime' | 'hasUserLike'>,

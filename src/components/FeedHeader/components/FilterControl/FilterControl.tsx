@@ -3,15 +3,19 @@ import * as React from 'react';
 import type {AnalyticsEvent, AnalyticsEventsProp} from '@gravity-ui/page-constructor';
 import {useAnalytics} from '@gravity-ui/page-constructor';
 
+import {DefaultGoalIds} from '../../../../constants';
 import {LikesContext} from '../../../../contexts/LikesContext';
 import {
     FilterConfig,
     Query,
     SavedOnlyFilterConfig,
     SearchFilterConfig,
+    SelectFilterCloseData,
     SelectFilterConfig,
 } from '../../../../models/common';
+import {createExtendedEvent} from '../../../../utils/analytics';
 import {block} from '../../../../utils/cn';
+import {getMergedAnalyticsEvents} from '../../../../utils/common';
 import {SavedOnlyFilter} from '../SavedOnlyFilter/SavedOnlyFilter';
 import {SearchFilter} from '../SearchFilter/SearchFilter';
 import {SelectFilter} from '../SelectFilter/SelectFilter';
@@ -41,6 +45,12 @@ const getSelectedOptionNames = (selectedValues: string[], options: SelectFilterC
         return selectedOption?.content || selectedValue;
     });
 
+const compatibilityEvents: Partial<Record<string, AnalyticsEvent>> = {
+    tags: createExtendedEvent(DefaultGoalIds.tag),
+    service: createExtendedEvent(DefaultGoalIds.service),
+    services: createExtendedEvent(DefaultGoalIds.service),
+};
+
 export type FilterControlProps = {
     filter: FilterConfig;
     initialValue: string | number | null | undefined;
@@ -52,12 +62,16 @@ export const FilterControl = ({filter, initialValue, onChange}: FilterControlPro
     const {hasLikes} = React.useContext(LikesContext);
 
     const handleFilterAnalytics = React.useCallback(
-        (postfix: string, params?: Record<string, unknown>) => {
-            if (filter.analyticsEvents) {
-                handleAnalytics(
-                    addAnalyticsEventPostfix(filter.analyticsEvents, postfix),
-                    params as Record<string, string>,
-                );
+        (postfix: string, params?: Record<string, unknown>, internalEvent?: AnalyticsEvent) => {
+            const customEvents = filter.analyticsEvents
+                ? addAnalyticsEventPostfix(filter.analyticsEvents, postfix)
+                : undefined;
+            const events = internalEvent
+                ? getMergedAnalyticsEvents(internalEvent, customEvents)
+                : customEvents;
+
+            if (events) {
+                handleAnalytics(events, params as Record<string, string>);
             }
         },
         [filter.analyticsEvents, handleAnalytics],
@@ -104,6 +118,25 @@ export const FilterControl = ({filter, initialValue, onChange}: FilterControlPro
 
     const {queryParamName, multiple, filterable, hasClear, placeholder, options, allLabel, qa} =
         filter as SelectFilterConfig;
+    const compatibilityEvent = compatibilityEvents[queryParamName];
+
+    const handleSelectClose = ({selectedValues, changesCount}: SelectFilterCloseData) => {
+        const selectedOptionNames = getSelectedOptionNames(selectedValues, options);
+        const params: Record<string, unknown> = {
+            selected_values: selectedValues.length ? selectedOptionNames : null,
+            selected_ids: selectedValues.length ? selectedValues : null,
+            changes_count: changesCount,
+            count_filters: selectedValues.length,
+        };
+
+        if (queryParamName === 'tags') {
+            params.theme = selectedValues[0] || null;
+        } else if (queryParamName === 'service' || queryParamName === 'services') {
+            params.service = selectedOptionNames.join(',');
+        }
+
+        handleFilterAnalytics('CLOSE', params, changesCount > 0 ? compatibilityEvent : undefined);
+    };
 
     return (
         <div className={b()}>
@@ -118,16 +151,7 @@ export const FilterControl = ({filter, initialValue, onChange}: FilterControlPro
                 initialValue={initialValue}
                 onChange={(value) => handleChange({[queryParamName]: value} as Query)}
                 onOpen={() => handleFilterAnalytics('CLICK')}
-                onClose={({selectedValues, changesCount}) =>
-                    handleFilterAnalytics('CLOSE', {
-                        selected_values: selectedValues.length
-                            ? getSelectedOptionNames(selectedValues, options)
-                            : null,
-                        selected_ids: selectedValues.length ? selectedValues : null,
-                        changes_count: changesCount,
-                        count_filters: selectedValues.length,
-                    })
-                }
+                onClose={handleSelectClose}
             />
         </div>
     );

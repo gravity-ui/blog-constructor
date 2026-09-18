@@ -2,25 +2,17 @@ import {Content, ContentBlockProps} from '@gravity-ui/page-constructor';
 
 import {Wrapper} from '../../components/Wrapper/Wrapper';
 import {DefaultGoalIds} from '../../constants';
-import {AnalyticsCounter} from '../../counters/utils';
 import {CTAProps} from '../../models/blocks';
 import {PaddingsDirections} from '../../models/paddings';
+import {createExtendedEvent} from '../../utils/analytics';
 import {block} from '../../utils/cn';
-import {
-    getMergedAnalyticsEvents,
-    getQaAttributes,
-    prepareAnalyticsEvent,
-    updateContentSizes,
-} from '../../utils/common';
+import {getMergedAnalyticsEvents, getQaAttributes, updateContentSizes} from '../../utils/common';
 
 import './CTA.scss';
 
 const b = block('cta');
 
-const linkGoals = prepareAnalyticsEvent({
-    name: DefaultGoalIds.cta,
-    counter: AnalyticsCounter.CrossSite,
-});
+const linkGoals = createExtendedEvent(DefaultGoalIds.cta);
 
 export const CTA = ({items, paddingTop, paddingBottom, qa}: CTAProps) => {
     const qaAttributes = getQaAttributes(qa, 'card');
@@ -35,15 +27,11 @@ export const CTA = ({items, paddingTop, paddingBottom, qa}: CTAProps) => {
             qa={qaAttributes.wrapper}
         >
             {items.map((content: ContentBlockProps, index: number) => {
-                const contentData = updateContentSizes(content);
-
-                contentData.links?.forEach((link) => {
-                    // eslint-disable-next-line no-not-accumulator-reassign/no-not-accumulator-reassign
-                    link.analyticsEvents = getMergedAnalyticsEvents(
-                        linkGoals,
-                        link.analyticsEvents,
-                    );
-                });
+                const links = content.links?.map((link) => ({
+                    ...link,
+                    analyticsEvents: getMergedAnalyticsEvents(linkGoals, link.analyticsEvents),
+                }));
+                const contentData = updateContentSizes({...content, links});
 
                 return (
                     <div key={index} className={b('card')} data-qa={qaAttributes.card}>

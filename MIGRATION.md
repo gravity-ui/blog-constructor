@@ -1,5 +1,57 @@
 # Migration Guide
 
+## Upgrading from v11.x to v12.x
+
+### Analytics provider unification
+
+`BlogConstructorProvider.analytics` has been removed. Pass analytics through `settings` on
+`BlogPage` or `BlogPostPage`; that configuration is now the single analytics path for Page
+Constructor and Blog Constructor interactions.
+
+```tsx
+// Before
+<BlogConstructorProvider analytics={analytics}>
+  <BlogPage {...props} settings={{analytics}} />
+</BlogConstructorProvider>;
+
+// After
+<BlogConstructorProvider>
+  <BlogPage {...props} settings={{analytics}} />
+</BlogConstructorProvider>;
+```
+
+Registered Blog goals use the extended-events API added in `@gravity-ui/page-constructor` 8.23:
+
+```tsx
+const analytics = {
+  sendEvents,
+  autoEvents: {
+    enabled: true,
+    extendedEvents: {
+      prefix: 'SITE_BLOG_',
+      counter: 'cross-site',
+    },
+  },
+};
+```
+
+- `enabled` controls generic Page Constructor default events.
+- The presence of `extendedEvents` independently enables Blog Constructor goals.
+- Blog goals are emitted after a default event and before consumer custom events.
+- The legacy boolean `autoEvents` form still controls default events, but does not enable Blog
+  extended events.
+- Set `enabled: false` with `extendedEvents` present to emit only registered Blog goals.
+
+Blog goals are now owned and injected by Blog Constructor. Remove registered `SITE_BLOG_*` goals,
+prefixes, and counters from block and filter content. Custom `analyticsEvents` remain supported and
+are passed through unchanged, apart from the documented filter interaction suffixes.
+
+The unpublished `@gravity-ui/blog-constructor/utils` and
+`@gravity-ui/blog-constructor/counters` subpaths were never part of the package exports. Remove
+imports of `prepareAnalyticsEvent` and `AnalyticsCounter`; they are no longer needed.
+
+---
+
 ## Upgrading from v9.x to v10.x
 
 ### Breaking Changes
@@ -216,33 +268,30 @@ getFeedQueryParams(queryString, pageNumber, filters);
 
 ### Analytics
 
-Per-filter analytics are now configured inline on each `FilterConfig` entry via the `analyticsEvents` field. The dedicated `DefaultEventNames.Tag` / `DefaultEventNames.Service` / `DefaultEventNames.SaveOnly` calls inside `Controls` are removed.
+Consumer-specific filter analytics can be configured inline on each `FilterConfig` entry via the
+`analyticsEvents` field:
 
 ```ts
-import {DefaultEventNames, FiltersConfig} from '@gravity-ui/blog-constructor';
-import {prepareAnalyticsEvent} from '@gravity-ui/blog-constructor/utils';
-import {AnalyticsCounter} from '@gravity-ui/blog-constructor/counters';
+import {FiltersConfig} from '@gravity-ui/blog-constructor';
 
 const filters: FiltersConfig = [
   {
     type: 'savedOnly',
     queryParamName: 'savedOnly',
-    analyticsEvents: prepareAnalyticsEvent({
-      name: DefaultEventNames.SaveOnly,
-      counter: AnalyticsCounter.CrossSite,
-    }),
+    analyticsEvents: {name: 'consumer-save-filter'},
   },
   {
     queryParamName: 'tags',
     options: [...],
     allLabel: 'All tags',
-    analyticsEvents: prepareAnalyticsEvent({
-      name: DefaultEventNames.Tag,
-      counter: AnalyticsCounter.CrossSite,
-    }),
+    analyticsEvents: {name: 'consumer-theme-filter'},
   },
 ];
 ```
+
+Starting with v12, the built-in `tags`, `service`, and `services` select identities automatically
+emit the registered Blog theme/service goals. Do not place those registered goals in filter
+content.
 
 ---
 
