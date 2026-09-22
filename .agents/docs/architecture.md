@@ -29,4 +29,5 @@ scripts/         maintenance scripts (e.g. playwright-docker.sh)
 
 - **Client entry:** `src/index.ts` — exports `BlogConstructorProvider`, `BlogPage`, `BlogPostPage`, model types, schema utilities, `BREAKPOINTS`.
 - **Server entry:** `src/server.ts` — exports `transformPost`, `sanitizeMeta`, `createReadableContent`, `transformPageContent`.
-- Subpath exports include `./server` and `./styles/*` (raw SCSS). Any change to these contracts is a breaking change — update `MIGRATION.md` and use a `feat!:` / `BREAKING CHANGE:` commit.
+- **Schema entry:** `src/schema/index.ts` — exported as `./schema` for schema-only consumers.
+- Other subpath exports include `./server` and `./styles/*` (raw SCSS). Any breaking change to these contracts requires an update to `MIGRATION.md` and a `feat!:` / `BREAKING CHANGE:` commit.
