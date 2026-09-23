@@ -1,5 +1,12 @@
 # Changelog
 
+## [11.3.0](https://github.com/gravity-ui/blog-constructor/compare/v11.2.0...v11.3.0) (2026-09-23)
+
+
+### Features
+
+* expose schema-only entrypoint ([#335](https://github.com/gravity-ui/blog-constructor/issues/335)) ([b1e4a1f](https://github.com/gravity-ui/blog-constructor/commit/b1e4a1ff5ddbe877f695b93c38bed83d6f6eada2))
+
 ## [11.2.0](https://github.com/gravity-ui/blog-constructor/compare/v11.1.0...v11.2.0) (2026-08-28)
 
 
