@@ -1,4 +1,4 @@
-import {validators} from '@gravity-ui/page-constructor';
+import {validators} from '@gravity-ui/page-constructor/schema';
 
 import {BlockType} from '../../models/common';
 import {BlogBlockBase, PaddingSize} from '../../schema/common';

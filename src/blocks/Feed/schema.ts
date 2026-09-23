@@ -1,10 +1,10 @@
-import {validators} from '@gravity-ui/page-constructor';
+import {validators} from '@gravity-ui/page-constructor/schema';
+
+import {BlockType} from '../../models/common';
 
 const {
     common: {BlockBaseProps},
 } = validators;
-
-import {BlockType} from '../../models/common';
 
 export const Feed = {
     [BlockType.Feed]: {
