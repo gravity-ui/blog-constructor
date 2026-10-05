@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 import {AnalyticsEventsProp, HeaderBreadcrumbs, YFMWrapper} from '@gravity-ui/page-constructor';
