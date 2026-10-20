@@ -77,7 +77,7 @@ $block: '.#{$namespace}feed-header';
     .mobile & {
         &_has-background {
             #{$root}__title {
-                @include text-size(display-2);
+                @include text-display-2();
             }
         }
     }

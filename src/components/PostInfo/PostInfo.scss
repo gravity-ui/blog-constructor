@@ -5,7 +5,7 @@ $block: '.#{$namespace}post-info';
 
 #{$block} {
     &__item {
-        @include text-size(body-2);
+        @include text-body-2();
 
         display: flex;
         flex-wrap: nowrap;
@@ -18,11 +18,11 @@ $block: '.#{$namespace}post-info';
 
         &_size {
             &_s {
-                @include text-size(body-2);
+                @include text-body-2();
             }
 
             &_m {
-                @include text-size(body-3);
+                @include text-body-3();
             }
         }
 

@@ -25,7 +25,7 @@ $itemDimensions: 44px;
         margin-left: 4px;
 
         color: var(--g-color-text-primary);
-        @include text-size(body-2);
+        @include text-body-2();
 
         &_type {
             &_page {

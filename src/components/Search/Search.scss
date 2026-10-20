@@ -7,7 +7,7 @@ $block: '.#{$namespace}search';
     $root: &;
     $searchHeight: 44px;
 
-    @include text-size(body-1);
+    @include text-body-1();
 
     position: relative;
     display: flex;
