@@ -9,7 +9,7 @@ $clearIconSize: 18px;
     $root: &;
 
     &__custom-switcher {
-        @include text-size(body-2);
+        @include text-body-2();
         @include focusable();
         position: relative;
 
@@ -69,7 +69,7 @@ $clearIconSize: 18px;
 
             transition: backgound-color 0.1s linear;
 
-            @include text-size(body-1);
+            @include text-body-1();
         }
 
         &_arrow {

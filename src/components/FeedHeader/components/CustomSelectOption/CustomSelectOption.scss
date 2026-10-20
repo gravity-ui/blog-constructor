@@ -6,7 +6,7 @@ $block: '.#{$namespace}feed-custom-select-option';
 #{$block} {
     $root: &;
 
-    @include text-size(body-2);
+    @include text-body-2();
 
     display: flex;
 

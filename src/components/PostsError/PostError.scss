@@ -26,13 +26,13 @@ $block: '.#{$namespace}posts-error';
 
     &__title {
         margin-top: $indentSM;
-        @include text-size(display-2);
+        @include text-display-2();
         font-weight: var(--g-text-accent-font-weight);
     }
 
     &__subtitle {
         margin-top: $indentXS;
-        @include text-size(body-3);
+        @include text-body-3();
     }
 
     &__button {

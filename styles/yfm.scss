@@ -5,7 +5,7 @@
 .yfm_blog {
     $root: &;
 
-    @include text-size(body-3);
+    @include text-body-3();
     color: var(--g-color-text-primary);
 
     h1:first-child,
@@ -18,15 +18,15 @@
     }
 
     h2 {
-        @include text-size(display-2);
+        @include text-display-2();
     }
 
     h3 {
-        @include text-size(header-2);
+        @include text-header-2();
     }
 
     h4 {
-        @include text-size(header-1);
+        @include text-header-1();
     }
 
     @include add-specificity(&) {
@@ -93,12 +93,12 @@
     }
 
     &_media {
-        @include text-size(body-3);
+        @include text-body-3();
         color: var(--g-color-text-secondary);
     }
 
     &_breadcrumbs {
-        @include text-size(body-2);
+        @include text-body-2();
         color: var(--g-text-color-base);
     }
 

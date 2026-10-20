@@ -39,11 +39,19 @@ $block: '.#{$namespace}post-card';
             margin-bottom: $indentXXXS;
 
             &_size_s {
-                @include heading4();
+                @include text-header-1();
+                color: var(--pc-text-header-color);
+                margin: 0;
             }
 
             &_size_m {
-                @include heading2();
+                @include text-display-2();
+                color: var(--pc-text-header-color);
+                margin: 0;
+
+                @media (max-width: map-get($gridBreakpoints, 'sm') - 1) {
+                    @include text-display-1();
+                }
             }
         }
     }
@@ -57,12 +65,14 @@ $block: '.#{$namespace}post-card';
         font-weight: var(--g-text-accent-font-weight);
 
         &_size_s {
-            @include text-size(body-2);
+            @include text-body-2();
+            font-weight: var(--g-text-accent-font-weight);
             padding-bottom: 4px;
         }
 
         &_size_m {
-            @include text-size(body-3);
+            @include text-body-3();
+            font-weight: var(--g-text-accent-font-weight);
             padding-bottom: $indentXXXS;
         }
     }
