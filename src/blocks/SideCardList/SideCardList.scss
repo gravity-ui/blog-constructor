@@ -14,7 +14,7 @@ $containerWidth: 232px;
     }
 
     &__title {
-        @include text-size(header-2);
+        @include text-header-2();
         font-weight: 500;
     }
 
