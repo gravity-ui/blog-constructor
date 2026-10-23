@@ -23,7 +23,7 @@ const DefaultTemplate: StoryFn<StoryArgs<HeaderBlockModel>> = (args) => <StoryBl
 
 const commonArgs: StoryArgs<HeaderBlockModel> = {
     type: BlockType.Header,
-    title: 'Blog post',
+    title: blockMockData.post.htmlTitle || blockMockData.post.title,
     paddingTop: 'l',
     paddingBottom: 'l',
     contextData: {postPage: blockMockData},

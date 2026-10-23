@@ -21,9 +21,8 @@ Default.args = {
     background: {
         color: '#000000',
         image: `${STORY_ASSETS_PATH}/img_8-12_light.png`,
-        altText: 'Abstract background',
+        altText: 'test',
     },
-    title: 'Colored text',
     text: 'Lorem ipsum dolor sit amet',
     paddingTop: 'l',
     paddingBottom: 'l',

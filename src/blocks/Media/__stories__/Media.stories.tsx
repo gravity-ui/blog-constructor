@@ -24,7 +24,7 @@ const VariantsTemplate: StoryFn<MediaVariants> = (args) => (
 const imageArgs: StoryArgs<MediaBlockModel> = {
     type: BlockType.Media,
     image: `${STORY_ASSETS_PATH}/img_8-12_light.png`,
-    text: 'Image caption',
+    text: 'Lorem ipsum dolor',
     paddingTop: 'l',
     paddingBottom: 'l',
 };
@@ -39,7 +39,7 @@ const videoArgs: StoryArgs<MediaBlockModel> = {
         loop: {start: 0},
     },
     previewImg: `${STORY_ASSETS_PATH}/img_8-12_white.png`,
-    text: 'Video caption',
+    text: 'Lorem ipsum dolor',
     paddingTop: 'l',
     paddingBottom: 'l',
 };

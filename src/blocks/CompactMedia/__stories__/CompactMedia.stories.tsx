@@ -18,7 +18,7 @@ export const Default = DefaultTemplate.bind({});
 
 Default.args = {
     type: BlockType.CompactMedia,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    description: 'Lorem ipsum dolor sit amet lorem ipsum dolor sit amet dolor sit amet',
     image: `${STORY_ASSETS_PATH}/logotype-cube.svg`,
     paddingTop: 'l',
     paddingBottom: 'l',

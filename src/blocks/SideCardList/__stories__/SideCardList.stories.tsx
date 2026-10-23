@@ -23,14 +23,14 @@ Default.args = {
     paddingBottom: 'l',
     items: [
         {
-            image: {src: `${STORY_ASSETS_PATH}/logotype-cube.svg`, alt: 'Cube logo'},
-            description: 'Lorem ipsum dolor sit amet.',
-            url: 'https://example.com/first',
+            image: {src: `${STORY_ASSETS_PATH}/logotype-cube.svg`, alt: 'card 1'},
+            description: 'Lorem ipsum dolor sit amet lorem ipsum dolor sit amet dolor sit amet',
+            url: 'https://example.com',
         },
         {
-            image: {src: `${STORY_ASSETS_PATH}/logotype-long.svg`, alt: 'Long logo'},
-            description: 'Consectetur adipiscing elit.',
-            url: 'https://example.com/second',
+            image: {src: `${STORY_ASSETS_PATH}/logotype-long.svg`, alt: 'card 2'},
+            description: 'Lorem ipsum dolor sit amet lorem ipsum dolor sit amet dolor sit amet',
+            url: 'https://example.com',
         },
     ],
 };

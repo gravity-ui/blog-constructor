@@ -9,6 +9,7 @@ import {
 } from '../../../../.storybook/story-utils';
 import {FeedContext, FeedContextProps} from '../../../contexts/FeedContext';
 import {RouterContext, RouterContextProps} from '../../../contexts/RouterContext';
+import {Keyset, i18n} from '../../../i18n';
 import {FeedBlockModel} from '../../../models/blocks';
 import {
     BlockType,
@@ -20,6 +21,8 @@ import {
 import {Feed} from '../Feed';
 
 import mockedPosts from '../../../../.mocks/posts.json';
+import services from '../../../../.mocks/services.json';
+import tags from '../../../../.mocks/tags.json';
 
 type FeedContextData = {
     feed: Omit<FeedContextProps, 'getPosts'>;
@@ -33,12 +36,20 @@ const filters: FiltersConfig = [
     {
         type: 'select',
         queryParamName: 'tags',
-        allLabel: 'All tags',
-        options: [
-            {content: 'Cloud', value: 'cloud'},
-            {content: 'Security', value: 'security'},
-        ],
+        allLabel: i18n(Keyset.AllTags),
+        options: tags.map((tag) => ({content: tag.name, value: tag.slug})),
     },
+    {
+        type: 'select',
+        queryParamName: 'services',
+        allLabel: i18n(Keyset.AllServices),
+        options: services.map((service) => ({content: service.name, value: `${service.id}`})),
+        multiple: true,
+        filterable: true,
+        hasClear: true,
+        qa: 'service-select',
+    },
+    {type: 'savedOnly', queryParamName: 'savedOnly'},
 ];
 
 const multiRowFilters: FiltersConfig = [
@@ -46,24 +57,33 @@ const multiRowFilters: FiltersConfig = [
         {type: 'search', queryParamName: 'search'},
         {
             type: 'select',
-            queryParamName: 'tags',
-            allLabel: 'All tags',
-            options: [
-                {content: 'Cloud', value: 'cloud'},
-                {content: 'Security', value: 'security'},
-            ],
+            queryParamName: 'other',
+            allLabel: i18n(Keyset.AllOptions),
+            options: tags.map((tag) => ({content: tag.name, value: tag.slug})),
+        },
+        {
+            type: 'select',
+            queryParamName: 'another',
+            allLabel: i18n(Keyset.AllOptions),
+            options: tags.map((tag) => ({content: tag.name, value: tag.slug})),
         },
     ],
     [
         {
             type: 'select',
+            queryParamName: 'tags',
+            allLabel: i18n(Keyset.AllTags),
+            options: tags.map((tag) => ({content: tag.name, value: tag.slug})),
+        },
+        {
+            type: 'select',
             queryParamName: 'services',
-            allLabel: 'All services',
-            options: [
-                {content: 'Compute Cloud', value: '2'},
-                {content: 'Managed Kubernetes', value: '8'},
-            ],
+            allLabel: i18n(Keyset.AllServices),
+            options: services.map((service) => ({content: service.name, value: `${service.id}`})),
             multiple: true,
+            filterable: true,
+            hasClear: true,
+            qa: 'service-select',
         },
     ],
 ];
@@ -137,7 +157,7 @@ const contextData: FeedContextData = {
 const defaultArgs: FeedStoryArgs = {
     type: BlockType.Feed,
     image: `${STORY_ASSETS_PATH}/img_8-12_light.png`,
-    title: 'Blog feed',
+    title: 'Blog',
     resetTitleMargin: false,
     contextData,
 };

@@ -16,7 +16,7 @@ export const Default = DefaultTemplate.bind({});
 
 Default.args = {
     type: BlockType.YFM,
-    text: '**Lorem ipsum dolor sit amet** [consectetur adipiscing elit](https://example.com).',
+    text: '<p><strong>Lorem ipsum dolor sit amet</strong> <a href="https://example.com">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>',
     paddingTop: 'l',
     paddingBottom: 'l',
     paddingLeft: 'm',

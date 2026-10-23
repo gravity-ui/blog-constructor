@@ -19,9 +19,9 @@ export const Default = DefaultTemplate.bind({});
 
 Default.args = {
     type: BlockType.Banner,
-    title: 'Blog',
+    title: 'Lorem',
     text: 'Lorem ipsum dolor sit amet',
-    additionalInfo: 'Consectetur adipiscing elit',
+    additionalInfo: 'consectetur adipiscing elit',
     color: '#7ccea0',
     image: `${STORY_ASSETS_PATH}/img_8-12_light.png`,
     imageSize: 's',
