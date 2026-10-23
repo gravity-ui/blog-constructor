@@ -6,12 +6,17 @@ const config: StorybookConfig = {
         options: {fastRefresh: true},
     },
     stories: ['./stories/**/*.mdx', '../src/**/__stories__/*.mdx', '../src/**/*.stories.@(ts|tsx)'],
+    staticDirs: ['./public'],
+    typescript: {
+        reactDocgen: 'react-docgen-typescript',
+    },
     docs: {
         defaultName: 'Docs',
     },
     addons: [
         '@storybook/preset-scss',
         {name: '@storybook/addon-essentials', options: {backgrounds: false, actions: false}},
+        './addons/context-data/preset',
         './addons/addon-yaml/preset',
         './addons/theme-addon/register.tsx',
         '@storybook/addon-mdx-gfm',

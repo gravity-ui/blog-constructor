@@ -2,22 +2,22 @@ A block component for displaying a list of partner cards.
 
 ## Props
 
-| Prop          | Type       | Description                                   |
-| ------------- | ---------- | --------------------------------------------- |
-| className     | string     | Optional CSS class name                       |
-| title         | string     | Optional title to display above the card list |
-| items         | SideCard[] | Array of card items                           |
-| paddingTop    | string     | Top padding size (xs, s, sm, m, l, xl)        |
-| paddingBottom | string     | Bottom padding size (xs, s, sm, m, l, xl)     |
-| qa            | string     | QA attribute for testing                      |
+| Property        | Type                                        | Required | Description                                            |
+| :-------------- | :------------------------------------------ | :------- | :----------------------------------------------------- |
+| `title`         | `string`                                    | No       | Title displayed above the card list                    |
+| `items`         | `SideCard[]`                                | Yes      | Cards to display                                       |
+| `paddingTop`    | `'xs' \| 's' \| 'sm' \| 'm' \| 'l' \| 'xl'` | No       | Top padding                                            |
+| `paddingBottom` | `'xs' \| 's' \| 'sm' \| 'm' \| 'l' \| 'xl'` | No       | Bottom padding                                         |
+| `paddingRight`  | `'xs' \| 's' \| 'sm' \| 'm' \| 'l' \| 'xl'` | No       | Declared by `SideCardListProps`; currently not applied |
+| `paddingLeft`   | `'xs' \| 's' \| 'sm' \| 'm' \| 'l' \| 'xl'` | No       | Declared by `SideCardListProps`; currently not applied |
 
 ## SideCard
 
-| Prop        | Type                | Description                      |
-| ----------- | ------------------- | -------------------------------- |
-| image       | MediaProps['image'] | Image media content for the card |
-| description | string              | Text to display on the card      |
-| url         | string              | Link URL for the card            |
+| Property      | Type                  | Required | Description                      |
+| :------------ | :-------------------- | :------- | :------------------------------- |
+| `image`       | `MediaProps['image']` | Yes      | Image media content for the card |
+| `description` | `string`              | Yes      | YFM text displayed on the card   |
+| `url`         | `string`              | Yes      | Card link URL                    |
 
 ## Usage
 
@@ -25,7 +25,6 @@ A block component for displaying a list of partner cards.
 import {SideCardList} from './SideCardList';
 
 <SideCardList
-  className="custom-class"
   title="Side card list title"
   items={[
     {

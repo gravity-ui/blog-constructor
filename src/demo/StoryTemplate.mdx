@@ -1,4 +1,15 @@
-import {Title, Subtitle, Description, Primary, Controls, Stories, Meta, Markdown } from '@storybook/blocks';
+import {
+    Title,
+    Subtitle,
+    Description,
+    Primary,
+    Controls,
+    Stories,
+    Meta,
+    Markdown,
+} from '@storybook/blocks';
+
+export const Readme = ({children}) => <Markdown>{children.replaceAll('\\|', '|')}</Markdown>;
 
 export const StoryTemplate = ({children}) => (
     <>

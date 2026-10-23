@@ -1,59 +1,38 @@
-import {Block, PageConstructor} from '@gravity-ui/page-constructor';
-import {Meta, StoryFn} from '@storybook/react';
+import type {Meta, StoryFn} from '@storybook/react';
 
-import {blockMockData, getTakeStoryArgs} from '../../../../.mocks/utils';
-import customBlocks from '../../../constructor/blocksMap';
-import {PostPageContext} from '../../../contexts/PostPageContext';
-import {TakeProps} from '../../../models/blocks';
+import {STORY_ASSETS_PATH, StoryArgs, StoryBlock} from '../../../../.storybook/story-utils';
+import {TakeBlockModel} from '../../../models/blocks';
 import {BlockType} from '../../../models/common';
 import {Take} from '../Take';
 
 export default {
     title: 'Blocks/Take',
     component: Take,
-    args: {
-        theme: 'light',
+} as Meta<StoryArgs<TakeBlockModel>>;
+
+const DefaultTemplate: StoryFn<StoryArgs<TakeBlockModel>> = (args) => <StoryBlock args={args} />;
+
+const commonArgs: StoryArgs<TakeBlockModel> = {
+    type: BlockType.Take,
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam.',
+    author: {
+        firstName: 'Lorem',
+        secondName: 'Ipsum',
+        description: 'Cloud architect',
+        avatar: `${STORY_ASSETS_PATH}/img_6-12_light.png`,
     },
-} as Meta;
-
-type TakeModel = {
-    type: BlockType.Take;
-} & TakeProps;
-
-const DefaultTemplate: StoryFn<TakeModel> = (args) => (
-    <PostPageContext.Provider value={blockMockData}>
-        <PageConstructor content={{blocks: [args] as unknown as Block[]}} custom={customBlocks} />
-    </PostPageContext.Provider>
-);
+    paddingTop: 'l',
+    paddingBottom: 'l',
+    paddingLeft: 'm',
+    paddingRight: 'm',
+};
 
 export const Default = DefaultTemplate.bind({});
-
-Default.args = {
-    type: BlockType.Take,
-    ...getTakeStoryArgs(),
-} as TakeModel;
-
 export const CustomColor = DefaultTemplate.bind({});
-
-CustomColor.args = {
-    type: BlockType.Take,
-    color: '#FF5F5E',
-    ...getTakeStoryArgs(),
-} as TakeModel;
-
 export const NoBackground = DefaultTemplate.bind({});
-
-NoBackground.args = {
-    type: BlockType.Take,
-    noBackground: true,
-    ...getTakeStoryArgs(),
-} as TakeModel;
-
 export const CustomColorNoBackground = DefaultTemplate.bind({});
 
-CustomColorNoBackground.args = {
-    type: BlockType.Take,
-    color: '#A87CEF',
-    noBackground: true,
-    ...getTakeStoryArgs(),
-} as TakeModel;
+Default.args = commonArgs;
+CustomColor.args = {...commonArgs, color: '#ff5f5e'};
+NoBackground.args = {...commonArgs, noBackground: true};
+CustomColorNoBackground.args = {...commonArgs, color: '#a87cef', noBackground: true};

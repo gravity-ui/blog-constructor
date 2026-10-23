@@ -1,47 +1,33 @@
-import {Block, PageConstructor} from '@gravity-ui/page-constructor';
+import * as React from 'react';
+
 import type {Meta, StoryFn} from '@storybook/react';
 
-import {blockMockData, getDefaultStoryArgs} from '../../../../.mocks/utils';
-import customBlocks from '../../../constructor/blocksMap';
-import {PostPageContext} from '../../../contexts/PostPageContext';
-import {CTAProps} from '../../../models/blocks';
+import {StoryArgs, StoryBlock} from '../../../../.storybook/story-utils';
+import {CTABlockModel} from '../../../models/blocks';
 import {BlockType} from '../../../models/common';
 import {CTA} from '../CTA';
 
 import contentBlocks from '../../../../.mocks/contentBlocks.json';
 
+type ColoredCTAModel = StoryArgs<CTABlockModel> & {'--bc-cta-card-bg'?: string};
+
 export default {
     title: 'Blocks/CTA',
     component: CTA,
-    args: {
-        theme: 'light',
-    },
-} as Meta;
+} as Meta<ColoredCTAModel>;
 
-type CTAModel = {
-    type: BlockType.CTA;
-} & CTAProps;
-
-type ColoredCTAModel = {
-    '--bc-cta-card-bg'?: string;
-} & CTAModel;
-
-const DefaultTemplate: StoryFn<CTAModel> = (args) => (
-    <PostPageContext.Provider value={blockMockData}>
-        <PageConstructor content={{blocks: [args] as unknown as Block[]}} custom={customBlocks} />
-    </PostPageContext.Provider>
-);
-
-const ColoredTemplate: StoryFn<ColoredCTAModel> = ({['--bc-cta-card-bg']: cardColor, ...args}) => (
+const DefaultTemplate: StoryFn<ColoredCTAModel> = ({['--bc-cta-card-bg']: cardColor, ...args}) => (
     <div style={cardColor ? ({['--bc-cta-card-bg']: cardColor} as React.CSSProperties) : undefined}>
-        <PostPageContext.Provider value={blockMockData}>
-            <PageConstructor
-                content={{blocks: [args] as unknown as Block[]}}
-                custom={customBlocks}
-            />
-        </PostPageContext.Provider>
+        <StoryBlock args={args} />
     </div>
 );
+
+const getArgs = (itemsCount: number): ColoredCTAModel => ({
+    type: BlockType.CTA,
+    items: contentBlocks.slice(0, itemsCount) as unknown as CTABlockModel['items'],
+    paddingTop: 'l',
+    paddingBottom: 'l',
+});
 
 export const Default = DefaultTemplate.bind({});
 export const OneItem = DefaultTemplate.bind({});
@@ -49,47 +35,13 @@ export const TwoItems = DefaultTemplate.bind({});
 export const FourItems = DefaultTemplate.bind({});
 export const FiveItems = DefaultTemplate.bind({});
 export const SixItems = DefaultTemplate.bind({});
-export const CustomColor = ColoredTemplate.bind({});
+export const CustomColor = DefaultTemplate.bind({});
 
-Default.args = {
-    type: BlockType.CTA,
-    ...getDefaultStoryArgs(),
-    items: contentBlocks.slice(0, 3),
-} as CTAModel;
-
-OneItem.args = {
-    type: BlockType.CTA,
-    ...getDefaultStoryArgs(),
-    items: contentBlocks.slice(0, 1),
-} as CTAModel;
-
-TwoItems.args = {
-    type: BlockType.CTA,
-    ...getDefaultStoryArgs(),
-    items: contentBlocks.slice(0, 2),
-} as CTAModel;
-
-FourItems.args = {
-    type: BlockType.CTA,
-    ...getDefaultStoryArgs(),
-    items: contentBlocks.slice(0, 4),
-} as CTAModel;
-
-FiveItems.args = {
-    type: BlockType.CTA,
-    ...getDefaultStoryArgs(),
-    items: contentBlocks.slice(0, 5),
-} as CTAModel;
-
-SixItems.args = {
-    type: BlockType.CTA,
-    ...getDefaultStoryArgs(),
-    items: contentBlocks.slice(0, 6),
-} as CTAModel;
-
-CustomColor.args = {
-    type: BlockType.CTA,
-    ...getDefaultStoryArgs(),
-    items: contentBlocks.slice(0, 3),
-    '--bc-cta-card-bg': '#eff2f8',
-} as ColoredCTAModel;
+Default.args = getArgs(3);
+OneItem.args = getArgs(1);
+TwoItems.args = getArgs(2);
+FourItems.args = getArgs(4);
+FiveItems.args = getArgs(5);
+SixItems.args = getArgs(6);
+CustomColor.args = {...getArgs(3), '--bc-cta-card-bg': '#eff2f8'};
+CustomColor.parameters = {yaml: {exclude: ['--bc-cta-card-bg']}};

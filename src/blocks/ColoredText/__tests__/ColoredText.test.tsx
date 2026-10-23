@@ -28,14 +28,14 @@ const coloredTextData = {
     text: 'ColoredText text',
     background: {
         color: '#ff0000',
-        image: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png',
+        image: '/story-assets/img_6-12_light.png',
         altText: 'alt text',
     },
     additionalInfo: 'additional info',
     centered: true,
     list: [
         {
-            icon: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png',
+            icon: '/story-assets/img-gray.png',
             title: 'list title',
             text: 'list text',
         },

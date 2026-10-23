@@ -1,35 +1,32 @@
-import {Block, PageConstructor} from '@gravity-ui/page-constructor';
-import {Meta, StoryFn} from '@storybook/react';
+import type {Meta, StoryFn} from '@storybook/react';
 
 import {blockMockData} from '../../../../.mocks/utils';
-import customBlocks from '../../../constructor/blocksMap';
-import {PostPageContext} from '../../../contexts/PostPageContext';
-import {MetaProps} from '../../../models/blocks';
+import {
+    StoryArgs,
+    StoryBlock,
+    contextDataArgType,
+    contextDataParameters,
+} from '../../../../.storybook/story-utils';
+import {MetaBlockModel} from '../../../models/blocks';
 import {BlockType} from '../../../models/common';
 import {Meta as MetaBlock} from '../Meta';
 
 export default {
     title: 'Blocks/Meta',
     component: MetaBlock,
-    args: {
-        theme: 'light',
-    },
-} as Meta;
+    argTypes: {contextData: contextDataArgType},
+    parameters: contextDataParameters,
+} as Meta<StoryArgs<MetaBlockModel>>;
 
-type MetaModel = {
-    type: BlockType.Meta;
-} & MetaProps;
-
-const DefaultTemplate: StoryFn<MetaModel> = (args) => (
-    <PostPageContext.Provider value={blockMockData}>
-        <PageConstructor content={{blocks: [args] as unknown as Block[]}} custom={customBlocks} />
-    </PostPageContext.Provider>
-);
+const DefaultTemplate: StoryFn<StoryArgs<MetaBlockModel>> = (args) => <StoryBlock args={args} />;
 
 export const Default = DefaultTemplate.bind({});
 
 Default.args = {
     type: BlockType.Meta,
-    paddingBottom: 'l',
+    locale: 'en',
+    theme: 'light',
     paddingTop: 'l',
+    paddingBottom: 'l',
+    contextData: {postPage: blockMockData},
 };

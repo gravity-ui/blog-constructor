@@ -1,10 +1,8 @@
-import * as React from 'react';
+import type {Meta, StoryFn} from '@storybook/react';
 
-import {FormBlockProps, isHubspotDataForm} from '@gravity-ui/page-constructor';
-import {Meta, StoryFn} from '@storybook/react';
-import {v4 as uuidv4} from 'uuid';
-
+import {StoryArgs, StoryBlock} from '../../../../.storybook/story-utils';
 import {FormBlockModel} from '../../../models/blocks';
+import {BlockType} from '../../../models/common';
 import {Form} from '../Form';
 
 import formsData from '../../../../.mocks/forms.json';
@@ -12,60 +10,29 @@ import formsData from '../../../../.mocks/forms.json';
 export default {
     title: 'Blocks/Form',
     component: Form,
-    args: {
-        theme: 'light',
-    },
-} as Meta;
+} as Meta<StoryArgs<FormBlockModel>>;
 
-const __getFormData = (formData: FormBlockModel['formData']) => {
-    const id = uuidv4();
-
-    return isHubspotDataForm(formData)
-        ? {hubspot: {...formData.hubspot, formInstanceId: id}}
-        : {yandex: formData.yandex};
-};
-
-const ContentDirectionTemplate: StoryFn<FormBlockModel> = (args) => {
-    return (
-        <div style={{maxWidth: '1500px', padding: '0 40px', margin: '0 auto'}}>
-            {[
-                {
-                    ...args,
-                    formData: __getFormData(args.formData),
-                } as FormBlockProps,
-            ].map((props, index) => (
-                <div key={index} style={{margin: '64px auto'}}>
-                    <Form {...props} />
-                </div>
-            ))}
-        </div>
-    );
-};
-
-const FormDataTemplate: StoryFn<FormBlockModel> = (args) => {
-    return (
-        <React.Fragment>
-            <ContentDirectionTemplate {...args} />
-            <ContentDirectionTemplate
-                {...args}
-                {...(formsData.default as FormBlockModel)}
-                border="line"
-            />
-        </React.Fragment>
-    );
-};
-
-const DefaultTemplate: StoryFn<FormBlockModel> = (args) => (
-    <div style={{maxWidth: '1500px', padding: '0 40px', margin: '32px auto'}}>
-        <Form {...args} />
-    </div>
-);
+const DefaultTemplate: StoryFn<StoryArgs<FormBlockModel>> = (args) => <StoryBlock args={args} />;
 
 export const Default = DefaultTemplate.bind({});
-export const FormData = FormDataTemplate.bind({});
+export const FormData = DefaultTemplate.bind({});
 
 Default.args = {
     ...formsData.default,
+    border: 'shadow',
+    paddingBottom: 'xl',
+    formData: {
+        hubspot: {
+            ...formsData.default.formData.hubspot,
+            formInstanceId: 'storybook-hubspot-form',
+        },
+    },
 } as FormBlockModel;
 
-FormData.args = {...formsData.yandexForm};
+FormData.args = {
+    type: BlockType.Form,
+    border: 'line',
+    paddingTop: 'xl',
+    paddingBottom: 'xl',
+    formData: formsData.yandexForm.formData,
+} as FormBlockModel;

@@ -63,6 +63,7 @@ const preview: Preview = {
         jsx: {showFunctions: true}, // To show functions in sources
         viewport: {
             viewports: MINIMAL_VIEWPORTS,
+            defaultViewport: 'reset',
         },
         options: {
             storySort: {
