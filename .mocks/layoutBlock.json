@@ -46,7 +46,7 @@
       "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "color": "#5282FF",
       "theme": "dark",
-      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png",
+      "image": "/story-assets/img_8-12_light.png",
       "buttons": [
         {
           "text": "Get",
@@ -59,7 +59,7 @@
     },
     {
       "type": "card-with-image",
-      "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png",
+      "image": "/story-assets/img_8-12_light.png",
       "title": "Lorem ipsum",
       "description": "Ut enim ad minim veniam, quis nostrud exercitation",
       "column": "left"

@@ -12,7 +12,7 @@ import post from '../../../../.mocks/post.json';
 
 const authorProps = {
     authorId: 290,
-    image: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png',
+    image: '/story-assets/img_6-12_light.png',
     qa: 'author-block',
 };
 

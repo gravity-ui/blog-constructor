@@ -18,7 +18,7 @@
         "verticalOffset": "m",
         "theme": "dark",
         "background": {
-          "url": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png",
+          "url": "/story-assets/img_8-12_dark.png",
           "disableCompress": true,
           "color": "#CCDAFF",
           "fullWidth": false
@@ -53,14 +53,14 @@
             "column": "right",
             "description": "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet dolor sit amet",
             "resetPaddings": true,
-            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logotype-cube.svg"
+            "image": "/story-assets/logotype-cube.svg"
           },
           {
             "type": "blog-compact-media-block",
             "column": "right",
             "description": "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet dolor sit amet",
             "resetPaddings": true,
-            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logotype-long.svg"
+            "image": "/story-assets/logotype-long.svg"
           },
           {
             "type": "blog-yfm-block",
@@ -75,7 +75,7 @@
             "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
             "color": "#555",
             "theme": "dark",
-            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png",
+            "image": "/story-assets/img_8-12_dark.png",
             "buttons": [
               {
                 "text": "Get",
@@ -98,8 +98,8 @@
             "resetPaddings": true,
             "background": {
               "image": {
-                "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png",
-                "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png"
+                "light": "/story-assets/img_8-12_light.png",
+                "dark": "/story-assets/img_8-12_dark.png"
               },
               "altText": "alt text from bo"
             },
@@ -127,7 +127,7 @@
               "firstName": "Lorem",
               "secondName": "Ipsum dolor",
               "description": "Lorem ipsum dolor sit amet",
-              "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png"
+              "avatar": "/story-assets/img_6-12_light.png"
             }
           }
         ]
@@ -144,12 +144,12 @@
             "title": "Side card list",
             "items": [
               {
-                "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logotype-cube.svg",
+                "image": "/story-assets/logotype-cube.svg",
                 "description": "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet dolor sit amet",
                 "url": "https://example.com"
               },
               {
-                "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/logotype-long.svg",
+                "image": "/story-assets/logotype-long.svg",
                 "description": "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet dolor sit amet",
                 "url": "https://example.com"
               }
@@ -172,7 +172,7 @@
             "column": "left",
             "resetPaddings": true,
             "text": "<p><strong>Lorem ipsum dolor sit amet</strong> <a href=\"https://example.com\">consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
-            "image": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png",
+            "image": "/story-assets/img_8-12_dark.png",
             "fullWidth": false
           },
           {
@@ -225,8 +225,8 @@
             "resetPaddings": true,
             "background": {
               "image": {
-                "light": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_light.png",
-                "dark": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_8-12_dark.png"
+                "light": "/story-assets/img_8-12_light.png",
+                "dark": "/story-assets/img_8-12_dark.png"
               },
               "altText": "alt text from bo"
             },

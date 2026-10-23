@@ -20,7 +20,6 @@ export default {
     title: 'Containers/BlogPage',
     component: BlogPage,
     args: {
-        theme: 'light',
         content: page.content,
         posts,
         filters: getFiltersConfig(),

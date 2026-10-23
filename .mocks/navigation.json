@@ -1,10 +1,10 @@
 {
   "logo": {
-    "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_light.svg",
+    "icon": "/story-assets/icon_1_light.svg",
     "text": "Logo",
     "dark": {
       "text": "Logo Dark",
-      "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_1_dark.svg"
+      "icon": "/story-assets/icon_1_dark.svg"
     },
     "light": {
       "text": "Logo Light"
@@ -64,7 +64,7 @@
         "type": "link",
         "text": "Link with spaces",
         "url": "https://example.com",
-        "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_3_light.svg"
+        "icon": "/story-assets/icon_3_light.svg"
       },
       {
         "type": "link",
@@ -88,7 +88,7 @@
         "type": "link",
         "text": "Link",
         "url": "https://example.com",
-        "icon": "https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/icon_2_light.svg"
+        "icon": "/story-assets/icon_2_light.svg"
       },
       {
         "type": "button",

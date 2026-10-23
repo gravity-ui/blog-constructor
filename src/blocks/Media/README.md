@@ -1,17 +1,17 @@
-| Property       | Type                           | Required | Description               |
-| :------------- | :----------------------------- | :------- | :------------------------ |
-| className      | `string`                       | `false`  | Component className       |
-| paddingTop     | `xs - s - sm - m - l - xl`     | `false`  | Top padding size          |
-| paddingBottom  | `xs - s - sm - m - l - xl`     | `false`  | Bottom padding size       |
-| paddingRight   | `xs - s - sm - m - l - xl`     | `false`  | Right padding size        |
-| paddingLeft    | `xs - s - sm - m - l - xl`     | `false`  | Left padding size         |
-| text           | `string`                       | `false`  | Text                      |
-| previewImg     | `string`                       | `false`  | Image for preview         |
-| youtube        | `MediaProps['youtube']`        | `false`  | Youtube media content     |
-| videoIframe    | `MediaProps['videoIframe']`    | `false`  | Video iframe src          |
-| image          | `MediaProps['image']`          | `false`  | Image media content       |
-| video          | `MediaProps['video']`          | `false`  | Video media content       |
-| dataLens       | `MediaProps['dataLens']`       | `false`  | dataLens media content    |
-| videoMicrodata | `MediaProps['videoMicrodata']` | `false`  | microdata for video media |
+| Property         | Type                                        | Required | Description                                       |
+| :--------------- | :------------------------------------------ | :------- | :------------------------------------------------ |
+| `className`      | `string`                                    | No       | Media component class name                        |
+| `text`           | `string`                                    | No       | YFM caption displayed below the media             |
+| `previewImg`     | `string`                                    | No       | Video preview image                               |
+| `youtube`        | `MediaProps['youtube']`                     | No       | YouTube media content                             |
+| `videoIframe`    | `MediaProps['videoIframe']`                 | No       | Video iframe source                               |
+| `image`          | `MediaProps['image']`                       | No       | Image media content                               |
+| `video`          | `MediaProps['video']`                       | No       | Video media content                               |
+| `dataLens`       | `MediaProps['dataLens']`                    | No       | DataLens media content                            |
+| `videoMicrodata` | `MediaProps['videoMicrodata']`              | No       | Structured video metadata                         |
+| `paddingTop`     | `'xs' \| 's' \| 'sm' \| 'm' \| 'l' \| 'xl'` | No       | Top padding                                       |
+| `paddingBottom`  | `'xs' \| 's' \| 'sm' \| 'm' \| 'l' \| 'xl'` | No       | Bottom padding                                    |
+| `paddingRight`   | `'xs' \| 's' \| 'sm' \| 'm' \| 'l' \| 'xl'` | No       | Declared by `MediaProps`; forwarded to PC `Media` |
+| `paddingLeft`    | `'xs' \| 's' \| 'sm' \| 'm' \| 'l' \| 'xl'` | No       | Declared by `MediaProps`; forwarded to PC `Media` |
 
-To get more information about `MediaProps` see this [page](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-media--default)
+The selected media property types come from `MediaProps` from `@gravity-ui/page-constructor`.

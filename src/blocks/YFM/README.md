@@ -1,7 +1,8 @@
-| Property      | Type                       | Required | Description         |
-| :------------ | :------------------------- | :------- | :------------------ |
-| text          | `string`                   | `true`   | Text                |
-| paddingTop    | `xs - s - sm - m - l - xl` | `false`  | Top padding size    |
-| paddingBottom | `xs - s - sm - m - l - xl` | `false`  | Bottom padding size |
-| paddingRight  | `xs - s - sm - m - l - xl` | `false`  | Right padding size  |
-| paddingLeft   | `xs - s - sm - m - l - xl` | `false`  | Left padding size   |
+| Property        | Type                                        | Required | Description                                   |
+| :-------------- | :------------------------------------------ | :------- | :-------------------------------------------- |
+| `text`          | `string`                                    | Yes      | YFM content                                   |
+| `paddingTop`    | `'xs' \| 's' \| 'sm' \| 'm' \| 'l' \| 'xl'` | No       | Top padding                                   |
+| `paddingBottom` | `'xs' \| 's' \| 'sm' \| 'm' \| 'l' \| 'xl'` | No       | Bottom padding                                |
+| `paddingRight`  | `'xs' \| 's' \| 'sm' \| 'm' \| 'l' \| 'xl'` | No       | Declared by `YFMProps`; currently not applied |
+| `paddingLeft`   | `'xs' \| 's' \| 'sm' \| 'm' \| 'l' \| 'xl'` | No       | Declared by `YFMProps`; currently not applied |
+| `qa`            | `string`                                    | No       | Base value for `data-qa` attributes           |
