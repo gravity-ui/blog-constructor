@@ -136,7 +136,6 @@ ReversedOnMobile.args = {
         },
     ],
 };
-ReversedOnMobile.parameters = {viewport: {defaultViewport: 'mobile1'}};
 FullWidth.args = {
     ...defaultArgs,
     fullWidth: true,
