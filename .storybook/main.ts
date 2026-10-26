@@ -1,5 +1,7 @@
 import type {StorybookConfig} from '@storybook/react-webpack5';
 
+const storyAssetsPath = `${process.env.PREVIEW_DEST_PATH || ''}/story-assets`;
+
 const config: StorybookConfig = {
     framework: {
         name: '@storybook/react-webpack5',
@@ -13,6 +15,7 @@ const config: StorybookConfig = {
     docs: {
         defaultName: 'Docs',
     },
+    env: (config) => ({...config, STORY_ASSETS_PATH: storyAssetsPath}),
     addons: [
         '@storybook/preset-scss',
         {name: '@storybook/addon-essentials', options: {backgrounds: false, actions: false}},
