@@ -166,6 +166,7 @@
     "sass": "^1.54.4",
     "sass-loader": "^13.3.1",
     "storybook": "^8.6.11",
+    "string-replace-loader": "^3.3.0",
     "stylelint": "^15.11.0",
     "ts-jest": "^29.2.5",
     "typescript": "^5.7.3",
