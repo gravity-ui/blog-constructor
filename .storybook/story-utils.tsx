@@ -8,7 +8,7 @@ import {PostPageContext, PostPageContextProps} from '../src/contexts/PostPageCon
 import {transformPageContent} from '../src/data/transformPageContent';
 import type {BlockType} from '../src/models/common';
 
-export const STORY_ASSETS_PATH = '/story-assets';
+export const STORY_ASSETS_PATH = './story-assets';
 
 export type ContextData = {
     postPage?: PostPageContextProps;
