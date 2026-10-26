@@ -20,8 +20,9 @@ npm test                 # Jest, --maxWorkers=50%
 npm run test:watch       # Jest watch
 npm run test:coverage    # Jest with coverage
 npm run playwright          # Playwright CT (uses playwright/playwright.config.ts)
-npm run playwright:update   # refresh visual snapshots
+npm run playwright:update   # local debugging only; do not commit these snapshots
 npm run playwright:docker   # run inside Docker (matches CI baselines)
+npm run playwright:docker:update # refresh committed visual snapshots in Docker
 
 # misc
 npm run storybook:build  # static Storybook

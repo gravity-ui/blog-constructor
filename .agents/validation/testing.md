@@ -38,7 +38,8 @@ Note: `npm run lint` already runs `lint:js`, `lint:styles`, `lint:prettier`, and
 - Snapshots live in sibling `__snapshots__/`; they are committed.
 - Fixtures: `playwright/core/` — `mountFixture.tsx`, `expectScreenshotFixture.ts`, `delays.ts`, `constants.ts`, `types.ts` (re-exported via `playwright/core/index.ts`).
 - Two browser projects: **Chromium** and **WebKit**. Test ID attribute is `data-qa`.
-- Updating snapshots: `npm run playwright:update` locally — but **prefer `npm run playwright:docker:update`** to match CI Linux baselines. Local non-Docker `:update` runs will diverge on CI.
+- **Snapshot updates must run in Docker.** Use `npm run playwright:docker:update`, or run a targeted `--update-snapshots` command through `scripts/playwright-docker.sh` when only one spec needs updating.
+- Do not commit snapshots produced by `npm run playwright:update` on the host. Host font rendering and browser output can differ from the Linux CI environment, causing screenshots in the pull request and repository to diverge.
 - Clearing caches: `npm run playwright:clear-cache` (host) / `npm run playwright:docker:clear-cache` (Docker).
 - First-time setup: `npm run playwright:install` to fetch the browser binaries.
 
