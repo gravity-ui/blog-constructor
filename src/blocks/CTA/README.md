@@ -1,12 +1,12 @@
 ## Block "Call to action"
 
-| Property      | Type                       | Required | Description         |
-| :------------ | :------------------------- | :------- | :------------------ |
-| items         | `ContentBlockProps[]`      | `true`   | Items with content  |
-| columnCount   | `number`                   | `false`  | Column count        |
-| paddingTop    | `xs - s - sm - m - l - xl` | `false`  | Top padding size    |
-| paddingBottom | `xs - s - sm - m - l - xl` | `false`  | Bottom padding size |
-| paddingRight  | `xs - s - sm - m - l - xl` | `false`  | Right padding size  |
-| paddingLeft   | `xs - s - sm - m - l - xl` | `false`  | Left padding size   |
+| Property        | Type                                        | Required | Description                                   |
+| :-------------- | :------------------------------------------ | :------- | :-------------------------------------------- |
+| `items`         | `ContentBlockProps[]`                       | Yes      | Content rendered as call-to-action cards      |
+| `paddingTop`    | `'xs' \| 's' \| 'sm' \| 'm' \| 'l' \| 'xl'` | No       | Top padding                                   |
+| `paddingBottom` | `'xs' \| 's' \| 'sm' \| 'm' \| 'l' \| 'xl'` | No       | Bottom padding                                |
+| `paddingRight`  | `'xs' \| 's' \| 'sm' \| 'm' \| 'l' \| 'xl'` | No       | Declared by `CTAProps`; currently not applied |
+| `paddingLeft`   | `'xs' \| 's' \| 'sm' \| 'm' \| 'l' \| 'xl'` | No       | Declared by `CTAProps`; currently not applied |
+| `qa`            | `string`                                    | No       | Base value for `data-qa` attributes           |
 
-To get more information about `content` see this [page](https://preview.gravity-ui.com/page-constructor/?path=/story/components-content--default)
+Each item supports the current `ContentBlockProps` fields from `@gravity-ui/page-constructor`: `title`, `titleId`, `text`, `textId`, `additionalInfo`, `links`, `buttons`, `size`, `colSizes`, `centered`, `theme`, `list`, and `controlPosition`.

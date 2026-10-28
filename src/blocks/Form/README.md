@@ -1,10 +1,17 @@
-| Property      | Type                                  | Required | Description                                                                                                                                                                                                                                                                |
-| :------------ | :------------------------------------ | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| paddingTop    | `xs - s - sm - m - l - xl`            | `false`  | Top padding size                                                                                                                                                                                                                                                           |
-| paddingBottom | `xs - s - sm - m - l - xl`            | `false`  | Bottom padding size                                                                                                                                                                                                                                                        |
-| paddingRight  | `xs - s - sm - m - l - xl`            | `false`  | Right padding size                                                                                                                                                                                                                                                         |
-| paddingLeft   | `xs - s - sm - m - l - xl`            | `false`  | Left padding size                                                                                                                                                                                                                                                          |
-| formData      | `{yandex?: Object, hubspot?: Object}` | `false`  | See [Yandex](https://preview.gravity-ui.com/page-constructor/iframe.html?path=/story/components-yandexform--docs&viewMode=docs) / [Hubspot](https://preview.gravity-ui.com/page-constructor/iframe.html?path=/story/components-hubspotform--docs&viewMode=docs) form data. |
-| border:       | `shadow (default) - line - none`      | `false`  | Border of the form                                                                                                                                                                                                                                                         |
+| Property        | Type                                        | Required | Description                                    |
+| :-------------- | :------------------------------------------ | :------- | :--------------------------------------------- |
+| `formData`      | `FormBlockData`                             | Yes      | Yandex or HubSpot form configuration           |
+| `border`        | `'shadow' \| 'line' \| 'none'`              | No       | Form border; defaults to `'shadow'`            |
+| `paddingTop`    | `'xs' \| 's' \| 'sm' \| 'm' \| 'l' \| 'xl'` | No       | Top padding                                    |
+| `paddingBottom` | `'xs' \| 's' \| 'sm' \| 'm' \| 'l' \| 'xl'` | No       | Bottom padding                                 |
+| `paddingRight`  | `'xs' \| 's' \| 'sm' \| 'm' \| 'l' \| 'xl'` | No       | Declared by `FormProps`; currently not applied |
+| `paddingLeft`   | `'xs' \| 's' \| 'sm' \| 'm' \| 'l' \| 'xl'` | No       | Declared by `FormProps`; currently not applied |
+| `qa`            | `string`                                    | No       | Declared by `FormProps`; currently not applied |
 
-To get more information about `MediaProps` see this [page](https://preview.gravity-ui.com/page-constructor/?path=/docs/blocks-media--default)
+`FormBlockData` is a union of the following shapes:
+
+```ts
+type FormBlockData =
+  | {yandex: ThemeSupporting<YandexFormProps>}
+  | {hubspot: ThemeSupporting<HubspotFormProps>};
+```

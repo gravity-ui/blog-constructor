@@ -19,6 +19,10 @@ Project-specific agent guides live in **`.agents/skills/`** — this is the cano
 
 Before scaffolding new entities or running project workflows, browse `.agents/skills/` to see if a relevant guide exists.
 
+## Visual snapshot updates
+
+When updating or re-recording Playwright screenshot snapshots, always run the update inside Docker using `npm run playwright:docker:update` or an equivalent targeted command through `scripts/playwright-docker.sh`. Never commit snapshots produced by the host environment: font rendering and browser output can differ from CI, causing the pull request and repository baselines to diverge.
+
 ### Wiring skills into your agent host
 
 Hosts that auto-discover skills (Claude Code, Cursor, Codex, etc.) usually expect them under a host-specific path (e.g. `.claude/skills/`). Those paths are **gitignored** — each developer wires up their own host locally. The simplest wiring is a symlink from the host path to `.agents/skills/`.

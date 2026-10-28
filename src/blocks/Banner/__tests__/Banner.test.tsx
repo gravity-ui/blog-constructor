@@ -28,14 +28,14 @@ const bannerData: BannerPropsType = {
     color: '#ff0000',
     title: 'Banner Title',
     text: 'Banner text',
-    image: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img_6-12_light.png',
+    image: '/story-assets/img_6-12_light.png',
     additionalInfo: 'additional info',
     links: [{url: 'https://example.com', theme: 'normal'}],
     buttons: [{url: 'https://example.com', text: 'button'}],
     centered: true,
     list: [
         {
-            icon: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png',
+            icon: '/story-assets/img-gray.png',
             title: 'list title',
             text: 'list text',
         },

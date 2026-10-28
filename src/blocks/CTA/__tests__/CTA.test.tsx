@@ -19,7 +19,7 @@ const ctaData = {
             links: [{url: 'https://example.com', theme: 'normal' as LinkTheme}],
             list: [
                 {
-                    icon: 'https://storage.yandexcloud.net/cloud-www-assets/constructor/storybook/images/img-gray.png',
+                    icon: '/story-assets/img-gray.png',
                     title: 'list title',
                     text: 'list text',
                 },

@@ -1,9 +1,8 @@
 import * as React from 'react';
 
 import {ClipboardButton, ThemeProvider} from '@gravity-ui/uikit';
-import {addons, types, useArgs} from '@storybook/manager-api';
 import {AddonPanel} from '@storybook/components';
-import {useGlobals} from '@storybook/manager-api';
+import {addons, types, useArgs, useGlobals, useParameter} from '@storybook/manager-api';
 import yaml from 'js-yaml';
 
 import './AddonYaml.css';
@@ -14,17 +13,24 @@ const PANEL_ID = `${ADDON_ID}/panel`;
 const YamlPanel = () => {
     const [params] = useArgs();
     const [globals] = useGlobals();
+    const {exclude = []} = useParameter<{exclude?: string[]}>('yaml', {});
 
-    const content = React.useMemo(
-        () =>
-            yaml.dump([params], {
-                flowLevel: -1,
-                lineWidth: -1,
-                forceQuotes: true,
-                skipInvalid: true,
-            }),
-        [params],
-    );
+    const content = React.useMemo(() => {
+        const storyData = Array.isArray(params)
+            ? params
+            : Object.fromEntries(
+                  Object.entries(params || {}).filter(
+                      ([key]) => key !== 'contextData' && !exclude.includes(key),
+                  ),
+              );
+
+        return yaml.dump(storyData, {
+            flowLevel: -1,
+            lineWidth: -1,
+            forceQuotes: true,
+            skipInvalid: true,
+        });
+    }, [exclude, params]);
 
     return (
         <ThemeProvider theme={globals.theme}>

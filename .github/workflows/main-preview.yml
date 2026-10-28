@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
 
+env:
+  PREVIEW_DEST_PATH: /blog-constructor
+
 jobs:
   main:
     name: Build and Deploy

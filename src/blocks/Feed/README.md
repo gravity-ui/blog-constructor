@@ -1,12 +1,39 @@
-The data in this component is taken from contexts.
+Feed receives its visual settings through props and post, filtering, and routing data through contexts.
 
-| Property         | Type      | Required | Description                                    |
-| :--------------- | :-------- | :------- | :--------------------------------------------- |
-| image            | `string`  | `true`   | Image for feed header                          |
-| title            | `string`  | `false`  | Title for feed header                          |
-| resetTitleMargin | `boolean` | `false`  | When `true`, resets the `h1` title `margin: 0` |
+## Props
 
-The `filters` prop is passed via [`FeedContext`](../../contexts/FeedContext.ts) (populated by [`BlogPage`](../../containers/BlogPage/BlogPage.tsx)). It accepts a [`FiltersConfig`](../../models/common.ts) value — either a flat array of filter configs (all rendered in one row) or an array of rows (each inner array is rendered as a separate row in the feed header).
+| Property           | Type      | Required | Description                              |
+| :----------------- | :-------- | :------- | :--------------------------------------- |
+| `image`            | `string`  | Yes      | Feed header image                        |
+| `title`            | `string`  | No       | Feed header title                        |
+| `resetTitleMargin` | `boolean` | No       | Resets the `h1` title margin when `true` |
+
+## `FeedContext`
+
+[`FeedContext`](../../contexts/FeedContext.ts) is normally populated by [`BlogPage`](../../containers/BlogPage/BlogPage.tsx).
+
+| Property                         | Type                                              | Required | Description                                              |
+| :------------------------------- | :------------------------------------------------ | :------- | :------------------------------------------------------- |
+| `posts`                          | `PostData[]`                                      | No       | Posts rendered on the initial page                       |
+| `pinnedPost`                     | `PostData`                                        | No       | Pinned post rendered separately from the regular list    |
+| `totalCount`                     | `number`                                          | No       | Total number of posts available                          |
+| `filters`                        | `FiltersConfig`                                   | No       | Feed filter configuration                                |
+| `getPosts`                       | `(query: GetPostsRequest) => Promise<PostsProps>` | No       | Loads posts for pagination and filter changes            |
+| `pageCountForShowSupportButtons` | `number`                                          | No       | Page threshold after which support buttons are displayed |
+
+## `RouterContext`
+
+Feed reads the current query and writes filter and pagination changes through [`RouterContext`](../../contexts/RouterContext.ts).
+
+| Property              | Type                     | Required | Description                           |
+| :-------------------- | :----------------------- | :------- | :------------------------------------ |
+| `pathname`            | `string`                 | Yes      | Current pathname                      |
+| `as`                  | `string`                 | Yes      | Current route as displayed in the URL |
+| `hostname`            | `string`                 | Yes      | Current hostname                      |
+| `query`               | `Query`                  | No       | Current query parameters              |
+| `updateQueryCallback` | `(query: Query) => void` | Yes      | Applies changed query parameters      |
+
+The `filters` value accepts a [`FiltersConfig`](../../models/common.ts) value — either a flat array of filter configs (all rendered in one row) or an array of rows (each inner array is rendered as a separate row in the feed header).
 
 ## `FiltersConfig`
 
@@ -30,10 +57,10 @@ const filters: FiltersConfig = [
 
 `FilterConfig` is a discriminated union keyed on `type`. All variants share the following base fields:
 
-| Property        | Type                  | Required | Description                                                                                 |
-| :-------------- | :-------------------- | :------- | :------------------------------------------------------------------------------------------ |
-| queryParamName  | `string`              | `true`   | The URL query parameter key used to store the selected value and passed to `handleLoadData` |
-| analyticsEvents | `AnalyticsEventsProp` | `false`  | Base analytics event(s). The interaction suffix is appended to each event name              |
+| Property          | Type                  | Required | Description                                                                                 |
+| :---------------- | :-------------------- | :------- | :------------------------------------------------------------------------------------------ |
+| `queryParamName`  | `string`              | Yes      | The URL query parameter key used to store the selected value and passed to `handleLoadData` |
+| `analyticsEvents` | `AnalyticsEventsProp` | No       | Base analytics event(s). The interaction suffix is appended to each event name              |
 
 Select opening, search clicks, and saved-only changes append `_CLICK`; select closing appends
 `_CLOSE`.
@@ -42,23 +69,23 @@ Select opening, search clicks, and saved-only changes append `_CLICK`; select cl
 
 Renders a dropdown select. Omitting `type` is backwards-compatible and defaults to `'select'`.
 
-| Property    | Type             | Required | Description                                                                                 |
-| :---------- | :--------------- | :------- | :------------------------------------------------------------------------------------------ |
-| options     | `SelectOption[]` | `true`   | The list of selectable options (`{ value: string; content: React.ReactNode }`)              |
-| allLabel    | `string`         | `true`   | Label shown when nothing is selected (acts as an "All …" placeholder option in single mode) |
-| multiple    | `boolean`        | `false`  | Enables multi-select mode; selected values are joined with `,` in the query param           |
-| filterable  | `boolean`        | `false`  | Shows a search input inside the dropdown                                                    |
-| hasClear    | `boolean`        | `false`  | Shows a clear button; defaults to `true` when `multiple` is enabled                         |
-| placeholder | `string`         | `false`  | Placeholder text shown in the trigger button; falls back to `allLabel` when omitted         |
-| qa          | `string`         | `false`  | `data-qa` attribute forwarded to the switcher button for testing                            |
+| Property      | Type             | Required | Description                                                                                 |
+| :------------ | :--------------- | :------- | :------------------------------------------------------------------------------------------ |
+| `options`     | `SelectOption[]` | Yes      | The list of selectable options (`{value: string; content: React.ReactNode}`)                |
+| `allLabel`    | `string`         | Yes      | Label shown when nothing is selected (acts as an "All …" placeholder option in single mode) |
+| `multiple`    | `boolean`        | No       | Enables multi-select mode; selected values are joined with `,` in the query param           |
+| `filterable`  | `boolean`        | No       | Shows a search input inside the dropdown                                                    |
+| `hasClear`    | `boolean`        | No       | Shows a clear button; defaults to `true` when `multiple` is enabled                         |
+| `placeholder` | `string`         | No       | Placeholder text shown in the trigger button; falls back to `allLabel` when omitted         |
+| `qa`          | `string`         | No       | `data-qa` attribute forwarded to the switcher button for testing                            |
 
 ### `type: 'search'`
 
 Renders a text search input. The typed value is written to `queryParamName` in the URL.
 
-| Property    | Type     | Required | Description            |
-| :---------- | :------- | :------- | :--------------------- |
-| placeholder | `string` | `false`  | Input placeholder text |
+| Property      | Type     | Required | Description            |
+| :------------ | :------- | :------- | :--------------------- |
+| `placeholder` | `string` | No       | Input placeholder text |
 
 ### `type: 'savedOnly'`
 
