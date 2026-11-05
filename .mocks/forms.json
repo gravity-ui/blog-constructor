@@ -13,9 +13,16 @@
   "yandexForm": {
     "formData": {
       "yandex": {
-        "theme": "default",
-        "id": "61a4e639d4d24e0dbba36f5c",
-        "customFormSection": "cloud"
+        "light": {
+          "theme": "light",
+          "id": "61a4e639d4d24e0dbba36f5c",
+          "customFormSection": "cloud"
+        },
+        "dark": {
+          "theme": "dark",
+          "id": "61a4e639d4d24e0dbba36f5c",
+          "customFormSection": "cloud"
+        }
       }
     }
   }

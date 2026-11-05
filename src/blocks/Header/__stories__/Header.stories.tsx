@@ -35,17 +35,29 @@ export const BgImage = DefaultTemplate.bind({});
 
 Default.args = {
     ...commonArgs,
-    image: `${STORY_ASSETS_PATH}/img_8-12_light.png`,
+    image: {
+        light: `${STORY_ASSETS_PATH}/img_8-12_light.png`,
+        dark: `${STORY_ASSETS_PATH}/img_8-12_dark.png`,
+    },
 };
 
 ImageOutGrid.args = {
     ...commonArgs,
-    image: `${STORY_ASSETS_PATH}/img_8-12_light.png`,
+    image: {
+        light: `${STORY_ASSETS_PATH}/img_8-12_light.png`,
+        dark: `${STORY_ASSETS_PATH}/img_8-12_dark.png`,
+    },
     imageInGrid: false,
-    background: {color: '#eef2f8'},
+    background: {
+        light: {color: '#eef2f8'},
+        dark: {color: '#262626'},
+    },
 };
 
 BgImage.args = {
     ...commonArgs,
-    background: {url: `${STORY_ASSETS_PATH}/img_8-12_light.png`},
+    background: {
+        light: {url: `${STORY_ASSETS_PATH}/img_8-12_light.png`},
+        dark: {url: `${STORY_ASSETS_PATH}/img_8-12_dark.png`},
+    },
 };

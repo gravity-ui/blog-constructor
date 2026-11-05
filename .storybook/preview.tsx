@@ -44,6 +44,7 @@ const withBlogConstructorProvider: Decorator = (Story, context) => {
             router={routerData}
             locale={context.globals.lang === 'en' ? localeEn : localeRu}
             isMobile={context.globals.platform === 'mobile'}
+            theme={context.globals.theme}
         >
             <Story {...context} />
         </BlogConstructorProvider>

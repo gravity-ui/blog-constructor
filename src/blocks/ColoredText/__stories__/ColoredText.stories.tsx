@@ -19,8 +19,14 @@ export const Default = DefaultTemplate.bind({});
 Default.args = {
     type: BlockType.ColoredText,
     background: {
-        color: '#000000',
-        image: `${STORY_ASSETS_PATH}/img_8-12_light.png`,
+        color: {
+            light: '#000000',
+            dark: '#262626',
+        },
+        image: {
+            light: `${STORY_ASSETS_PATH}/img_8-12_light.png`,
+            dark: `${STORY_ASSETS_PATH}/img_8-12_dark.png`,
+        },
         altText: 'test',
     },
     text: 'Lorem ipsum dolor sit amet',

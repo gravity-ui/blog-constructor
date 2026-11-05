@@ -36,12 +36,14 @@ export default {
     },
 } as Meta;
 
-const WithNavigationTemplate: StoryFn<BlogPageProps> = (args) => {
+const WithNavigationTemplate: StoryFn<BlogPageProps> = (args, context) => {
     const {isAnimationEnabled} = React.useContext(SettingsContext);
+    const theme = context.globals.theme;
 
     return (
         <BlogConstructorProvider
             router={routerData}
+            theme={theme}
             settings={{
                 addNavigationLinkForPages: true,
                 getBlogPath: (pathPrefix) => `${pathPrefix ? `/${pathPrefix}` : ''}/blog/`,
@@ -49,13 +51,15 @@ const WithNavigationTemplate: StoryFn<BlogPageProps> = (args) => {
             }}
             locale={{lang: Lang.En, pathPrefix: 'test'}}
         >
-            <BlogPage {...args} />
+            <BlogPage {...args} settings={{...args.settings, theme}} />
         </BlogConstructorProvider>
     );
 };
 
 export const Default = {
-    render: (args: BlogPageProps) => <BlogPage {...args} />,
+    render: (args: BlogPageProps, context: Parameters<StoryFn>[1]) => (
+        <BlogPage {...args} settings={{...args.settings, theme: context.globals.theme}} />
+    ),
 };
 
 export const WithNavigation = WithNavigationTemplate.bind({});
