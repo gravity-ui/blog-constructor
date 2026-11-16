@@ -5,8 +5,11 @@
 .yfm_blog {
     $root: &;
 
-    @include text-body-3();
     color: var(--g-color-text-primary);
+
+    &:not(.yfm_heading) {
+        @include text-body-2();
+    }
 
     h1:first-child,
     h2:first-child,
@@ -17,19 +20,28 @@
         padding-top: 0;
     }
 
-    h2 {
-        @include text-display-2();
-    }
-
-    h3 {
-        @include text-header-2();
-    }
-
-    h4 {
-        @include text-header-1();
-    }
-
     @include add-specificity(&) {
+        h1,
+        h2 {
+            @include text-display-2();
+        }
+
+        h3 {
+            @include text-header-2();
+        }
+
+        h4 {
+            @include text-header-1();
+        }
+
+        h5 {
+            @include text-body-2();
+        }
+
+        h6 {
+            @include text-body-1();
+        }
+
         h1,
         h2,
         h3,
@@ -39,7 +51,6 @@
             margin-bottom: $indentXS;
             margin-top: $indentM;
             padding-top: 0;
-            font-weight: var(--g-text-header-font-weight);
         }
     }
 
@@ -93,12 +104,18 @@
     }
 
     &_media {
-        @include text-body-3();
+        @include add-specificity(&) {
+            @include text-body-2();
+        }
+
         color: var(--g-color-text-secondary);
     }
 
     &_breadcrumbs {
-        @include text-body-2();
+        @include add-specificity(&) {
+            @include text-body-2();
+        }
+
         color: var(--g-text-color-base);
     }
 

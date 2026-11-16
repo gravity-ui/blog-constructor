@@ -15,7 +15,6 @@ $containerWidth: 232px;
 
     &__title {
         @include text-header-2();
-        font-weight: 500;
     }
 
     &__items {

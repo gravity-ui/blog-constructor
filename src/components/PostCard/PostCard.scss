@@ -62,22 +62,24 @@ $block: '.#{$namespace}post-card';
 
     &__tag {
         color: var(--g-color-text-secondary);
-        font-weight: var(--g-text-accent-font-weight);
+        font-weight: var(--g-text-body-font-weight);
 
         &_size_s {
             @include text-body-2();
-            font-weight: var(--g-text-accent-font-weight);
             padding-bottom: 4px;
         }
 
         &_size_m {
             @include text-body-3();
-            font-weight: var(--g-text-accent-font-weight);
             padding-bottom: $indentXXXS;
         }
     }
 
     &__description {
+        @include add-specificity(&) {
+            @include text-body-2();
+        }
+
         word-wrap: break-word;
         overflow: hidden;
         text-overflow: ellipsis;

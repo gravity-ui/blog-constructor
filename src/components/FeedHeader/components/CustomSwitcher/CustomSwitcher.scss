@@ -20,9 +20,8 @@ $clearIconSize: 18px;
         border: 1px solid var(--g-color-base-background);
         border-radius: var(--g-border-radius-xl);
         width: 100%;
-        line-height: 42px;
+        min-height: calc(var(--g-text-body-2-line-height) + #{$indentXXS * 2});
         text-align: initial;
-        font-family: inherit;
         padding: 0;
         margin: 0;
 

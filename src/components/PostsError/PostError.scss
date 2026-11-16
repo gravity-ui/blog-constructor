@@ -27,7 +27,6 @@ $block: '.#{$namespace}posts-error';
     &__title {
         margin-top: $indentSM;
         @include text-display-2();
-        font-weight: var(--g-text-accent-font-weight);
     }
 
     &__subtitle {
