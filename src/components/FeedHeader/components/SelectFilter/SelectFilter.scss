@@ -66,7 +66,7 @@ $block: '.#{$namespace}feed-filter';
     }
 
     &__popup-filter {
-        @include text-size(body-2);
+        @include text-body-2();
         padding: $indent4XS $indentXXS;
 
         border: none;

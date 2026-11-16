@@ -53,11 +53,10 @@ $imageHeightMobile: 80px;
         // Overriding nested PCAuthor elements
         .pc-author {
             &__name {
-                font-weight: var(--g-text-accent-font-weight);
-                @include text-size(header-1);
+                @include text-header-1();
             }
             &__description {
-                @include text-size(body-3);
+                @include text-body-3();
             }
         }
     }
@@ -82,11 +81,10 @@ $imageHeightMobile: 80px;
             // Overriding nested PCAuthor elements
             .pc-author {
                 &__name {
-                    font-weight: var(--g-text-accent-font-weight);
-                    @include text-size(subheader-3);
+                    @include text-subheader-3();
                 }
                 &__description {
-                    @include text-size(body-2);
+                    @include text-body-2();
                 }
             }
         }

@@ -9,7 +9,7 @@ $clearIconSize: 18px;
     $root: &;
 
     &__custom-switcher {
-        @include text-size(body-2);
+        @include text-body-2();
         @include focusable();
         position: relative;
 
@@ -20,9 +20,8 @@ $clearIconSize: 18px;
         border: 1px solid var(--g-color-base-background);
         border-radius: var(--g-border-radius-xl);
         width: 100%;
-        line-height: 42px;
+        min-height: calc(var(--g-text-body-2-line-height) + #{$indentXXS * 2});
         text-align: initial;
-        font-family: inherit;
         padding: 0;
         margin: 0;
 
@@ -69,7 +68,7 @@ $clearIconSize: 18px;
 
             transition: backgound-color 0.1s linear;
 
-            @include text-size(body-1);
+            @include text-body-1();
         }
 
         &_arrow {
