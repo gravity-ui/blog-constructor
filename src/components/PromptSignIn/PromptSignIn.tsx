@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 import {Keyset, i18n} from '../../i18n';
