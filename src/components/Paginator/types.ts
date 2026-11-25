@@ -22,6 +22,7 @@ export type PaginatorProps = {
     maxPages: number;
     onPageChange: (page: number) => void;
     pageCountForShowSupportButtons?: number;
+    visiblePagesCount?: number;
     queryParams: Query;
 } & ClassNameProps;
 
@@ -33,6 +34,7 @@ export enum ArrowType {
 export type GetPageConfigParams = {
     page: number;
     pagesCount: number;
+    visiblePagesCount?: number;
     queryParams: Query;
     handlePageClick: (key: number | ArrowType) => void;
 };

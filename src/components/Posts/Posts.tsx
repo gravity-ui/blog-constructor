@@ -29,6 +29,7 @@ type PostCardProps = {
     postsOnPage?: PostData[];
     pinnedPostOnPage?: PostData;
     pageCountForShowSupportButtons?: number;
+    visiblePagesCount?: number;
     queryParams: Query;
 };
 
@@ -45,6 +46,7 @@ export const Posts = ({
     handleShowMore,
     handlePageChange,
     pageCountForShowSupportButtons,
+    visiblePagesCount,
     queryParams,
 }: PostCardProps) => (
     <div className={b()}>
@@ -114,6 +116,7 @@ export const Posts = ({
                         itemsPerPage={perPageInQuery}
                         maxPages={Infinity}
                         pageCountForShowSupportButtons={pageCountForShowSupportButtons}
+                        visiblePagesCount={visiblePagesCount}
                         queryParams={queryParams}
                     />
                 </div>

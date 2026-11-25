@@ -9,6 +9,7 @@ export interface FeedContextProps {
     filters?: FiltersConfig;
     getPosts?: GetPostsType;
     pageCountForShowSupportButtons?: number;
+    visiblePagesCount?: number;
 }
 
 export const FeedContext = React.createContext<FeedContextProps>({} as FeedContextProps);

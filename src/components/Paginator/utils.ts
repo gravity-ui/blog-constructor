@@ -1,25 +1,22 @@
 import {GetPageConfigParams, PaginatorItemProps, PaginatorProps} from './types';
 
-const MAX_VISIBLE_PAGES = 5;
+const DEFAULT_VISIBLE_PAGES_COUNT = 5;
 
 export const getPageConfigs = ({
     page,
     queryParams,
     pagesCount,
+    visiblePagesCount = DEFAULT_VISIBLE_PAGES_COUNT,
     handlePageClick,
 }: GetPageConfigParams) => {
     const paginatorItems: Array<PaginatorItemProps> = [];
-    // it is calculating the middle of visible pages below
-    const pageOffset = (MAX_VISIBLE_PAGES - 1) / 2;
-    let startPage = page - pageOffset;
-    let endPage = page + pageOffset;
-
-    if (startPage < 1) {
-        endPage = page + pageOffset - startPage + 1;
-        startPage = 1;
-    }
-
-    endPage = Math.min(endPage, pagesCount);
+    const visibleCount =
+        Number.isFinite(visiblePagesCount) && visiblePagesCount >= 1
+            ? Math.floor(visiblePagesCount)
+            : DEFAULT_VISIBLE_PAGES_COUNT;
+    const pageOffset = Math.floor((visibleCount - 1) / 2);
+    const startPage = Math.max(1, Math.min(page - pageOffset, pagesCount - visibleCount + 1));
+    const endPage = Math.min(startPage + visibleCount - 1, pagesCount);
 
     for (let i = startPage; i <= endPage; i++) {
         paginatorItems.push({

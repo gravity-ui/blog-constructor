@@ -21,8 +21,15 @@ const PAGE_QUERY = 'page';
 const FIRST_PAGE = 1;
 
 export const Feed = ({image, title, resetTitleMargin}: FeedProps) => {
-    const {posts, totalCount, filters, pinnedPost, getPosts, pageCountForShowSupportButtons} =
-        React.useContext(FeedContext);
+    const {
+        posts,
+        totalCount,
+        filters,
+        pinnedPost,
+        getPosts,
+        pageCountForShowSupportButtons,
+        visiblePagesCount,
+    } = React.useContext(FeedContext);
     const router = React.useContext(RouterContext);
     const handleAnalytics = useAnalytics(DefaultEventNames.ShowMore);
     const additionalAnalyticsEvent = prepareAnalyticsEvent({
@@ -235,6 +242,7 @@ export const Feed = ({image, title, resetTitleMargin}: FeedProps) => {
                     isFetching={isFetching}
                     queryParams={queryParams}
                     pageCountForShowSupportButtons={pageCountForShowSupportButtons}
+                    visiblePagesCount={visiblePagesCount}
                 />
             )}
         </div>

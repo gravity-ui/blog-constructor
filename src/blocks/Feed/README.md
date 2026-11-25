@@ -21,6 +21,15 @@ Feed receives its visual settings through props and post, filtering, and routing
 | `getPosts`                       | `(query: GetPostsRequest) => Promise<PostsProps>` | No       | Loads posts for pagination and filter changes            |
 | `pageCountForShowSupportButtons` | `number`                                          | No       | Page threshold after which support buttons are displayed |
 
+The optional `visiblePagesCount: number` sets the maximum number of page numbers shown in pagination
+and defaults to `5`. Pass it as a prop to `BlogPage` or provide it through `FeedContext`.
+The range shifts near the first and last pages to keep the requested number visible when enough
+pages are available. Navigation buttons do not count toward this limit.
+
+```tsx
+<BlogPage content={content} posts={posts} getPosts={getPosts} visiblePagesCount={10} />
+```
+
 ## `RouterContext`
 
 Feed reads the current query and writes filter and pagination changes through [`RouterContext`](../../contexts/RouterContext.ts).
