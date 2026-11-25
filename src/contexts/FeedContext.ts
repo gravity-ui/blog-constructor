@@ -10,6 +10,7 @@ export interface FeedContextProps {
     getPosts?: GetPostsType;
     pageCountForShowSupportButtons?: number;
     visiblePagesCount?: number;
+    showLastPageButton?: boolean;
 }
 
 export const FeedContext = React.createContext<FeedContextProps>({} as FeedContextProps);

@@ -13,6 +13,11 @@ $itemDimensions: 44px;
     display: flex;
     align-items: center;
 
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
     &__item {
         $item: &;
 
@@ -50,7 +55,7 @@ $itemDimensions: 44px;
 
     &__pagination {
         display: flex;
-        flex-direction: row;
+        flex-flow: row wrap;
         justify-content: center;
         align-items: center;
         width: 100%;
@@ -66,5 +71,9 @@ $itemDimensions: 44px;
         justify-content: center;
         align-items: center;
         margin-bottom: 4px;
+
+        @media (max-width: map-get($gridBreakpoints, 'sm')) {
+            max-width: 100%;
+        }
     }
 }

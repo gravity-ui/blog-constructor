@@ -47,6 +47,10 @@ $block: '.#{$namespace}posts';
 
     &__paginator {
         padding-top: $indentXXS;
+
+        @media (max-width: map-get($gridBreakpoints, 'sm')) {
+            max-width: 100%;
+        }
     }
 
     &__loaderContainer {

@@ -23,6 +23,7 @@ export type PaginatorProps = {
     onPageChange: (page: number) => void;
     pageCountForShowSupportButtons?: number;
     visiblePagesCount?: number;
+    showLastPageButton?: boolean;
     queryParams: Query;
 } & ClassNameProps;
 
