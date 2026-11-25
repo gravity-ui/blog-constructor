@@ -5,6 +5,7 @@ import _ from 'lodash';
 
 import {DefaultGoalIds} from '../../constants';
 import {AnalyticsCounter} from '../../counters/utils';
+import {Keyset, i18n} from '../../i18n';
 import {DefaultEventNames} from '../../models/common';
 import {block} from '../../utils/cn';
 import {prepareAnalyticsEvent} from '../../utils/common';
@@ -154,6 +155,15 @@ export const Paginator = ({
                         {paginatorItems
                             .slice(paginatorItems.length - 1, paginatorItems.length)
                             .map(renderPaginatorItem)}
+                        <PaginatorItem
+                            key="page_last"
+                            dataKey={String(pagesCount)}
+                            mods={{type: 'last'}}
+                            content={i18n(Keyset.ButtonEnd)}
+                            queryParams={nonPagedQuery}
+                            onClick={handlePageClick}
+                            index={pagesCount}
+                        />
                     </ul>
                 </div>
             )}
