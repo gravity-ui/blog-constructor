@@ -19,7 +19,7 @@ import './Paginator.scss';
 
 const b = block('paginator');
 
-const DEFAULT_PAGE_COUNT_FOR_SHOW_SUPPORT_BUTTONS = 6;
+const DEFAULT_PAGE_COUNT_FOR_SHOW_SUPPORT_BUTTONS = 1;
 
 export const Paginator = ({
     itemsPerPage,
@@ -64,16 +64,25 @@ export const Paginator = ({
         return null;
     }
 
+    const handleFirstPageClick = () => {
+        const event = prepareAnalyticsEvent({
+            name: DefaultGoalIds.home,
+            counter: AnalyticsCounter.CrossSite,
+        });
+        handleAnalyticsHome(event);
+        handlePageChange(1);
+    };
+
     const handleArrowClick = (type: ArrowType | number) => {
         let newPage = page;
 
         if (type === 'prev' && page > 1) {
+            newPage = page - 1;
             const event = prepareAnalyticsEvent({
-                name: DefaultGoalIds.home,
+                name: DefaultGoalIds.page,
                 counter: AnalyticsCounter.CrossSite,
             });
-            handleAnalyticsHome(event);
-            newPage = 1;
+            handleAnalyticsPage(event, {page: String(newPage)});
         } else if (type === 'next' && page < pagesCount) {
             const event = prepareAnalyticsEvent({
                 name: DefaultGoalIds.next,
@@ -114,8 +123,9 @@ export const Paginator = ({
             queryParams: nonPagedQuery,
             mods: {type: ArrowType.Prev},
             onClick: handleArrowClick,
-            index: 0,
+            index: page - 1,
             content: <NavigationButton arrowType={ArrowType.Prev} />,
+            ariaLabel: i18n(Keyset.ButtonPrevious),
         });
     }
 
@@ -128,6 +138,7 @@ export const Paginator = ({
             index: page + 1,
             onClick: handleArrowClick,
             content: <NavigationButton arrowType={ArrowType.Next} />,
+            ariaLabel: i18n(Keyset.ButtonFarther),
         });
     }
 
@@ -141,6 +152,15 @@ export const Paginator = ({
             {hasPreviousButton && (
                 <div className={b('pagination-block')}>
                     <ul className={b(null, className)}>
+                        <PaginatorItem
+                            key="page_first"
+                            dataKey="1"
+                            mods={{type: 'first'}}
+                            content={i18n(Keyset.ButtonBegin)}
+                            queryParams={nonPagedQuery}
+                            onClick={handleFirstPageClick}
+                            index={1}
+                        />
                         {paginatorItems.slice(0, 1).map(renderPaginatorItem)}
                     </ul>
                 </div>

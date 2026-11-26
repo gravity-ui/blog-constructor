@@ -9,6 +9,7 @@ export interface PaginatorItemProps {
     dataKey: string | ArrowType;
     mods: NoStrictEntityMods;
     content: React.ReactNode;
+    ariaLabel?: string;
     queryParams: Query;
     onClick?: (key: number | ArrowType) => void;
     loading?: boolean;

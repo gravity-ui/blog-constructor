@@ -33,8 +33,11 @@ $itemDimensions: 44px;
         @include text-size(body-2);
 
         &_type {
-            &_page {
+            &_page,
+            &_prev,
+            &_next {
                 --bc-border-radius: 10px;
+                --g-button-padding: 0;
                 width: $itemDimensions;
                 height: $itemDimensions;
 
@@ -51,6 +54,12 @@ $itemDimensions: 44px;
                 }
             }
         }
+    }
+
+    &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     &__pagination {
