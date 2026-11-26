@@ -36,18 +36,16 @@ $block: '.#{$namespace}post-card';
 
     &__title {
         @include add-specificity(&) {
-            margin-bottom: $indentXXXS;
+            margin: 0 0 $indentXXXS;
 
             &_size_s {
                 @include text-header-1();
                 color: var(--pc-text-header-color);
-                margin: 0;
             }
 
             &_size_m {
                 @include text-display-2();
                 color: var(--pc-text-header-color);
-                margin: 0;
 
                 @media (max-width: map-get($gridBreakpoints, 'sm') - 1) {
                     @include text-display-1();
