@@ -30,7 +30,7 @@
         display: inline-block;
         width: 180px;
         color: var(--g-color-text-secondary);
-        font-size: var(--g-text-body-font-size);
+        font-size: var(--g-text-body-1-font-size);
         text-transform: uppercase;
     }
 
@@ -41,7 +41,7 @@
     &__item_name {
         // font-sizes
         &_body .demo-typography__value {
-            font-size: var(--g-text-body-font-size);
+            font-size: var(--g-text-body-1-font-size);
             line-height: var(--g-text-body-1-line-height);
         }
 
@@ -88,7 +88,7 @@
         &_code-3 .demo-typography__value {
             font-size: var(--g-text-code-3-font-size);
             line-height: var(--g-text-code-3-line-height);
-            font-weight: var(--g-text-code-1-font-size);
+            font-weight: var(--g-text-code-font-weight);
             font-family: var(--g-text-code-font-family);
         }
 

@@ -41,6 +41,7 @@ $block: '.#{$prompt}';
     }
 
     &__content {
+        @include text-body-2();
         @extend %shadow;
         display: flex;
         flex-flow: row wrap;
@@ -50,7 +51,6 @@ $block: '.#{$prompt}';
         padding: $indentXS $indentS;
         border-radius: calc($borderRadius / 2);
         background-color: var(--g-color-base-float);
-        font-size: var(--g-text-body-2-font-size);
     }
 
     &_close {

@@ -108,7 +108,7 @@ export const PostCard = ({
                 )}
                 {description && (
                     <YFMWrapper
-                        className={b('description')}
+                        contentClassName={b('description')}
                         content={description}
                         modifiers={{
                             blog: size === 'm',

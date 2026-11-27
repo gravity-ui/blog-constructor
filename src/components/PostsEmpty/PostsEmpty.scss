@@ -24,12 +24,11 @@ $block: '.#{$namespace}posts-empty';
 
     &__title {
         margin-top: $indentSM;
-        @include text-size(display-2);
-        font-weight: var(--g-text-accent-font-weight);
+        @include text-display-2();
     }
 
     &__subtitle {
         margin-top: $indentXS;
-        @include text-size(body-3);
+        @include text-body-3();
     }
 }

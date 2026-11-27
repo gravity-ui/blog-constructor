@@ -13,7 +13,7 @@ $block: '.#{$namespace}feed-controls';
         z-index: 10;
 
         &-title {
-            @include text-size(display-4);
+            @include text-display-4();
             text-align: center;
 
             padding-top: 112px;
