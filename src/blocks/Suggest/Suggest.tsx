@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 import {SliderBlock} from '@gravity-ui/page-constructor';

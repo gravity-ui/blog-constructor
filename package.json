@@ -1,6 +1,6 @@
 {
   "name": "@gravity-ui/blog-constructor",
-  "version": "11.3.0",
+  "version": "11.4.0-alpha.0",
   "description": "Gravity UI Blog Constructor",
   "license": "MIT",
   "type": "commonjs",
@@ -18,6 +18,16 @@
         "types": "./build/cjs/index.d.ts",
         "default": "./build/cjs/index.js"
       }
+    },
+    "./blocks/*": {
+      "types": "./build/esm/blocks/*/*.d.ts",
+      "require": "./build/cjs/blocks/*/*.js",
+      "import": "./build/esm/blocks/*/*.js"
+    },
+    "./components/*": {
+      "types": "./build/esm/components/*/*.d.ts",
+      "require": "./build/cjs/components/*/*.js",
+      "import": "./build/esm/components/*/*.js"
     },
     "./server": {
       "types": "./server/index.d.ts",

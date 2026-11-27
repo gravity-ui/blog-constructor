@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 import {AuthorType, Author as PCAuthor, YFMWrapper} from '@gravity-ui/page-constructor';
