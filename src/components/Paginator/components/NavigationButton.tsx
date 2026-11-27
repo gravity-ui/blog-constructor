@@ -1,4 +1,6 @@
-import {Keyset, i18n} from '../../../i18n';
+import {ChevronLeft, ChevronRight} from '@gravity-ui/icons';
+import {Icon} from '@gravity-ui/uikit';
+
 import {block} from '../../../utils/cn';
 import {ArrowType} from '../types';
 
@@ -14,6 +16,6 @@ export type NavigationButtonProps = {
 export const NavigationButton = ({arrowType, disabled}: NavigationButtonProps) =>
     disabled ? null : (
         <div className={b('icon')}>
-            {arrowType === ArrowType.Prev ? i18n(Keyset.ButtonBegin) : i18n(Keyset.ButtonFarther)}
+            <Icon data={arrowType === ArrowType.Prev ? ChevronLeft : ChevronRight} size={16} />
         </div>
     );

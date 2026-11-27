@@ -5,6 +5,7 @@ import _ from 'lodash';
 
 import {DefaultGoalIds} from '../../constants';
 import {AnalyticsCounter} from '../../counters/utils';
+import {Keyset, i18n} from '../../i18n';
 import {DefaultEventNames} from '../../models/common';
 import {block} from '../../utils/cn';
 import {prepareAnalyticsEvent} from '../../utils/common';
@@ -18,7 +19,7 @@ import './Paginator.scss';
 
 const b = block('paginator');
 
-const DEFAULT_PAGE_COUNT_FOR_SHOW_SUPPORT_BUTTONS = 6;
+const DEFAULT_PAGE_COUNT_FOR_SHOW_SUPPORT_BUTTONS = 1;
 
 export const Paginator = ({
     itemsPerPage,
@@ -29,6 +30,7 @@ export const Paginator = ({
     onPageChange,
     queryParams,
     pageCountForShowSupportButtons = DEFAULT_PAGE_COUNT_FOR_SHOW_SUPPORT_BUTTONS,
+    visiblePagesCount,
 }: PaginatorProps) => {
     const [pagesCount, setPagesCount] = React.useState(
         getPagesCount({itemsPerPage, totalItems, maxPages}),
@@ -49,6 +51,9 @@ export const Paginator = ({
         () => pagesCount > pageCountForShowSupportButtons,
         [pageCountForShowSupportButtons, pagesCount],
     );
+    const hasPreviousButton = page > 1 && isShowSupportButtons;
+    const hasNextButton = page < pagesCount && isShowSupportButtons;
+    const hasLastPageButton = page < pagesCount;
 
     const handleAnalyticsHome = useAnalytics(DefaultEventNames.PaginatorHome);
     const handleAnalyticsNext = useAnalytics(DefaultEventNames.PaginatorNext);
@@ -58,16 +63,25 @@ export const Paginator = ({
         return null;
     }
 
+    const handleFirstPageClick = () => {
+        const event = prepareAnalyticsEvent({
+            name: DefaultGoalIds.home,
+            counter: AnalyticsCounter.CrossSite,
+        });
+        handleAnalyticsHome(event);
+        handlePageChange(1);
+    };
+
     const handleArrowClick = (type: ArrowType | number) => {
         let newPage = page;
 
         if (type === 'prev' && page > 1) {
+            newPage = page - 1;
             const event = prepareAnalyticsEvent({
-                name: DefaultGoalIds.home,
+                name: DefaultGoalIds.page,
                 counter: AnalyticsCounter.CrossSite,
             });
-            handleAnalyticsHome(event);
-            newPage = 1;
+            handleAnalyticsPage(event, {page: String(newPage)});
         } else if (type === 'next' && page < pagesCount) {
             const event = prepareAnalyticsEvent({
                 name: DefaultGoalIds.next,
@@ -96,23 +110,25 @@ export const Paginator = ({
     const paginatorItems = getPageConfigs({
         page,
         pagesCount,
+        visiblePagesCount,
         queryParams: nonPagedQuery,
         handlePageClick,
     });
 
-    if (page > 1 && isShowSupportButtons) {
+    if (hasPreviousButton) {
         paginatorItems.unshift({
             key: ArrowType.Prev,
             dataKey: ArrowType.Prev,
             queryParams: nonPagedQuery,
             mods: {type: ArrowType.Prev},
             onClick: handleArrowClick,
-            index: 0,
+            index: page - 1,
             content: <NavigationButton arrowType={ArrowType.Prev} />,
+            ariaLabel: i18n(Keyset.ButtonPrevious),
         });
     }
 
-    if (page < pagesCount && isShowSupportButtons) {
+    if (hasNextButton) {
         paginatorItems.push({
             key: ArrowType.Next,
             queryParams: nonPagedQuery,
@@ -121,6 +137,7 @@ export const Paginator = ({
             index: page + 1,
             onClick: handleArrowClick,
             content: <NavigationButton arrowType={ArrowType.Next} />,
+            ariaLabel: i18n(Keyset.ButtonFarther),
         });
     }
 
@@ -131,9 +148,18 @@ export const Paginator = ({
 
     return (
         <div className={b('pagination')}>
-            {page > 1 && (
+            {hasPreviousButton && (
                 <div className={b('pagination-block')}>
                     <ul className={b(null, className)}>
+                        <PaginatorItem
+                            key="page_first"
+                            dataKey="1"
+                            mods={{type: 'first'}}
+                            content={i18n(Keyset.ButtonBegin)}
+                            queryParams={nonPagedQuery}
+                            onClick={handleFirstPageClick}
+                            index={1}
+                        />
                         {paginatorItems.slice(0, 1).map(renderPaginatorItem)}
                     </ul>
                 </div>
@@ -142,18 +168,30 @@ export const Paginator = ({
                 <ul className={b(null, className)}>
                     {paginatorItems
                         .slice(
-                            page > 1 ? 1 : 0,
-                            page < pagesCount ? paginatorItems.length - 1 : paginatorItems.length,
+                            hasPreviousButton ? 1 : 0,
+                            hasNextButton ? paginatorItems.length - 1 : paginatorItems.length,
                         )
                         .map(renderPaginatorItem)}
                 </ul>
             </div>
-            {page < pagesCount && (
+            {(hasNextButton || hasLastPageButton) && (
                 <div className={b('pagination-block')}>
                     <ul className={b(null, className)}>
-                        {paginatorItems
-                            .slice(paginatorItems.length - 1, paginatorItems.length)
-                            .map(renderPaginatorItem)}
+                        {hasNextButton &&
+                            paginatorItems
+                                .slice(paginatorItems.length - 1, paginatorItems.length)
+                                .map(renderPaginatorItem)}
+                        {hasLastPageButton && (
+                            <PaginatorItem
+                                key="page_last"
+                                dataKey={String(pagesCount)}
+                                mods={{type: 'last'}}
+                                content={i18n(Keyset.ButtonEnd)}
+                                queryParams={nonPagedQuery}
+                                onClick={handlePageClick}
+                                index={pagesCount}
+                            />
+                        )}
                     </ul>
                 </div>
             )}

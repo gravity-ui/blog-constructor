@@ -16,6 +16,7 @@ export const PaginatorItem = ({
     dataKey,
     mods,
     content,
+    ariaLabel,
     queryParams,
     onClick,
     loading = false,
@@ -58,6 +59,7 @@ export const PaginatorItem = ({
             onClick={handleClick}
             href={addNavigationLinkForPages ? navigationLink : undefined}
             loading={loading && Boolean(mods.active)}
+            aria-label={ariaLabel}
         >
             {content}
         </Button>

@@ -9,6 +9,7 @@ export interface PaginatorItemProps {
     dataKey: string | ArrowType;
     mods: NoStrictEntityMods;
     content: React.ReactNode;
+    ariaLabel?: string;
     queryParams: Query;
     onClick?: (key: number | ArrowType) => void;
     loading?: boolean;
@@ -22,6 +23,7 @@ export type PaginatorProps = {
     maxPages: number;
     onPageChange: (page: number) => void;
     pageCountForShowSupportButtons?: number;
+    visiblePagesCount?: number;
     queryParams: Query;
 } & ClassNameProps;
 
@@ -33,6 +35,7 @@ export enum ArrowType {
 export type GetPageConfigParams = {
     page: number;
     pagesCount: number;
+    visiblePagesCount?: number;
     queryParams: Query;
     handlePageClick: (key: number | ArrowType) => void;
 };

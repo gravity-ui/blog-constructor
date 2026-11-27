@@ -13,6 +13,11 @@ $itemDimensions: 44px;
     display: flex;
     align-items: center;
 
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
     &__item {
         $item: &;
 
@@ -28,8 +33,11 @@ $itemDimensions: 44px;
         @include text-size(body-2);
 
         &_type {
-            &_page {
+            &_page,
+            &_prev,
+            &_next {
                 --bc-border-radius: 10px;
+                --g-button-padding: 0;
                 width: $itemDimensions;
                 height: $itemDimensions;
 
@@ -48,9 +56,15 @@ $itemDimensions: 44px;
         }
     }
 
+    &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     &__pagination {
         display: flex;
-        flex-direction: row;
+        flex-flow: row wrap;
         justify-content: center;
         align-items: center;
         width: 100%;
@@ -66,5 +80,9 @@ $itemDimensions: 44px;
         justify-content: center;
         align-items: center;
         margin-bottom: 4px;
+
+        @media (max-width: map-get($gridBreakpoints, 'sm')) {
+            max-width: 100%;
+        }
     }
 }
