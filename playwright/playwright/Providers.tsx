@@ -1,13 +1,7 @@
 import * as React from 'react';
 
 import {Theme} from '@gravity-ui/page-constructor';
-import {
-    MobileProvider,
-    ThemeProvider,
-    Toaster,
-    ToasterComponent,
-    ToasterProvider,
-} from '@gravity-ui/uikit';
+import {Provider, Toaster, ToasterComponent, ToasterProvider} from '@gravity-ui/uikit';
 
 import {BlogConstructorProvider} from '../../src/constructor/BlogConstructorProvider';
 
@@ -32,15 +26,13 @@ export const Providers = ({children}) => {
     }, []);
 
     return (
-        <ThemeProvider>
-            <MobileProvider>
-                <ToasterProvider toaster={toaster}>
-                    <BlogConstructorProvider theme={theme} settings={{isAnimationEnabled: false}}>
-                        {children}
-                        <ToasterComponent />
-                    </BlogConstructorProvider>
-                </ToasterProvider>
-            </MobileProvider>
-        </ThemeProvider>
+        <Provider theme={theme}>
+            <ToasterProvider toaster={toaster}>
+                <BlogConstructorProvider theme={theme} settings={{isAnimationEnabled: false}}>
+                    {children}
+                    <ToasterComponent />
+                </BlogConstructorProvider>
+            </ToasterProvider>
+        </Provider>
     );
 };

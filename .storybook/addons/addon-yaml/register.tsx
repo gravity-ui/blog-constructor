@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {ClipboardButton, ThemeProvider} from '@gravity-ui/uikit';
+import {ClipboardButton, Provider} from '@gravity-ui/uikit';
 import {AddonPanel} from '@storybook/components';
 import {addons, types, useArgs, useGlobals, useParameter} from '@storybook/manager-api';
 import yaml from 'js-yaml';
@@ -33,12 +33,12 @@ const YamlPanel = () => {
     }, [exclude, params]);
 
     return (
-        <ThemeProvider theme={globals.theme}>
+        <Provider theme={globals.theme}>
             <div className="addon-yaml">
                 <ClipboardButton text={content} />
                 <pre>{content}</pre>
             </div>
-        </ThemeProvider>
+        </Provider>
     );
 };
 

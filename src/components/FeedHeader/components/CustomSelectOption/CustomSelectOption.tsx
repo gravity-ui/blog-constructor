@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {SelectOption as SelectOptionType} from '@gravity-ui/uikit';
+import {SelectOptionProps as SelectOptionType} from '@gravity-ui/uikit';
 
 import {block} from '../../../../utils/cn';
 

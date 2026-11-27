@@ -32,6 +32,9 @@ test.describe('BlogPage', () => {
         );
         await delay(BLOG_POST_DALAY);
         await page.click('[data-qa="service-select"]');
+        await page
+            .locator('[data-floating-ui-status="open"] [data-qa="select-popup"]')
+            .waitFor({state: 'visible'});
         await expectScreenshot({skipTheme: 'dark'});
     });
 });
