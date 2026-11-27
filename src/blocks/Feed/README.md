@@ -30,13 +30,7 @@ pages are available. Navigation buttons do not count toward this limit.
 <BlogPage content={content} posts={posts} getPosts={getPosts} visiblePagesCount={10} />
 ```
 
-The optional `showLastPageButton: boolean` enables the button that jumps to the last page and defaults
-to `false`. Pass it as a prop to `BlogPage` or provide it through `FeedContext`. The button is hidden
-on the last page.
-
-```tsx
-<BlogPage content={content} posts={posts} getPosts={getPosts} showLastPageButton />
-```
+The button that jumps to the last page is always enabled and is hidden on the last page.
 
 ## `RouterContext`
 

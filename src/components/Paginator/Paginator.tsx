@@ -31,7 +31,6 @@ export const Paginator = ({
     queryParams,
     pageCountForShowSupportButtons = DEFAULT_PAGE_COUNT_FOR_SHOW_SUPPORT_BUTTONS,
     visiblePagesCount,
-    showLastPageButton = false,
 }: PaginatorProps) => {
     const [pagesCount, setPagesCount] = React.useState(
         getPagesCount({itemsPerPage, totalItems, maxPages}),
@@ -54,7 +53,7 @@ export const Paginator = ({
     );
     const hasPreviousButton = page > 1 && isShowSupportButtons;
     const hasNextButton = page < pagesCount && isShowSupportButtons;
-    const hasLastPageButton = showLastPageButton && page < pagesCount;
+    const hasLastPageButton = page < pagesCount;
 
     const handleAnalyticsHome = useAnalytics(DefaultEventNames.PaginatorHome);
     const handleAnalyticsNext = useAnalytics(DefaultEventNames.PaginatorNext);

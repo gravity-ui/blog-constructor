@@ -39,7 +39,6 @@ export type BlogPageProps = {
     custom?: CustomConfig;
     pageCountForShowSupportButtons?: number;
     visiblePagesCount?: number;
-    showLastPageButton?: boolean;
     isSignedInUser?: boolean;
     // Required to enable Sign In on Post like
     onClickSignIn?: React.EventHandler<React.SyntheticEvent>;
@@ -58,7 +57,6 @@ export const BlogPage = ({
     settings,
     pageCountForShowSupportButtons,
     visiblePagesCount,
-    showLastPageButton,
     isSignedInUser = false,
     onClickSignIn,
 }: BlogPageProps) => {
@@ -83,7 +81,6 @@ export const BlogPage = ({
                     getPosts,
                     pageCountForShowSupportButtons,
                     visiblePagesCount,
-                    showLastPageButton,
                 }}
             >
                 <PageConstructorProvider

@@ -29,7 +29,6 @@ export const Feed = ({image, title, resetTitleMargin}: FeedProps) => {
         getPosts,
         pageCountForShowSupportButtons,
         visiblePagesCount,
-        showLastPageButton,
     } = React.useContext(FeedContext);
     const router = React.useContext(RouterContext);
     const handleAnalytics = useAnalytics(DefaultEventNames.ShowMore);
@@ -244,7 +243,6 @@ export const Feed = ({image, title, resetTitleMargin}: FeedProps) => {
                     queryParams={queryParams}
                     pageCountForShowSupportButtons={pageCountForShowSupportButtons}
                     visiblePagesCount={visiblePagesCount}
-                    showLastPageButton={showLastPageButton}
                 />
             )}
         </div>
