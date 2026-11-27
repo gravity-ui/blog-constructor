@@ -6,7 +6,7 @@ import {
     AnalyticsEventsProp,
     HeaderBlockProps as PageConstructorHeaderBlockProps,
 } from '@gravity-ui/page-constructor';
-import {SelectOption, SelectProps} from '@gravity-ui/uikit';
+import {SelectOptionProps, SelectProps} from '@gravity-ui/uikit';
 import {IBrowser, IDevice} from 'ua-parser-js';
 
 import {Locale} from '../models/locale';
@@ -212,7 +212,7 @@ export type SelectFilterConfig = FilterConfigBase &
     Pick<SelectProps, 'multiple' | 'filterable' | 'hasClear' | 'placeholder'> & {
         type?: 'select';
         /** The selectable items for this filter */
-        options: SelectOption[];
+        options: SelectOptionProps[];
         /** Label shown when nothing is selected (acts as "All ..." placeholder) */
         allLabel: string;
         /** Optional QA attribute forwarded to the switcher */

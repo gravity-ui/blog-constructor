@@ -1,4 +1,4 @@
-import {SelectOption, SelectProps, TextInput} from '@gravity-ui/uikit';
+import {SelectOptionProps, SelectProps, TextInput} from '@gravity-ui/uikit';
 
 import {Keyset, i18n} from '../../../../i18n';
 import {
@@ -62,6 +62,6 @@ export const renderFilter: RenderFilterType =
         />
     );
 
-export const renderOption = (option: SelectOption) => (
+export const renderOption = (option: SelectOptionProps) => (
     <CustomSelectOption data={option as CustomSelectOptionProps['data']} />
 );

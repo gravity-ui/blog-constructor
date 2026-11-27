@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {ThemeProvider} from '@gravity-ui/uikit';
+import {Provider} from '@gravity-ui/uikit';
 import {PureArgsTable} from '@storybook/blocks';
 import {AddonPanel, Badge, Spaced} from '@storybook/components';
 import {addons, types, useArgs, useArgTypes, useGlobals} from '@storybook/manager-api';
@@ -54,7 +54,7 @@ const ContextDataPanel = () => {
     const resetContextData = React.useCallback(() => resetArgs(['contextData']), [resetArgs]);
 
     return (
-        <ThemeProvider theme={globals.theme}>
+        <Provider theme={globals.theme}>
             <PureArgsTable
                 rows={rows}
                 args={contextData}
@@ -62,7 +62,7 @@ const ContextDataPanel = () => {
                 resetArgs={resetContextData}
                 inAddonPanel
             />
-        </ThemeProvider>
+        </Provider>
     );
 };
 

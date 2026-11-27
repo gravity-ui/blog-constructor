@@ -6,7 +6,7 @@ import type {DocsContainerProps} from '@storybook/addon-docs';
 import {themes} from '../../../.storybook/theme';
 import {MobileContext} from '../../../src/contexts/MobileContext';
 import {cn} from '../../../src/utils/cn';
-import {ThemeProvider} from '@gravity-ui/uikit';
+import {Provider} from '@gravity-ui/uikit';
 
 import './DocsDecorator.scss';
 
@@ -21,9 +21,9 @@ export function DocsDecorator({children, context}: DocsDecoratorProps) {
     return (
         <div className={b()}>
             <DocsContainer context={context} theme={themes[theme as 'dark' | 'light']}>
-                <ThemeProvider theme={theme}>
+                <Provider theme={theme}>
                     <MobileContext.Provider value={false}>{children}</MobileContext.Provider>
-                </ThemeProvider>
+                </Provider>
             </DocsContainer>
         </div>
     );

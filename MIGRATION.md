@@ -1,5 +1,47 @@
 # Migration Guide
 
+## Upgrading from v11.x to v12.x
+
+### Requirements
+
+- `@gravity-ui/uikit` 8.2 or newer within v8.
+- `@gravity-ui/page-constructor` 9 and `@gravity-ui/components` 5.
+- `@diplodoc/transform` 5, Node.js 24 or newer, and npm 11.5.1 or newer.
+- React, React DOM, and React Is 18 or 19. React 16 and 17 are no longer supported.
+
+Transform 5 makes `highlight.js` an optional peer dependency (`^10.0.3 || ^11`). Applications that use server-side syntax highlighting need to provide it explicitly.
+
+### UIKit provider
+
+Wrap `BlogConstructorProvider` in UIKit's `Provider`. It supplies theme, language, layout, and mobile contexts:
+
+```tsx
+import {Provider} from '@gravity-ui/uikit';
+import {BlogConstructorProvider, BlogPage} from '@gravity-ui/blog-constructor';
+
+<Provider theme="light" lang="ru">
+  <BlogConstructorProvider {...providerProps}>
+    <BlogPage {...blogPageProps} />
+  </BlogConstructorProvider>
+</Provider>;
+```
+
+Replace the previous root `ThemeProvider` and `MobileProvider` wrappers with `Provider`, passing their settings directly to it. A nested `ThemeProvider` now supplies only theme and direction.
+
+### Select option types
+
+UIKit renamed the option type from `SelectOption` to `SelectOptionProps`. Update explicitly typed filter options:
+
+```tsx
+import type {SelectOptionProps} from '@gravity-ui/uikit';
+
+const options: SelectOptionProps[] = [{value: 'news', content: 'News'}];
+```
+
+Blog filters retain their virtualization threshold of 1000 options through UIKit's `ListVirtualizer`. The required `@tanstack/react-virtual` dependency is installed with Blog Constructor. Select popups use UIKit 8's list rows and theme tokens.
+
+See the [UIKit 8 migration guide](https://github.com/gravity-ui/uikit/blob/main/docs/migration-to-v8.md) and the [Page Constructor migration](https://github.com/gravity-ui/page-constructor/pull/1548) for changes affecting custom UIKit and Page Constructor components.
+
 ## Upgrading from v9.x to v10.x
 
 ### Breaking Changes

@@ -9,7 +9,17 @@ $block: '.#{$namespace}feed-filter';
     $popupMaxHeight: 500px;
 
     &__select {
+        position: relative;
         width: 100%;
+
+        > div[data-floating-ui-status] {
+            //stylelint-disable-next-line declaration-no-important
+            position: absolute !important;
+            //stylelint-disable-next-line declaration-no-important
+            inset: auto !important;
+            //stylelint-disable-next-line declaration-no-important
+            transform: translate3d(0, $indent4XS, 0) !important;
+        }
 
         div[data-floating-ui-status][data-floating-ui-placement*='end'] {
             //stylelint-disable-next-line declaration-no-important
@@ -22,25 +32,18 @@ $block: '.#{$namespace}feed-filter';
     }
 
     &__popup {
+        --g-list-item-view-border-radius: #{$selectorItemBorderRadius};
+
         @include add-specificity(&) {
             max-height: $popupMaxHeight;
             border-radius: $selectorContainerBorderRadius;
 
             .g-select-list {
+                max-height: calc($popupMaxHeight - var(--g-text-body-3-line-height) - $indentXXS);
+
                 &::-webkit-scrollbar {
                     display: none;
                 }
-
-                .g-list {
-                    max-height: calc(
-                        $popupMaxHeight - var(--g-text-body-3-line-height) - $indentXXS
-                    );
-                }
-            }
-
-            .g-list__item {
-                margin: $indent4XS;
-                border-radius: $selectorItemBorderRadius;
             }
         }
 

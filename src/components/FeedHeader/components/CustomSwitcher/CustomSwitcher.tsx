@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import {ChevronDown, Xmark} from '@gravity-ui/icons';
-import {Icon, SelectOption, SelectProps, useUniqId} from '@gravity-ui/uikit';
+import {Icon, SelectOptionProps, SelectProps, useUniqId} from '@gravity-ui/uikit';
 
 import {block} from '../../../../utils/cn';
 
@@ -21,7 +21,7 @@ type RenderControlA11yProps = Pick<TriggerProps, A11yKeys>;
 export type CustomSwitcherProps = {
     initial: (string | number | null)[];
     defaultLabel: string;
-    list: SelectOption[];
+    list: SelectOptionProps[];
     controlRef: RenderControlParameters['ref'];
     a11yProps: RenderControlA11yProps;
     qa?: string;

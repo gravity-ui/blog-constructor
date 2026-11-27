@@ -69,15 +69,15 @@ Select opening, search clicks, and saved-only changes append `_CLICK`; select cl
 
 Renders a dropdown select. Omitting `type` is backwards-compatible and defaults to `'select'`.
 
-| Property      | Type             | Required | Description                                                                                 |
-| :------------ | :--------------- | :------- | :------------------------------------------------------------------------------------------ |
-| `options`     | `SelectOption[]` | Yes      | The list of selectable options (`{value: string; content: React.ReactNode}`)                |
-| `allLabel`    | `string`         | Yes      | Label shown when nothing is selected (acts as an "All …" placeholder option in single mode) |
-| `multiple`    | `boolean`        | No       | Enables multi-select mode; selected values are joined with `,` in the query param           |
-| `filterable`  | `boolean`        | No       | Shows a search input inside the dropdown                                                    |
-| `hasClear`    | `boolean`        | No       | Shows a clear button; defaults to `true` when `multiple` is enabled                         |
-| `placeholder` | `string`         | No       | Placeholder text shown in the trigger button; falls back to `allLabel` when omitted         |
-| `qa`          | `string`         | No       | `data-qa` attribute forwarded to the switcher button for testing                            |
+| Property      | Type                  | Required | Description                                                                                 |
+| :------------ | :-------------------- | :------- | :------------------------------------------------------------------------------------------ |
+| `options`     | `SelectOptionProps[]` | Yes      | The list of selectable options (`{value: string; content: React.ReactNode}`)                |
+| `allLabel`    | `string`              | Yes      | Label shown when nothing is selected (acts as an "All …" placeholder option in single mode) |
+| `multiple`    | `boolean`             | No       | Enables multi-select mode; selected values are joined with `,` in the query param           |
+| `filterable`  | `boolean`             | No       | Shows a search input inside the dropdown                                                    |
+| `hasClear`    | `boolean`             | No       | Shows a clear button; defaults to `true` when `multiple` is enabled                         |
+| `placeholder` | `string`              | No       | Placeholder text shown in the trigger button; falls back to `allLabel` when omitted         |
+| `qa`          | `string`              | No       | `data-qa` attribute forwarded to the switcher button for testing                            |
 
 ### `type: 'search'`
 

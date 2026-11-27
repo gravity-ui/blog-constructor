@@ -2,6 +2,8 @@
 
 ## Установка
 
+Требуются Node.js 24+, npm 11.5.1+, React 18 или 19, UIKit 8, Page Constructor 9 и Diplodoc Transform 5. См. [руководство по миграции](./MIGRATION.md).
+
 ```shell
 npm install @gravity-ui/blog-constructor
 ```
@@ -17,33 +19,39 @@ npm install @gravity-ui/blog-constructor
 `Blog-constructor` включает как клиентские, так и серверные компоненты для импорта. Страница блога импортируется в виде React-компонента. Для корректной работы ее необходимо обернуть в `BlogConstructorProvider`:
 
 ```jsx
+import {Provider} from '@gravity-ui/uikit';
 import {BlogPage, BlogConstructorProvider} from '@gravity-ui/blog-constructor';
 
 // Main blog page
-<BlogConstructorProvider {...providerProps}>
+<Provider>
+  <BlogConstructorProvider {...providerProps}>
     <BlogPage
-        content={content}
-        posts={posts}
-        filters={filters}
-        getPosts={handleGetPosts}
-        settings={settings}
+      content={content}
+      posts={posts}
+      filters={filters}
+      getPosts={handleGetPosts}
+      settings={settings}
     />
-</BlogConstructorProvider>
+  </BlogConstructorProvider>
+</Provider>
 
 ---
 
+import {Provider} from '@gravity-ui/uikit';
 import {BlogPostPage, BlogConstructorProvider} from '@gravity-ui/blog-constructor';
 
 // Post page
-<BlogConstructorProvider {...providerProps}>
+<Provider>
+  <BlogConstructorProvider {...providerProps}>
     <BlogPostPage
-        content={content}
-        post={post}
-        suggestedPosts={suggestedPosts}
-        settings={settings}
-        shareOptions={shareOptions}
+      content={content}
+      post={post}
+      suggestedPosts={suggestedPosts}
+      settings={settings}
+      shareOptions={shareOptions}
     />
-</BlogConstructorProvider>
+  </BlogConstructorProvider>
+</Provider>
 
 ```
 

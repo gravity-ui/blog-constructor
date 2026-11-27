@@ -11,17 +11,19 @@ import {withTheme} from './decorators/withTheme';
 import {withLang} from './decorators/withLang';
 import {withMobile} from './decorators/withMobile';
 import {DocsDecorator} from './decorators/DocsDecorator/DocsDecorator';
-import {MobileProvider, ThemeProvider, Lang} from '@gravity-ui/uikit';
+import {Provider, Lang} from '@gravity-ui/uikit';
 
 import {routerData} from '../src/demo/mocks';
 import {BlogConstructorProvider} from '../src/constructor/BlogConstructorProvider';
 
 const withContextProvider: Decorator = (Story, context) => (
-    <ThemeProvider theme={context.globals.theme}>
-        <MobileProvider>
-            <Story {...context} />
-        </MobileProvider>
-    </ThemeProvider>
+    <Provider
+        theme={context.globals.theme}
+        lang={context.globals.lang}
+        mobile={context.globals.platform === 'mobile'}
+    >
+        <Story {...context} />
+    </Provider>
 );
 
 const localeEn = {

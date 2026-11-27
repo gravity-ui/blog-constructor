@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-import {Select, SelectOption} from '@gravity-ui/uikit';
+import {Select, SelectOptionProps} from '@gravity-ui/uikit';
+import {ListVirtualizer} from '@gravity-ui/uikit/virtualizer';
 
 import {MobileContext} from '../../../../contexts/MobileContext';
 import {SelectFilterCloseData} from '../../../../models/common';
@@ -19,7 +20,7 @@ export type SelectFilterProps = {
     filterable?: boolean;
     hasClear?: boolean;
     placeholder?: string;
-    options: SelectOption[];
+    options: SelectOptionProps[];
     allLabel: string;
     qa?: string;
     initialValue: string | number | null | undefined;
@@ -67,7 +68,7 @@ export const SelectFilter = ({
     const selectedValuesOnOpenRef = React.useRef(defaultValue);
     const isOpenRef = React.useRef(false);
 
-    const optionsWithEmpty: SelectOption[] = multiple
+    const optionsWithEmpty: SelectOptionProps[] = multiple
         ? options
         : [{value: 'empty', content: allLabel}, ...options];
 
@@ -106,29 +107,32 @@ export const SelectFilter = ({
 
     return (
         <div className={className}>
-            <Select
-                className={b('select')}
-                size="xl"
-                multiple={multiple}
-                filterable={filterable}
-                hasClear={hasClear ?? multiple}
-                disablePortal
-                options={optionsWithEmpty}
-                defaultValue={defaultValue}
-                popupClassName={b('popup', {isMobile})}
-                onUpdate={handleChange}
-                onOpenChange={handleOpenChange}
-                placeholder={placeholder ?? allLabel}
-                renderControl={renderSwitcher({
-                    initial: defaultValue,
-                    list: optionsWithEmpty,
-                    defaultLabel: allLabel,
-                    qa,
-                })}
-                virtualizationThreshold={VIRTUALIZATION_THRESHOLD}
-                renderOption={renderOption}
-                renderFilter={filterable ? renderFilter({className: b('popup-filter')}) : undefined}
-            />
+            <ListVirtualizer minItemsCount={VIRTUALIZATION_THRESHOLD}>
+                <Select
+                    className={b('select')}
+                    size="xl"
+                    multiple={multiple}
+                    filterable={filterable}
+                    hasClear={hasClear ?? multiple}
+                    disablePortal
+                    options={optionsWithEmpty}
+                    defaultValue={defaultValue}
+                    popupClassName={b('popup', {isMobile})}
+                    onUpdate={handleChange}
+                    onOpenChange={handleOpenChange}
+                    placeholder={placeholder ?? allLabel}
+                    renderControl={renderSwitcher({
+                        initial: defaultValue,
+                        list: optionsWithEmpty,
+                        defaultLabel: allLabel,
+                        qa,
+                    })}
+                    renderOption={renderOption}
+                    renderFilter={
+                        filterable ? renderFilter({className: b('popup-filter')}) : undefined
+                    }
+                />
+            </ListVirtualizer>
         </div>
     );
 };
